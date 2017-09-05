@@ -1,17 +1,52 @@
-<h2>Sign up</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-    <%= f.input :password_confirmation, required: true %>
+<div class="container">
+  <div class="row registration-title">
+    <div class="col-xs-10 col-xs-offset-2">
+      <h2 class="text-right">
+        S'enregistrer
+      </h2>
+      <p class="text-right">
+        <% if params[:diagnostician] %>
+          en tant que diagnostiqueur
+        <% else %>
+          en tant que client
+        <% end %>
+      </p>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
+  <div class="row">
+    <div class="col-xs-12">
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
 
-<%= render "devise/shared/links" %>
+        <div class="form-inputs">
+          <div class="col-xs-12">
+            <%= f.input :lastname, required: true%>
+            <%= f.input :firstname, required: true%>
+            <%= f.input :phonenumber, required: true%>
+            <%= f.input :zone, required: true%>
+            <%= f.input :email, required: true, autofocus: true %>
+        <% if params[:diagnostician] %>
+          </div>
+          <div class="col-xs-12">
+              <%= f.input :diagnostician, as: :hidden, input_html: {value: true} %>
+        <% end %>
+            <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+            <%= f.input :password_confirmation, required: true %>
+          </div>
+        </div>
+        <div class="form-actions col-xs-6 ">
+          <%= f.button :submit, "Sign up", class: "btn-block" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      <h5>Already an account ?</h5>
+    </div>
+    <div class="col-xs-6 col-xs-offset-3 text-center btn btn-default" style="margin-bottom: 50px;">
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</div>
