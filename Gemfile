@@ -25,4 +25,10 @@ group :development, :test do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem "geocoder"
+  gem "coffee-rails"
+  gem "gmaps4rails"
+end
+
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
 end
