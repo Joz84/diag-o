@@ -10,10 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170905085456) do
+ActiveRecord::Schema.define(version: 20170905105320) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "housing_id"
+    t.datetime "set_at"
+    t.text "comment"
+    t.datetime "confirmed_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["housing_id"], name: "index_bookings_on_housing_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "housings", force: :cascade do |t|
+    t.string "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_housings", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "housing_id"
+    t.integer "user_state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["housing_id"], name: "index_user_housings_on_housing_id"
+    t.index ["user_id"], name: "index_user_housings_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -32,4 +60,8 @@ ActiveRecord::Schema.define(version: 20170905085456) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "housings"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "user_housings", "housings"
+  add_foreign_key "user_housings", "users"
 end
