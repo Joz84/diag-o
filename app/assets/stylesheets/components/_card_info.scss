@@ -1,0 +1,16 @@
+.card-info {
+  height: 350px;
+  border: none;
+  padding:20px;
+  .fa {
+    border: 2px solid $diago;
+    width: 90px;
+    height: 90px;
+    padding: 20px;
+    border-radius: 50%;
+    font-size: 48px;
+    margin: 20px;
+  }
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
