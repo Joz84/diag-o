@@ -1,62 +1,14 @@
 <div class="home">
-  <div class="banner" id="page1">
+  <div class="banner" id="page1" >
     <div class="banner-call">
-      <h1>Inondations:</br>
-          Êtes-vous éligible à la prise en charge du diagnotic de prévention?*</h1>
-      <%= render 'shared/search_form' %>
-      <p class="invert text-on-image">* Le diagnostic de prévention contre les inondations est gratuit si vous êtes situé en zone identifiée inondable</p>
+      <h1><%= t('landing.title_html') %></h1>
+      <%= render 'shared/search_form', placeholder: t('landing.placeholder'), btn_text: t('landing.button_text') %>
+      <p class="invert text-on-image"><%= t('landing.subtitle') %></p>
     </div>
     <%= render 'shared/next_page', target_page: "#page2", icon: "fa-arrow-circle-down" %>
   </div>
 
-  <div class="banner" id="page2">
-    <div class="page2-information">
-      <h3>Informations</h3>
-    </div>
-    <div class="page2-content container">
-      <div class="row">
-        <div class="col-xs-12">
-          <h3>Lorem ipsom dolor information</h3>
-        </div>
-        <div class="col-xs-6">
-          <p>Sit amet consectetuer adipiscing elit sed diam nonummy. Zzril delenit augue duis dolore te feugait nulla facilisi nam liber. Esse molestie consequat vel illum dolore eu feugiat nulla. Placerat facer possim assum typi non habent claritatem.Sit amet consectetuer adipiscing elit sed diam nonummy. Zzril delenit augue duis dolore te feugait nulla facilisi nam liber. Esse molestie consequat vel illum dolore eu feugiat nulla. Placerat facer possim assum typi non habent claritatem.</p>
-        </div>
-        <div class="col-xs-6">
-          <p>Sit amet consectetuer adipiscing elit sed diam nonummy. Zzril delenit augue duis dolore te feugait nulla facilisi nam liber. Esse molestie consequat vel illum dolore eu feugiat nulla. Placerat facer possim assum typi non habent claritatem. Sit amet consectetuer adipiscing elit sed diam nonummy. Zzril delenit augue duis dolore te feugait nulla facilisi nam liber. Esse molestie consequat vel illum dolore eu feugiat nulla. Placerat facer possim assum typi non habent claritatem.</p>
-        </div>
-      </div>
-    </div>
-      <%= render 'shared/next_page', target_page: "#page3", icon: "fa-arrow-circle-down" %>
-  </div>
+  <%= render 'page_text', page_id: "page2",  signal: t('page_text1.signal'), title: t('page_text1.title'), column1: t('page_text1.column1'), column2: t('page_text1.column2'), target_page: "#page3", image: t('page_text1.image') %>
 
-  <div class="banner" id="page3">
-    <div class="page3-content container text-center">
-      <div class="row">
-        <div class="col-xs-12">
-          <h3>Lorem ipsom dolor information</h3>
-        </div>
-        <div class="col-xs-4">
-          <div class="card-info">
-            <i class="fa fa-tint" aria-hidden="true"></i>
-            <h6>Sit amet consectetuer adipiscing elit sed diam nonummy. Zzril delenit augue duis dolore te feugait nulla facilisi nam liber. Esse molestie.</h6>
-          </div>
-        </div>
-        <div class="col-xs-4">
-          <div class="card-info">
-            <i class="fa fa-binoculars" aria-hidden="true"></i>
-            <h6>Sit amet consectetuer adipiscing elit sed diam nonummy. Zzril delenit augue duis dolore te feugait nulla facilisi nam liber. Esse molestie.</h6>
-          </div>
-        </div>
-        <div class="col-xs-4">
-          <div class="card-info">
-            <i class="fa fa-map-marker" aria-hidden="true"></i>
-            <h6>Sit amet consectetuer adipiscing elit sed diam nonummy. Zzril delenit augue duis dolore te feugait nulla facilisi nam liber. Esse molestie.</h6>
-          </div>
-        </div>
-      </div>
-    </div>
-    <%= render 'shared/next_page', target_page: "#page-top", icon: "fa-arrow-circle-up" %>
-  </div>
+  <%= render 'page_cards', page_id: "page3", title: t('page_card2.title'), icon1: t('page_card2.icon1'),  icon2: t('page_card2.icon2'),  icon3: t('page_card2.icon3'), card1: t('page_card2.card1'), card2: t('page_card2.card2'), card3: t('page_card2.card3'),target_page: "#page-top", image: t('page_card2.image') %>
 </div>
-
-
