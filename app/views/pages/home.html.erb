@@ -1,2 +1,14 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="home">
+  <div class="banner" id="page1" >
+    <div class="banner-call">
+      <h1><%= t('landing.title_html') %></h1>
+      <%= render 'shared/search_form', placeholder: t('landing.placeholder'), btn_text: t('landing.button_text') %>
+      <p class="invert text-on-image"><%= t('landing.subtitle') %></p>
+    </div>
+    <%= render 'shared/next_page', target_page: "#page2", icon: "fa-arrow-circle-down" %>
+  </div>
+
+  <%= render 'page_text', page_id: "page2",  signal: t('page_text1.signal'), title: t('page_text1.title'), column1: t('page_text1.column1'), column2: t('page_text1.column2'), target_page: "#page3", image: t('page_text1.image') %>
+
+  <%= render 'page_cards', page_id: "page3", title: t('page_card2.title'), icon1: t('page_card2.icon1'),  icon2: t('page_card2.icon2'),  icon3: t('page_card2.icon3'), card1: t('page_card2.card1'), card2: t('page_card2.card2'), card3: t('page_card2.card3'),target_page: "#page-top", image: t('page_card2.image') %>
+</div>

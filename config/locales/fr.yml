@@ -1,0 +1,52 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+fr:
+  landing:
+    title_html: "Inondations: <br /> Êtes-vous éligible à la prise en charge du diagnotic de prévention?*"
+    subtitle: "* Le diagnostic de prévention contre les inondations est gratuit si vous êtes situé en zone identifiée inondable"
+    placeholder: "Entrez l’adresse du logement à diagnostiquer"
+    button_text: "Rechercher"
+  page_text1:
+    signal: "Informations"
+    title: "Lorem ipsom dolor information"
+    column1: "Sit amet consectetuer adipiscing elit sed diam nonummy. Zzril delenit augue duis dolore te feugait nulla facilisi nam liber. Esse molestie consequat vel illum dolore eu feugiat nulla. Placerat facer possim assum typi non habent claritatem.Sit amet consectetuer adipiscing elit sed diam nonummy. Zzril delenit augue duis dolore te feugait nulla facilisi nam liber. Esse molestie consequat vel illum dolore eu feugiat nulla. Placerat facer possim assum typi non habent claritatem."
+    column2: "Sit amet consectetuer adipiscing elit sed diam nonummy. Zzril delenit augue duis dolore te feugait nulla facilisi nam liber. Esse molestie consequat vel illum dolore eu feugiat nulla. Placerat facer possim assum typi non habent claritatem.Sit amet consectetuer adipiscing elit sed diam nonummy. Zzril delenit augue duis dolore te feugait nulla facilisi nam liber. Esse molestie consequat vel illum dolore eu feugiat nulla. Placerat facer possim assum typi non habent claritatem."
+    image: "http://res.cloudinary.com/doodlid/image/upload/v1504728760/page2-image_rtwrae.jpg"
+  page_card2:
+    title: "Lorem ipsom dolor information"
+    icon1: "tint"
+    icon2: "binoculars"
+    icon3: "map-marker"
+    card1: "Sit amet consectetuer adipiscing elit sed diam nonummy. Zzril delenit augue duis dolore te feugait nulla facilisi nam liber. Esse molestie."
+    card2: "Sit amet consectetuer adipiscing elit sed diam nonummy. Zzril delenit augue duis dolore te feugait nulla facilisi nam liber. Esse molestie."
+    card3: "Sit amet consectetuer adipiscing elit sed diam nonummy. Zzril delenit augue duis dolore te feugait nulla facilisi nam liber. Esse molestie."
+    image: "http://res.cloudinary.com/doodlid/image/upload/v1504728760/page3-image_zork1f.jpg"

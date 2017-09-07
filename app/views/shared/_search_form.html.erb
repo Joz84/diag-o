@@ -1,0 +1,6 @@
+<div class="search-form-fake-wrap">
+  <%= simple_form_for :query do |f| %>
+      <%= f.input :address, label: "Adresse", placeholder: placeholder, :label_html => { :class => 'search-field' } %>
+      <%= f.button :submit, class: 'btn btn-green', id: "button-search", value: btn_text %>
+  <% end %>
+</div>
