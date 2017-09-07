@@ -21,33 +21,36 @@ function initMap() {
       position: center
     });
 
-ctaLayer = new google.maps.KmlLayer({
-    url: 'http://res.cloudinary.com/zanzibar/raw/upload/v1504776893/floirac_test_fbetds.kml',
-    map: map
-  });
+// ctaLayer = new google.maps.KmlLayer({
+//     url: 'http://res.cloudinary.com/zanzibar/raw/upload/v1504776893/floirac_test_fbetds.kml',
+//     map: map
+//   });
 
 var zone1 = document.getElementById('zone1');
-console.log(zone1.dataset.area)
+console.log(zone1)
 
-polygon1 = new google.maps.Polygon({
-    path: areaOrange,
-    geodesic: true,
-    strokeColor: '#FFd000',
-    strokeOpacity: 1.0,
-    strokeWeight: 4,
-    fillColor: '#FFA500',
-    fillOpacity: 0.35
-  });
+// var ZoneTest = <%= @array %>
+// console.log(ZoneTest)
 
-polygon2 = new google.maps.Polygon({
-    path: areaRouge,
-    geodesic: true,
-    strokeColor: '#FF0000',
-    strokeOpacity: 1.0,
-    strokeWeight: 4,
-    fillColor: '#FF0000',
-    fillOpacity: 0.35
-  });
+  polygon1 = new google.maps.Polygon({
+      path: <%= @ZoneTest %>,
+      geodesic: true,
+      strokeColor: '#FFd000',
+      strokeOpacity: 1.0,
+      strokeWeight: 4,
+      fillColor: '#FFA500',
+      fillOpacity: 0.35
+    });
+
+// polygon2 = new google.maps.Polygon({
+//     path: areaRouge,
+//     geodesic: true,
+//     strokeColor: '#FF0000',
+//     strokeOpacity: 1.0,
+//     strokeWeight: 4,
+//     fillColor: '#FF0000',
+//     fillOpacity: 0.35
+//   });
 
 
 
@@ -89,21 +92,17 @@ polygon2 = new google.maps.Polygon({
 var center = new google.maps.LatLng(44.8035,-0.5731);
 
 
-var areaOrange = [
- { lat: 44.80359712236584, lng: -0.51317632796123 },
- { lat: 44.80343112410052,  lng:-0.517242017073627 },
- { lat: 44.803432239850856, lng:-0.517244698569879 },
- { lat: 44.803432923191316,  lng:-0.517242247997421 },
- { lat: 44.7917,  lng:-0.5161 },
- { lat: 44.7928,  lng:-0.5007 },
-];
+// var areaOrange = [
+//  { lat: 44.80359712236584, lng: -0.51317632796123 },
+//  { lat: 44.80343112410052,  lng:-0.517242017073627 },
+//  { lat: 44.803432239850856, lng:-0.517244698569879 },
+//  { lat: 44.803432923191316,  lng:-0.517242247997421 },
+//  { lat: 44.7917,  lng:-0.5161 },
+//  { lat: 44.7928,  lng:-0.5007 },
+// ];
 
-var areaRouge = [
- { lat: 44.803432239850856,  lng:-0.517244698569879 },
- { lat: 44.8037598039599,  lng:-0.518031948635293 },
- { lat: 44.80407656918752,  lng:-0.518062968918885 },
- { lat: 44.8146,  lng:-0.5278 },
- { lat: 44.8183,  lng:-0.5096 },
- { lat: 44.8114,  lng:-0.4700 },
-
-];
+  var areaRouge = [
+   { lat: 44.803432239850856,  lng:-0.517244698569879 },
+   { lat: 44.8037598039599,  lng:-0.518031948635293 },
+   { lat: 44.80407656918752,  lng:-0.518062968918885 },
+  ];

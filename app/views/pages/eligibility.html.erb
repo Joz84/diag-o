@@ -27,3 +27,9 @@
     </div>
   </div>
 </div>
+
+<% content_for(:js) do %>
+  <%= javascript_tag do %>
+      console.log(@Zone1Array)
+  <% end %>
+<% end %>
