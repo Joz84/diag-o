@@ -3,12 +3,15 @@ var geocoder; //Added on 27/09/2016
 var marker;
 var polygon;
 var bounds;
+
 window.onload = initMap;
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
     center: center,
     zoom: 14,
-    scaleControl: true
+    scaleControl: true,
+    center: {lat: 41.3749971 , lng: 2.1669979},
+    disableDefaultUI: false
   });
   geocoder = new google.maps.Geocoder(); //Added on 27/09/2016
   bounds = new google.maps.LatLngBounds();
