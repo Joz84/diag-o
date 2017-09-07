@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170907131755) do
+ActiveRecord::Schema.define(version: 20170907145306) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 20170907131755) do
     t.bigint "zone_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "lng"
+    t.string "lat"
     t.index ["zone_id"], name: "index_points_on_zone_id"
   end
 
@@ -79,6 +81,7 @@ ActiveRecord::Schema.define(version: 20170907131755) do
     t.string "colore"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "id_zone"
     t.index ["town_id"], name: "index_zones_on_town_id"
   end
 

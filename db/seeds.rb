@@ -17,14 +17,35 @@ floirac_zones.each do |zone|
 
   town_id = Town.find_by_zipcode(zipcode).id
   colore = z["codezone"]
-
-  Zone.create!(town_id: town_id, colore: colore)
-  puts "Zone créé avec l'id: #{Zone.last.id}"
+  id_zone = z["ID_ZONE"]
 
   g = zone["geometry"]["coordinates"]
 
-  g.each do |point|
+  if zone["geometry"]["type"] == "Polygon"
+    Zone.create!(town_id: town_id, colore: colore, id_zone: id_zone)
+    puts "Zone Polygone créée avec l'id: #{Zone.last.id_zone}"
 
+      g[0].each do |point|
+        lng = point[0]
+        lat = point[1]
+        Point.create!(zone_id: Zone.last.id, lat: lat, lng: lng)
+        puts "Point créé pour polygone: lng:#{Point.last.lng}, lat#{Point.last.lat} pour zone #{Point.last.zone.id_zone}"
+      end
+
+  elsif zone["geometry"]["type"] == "MultiPolygon"
+    g.each_with_index do |polygon, index|
+      id_zone = z["ID_ZONE"] + "-#{index+1}"
+      Zone.create!(town_id: town_id, colore: colore, id_zone: id_zone)
+      puts "Zone Multipolygone créée avec l'id: #{Zone.last.id_zone}"
+
+      g[index].each do |point|
+        lng = point[0]
+        lat = point[1]
+        Point.create!(zone_id: Zone.last.id, lat: lat, lng: lng)
+        puts "Point créé pour Multipolygone: lng:#{Point.last.lng}, lat#{Point.last.lat} pour zone #{Point.last.zone.id_zone}"
+      end
+
+    end
   end
 
 end
