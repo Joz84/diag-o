@@ -1,7 +1,6 @@
 var map;
 var geocoder; //Added on 27/09/2016
 var marker;
-var polygon;
 var bounds;
 window.onload = initMap;
 function initMap() {
@@ -18,17 +17,39 @@ function initMap() {
     marker = new google.maps.Marker({
       position: center
     });
-    polygon = new google.maps.Polygon({
-    path: area,
+
+ctaLayer = new google.maps.KmlLayer({
+    url: 'http://res.cloudinary.com/zanzibar/raw/upload/v1504776893/floirac_test_fbetds.kml',
+    map: map
+  });
+
+var zone1 = document.getElementById('zone1');
+console.log(zone1.dataset.area)
+
+polygon1 = new google.maps.Polygon({
+    path: areaOrange,
     geodesic: true,
     strokeColor: '#FFd000',
     strokeOpacity: 1.0,
     strokeWeight: 4,
-    fillColor: '#FFd000',
+    fillColor: '#FFA500',
     fillOpacity: 0.35
   });
 
-  polygon.setMap(map);
+polygon2 = new google.maps.Polygon({
+    path: areaRouge,
+    geodesic: true,
+    strokeColor: '#FF0000',
+    strokeOpacity: 1.0,
+    strokeWeight: 4,
+    fillColor: '#FF0000',
+    fillOpacity: 0.35
+  });
+
+
+
+  polygon1.setMap(map);
+  polygon2.setMap(map);
 
   var input = /** @type {!HTMLInputElement} */(
     document.getElementById('pac-input'));
@@ -51,41 +72,35 @@ function initMap() {
       marker.setMap(map);
       newBounds.extend(place.geometry.location);
       map.fitBounds(newBounds);
-      if (google.maps.geometry.poly.containsLocation(place.geometry.location, polygon)){
-      alert('The area contains the address');
+      if (google.maps.geometry.poly.containsLocation(place.geometry.location, polygon1)){
+      alert('Votre addresse est en zone ' + zone1.dataset.color);
+      console.log(polygon2.poly.path)
+      } else if (google.maps.geometry.poly.containsLocation(place.geometry.location, polygon2)) {
+      alert('Votre addresse est en zone rouge!');
       } else {
       alert('The address is outside of the area.');
       };
      });
 }
-//Added on 27/09/2016
-//*************************
-function geocodeAddress(addr) {
-  geocoder.geocode({'address': addr}, function(results, status) {
-    if (status === 'OK') {
-      var newBounds = new google.maps.LatLngBounds(bounds.getSouthWest(), bounds.getNorthEast());
-      marker.setPosition(results[0].geometry.location);
-      marker.setMap(map);
-      newBounds.extend(results[0].geometry.location);
-      map.fitBounds(newBounds);
-      if (google.maps.geometry.poly.containsLocation(results[0].geometry.location, polygon)){
-      alert('The area contains the address');
-      } else {
-      alert('The address is outside of the area.');
-      };
-    } else {
-    alert('Geocode was not successful for the following reason: ' + status);
-    }
-  });
-};
-//*************************
 
-var center = new google.maps.LatLng(41.3899621, 2.1469796);
-var area= [
-{lat: 41.3749971 , lng: 2.1669979},
-{lat: 41.3749569 , lng: 2.1683179},
-{lat: 41.3759391 , lng: 2.1690059},
-{lat: 41.3780967 , lng: 2.1652293},
-{lat: 41.3777424 , lng: 2.1645641},
-{lat: 41.380383 , lng: 2.1611738},
+var center = new google.maps.LatLng(44.8035,-0.5731);
+
+
+var areaOrange = [
+ { lat: 44.80359712236584, lng: -0.51317632796123 },
+ { lat: 44.80343112410052,  lng:-0.517242017073627 },
+ { lat: 44.803432239850856, lng:-0.517244698569879 },
+ { lat: 44.803432923191316,  lng:-0.517242247997421 },
+ { lat: 44.7917,  lng:-0.5161 },
+ { lat: 44.7928,  lng:-0.5007 },
+];
+
+var areaRouge = [
+ { lat: 44.803432239850856,  lng:-0.517244698569879 },
+ { lat: 44.8037598039599,  lng:-0.518031948635293 },
+ { lat: 44.80407656918752,  lng:-0.518062968918885 },
+ { lat: 44.8146,  lng:-0.5278 },
+ { lat: 44.8183,  lng:-0.5096 },
+ { lat: 44.8114,  lng:-0.4700 },
+
 ];
