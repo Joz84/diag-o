@@ -1,5 +1,17 @@
-#map {
+.map-wrapper{
+  position: relative;
+}
+#map{
   height: calc(100vh - 70px);
+}
+#pac-input{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 2;
+  width: 100%;
+  border: 2px solid $light-gray;
+  padding: 5px;
 }
 .report {
   padding: 40px;

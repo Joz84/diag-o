@@ -2,20 +2,18 @@
 <div  id="zone1"
       data-color="<%= @color %>"
       data-area="<%= @area_orange %>"></div>
-<!-- fin du bout de code -->
-<!-- Test -->
-<%#= content_tag 'div', class: "data-for-js", data: {pointslist: @pointslist} do %>
-<%= content_tag 'div', class: "data-for-js", data: {zoneslist: @zoneslist} do %>
 
+<%= content_tag 'div', class: "data-for-js", data: {zoneslist: @zoneslist, address: @address} do %>
 <% end %>
-<!-- Fin Test -->
 
-<input id="pac-input" class="controls" type="text" placeholder="Enter a location">
+
 <div class="container-fluid">
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-6">
-      <div id="map">
-
+      <div class="map-wrapper">
+        <input id="pac-input" class="controls" type="text" placeholder="Enter a location">
+        <div id="map">
+        </div>
       </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-6">

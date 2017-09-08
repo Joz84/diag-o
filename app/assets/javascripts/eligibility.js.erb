@@ -4,12 +4,17 @@ var marker;
 var bounds;
 
 window.onload = initMap;
+
+var zoneslist = $('.data-for-js').data('zoneslist');
+var address = $('.data-for-js').data('address');
+var center = {lat: 44.80,  lng:-0.51};
+
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
     center: center,
-    zoom: 13,
+    zoom: 15,
     scaleControl: true,
-    center: {lat: 44.803432239850856,  lng:-0.517244698569879},
+    center: center,
     disableDefaultUI: false
   });
   geocoder = new google.maps.Geocoder();
@@ -21,53 +26,47 @@ function initMap() {
       position: center
     });
 
+  console.log(address)
 
-var zoneslist = $('.data-for-js').data('zoneslist')
+  for (i = 0; i < zoneslist.length; i++) {
+    polygon1 = new google.maps.Polygon({
+        path: zoneslist[i][0],
+        geodesic: true,
+        strokeColor: '8B572A',
+        strokeOpacity: 0,
+        strokeWeight: 1,
+        fillColor: zoneslist[i][1],
+        fillOpacity: 0.6
+      });
+    polygon1.setMap(map);
+  }
 
-console.log(zoneslist)
+  var input = address;
+  // var types = document.getElementById('type-selector');
+  // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+  // map.controls[google.maps.ControlPosition.TOP_LEFT].push(types);
 
-for (i = 0; i < zoneslist.length; i++) {
-  polygon1 = new google.maps.Polygon({
-      path: zoneslist[i][0],
-      geodesic: true,
-      strokeColor: 'F00000',
-      strokeOpacity: 1.0,
-      strokeWeight: 4,
-      fillColor: zoneslist[i][1],
-      fillOpacity: 0.35
-    });
-
-  polygon1.setMap(map);
-}
-
-  var input = /** @type {!HTMLInputElement} */(
-    document.getElementById('pac-input'));
-        var types = document.getElementById('type-selector');
-        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-        map.controls[google.maps.ControlPosition.TOP_LEFT].push(types);
-
-        var autocomplete = new google.maps.places.Autocomplete(input);
-        autocomplete.addListener('place_changed', function() {
+  var autocomplete = new google.maps.places.Autocomplete(input);
+  autocomplete.addListener('place_changed', function() {
     marker.setMap(null);
     var place = autocomplete.getPlace();
     var newBounds = new google.maps.LatLngBounds(bounds.getSouthWest(), bounds.getNorthEast()); //Changed
-    // removed newBounds = bounds;
-          if (!place.geometry) {
-            geocodeAddress(input.value);//Added on 27/09/2016
-            //window.alert("Autocomplete's returned place contains no geometry");
-            return;
-          };
-      marker.setPosition(place.geometry.location);
-      marker.setMap(map);
-      newBounds.extend(place.geometry.location);
-      map.fitBounds(newBounds);
-      if (google.maps.geometry.poly.containsLocation(place.geometry.location, polygon1)){
+  // removed newBounds = bounds;
+    if (!place.geometry) {
+      geocodeAddress(input.value);//Added on 27/09/2016
+      //window.alert("Autocomplete's returned place contains no geometry");
+      return;
+    };
+    marker.setPosition(place.geometry.location);
+    marker.setMap(map);
+    newBounds.extend(place.geometry.location);
+    map.fitBounds(newBounds);
+    if (google.maps.geometry.poly.containsLocation(place.geometry.location, polygon1)){
       alert('Votre addresse est en zone ' + zone1.dataset.color);
       console.log(polygon2.poly.path)
-      } else {
+    } else {
       alert('The address is outside of the area.');
-      };
-     });
+    };
+  });
 }
 
-var center = new google.maps.LatLng({ lat: 44.803432239850856,  lng:-0.517244698569879 });
