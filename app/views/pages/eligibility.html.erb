@@ -4,7 +4,9 @@
       data-area="<%= @area_orange %>"></div>
 <!-- fin du bout de code -->
 <!-- Test -->
-<%= content_tag 'div', class: "data-for-js", data: {zone: @zone, pointslist: @pointslist, zones: @zones} do %>
+<%#= content_tag 'div', class: "data-for-js", data: {pointslist: @pointslist} do %>
+<%= content_tag 'div', class: "data-for-js", data: {zoneslist: @zoneslist} do %>
+
 <% end %>
 <!-- Fin Test -->
 

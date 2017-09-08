@@ -29,11 +29,12 @@ function initMap() {
 // var zone1 = document.getElementById('zone1');
 // console.log(@ZoneTest)
 
-var pointslist = $('.data-for-js').data('pointslist')
-var zone = $('.data-for-js').data('zone')
-var zones = $('.data-for-js').data('zones')
-console.log(zones)
-console.log(zones[0]['colore'])
+// var pointslist = $('.data-for-js').data('pointslist')
+var zoneslist = $('.data-for-js').data('zoneslist')
+// var zone = $('.data-for-js').data('zone')
+// var zones = $('.data-for-js').data('zones')
+console.log(zoneslist)
+// console.log(zones[0]['colore'])
 
 // var ZoneTest = <%= @array %>
 // console.log(ZoneTest)
@@ -43,7 +44,7 @@ console.log(zones[0]['colore'])
 //   new google.maps.Polygon({
 //       path: pointslist,
 //       geodesic: true,
-//       strokeColor: zone.colore,
+//       strokeColor: 'FF0000',
 //       strokeOpacity: 1.0,
 //       strokeWeight: 4,
 //       fillColor: '#FFA500',
@@ -52,17 +53,22 @@ console.log(zones[0]['colore'])
 
 //     text += cars[i] + "<br>";
 // }
+for (i = 0; i < zoneslist.length; i++) {
+  polygon1 = new google.maps.Polygon({
+      path: zoneslist[i][0],
+      geodesic: true,
+      strokeColor: 'F00000',
+      strokeOpacity: 1.0,
+      strokeWeight: 4,
+      fillColor: zoneslist[i][1],
+      fillOpacity: 0.35
+    });
+
+  polygon1.setMap(map);
+}
 
 
-//   polygon1 = new google.maps.Polygon({
-//       path: pointslist,
-//       geodesic: true,
-//       strokeColor: zone.colore,
-//       strokeOpacity: 1.0,
-//       strokeWeight: 4,
-//       fillColor: '#FFA500',
-//       fillOpacity: 0.35
-//     });
+
 
 // polygon2 = new google.maps.Polygon({
 //     path: areaRouge,
@@ -74,9 +80,6 @@ console.log(zones[0]['colore'])
 //     fillOpacity: 0.35
 //   });
 
-
-
-  polygon1.setMap(map);
   // polygon2.setMap(map);
 
   var input = /** @type {!HTMLInputElement} */(
