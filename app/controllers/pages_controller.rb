@@ -14,12 +14,12 @@ class PagesController < ApplicationController
     # @zones.each_with_index do |zone, index|
     @town = Town.first
     @zoneslist = @town.zones.map do |zone|
-      zozo = []
-      zozo << zone.points.map do |point|
+      zoneinfos = []
+      zoneinfos << zone.points.map do |point|
         {'lat' => point.lat.to_f, 'lng' => point.lng.to_f}
       end
-      zozo << ['#00FF00', '#FFA500', '#0000FF'].sample
-      zozo
+      zoneinfos << ['#00FF00', '#FFA500', '#0000FF'].sample
+      zoneinfos
     end
   end
 end

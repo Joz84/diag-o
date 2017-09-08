@@ -1,5 +1,5 @@
 var map;
-var geocoder; //Added on 27/09/2016
+var geocoder;
 var marker;
 var bounds;
 
@@ -12,7 +12,7 @@ function initMap() {
     center: {lat: 44.803432239850856,  lng:-0.517244698569879},
     disableDefaultUI: false
   });
-  geocoder = new google.maps.Geocoder(); //Added on 27/09/2016
+  geocoder = new google.maps.Geocoder();
   bounds = new google.maps.LatLngBounds();
   google.maps.event.addListenerOnce(map, 'tilesloaded', function(evt) {
     bounds = map.getBounds();
@@ -39,7 +39,6 @@ for (i = 0; i < zoneslist.length; i++) {
 
   polygon1.setMap(map);
 }
-
 
   var input = /** @type {!HTMLInputElement} */(
     document.getElementById('pac-input'));
