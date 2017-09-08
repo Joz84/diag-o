@@ -10,12 +10,14 @@ class PagesController < ApplicationController
   end
 
   def eligibility
-    @array = []
-    @ZoneTest = Zone.first.points.each do |p|
-      h = {}
-      h['lat'] = p.lat
-      h['lng'] = p.lng
-      @array << h
+    @zones = Zone.all
+    @zones.each do |zone|
+    @pointslist = []
+    zone.points.each do |point|
+      point_hash = {}
+      point_hash['lat'] = point.lat.to_f
+      point_hash['lng'] = point.lng.to_f
+      @pointslist << point_hash
     end
   end
 end

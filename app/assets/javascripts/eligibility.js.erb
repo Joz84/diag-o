@@ -7,9 +7,9 @@ window.onload = initMap;
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
     center: center,
-    zoom: 14,
+    zoom: 13,
     scaleControl: true,
-    center: {lat: 41.3749971 , lng: 2.1669979},
+    center: {lat: 44.803432239850856,  lng:-0.517244698569879},
     disableDefaultUI: false
   });
   geocoder = new google.maps.Geocoder(); //Added on 27/09/2016
@@ -26,21 +26,43 @@ function initMap() {
 //     map: map
 //   });
 
-var zone1 = document.getElementById('zone1');
-console.log(zone1)
+// var zone1 = document.getElementById('zone1');
+// console.log(@ZoneTest)
+
+var pointslist = $('.data-for-js').data('pointslist')
+var zone = $('.data-for-js').data('zone')
+var zones = $('.data-for-js').data('zones')
+console.log(zones)
+console.log(zones[0]['colore'])
 
 // var ZoneTest = <%= @array %>
 // console.log(ZoneTest)
 
-  polygon1 = new google.maps.Polygon({
-      path: <%= @ZoneTest %>,
-      geodesic: true,
-      strokeColor: '#FFd000',
-      strokeOpacity: 1.0,
-      strokeWeight: 4,
-      fillColor: '#FFA500',
-      fillOpacity: 0.35
-    });
+// for (i = 0; i < zones.length; i++) {
+
+//   new google.maps.Polygon({
+//       path: pointslist,
+//       geodesic: true,
+//       strokeColor: zone.colore,
+//       strokeOpacity: 1.0,
+//       strokeWeight: 4,
+//       fillColor: '#FFA500',
+//       fillOpacity: 0.35
+//     });
+
+//     text += cars[i] + "<br>";
+// }
+
+
+//   polygon1 = new google.maps.Polygon({
+//       path: pointslist,
+//       geodesic: true,
+//       strokeColor: zone.colore,
+//       strokeOpacity: 1.0,
+//       strokeWeight: 4,
+//       fillColor: '#FFA500',
+//       fillOpacity: 0.35
+//     });
 
 // polygon2 = new google.maps.Polygon({
 //     path: areaRouge,
@@ -55,7 +77,7 @@ console.log(zone1)
 
 
   polygon1.setMap(map);
-  polygon2.setMap(map);
+  // polygon2.setMap(map);
 
   var input = /** @type {!HTMLInputElement} */(
     document.getElementById('pac-input'));
@@ -89,7 +111,7 @@ console.log(zone1)
      });
 }
 
-var center = new google.maps.LatLng(44.8035,-0.5731);
+var center = new google.maps.LatLng({ lat: 44.803432239850856,  lng:-0.517244698569879 });
 
 
 // var areaOrange = [
