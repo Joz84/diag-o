@@ -33,6 +33,22 @@ ActiveRecord::Schema.define(version: 20170908094117) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "points", force: :cascade do |t|
+    t.bigint "zone_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "lng"
+    t.string "lat"
+    t.index ["zone_id"], name: "index_points_on_zone_id"
+  end
+
+  create_table "towns", force: :cascade do |t|
+    t.string "zipcode"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "user_housings", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "housing_id"
@@ -65,8 +81,19 @@ ActiveRecord::Schema.define(version: 20170908094117) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "zones", force: :cascade do |t|
+    t.bigint "town_id"
+    t.string "colore"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "id_zone"
+    t.index ["town_id"], name: "index_zones_on_town_id"
+  end
+
   add_foreign_key "bookings", "housings"
   add_foreign_key "bookings", "users"
+  add_foreign_key "points", "zones"
   add_foreign_key "user_housings", "housings"
   add_foreign_key "user_housings", "users"
+  add_foreign_key "zones", "towns"
 end

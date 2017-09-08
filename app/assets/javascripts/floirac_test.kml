@@ -1,0 +1,842 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document><Folder><name>floirac_test</name>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#floirac_test">
+		<SimpleData name="ID_GEOFLA">COMMUNE00000000000003949</SimpleData>
+		<SimpleData name="CODE_COM">065</SimpleData>
+		<SimpleData name="INSEE_COM">33065</SimpleData>
+		<SimpleData name="NOM_COM">BOULIAC</SimpleData>
+		<SimpleData name="STATUT">Commune simple</SimpleData>
+		<SimpleData name="X_CHF_LIEU">423219</SimpleData>
+		<SimpleData name="Y_CHF_LIEU">6418996</SimpleData>
+		<SimpleData name="X_CENTROID">423100</SimpleData>
+		<SimpleData name="Y_CENTROID">6419392</SimpleData>
+		<SimpleData name="Z_MOYEN">41</SimpleData>
+		<SimpleData name="SUPERFICIE">781</SimpleData>
+		<SimpleData name="POPULATION">3228</SimpleData>
+		<SimpleData name="CODE_ARR">2</SimpleData>
+		<SimpleData name="CODE_DEPT">33</SimpleData>
+		<SimpleData name="NOM_DEPT">GIRONDE</SimpleData>
+		<SimpleData name="CODE_REG">75</SimpleData>
+		<SimpleData name="NOM_REG">AQUITAINE-LIMOUSIN-POITOU-CHARENTES</SimpleData>
+		<SimpleData name="id_map">0</SimpleData>
+		<SimpleData name="id_gaspar">33DDTM20010027</SimpleData>
+		<SimpleData name="ID_ZONE">R33200100270011</SimpleData>
+		<SimpleData name="NOM_ZONE">Zone rouge hachure bleue</SimpleData>
+		<SimpleData name="codezone">Zone rouge hachure bleue</SimpleData>
+		<SimpleData name="TYPEREG">02</SimpleData>
+		<SimpleData name="NOM_TYPERE">Prescriptions</SimpleData>
+		<SimpleData name="soumisalea">OUI</SimpleData>
+		<SimpleData name="nomreg">33DDTM20010027_Reglement.pdf</SimpleData>
+		<SimpleData name="lienreg">http://www.donnees.aquitaine.developpement-durable.gouv.fr/DOCUMENTS/SPR/PLAN_PREVENTION_RISQUES/PPRn/33DDTM20010027_Reglement.pdf</SimpleData>
+		<SimpleData name="nomplan">33DDTM20010027_PlanZonage.pdf</SimpleData>
+		<SimpleData name="lienplan">http://www.donnees.aquitaine.developpement-durable.gouv.fr/DOCUMENTS/SPR/PLAN_PREVENTION_RISQUES/PPRn/33DDTM20010027_PlanZonage.pdf</SimpleData>
+		<SimpleData name="srce_geom">IGN, SCAN25</SimpleData>
+		<SimpleData name="srce_annee">2001</SimpleData>
+		<SimpleData name="precision_">DC</SimpleData>
+		<SimpleData name="NOM_PRECIS">Dcamtrique</SimpleData>
+		<SimpleData name="date_maj">2014/10/31</SimpleData>
+	</SchemaData></ExtendedData>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>-0.521387414418931,44.817005593505819 -0.5214491935134,44.81702146861867 -0.522273174258277,44.816962031484351 -0.522283266624603,44.816959679748294 -0.521763047110764,44.817325795543042 -0.52140732555452,44.817480397414663 -0.521387414418931,44.817005593505819</coordinates></LinearRing></outerBoundaryIs></Polygon>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#floirac_test">
+		<SimpleData name="ID_GEOFLA">COMMUNE00000000000003949</SimpleData>
+		<SimpleData name="CODE_COM">065</SimpleData>
+		<SimpleData name="INSEE_COM">33065</SimpleData>
+		<SimpleData name="NOM_COM">BOULIAC</SimpleData>
+		<SimpleData name="STATUT">Commune simple</SimpleData>
+		<SimpleData name="X_CHF_LIEU">423219</SimpleData>
+		<SimpleData name="Y_CHF_LIEU">6418996</SimpleData>
+		<SimpleData name="X_CENTROID">423100</SimpleData>
+		<SimpleData name="Y_CENTROID">6419392</SimpleData>
+		<SimpleData name="Z_MOYEN">41</SimpleData>
+		<SimpleData name="SUPERFICIE">781</SimpleData>
+		<SimpleData name="POPULATION">3228</SimpleData>
+		<SimpleData name="CODE_ARR">2</SimpleData>
+		<SimpleData name="CODE_DEPT">33</SimpleData>
+		<SimpleData name="NOM_DEPT">GIRONDE</SimpleData>
+		<SimpleData name="CODE_REG">75</SimpleData>
+		<SimpleData name="NOM_REG">AQUITAINE-LIMOUSIN-POITOU-CHARENTES</SimpleData>
+		<SimpleData name="id_map">0</SimpleData>
+		<SimpleData name="id_gaspar">33DDTM20010027</SimpleData>
+		<SimpleData name="ID_ZONE">R33200100270013</SimpleData>
+		<SimpleData name="NOM_ZONE">Zone rouge hachure bleue</SimpleData>
+		<SimpleData name="codezone">Zone rouge hachure bleue</SimpleData>
+		<SimpleData name="TYPEREG">02</SimpleData>
+		<SimpleData name="NOM_TYPERE">Prescriptions</SimpleData>
+		<SimpleData name="soumisalea">OUI</SimpleData>
+		<SimpleData name="nomreg">33DDTM20010027_Reglement.pdf</SimpleData>
+		<SimpleData name="lienreg">http://www.donnees.aquitaine.developpement-durable.gouv.fr/DOCUMENTS/SPR/PLAN_PREVENTION_RISQUES/PPRn/33DDTM20010027_Reglement.pdf</SimpleData>
+		<SimpleData name="nomplan">33DDTM20010027_PlanZonage.pdf</SimpleData>
+		<SimpleData name="lienplan">http://www.donnees.aquitaine.developpement-durable.gouv.fr/DOCUMENTS/SPR/PLAN_PREVENTION_RISQUES/PPRn/33DDTM20010027_PlanZonage.pdf</SimpleData>
+		<SimpleData name="srce_geom">IGN, SCAN25</SimpleData>
+		<SimpleData name="srce_annee">2001</SimpleData>
+		<SimpleData name="precision_">DC</SimpleData>
+		<SimpleData name="NOM_PRECIS">Dcamtrique</SimpleData>
+		<SimpleData name="date_maj">2014/10/31</SimpleData>
+	</SchemaData></ExtendedData>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>-0.520035251406226,44.818189202169883 -0.519657686816052,44.818625928419955 -0.519778075651175,44.818394865610827 -0.519789326753085,44.818247163852483 -0.520035251406226,44.818189202169883</coordinates></LinearRing></outerBoundaryIs></Polygon>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#floirac_test">
+		<SimpleData name="ID_GEOFLA">COMMUNE00000000000003949</SimpleData>
+		<SimpleData name="CODE_COM">065</SimpleData>
+		<SimpleData name="INSEE_COM">33065</SimpleData>
+		<SimpleData name="NOM_COM">BOULIAC</SimpleData>
+		<SimpleData name="STATUT">Commune simple</SimpleData>
+		<SimpleData name="X_CHF_LIEU">423219</SimpleData>
+		<SimpleData name="Y_CHF_LIEU">6418996</SimpleData>
+		<SimpleData name="X_CENTROID">423100</SimpleData>
+		<SimpleData name="Y_CENTROID">6419392</SimpleData>
+		<SimpleData name="Z_MOYEN">41</SimpleData>
+		<SimpleData name="SUPERFICIE">781</SimpleData>
+		<SimpleData name="POPULATION">3228</SimpleData>
+		<SimpleData name="CODE_ARR">2</SimpleData>
+		<SimpleData name="CODE_DEPT">33</SimpleData>
+		<SimpleData name="NOM_DEPT">GIRONDE</SimpleData>
+		<SimpleData name="CODE_REG">75</SimpleData>
+		<SimpleData name="NOM_REG">AQUITAINE-LIMOUSIN-POITOU-CHARENTES</SimpleData>
+		<SimpleData name="id_map">0</SimpleData>
+		<SimpleData name="id_gaspar">33DDTM20010027</SimpleData>
+		<SimpleData name="ID_ZONE">R33200100270010</SimpleData>
+		<SimpleData name="NOM_ZONE">Zone rouge hachure bleue</SimpleData>
+		<SimpleData name="codezone">Zone rouge hachure bleue</SimpleData>
+		<SimpleData name="TYPEREG">02</SimpleData>
+		<SimpleData name="NOM_TYPERE">Prescriptions</SimpleData>
+		<SimpleData name="soumisalea">OUI</SimpleData>
+		<SimpleData name="nomreg">33DDTM20010027_Reglement.pdf</SimpleData>
+		<SimpleData name="lienreg">http://www.donnees.aquitaine.developpement-durable.gouv.fr/DOCUMENTS/SPR/PLAN_PREVENTION_RISQUES/PPRn/33DDTM20010027_Reglement.pdf</SimpleData>
+		<SimpleData name="nomplan">33DDTM20010027_PlanZonage.pdf</SimpleData>
+		<SimpleData name="lienplan">http://www.donnees.aquitaine.developpement-durable.gouv.fr/DOCUMENTS/SPR/PLAN_PREVENTION_RISQUES/PPRn/33DDTM20010027_PlanZonage.pdf</SimpleData>
+		<SimpleData name="srce_geom">IGN, SCAN25</SimpleData>
+		<SimpleData name="srce_annee">2001</SimpleData>
+		<SimpleData name="precision_">DC</SimpleData>
+		<SimpleData name="NOM_PRECIS">Dcamtrique</SimpleData>
+		<SimpleData name="date_maj">2014/10/31</SimpleData>
+	</SchemaData></ExtendedData>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>-0.518550902878179,44.818536961626087 -0.518563983835336,44.818569667316794 -0.518620350167346,44.819020871741998 -0.518774678750801,44.81908911309948 -0.51928415826029,44.818908825895107 -0.519392990478539,44.818832774801272 -0.519042363122401,44.819087233115241 -0.518579873079247,44.819217764365185 -0.517993230474722,44.81902158793995 -0.51755525322265,44.818815403045285 -0.517488457625672,44.818786150998292 -0.518550902878179,44.818536961626087</coordinates></LinearRing></outerBoundaryIs></Polygon>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#floirac_test">
+		<SimpleData name="ID_GEOFLA">COMMUNE00000000000003949</SimpleData>
+		<SimpleData name="CODE_COM">065</SimpleData>
+		<SimpleData name="INSEE_COM">33065</SimpleData>
+		<SimpleData name="NOM_COM">BOULIAC</SimpleData>
+		<SimpleData name="STATUT">Commune simple</SimpleData>
+		<SimpleData name="X_CHF_LIEU">423219</SimpleData>
+		<SimpleData name="Y_CHF_LIEU">6418996</SimpleData>
+		<SimpleData name="X_CENTROID">423100</SimpleData>
+		<SimpleData name="Y_CENTROID">6419392</SimpleData>
+		<SimpleData name="Z_MOYEN">41</SimpleData>
+		<SimpleData name="SUPERFICIE">781</SimpleData>
+		<SimpleData name="POPULATION">3228</SimpleData>
+		<SimpleData name="CODE_ARR">2</SimpleData>
+		<SimpleData name="CODE_DEPT">33</SimpleData>
+		<SimpleData name="NOM_DEPT">GIRONDE</SimpleData>
+		<SimpleData name="CODE_REG">75</SimpleData>
+		<SimpleData name="NOM_REG">AQUITAINE-LIMOUSIN-POITOU-CHARENTES</SimpleData>
+		<SimpleData name="id_map">0</SimpleData>
+		<SimpleData name="id_gaspar">33DDTM20010027</SimpleData>
+		<SimpleData name="ID_ZONE">R33200100270016</SimpleData>
+		<SimpleData name="NOM_ZONE">Zone rouge hachure bleue liser rouge</SimpleData>
+		<SimpleData name="codezone">Zone rouge hachure bleue liser rouge</SimpleData>
+		<SimpleData name="TYPEREG">02</SimpleData>
+		<SimpleData name="NOM_TYPERE">Prescriptions</SimpleData>
+		<SimpleData name="soumisalea">OUI</SimpleData>
+		<SimpleData name="nomreg">33DDTM20010027_Reglement.pdf</SimpleData>
+		<SimpleData name="lienreg">http://www.donnees.aquitaine.developpement-durable.gouv.fr/DOCUMENTS/SPR/PLAN_PREVENTION_RISQUES/PPRn/33DDTM20010027_Reglement.pdf</SimpleData>
+		<SimpleData name="nomplan">33DDTM20010027_PlanZonage.pdf</SimpleData>
+		<SimpleData name="lienplan">http://www.donnees.aquitaine.developpement-durable.gouv.fr/DOCUMENTS/SPR/PLAN_PREVENTION_RISQUES/PPRn/33DDTM20010027_PlanZonage.pdf</SimpleData>
+		<SimpleData name="srce_geom">IGN, SCAN25</SimpleData>
+		<SimpleData name="srce_annee">2001</SimpleData>
+		<SimpleData name="precision_">DC</SimpleData>
+		<SimpleData name="NOM_PRECIS">Dcamtrique</SimpleData>
+		<SimpleData name="date_maj">2014/10/31</SimpleData>
+	</SchemaData></ExtendedData>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>-0.519789326753085,44.818247163852483 -0.519778075651175,44.818394865610827 -0.519657686816052,44.818625928419955 -0.519640935802958,44.818661471377986 -0.519392990478539,44.818832774801272 -0.51928415826029,44.818908825895107 -0.518774678750801,44.81908911309948 -0.518620350167346,44.819020871741998 -0.518563983835336,44.818569667316794 -0.518550902878179,44.818536961626087 -0.518898703335614,44.818455760070719 -0.519789326753085,44.818247163852483</coordinates></LinearRing></outerBoundaryIs></Polygon>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#floirac_test">
+		<SimpleData name="ID_GEOFLA">COMMUNE00000000000003949</SimpleData>
+		<SimpleData name="CODE_COM">065</SimpleData>
+		<SimpleData name="INSEE_COM">33065</SimpleData>
+		<SimpleData name="NOM_COM">BOULIAC</SimpleData>
+		<SimpleData name="STATUT">Commune simple</SimpleData>
+		<SimpleData name="X_CHF_LIEU">423219</SimpleData>
+		<SimpleData name="Y_CHF_LIEU">6418996</SimpleData>
+		<SimpleData name="X_CENTROID">423100</SimpleData>
+		<SimpleData name="Y_CENTROID">6419392</SimpleData>
+		<SimpleData name="Z_MOYEN">41</SimpleData>
+		<SimpleData name="SUPERFICIE">781</SimpleData>
+		<SimpleData name="POPULATION">3228</SimpleData>
+		<SimpleData name="CODE_ARR">2</SimpleData>
+		<SimpleData name="CODE_DEPT">33</SimpleData>
+		<SimpleData name="NOM_DEPT">GIRONDE</SimpleData>
+		<SimpleData name="CODE_REG">75</SimpleData>
+		<SimpleData name="NOM_REG">AQUITAINE-LIMOUSIN-POITOU-CHARENTES</SimpleData>
+		<SimpleData name="id_map">0</SimpleData>
+		<SimpleData name="id_gaspar">33DDTM20010027</SimpleData>
+		<SimpleData name="ID_ZONE">R33200100270014</SimpleData>
+		<SimpleData name="NOM_ZONE">Zone rouge hachure bleue liser rouge</SimpleData>
+		<SimpleData name="codezone">Zone rouge hachure bleue liser rouge</SimpleData>
+		<SimpleData name="TYPEREG">02</SimpleData>
+		<SimpleData name="NOM_TYPERE">Prescriptions</SimpleData>
+		<SimpleData name="soumisalea">OUI</SimpleData>
+		<SimpleData name="nomreg">33DDTM20010027_Reglement.pdf</SimpleData>
+		<SimpleData name="lienreg">http://www.donnees.aquitaine.developpement-durable.gouv.fr/DOCUMENTS/SPR/PLAN_PREVENTION_RISQUES/PPRn/33DDTM20010027_Reglement.pdf</SimpleData>
+		<SimpleData name="nomplan">33DDTM20010027_PlanZonage.pdf</SimpleData>
+		<SimpleData name="lienplan">http://www.donnees.aquitaine.developpement-durable.gouv.fr/DOCUMENTS/SPR/PLAN_PREVENTION_RISQUES/PPRn/33DDTM20010027_PlanZonage.pdf</SimpleData>
+		<SimpleData name="srce_geom">IGN, SCAN25</SimpleData>
+		<SimpleData name="srce_annee">2001</SimpleData>
+		<SimpleData name="precision_">DC</SimpleData>
+		<SimpleData name="NOM_PRECIS">Dcamtrique</SimpleData>
+		<SimpleData name="date_maj">2014/10/31</SimpleData>
+	</SchemaData></ExtendedData>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>-0.52162568628817,44.814608114675558 -0.522125190843555,44.814063136980145 -0.522568999427513,44.813962925584015 -0.523093397227138,44.814051435843673 -0.523580049199144,44.814077073512017 -0.5236971061285,44.814071864755967 -0.523589084610365,44.815637872052761 -0.523605519963602,44.815821073122436 -0.523257459110006,44.815837263178558 -0.523030262392804,44.815957641344632 -0.522968732858119,44.81608504173964 -0.522851006825498,44.816333459014984 -0.522862028353745,44.816551843414267 -0.522872484408111,44.816754680789373 -0.522823493114592,44.816845605639017 -0.522283266624603,44.816959679748294 -0.522273174258277,44.816962031484351 -0.5214491935134,44.81702146861867 -0.521387414418931,44.817005593505819 -0.521358075533535,44.816997998825386 -0.521273395801044,44.815683475668763 -0.521596903615383,44.814639857320152 -0.52161855852396,44.814615500188268 -0.52162568628817,44.814608114675558</coordinates></LinearRing></outerBoundaryIs></Polygon>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#floirac_test">
+		<SimpleData name="ID_GEOFLA">COMMUNE00000000000003949</SimpleData>
+		<SimpleData name="CODE_COM">065</SimpleData>
+		<SimpleData name="INSEE_COM">33065</SimpleData>
+		<SimpleData name="NOM_COM">BOULIAC</SimpleData>
+		<SimpleData name="STATUT">Commune simple</SimpleData>
+		<SimpleData name="X_CHF_LIEU">423219</SimpleData>
+		<SimpleData name="Y_CHF_LIEU">6418996</SimpleData>
+		<SimpleData name="X_CENTROID">423100</SimpleData>
+		<SimpleData name="Y_CENTROID">6419392</SimpleData>
+		<SimpleData name="Z_MOYEN">41</SimpleData>
+		<SimpleData name="SUPERFICIE">781</SimpleData>
+		<SimpleData name="POPULATION">3228</SimpleData>
+		<SimpleData name="CODE_ARR">2</SimpleData>
+		<SimpleData name="CODE_DEPT">33</SimpleData>
+		<SimpleData name="NOM_DEPT">GIRONDE</SimpleData>
+		<SimpleData name="CODE_REG">75</SimpleData>
+		<SimpleData name="NOM_REG">AQUITAINE-LIMOUSIN-POITOU-CHARENTES</SimpleData>
+		<SimpleData name="id_map">0</SimpleData>
+		<SimpleData name="id_gaspar">33DDTM20010027</SimpleData>
+		<SimpleData name="ID_ZONE">R33200100270012</SimpleData>
+		<SimpleData name="NOM_ZONE">Zone rouge hachure bleue</SimpleData>
+		<SimpleData name="codezone">Zone rouge hachure bleue</SimpleData>
+		<SimpleData name="TYPEREG">02</SimpleData>
+		<SimpleData name="NOM_TYPERE">Prescriptions</SimpleData>
+		<SimpleData name="soumisalea">OUI</SimpleData>
+		<SimpleData name="nomreg">33DDTM20010027_Reglement.pdf</SimpleData>
+		<SimpleData name="lienreg">http://www.donnees.aquitaine.developpement-durable.gouv.fr/DOCUMENTS/SPR/PLAN_PREVENTION_RISQUES/PPRn/33DDTM20010027_Reglement.pdf</SimpleData>
+		<SimpleData name="nomplan">33DDTM20010027_PlanZonage.pdf</SimpleData>
+		<SimpleData name="lienplan">http://www.donnees.aquitaine.developpement-durable.gouv.fr/DOCUMENTS/SPR/PLAN_PREVENTION_RISQUES/PPRn/33DDTM20010027_PlanZonage.pdf</SimpleData>
+		<SimpleData name="srce_geom">IGN, SCAN25</SimpleData>
+		<SimpleData name="srce_annee">2001</SimpleData>
+		<SimpleData name="precision_">DC</SimpleData>
+		<SimpleData name="NOM_PRECIS">Dcamtrique</SimpleData>
+		<SimpleData name="date_maj">2014/10/31</SimpleData>
+	</SchemaData></ExtendedData>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>-0.522968732858119,44.81608504173964 -0.523016863547241,44.816149754030235 -0.523286624304596,44.816380991009048 -0.522957391828043,44.8164854067657 -0.522862028353745,44.816551843414267 -0.522851006825498,44.816333459014984 -0.522968732858119,44.81608504173964</coordinates></LinearRing></outerBoundaryIs></Polygon>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#floirac_test">
+		<SimpleData name="ID_GEOFLA">COMMUNE00000000000003949</SimpleData>
+		<SimpleData name="CODE_COM">065</SimpleData>
+		<SimpleData name="INSEE_COM">33065</SimpleData>
+		<SimpleData name="NOM_COM">BOULIAC</SimpleData>
+		<SimpleData name="STATUT">Commune simple</SimpleData>
+		<SimpleData name="X_CHF_LIEU">423219</SimpleData>
+		<SimpleData name="Y_CHF_LIEU">6418996</SimpleData>
+		<SimpleData name="X_CENTROID">423100</SimpleData>
+		<SimpleData name="Y_CENTROID">6419392</SimpleData>
+		<SimpleData name="Z_MOYEN">41</SimpleData>
+		<SimpleData name="SUPERFICIE">781</SimpleData>
+		<SimpleData name="POPULATION">3228</SimpleData>
+		<SimpleData name="CODE_ARR">2</SimpleData>
+		<SimpleData name="CODE_DEPT">33</SimpleData>
+		<SimpleData name="NOM_DEPT">GIRONDE</SimpleData>
+		<SimpleData name="CODE_REG">75</SimpleData>
+		<SimpleData name="NOM_REG">AQUITAINE-LIMOUSIN-POITOU-CHARENTES</SimpleData>
+		<SimpleData name="id_map">0</SimpleData>
+		<SimpleData name="id_gaspar">33DDTM20010034</SimpleData>
+		<SimpleData name="ID_ZONE">R33200100340001</SimpleData>
+		<SimpleData name="NOM_ZONE">Zone jaune</SimpleData>
+		<SimpleData name="codezone">Zone jaune</SimpleData>
+		<SimpleData name="TYPEREG">02</SimpleData>
+		<SimpleData name="NOM_TYPERE">Prescriptions</SimpleData>
+		<SimpleData name="soumisalea">OUI</SimpleData>
+		<SimpleData name="nomreg">33DDTM20010034_Reglement.pdf</SimpleData>
+		<SimpleData name="lienreg">http://www.donnees.aquitaine.developpement-durable.gouv.fr/DOCUMENTS/SPR/PLAN_PREVENTION_RISQUES/PPRn/33DDTM20010034_Reglement.pdf</SimpleData>
+		<SimpleData name="nomplan">33DDTM20010034_PlanZonage.pdf</SimpleData>
+		<SimpleData name="lienplan">http://www.donnees.aquitaine.developpement-durable.gouv.fr/DOCUMENTS/SPR/PLAN_PREVENTION_RISQUES/PPRn/33DDTM20010034_PlanZonage.pdf</SimpleData>
+		<SimpleData name="srce_geom">IGN, SCAN25</SimpleData>
+		<SimpleData name="srce_annee">2001</SimpleData>
+		<SimpleData name="precision_">DC</SimpleData>
+		<SimpleData name="NOM_PRECIS">Dcamtrique</SimpleData>
+		<SimpleData name="date_maj">2014/10/31</SimpleData>
+	</SchemaData></ExtendedData>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>-0.519879338488623,44.819526211372342 -0.518456985536656,44.81991998226593 -0.51845683226666,44.819920029733488 -0.519404427223023,44.819360857311025 -0.519550310930862,44.819294308228272 -0.519821346228972,44.819328014941064 -0.5199295450218,44.81940568274883 -0.519879338488623,44.819526211372342</coordinates></LinearRing></outerBoundaryIs></Polygon>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#floirac_test">
+		<SimpleData name="ID_GEOFLA">COMMUNE00000000000003949</SimpleData>
+		<SimpleData name="CODE_COM">065</SimpleData>
+		<SimpleData name="INSEE_COM">33065</SimpleData>
+		<SimpleData name="NOM_COM">BOULIAC</SimpleData>
+		<SimpleData name="STATUT">Commune simple</SimpleData>
+		<SimpleData name="X_CHF_LIEU">423219</SimpleData>
+		<SimpleData name="Y_CHF_LIEU">6418996</SimpleData>
+		<SimpleData name="X_CENTROID">423100</SimpleData>
+		<SimpleData name="Y_CENTROID">6419392</SimpleData>
+		<SimpleData name="Z_MOYEN">41</SimpleData>
+		<SimpleData name="SUPERFICIE">781</SimpleData>
+		<SimpleData name="POPULATION">3228</SimpleData>
+		<SimpleData name="CODE_ARR">2</SimpleData>
+		<SimpleData name="CODE_DEPT">33</SimpleData>
+		<SimpleData name="NOM_DEPT">GIRONDE</SimpleData>
+		<SimpleData name="CODE_REG">75</SimpleData>
+		<SimpleData name="NOM_REG">AQUITAINE-LIMOUSIN-POITOU-CHARENTES</SimpleData>
+		<SimpleData name="id_map">0</SimpleData>
+		<SimpleData name="id_gaspar">33DDTM20010027</SimpleData>
+		<SimpleData name="ID_ZONE">R33200100270001</SimpleData>
+		<SimpleData name="NOM_ZONE">Zone jaune</SimpleData>
+		<SimpleData name="codezone">Zone jaune</SimpleData>
+		<SimpleData name="TYPEREG">02</SimpleData>
+		<SimpleData name="NOM_TYPERE">Prescriptions</SimpleData>
+		<SimpleData name="soumisalea">OUI</SimpleData>
+		<SimpleData name="nomreg">33DDTM20010027_Reglement.pdf</SimpleData>
+		<SimpleData name="lienreg">http://www.donnees.aquitaine.developpement-durable.gouv.fr/DOCUMENTS/SPR/PLAN_PREVENTION_RISQUES/PPRn/33DDTM20010027_Reglement.pdf</SimpleData>
+		<SimpleData name="nomplan">33DDTM20010027_PlanZonage.pdf</SimpleData>
+		<SimpleData name="lienplan">http://www.donnees.aquitaine.developpement-durable.gouv.fr/DOCUMENTS/SPR/PLAN_PREVENTION_RISQUES/PPRn/33DDTM20010027_PlanZonage.pdf</SimpleData>
+		<SimpleData name="srce_geom">IGN, SCAN25</SimpleData>
+		<SimpleData name="srce_annee">2001</SimpleData>
+		<SimpleData name="precision_">DC</SimpleData>
+		<SimpleData name="NOM_PRECIS">Dcamtrique</SimpleData>
+		<SimpleData name="date_maj">2014/10/31</SimpleData>
+	</SchemaData></ExtendedData>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>-0.51845683226666,44.819920029733488 -0.517924804332105,44.820084796460208 -0.517971771853983,44.819964633955308 -0.518311188299913,44.819373253485445 -0.518313391792891,44.819220550195347 -0.518178120498869,44.819123047004815 -0.51735205154312,44.819288778984131 -0.516691977017916,44.819418270542606 -0.51597444619702,44.819661631838954 -0.515336778121985,44.820058467756631 -0.514698835473413,44.820475056268961 -0.514123407896527,44.820470310655224 -0.51360365774543,44.820389994833178 -0.512976498978266,44.820134907596078 -0.512897920108734,44.819905029290418 -0.512850995862224,44.819549487753441 -0.512850413395031,44.819540175290356 -0.512687657998297,44.819385560118938 -0.512496656996525,44.81930805548869 -0.512004424124289,44.819284595856807 -0.51198090283393,44.819054300302568 -0.511038284158019,44.818012428464854 -0.510283475899413,44.817239985810012 -0.510262011591435,44.816933248563288 -0.510241126254037,44.81655013653404 -0.510077834990202,44.816471891630982 -0.509638810681424,44.816449150857615 -0.509533276589152,44.816218897678233 -0.509538828310787,44.815931053006942 -0.509113113294491,44.815141831273877 -0.508622768311311,44.814218230091498 -0.508135927952033,44.813812138865082 -0.507923151317241,44.81344632072885 -0.507578274406082,44.812734553260128 -0.507417482773511,44.812075620747571 -0.507245526983603,44.811371633960512 -0.506536568442893,44.810418585002424 -0.506441693583341,44.810292220997525 -0.50579367524207,44.809712787414576 -0.505389568227929,44.809287037236672 -0.505372491850897,44.808751315010554 -0.505379193937902,44.808310944610994 -0.505165899024697,44.8080215156333 -0.504925650365011,44.807597601212379 -0.504961537727732,44.807137928142879 -0.505134587120754,44.806661228763701 -0.505308520774537,44.806125680665986 -0.505733368549322,44.805363062825634 -0.506502882621432,44.804975080726869 -0.507127343786483,44.804661040615983 -0.507030233663146,44.804802668169579 -0.506958641632494,44.804908759029779 -0.506262198426146,44.805938160423217 -0.505887171999562,44.808448315754944 -0.506013595928934,44.808964753318946 -0.505962144724977,44.809010460844668 -0.506010028132033,44.809181426333119 -0.506087026308913,44.809271193465193 -0.506236940081684,44.809883957106308 -0.506675202972898,44.810388258190322 -0.506947784924252,44.810702977527008 -0.507378079856439,44.811335264752913 -0.507529819989554,44.812037739278331 -0.507662107997415,44.812641588334593 -0.508184027492913,44.813645838313512 -0.508658085208347,44.814084227746548 -0.509578237833713,44.815825858521976 -0.509659628618035,44.816338330993801 -0.510188256736077,44.816427713620115 -0.510340897825626,44.816578469254196 -0.510352379552103,44.817145339763044 -0.510422570545004,44.817216779087204 -0.510387217815462,44.817258861925701 -0.510864029144621,44.817746646759858 -0.510935958587135,44.817736666903798 -0.51105808450763,44.817861340586894 -0.511596652192,44.818504243939344 -0.511884863799686,44.818818479180543 -0.512317656292328,44.819094067738661 -0.51331780820555,44.819020731378139 -0.514503180896067,44.818629250440516 -0.514962095109562,44.818478176898125 -0.515616332913634,44.818382946465981 -0.515958875539806,44.818332869888586 -0.516699802749495,44.81843334708838 -0.517248517394608,44.818678996705529 -0.517488457625672,44.818786150998292 -0.51755525322265,44.818815403045285 -0.517993230474722,44.81902158793995 -0.518579873079247,44.819217764365185 -0.519042363122401,44.819087233115241 -0.519392990478539,44.818832774801272 -0.519640935802958,44.818661471377986 -0.519657686816052,44.818625928419955 -0.520035251406226,44.818189202169883 -0.520074887040549,44.818142797209276 -0.519839431267577,44.817725111240613 -0.519515880146159,44.817150851483753 -0.51910516173167,44.816342786497394 -0.519136082936565,44.81615120441618 -0.519129913135128,44.816034864056363 -0.519270862083292,44.81598687224966 -0.519647229513292,44.816094698014133 -0.519838423938534,44.816206229957587 -0.52006847637222,44.816682888132114 -0.520509851609252,44.817464417101313 -0.520533863830442,44.817508137500802 -0.52054239836657,44.817504890235639 -0.520545499497558,44.817451118674057 -0.520552908063051,44.817314900877157 -0.520459977878304,44.816717091475972 -0.520305783626274,44.815711631186602 -0.520300266417963,44.81523542545164 -0.520321410301278,44.81528219304991 -0.520368539191354,44.815209869807646 -0.52037443454202,44.814673535438736 -0.520467422450555,44.813884370277151 -0.520455935686058,44.813658841837544 -0.5203958735867,44.813445936468298 -0.520055035469137,44.813013359073409 -0.519964878670009,44.812896186544798 -0.519736419506539,44.812365825831321 -0.519390416741176,44.811147722658326 -0.519280269618395,44.810638199666222 -0.519225228389043,44.810608595964027 -0.519195877017959,44.810485691938865 -0.519262676017278,44.809781700884926 -0.519286463985545,44.809706861371325 -0.518969919652439,44.809158201655428 -0.518941006674076,44.808587701388184 -0.519385157202246,44.80812358508237 -0.521837833347989,44.807311519112616 -0.522414864520615,44.807120139505294 -0.522937684077612,44.807856233047175 -0.523304146050087,44.80837057696732 -0.524012993550314,44.809511294996184 -0.524071200406216,44.809603518178278 -0.524035004170123,44.809571427397728 -0.523956368979211,44.809565280037781 -0.523732447115153,44.809549412827316 -0.523180701278462,44.809775126954186 -0.522077621903948,44.810130569636812 -0.520706602995174,44.810119644988461 -0.5202149716174,44.810020069658869 -0.520000095164752,44.809730716637638 -0.51946967192094,44.809496930834037 -0.519384693648272,44.809649687747388 -0.519349202864098,44.810089870620999 -0.519342514825499,44.810492117055745 -0.519496669605385,44.811049049153297 -0.519545677884326,44.811412887471995 -0.519779522459469,44.812162615549667 -0.519961088710547,44.812738545715199 -0.520174927713651,44.813066060542681 -0.520497249367077,44.813451505123851 -0.520573040059606,44.813854793045714 -0.520457796608676,44.814179505541951 -0.520407386504688,44.815520358154629 -0.520705638657119,44.817388177413179 -0.520754448871607,44.817688093580436 -0.520587978991974,44.817801651228308 -0.520391920194412,44.817509809323454 -0.520213011021691,44.817243223510346 -0.519867763500112,44.816607735682567 -0.519736037970195,44.816299652904853 -0.51930095276131,44.816066617614418 -0.519190618133367,44.816142575637123 -0.519293214255727,44.816507026324885 -0.519959599087163,44.817642626474267 -0.519978476597526,44.817671085788952 -0.520280359488632,44.818105585624863 -0.5201889401784,44.818641096747257 -0.519774496907687,44.818810528334907 -0.519415454104674,44.818961166682968 -0.519166303036458,44.819131562666961 -0.519243749475494,44.819342972174354 -0.519491723035716,44.819287118668278 -0.519550310930862,44.819294308228272 -0.519404427223023,44.819360857311025 -0.51845683226666,44.819920029733488</coordinates></LinearRing></outerBoundaryIs></Polygon>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#floirac_test">
+		<SimpleData name="ID_GEOFLA">COMMUNE00000000000003949</SimpleData>
+		<SimpleData name="CODE_COM">065</SimpleData>
+		<SimpleData name="INSEE_COM">33065</SimpleData>
+		<SimpleData name="NOM_COM">BOULIAC</SimpleData>
+		<SimpleData name="STATUT">Commune simple</SimpleData>
+		<SimpleData name="X_CHF_LIEU">423219</SimpleData>
+		<SimpleData name="Y_CHF_LIEU">6418996</SimpleData>
+		<SimpleData name="X_CENTROID">423100</SimpleData>
+		<SimpleData name="Y_CENTROID">6419392</SimpleData>
+		<SimpleData name="Z_MOYEN">41</SimpleData>
+		<SimpleData name="SUPERFICIE">781</SimpleData>
+		<SimpleData name="POPULATION">3228</SimpleData>
+		<SimpleData name="CODE_ARR">2</SimpleData>
+		<SimpleData name="CODE_DEPT">33</SimpleData>
+		<SimpleData name="NOM_DEPT">GIRONDE</SimpleData>
+		<SimpleData name="CODE_REG">75</SimpleData>
+		<SimpleData name="NOM_REG">AQUITAINE-LIMOUSIN-POITOU-CHARENTES</SimpleData>
+		<SimpleData name="id_map">0</SimpleData>
+		<SimpleData name="id_gaspar">33DDTM20010027</SimpleData>
+		<SimpleData name="ID_ZONE">R33200100270002</SimpleData>
+		<SimpleData name="NOM_ZONE">Zone jaune</SimpleData>
+		<SimpleData name="codezone">Zone jaune</SimpleData>
+		<SimpleData name="TYPEREG">02</SimpleData>
+		<SimpleData name="NOM_TYPERE">Prescriptions</SimpleData>
+		<SimpleData name="soumisalea">OUI</SimpleData>
+		<SimpleData name="nomreg">33DDTM20010027_Reglement.pdf</SimpleData>
+		<SimpleData name="lienreg">http://www.donnees.aquitaine.developpement-durable.gouv.fr/DOCUMENTS/SPR/PLAN_PREVENTION_RISQUES/PPRn/33DDTM20010027_Reglement.pdf</SimpleData>
+		<SimpleData name="nomplan">33DDTM20010027_PlanZonage.pdf</SimpleData>
+		<SimpleData name="lienplan">http://www.donnees.aquitaine.developpement-durable.gouv.fr/DOCUMENTS/SPR/PLAN_PREVENTION_RISQUES/PPRn/33DDTM20010027_PlanZonage.pdf</SimpleData>
+		<SimpleData name="srce_geom">IGN, SCAN25</SimpleData>
+		<SimpleData name="srce_annee">2001</SimpleData>
+		<SimpleData name="precision_">DC</SimpleData>
+		<SimpleData name="NOM_PRECIS">Dcamtrique</SimpleData>
+		<SimpleData name="date_maj">2014/10/31</SimpleData>
+	</SchemaData></ExtendedData>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>-0.524220591949727,44.809829669474716 -0.525691596909719,44.811996119941114 -0.525503193128563,44.812189595820918 -0.525018341720787,44.812543523053868 -0.524498086300348,44.812654018054481 -0.524503264873204,44.812754824836006 -0.524445701413398,44.812757338688833 -0.524291847133976,44.812841844826593 -0.524253344431164,44.812791306192125 -0.523077003456985,44.812590757797985 -0.522808486228814,44.812300680629264 -0.522761624074173,44.811783336987077 -0.52313451478835,44.810885770597395 -0.52358132860255,44.810391668803739 -0.524135588498995,44.810012294294587 -0.524220591949727,44.809829669474716</coordinates></LinearRing></outerBoundaryIs></Polygon>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#floirac_test">
+		<SimpleData name="ID_GEOFLA">COMMUNE00000000000003949</SimpleData>
+		<SimpleData name="CODE_COM">065</SimpleData>
+		<SimpleData name="INSEE_COM">33065</SimpleData>
+		<SimpleData name="NOM_COM">BOULIAC</SimpleData>
+		<SimpleData name="STATUT">Commune simple</SimpleData>
+		<SimpleData name="X_CHF_LIEU">423219</SimpleData>
+		<SimpleData name="Y_CHF_LIEU">6418996</SimpleData>
+		<SimpleData name="X_CENTROID">423100</SimpleData>
+		<SimpleData name="Y_CENTROID">6419392</SimpleData>
+		<SimpleData name="Z_MOYEN">41</SimpleData>
+		<SimpleData name="SUPERFICIE">781</SimpleData>
+		<SimpleData name="POPULATION">3228</SimpleData>
+		<SimpleData name="CODE_ARR">2</SimpleData>
+		<SimpleData name="CODE_DEPT">33</SimpleData>
+		<SimpleData name="NOM_DEPT">GIRONDE</SimpleData>
+		<SimpleData name="CODE_REG">75</SimpleData>
+		<SimpleData name="NOM_REG">AQUITAINE-LIMOUSIN-POITOU-CHARENTES</SimpleData>
+		<SimpleData name="id_map">0</SimpleData>
+		<SimpleData name="id_gaspar">33DDTM20010027</SimpleData>
+		<SimpleData name="ID_ZONE">R33200100270003</SimpleData>
+		<SimpleData name="NOM_ZONE">Zone jaune</SimpleData>
+		<SimpleData name="codezone">Zone jaune</SimpleData>
+		<SimpleData name="TYPEREG">02</SimpleData>
+		<SimpleData name="NOM_TYPERE">Prescriptions</SimpleData>
+		<SimpleData name="soumisalea">OUI</SimpleData>
+		<SimpleData name="nomreg">33DDTM20010027_Reglement.pdf</SimpleData>
+		<SimpleData name="lienreg">http://www.donnees.aquitaine.developpement-durable.gouv.fr/DOCUMENTS/SPR/PLAN_PREVENTION_RISQUES/PPRn/33DDTM20010027_Reglement.pdf</SimpleData>
+		<SimpleData name="nomplan">33DDTM20010027_PlanZonage.pdf</SimpleData>
+		<SimpleData name="lienplan">http://www.donnees.aquitaine.developpement-durable.gouv.fr/DOCUMENTS/SPR/PLAN_PREVENTION_RISQUES/PPRn/33DDTM20010027_PlanZonage.pdf</SimpleData>
+		<SimpleData name="srce_geom">IGN, SCAN25</SimpleData>
+		<SimpleData name="srce_annee">2001</SimpleData>
+		<SimpleData name="precision_">DC</SimpleData>
+		<SimpleData name="NOM_PRECIS">Dcamtrique</SimpleData>
+		<SimpleData name="date_maj">2014/10/31</SimpleData>
+	</SchemaData></ExtendedData>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>-0.52116063197664,44.815545102158637 -0.5214808065451,44.814551080331235 -0.522146790824742,44.813668660522922 -0.522697624758105,44.813585338904566 -0.523273463384495,44.813518916447563 -0.52373858470402,44.813661472319197 -0.5236971061285,44.814071864755967 -0.523580049199144,44.814077073512017 -0.523093397227138,44.814051435843673 -0.522568999427513,44.813962925584015 -0.522125190843555,44.814063136980145 -0.52162568628817,44.814608114675558 -0.52161855852396,44.814615500188268 -0.521596903615383,44.814639857320152 -0.521273395801044,44.815683475668763 -0.521358075533535,44.816997998825386 -0.521387414418931,44.817005593505819 -0.52140732555452,44.817480397414663 -0.521763047110764,44.817325795543042 -0.522283266624603,44.816959679748294 -0.522823493114592,44.816845605639017 -0.522872484408111,44.816754680789373 -0.522862028353745,44.816551843414267 -0.522957391828043,44.8164854067657 -0.523286624304596,44.816380991009048 -0.523016863547241,44.816149754030235 -0.522968732858119,44.81608504173964 -0.523030262392804,44.815957641344632 -0.523257459110006,44.815837263178558 -0.523605519963602,44.815821073122436 -0.523670123385685,44.816542249985034 -0.523419522666749,44.816598196790999 -0.523060463037907,44.816747762187561 -0.523083495984626,44.817054449304081 -0.523215899312839,44.817324258367393 -0.523020360943127,44.817495393026597 -0.522745995627141,44.817511672573659 -0.522115545632973,44.817507370313358 -0.521810452316346,44.817657650232974 -0.521588389949313,44.817847884498732 -0.521340747216452,44.817902787262888 -0.521317520682719,44.817653841432815 -0.52116063197664,44.815545102158637</coordinates></LinearRing></outerBoundaryIs></Polygon>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#floirac_test">
+		<SimpleData name="ID_GEOFLA">COMMUNE00000000000003949</SimpleData>
+		<SimpleData name="CODE_COM">065</SimpleData>
+		<SimpleData name="INSEE_COM">33065</SimpleData>
+		<SimpleData name="NOM_COM">BOULIAC</SimpleData>
+		<SimpleData name="STATUT">Commune simple</SimpleData>
+		<SimpleData name="X_CHF_LIEU">423219</SimpleData>
+		<SimpleData name="Y_CHF_LIEU">6418996</SimpleData>
+		<SimpleData name="X_CENTROID">423100</SimpleData>
+		<SimpleData name="Y_CENTROID">6419392</SimpleData>
+		<SimpleData name="Z_MOYEN">41</SimpleData>
+		<SimpleData name="SUPERFICIE">781</SimpleData>
+		<SimpleData name="POPULATION">3228</SimpleData>
+		<SimpleData name="CODE_ARR">2</SimpleData>
+		<SimpleData name="CODE_DEPT">33</SimpleData>
+		<SimpleData name="NOM_DEPT">GIRONDE</SimpleData>
+		<SimpleData name="CODE_REG">75</SimpleData>
+		<SimpleData name="NOM_REG">AQUITAINE-LIMOUSIN-POITOU-CHARENTES</SimpleData>
+		<SimpleData name="id_map">0</SimpleData>
+		<SimpleData name="id_gaspar">33DDTM20010027</SimpleData>
+		<SimpleData name="ID_ZONE">R33200100270004</SimpleData>
+		<SimpleData name="NOM_ZONE">Zone jaune</SimpleData>
+		<SimpleData name="codezone">Zone jaune</SimpleData>
+		<SimpleData name="TYPEREG">02</SimpleData>
+		<SimpleData name="NOM_TYPERE">Prescriptions</SimpleData>
+		<SimpleData name="soumisalea">OUI</SimpleData>
+		<SimpleData name="nomreg">33DDTM20010027_Reglement.pdf</SimpleData>
+		<SimpleData name="lienreg">http://www.donnees.aquitaine.developpement-durable.gouv.fr/DOCUMENTS/SPR/PLAN_PREVENTION_RISQUES/PPRn/33DDTM20010027_Reglement.pdf</SimpleData>
+		<SimpleData name="nomplan">33DDTM20010027_PlanZonage.pdf</SimpleData>
+		<SimpleData name="lienplan">http://www.donnees.aquitaine.developpement-durable.gouv.fr/DOCUMENTS/SPR/PLAN_PREVENTION_RISQUES/PPRn/33DDTM20010027_PlanZonage.pdf</SimpleData>
+		<SimpleData name="srce_geom">IGN, SCAN25</SimpleData>
+		<SimpleData name="srce_annee">2001</SimpleData>
+		<SimpleData name="precision_">DC</SimpleData>
+		<SimpleData name="NOM_PRECIS">Dcamtrique</SimpleData>
+		<SimpleData name="date_maj">2014/10/31</SimpleData>
+	</SchemaData></ExtendedData>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>-0.508721202920029,44.803844239200146 -0.510223797654072,44.803751094024975 -0.511382933221983,44.803760373108986 -0.512122444792038,44.803805195124347 -0.512309528188486,44.804094234956558 -0.512323083083651,44.804128957057522 -0.512466794775094,44.804477910210679 -0.512676352836652,44.805035505452317 -0.512943545502799,44.805421508328337 -0.513299919905275,44.80542358610662 -0.513307024496313,44.805021208212679 -0.513124730319603,44.804541277980981 -0.513130619887223,44.804119452526621 -0.513073312309424,44.804016779229663 -0.51284811225665,44.803615932492868 -0.513165521374636,44.803602775472967 -0.513048209340685,44.803663806183209 -0.513120148367837,44.803800081438808 -0.51322148197465,44.803993421161906 -0.513247006142608,44.804043167766466 -0.513398681440078,44.805484947342272 -0.512832194081173,44.805481002464063 -0.512206680867647,44.804289721854403 -0.512107432972757,44.804160263798558 -0.512015740663074,44.804042048867977 -0.511876313945775,44.803858964454243 -0.509282205987862,44.80388988697095 -0.50874465050851,44.804111982628065 -0.507765108504113,44.804589901685794 -0.507239961742076,44.804603402588057 -0.507641293970989,44.80440131094938 -0.508248281136256,44.804233008342877 -0.508526834624121,44.803986677134574 -0.508721202920029,44.803844239200146</coordinates></LinearRing></outerBoundaryIs></Polygon>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#floirac_test">
+		<SimpleData name="ID_GEOFLA">COMMUNE00000000000003949</SimpleData>
+		<SimpleData name="CODE_COM">065</SimpleData>
+		<SimpleData name="INSEE_COM">33065</SimpleData>
+		<SimpleData name="NOM_COM">BOULIAC</SimpleData>
+		<SimpleData name="STATUT">Commune simple</SimpleData>
+		<SimpleData name="X_CHF_LIEU">423219</SimpleData>
+		<SimpleData name="Y_CHF_LIEU">6418996</SimpleData>
+		<SimpleData name="X_CENTROID">423100</SimpleData>
+		<SimpleData name="Y_CENTROID">6419392</SimpleData>
+		<SimpleData name="Z_MOYEN">41</SimpleData>
+		<SimpleData name="SUPERFICIE">781</SimpleData>
+		<SimpleData name="POPULATION">3228</SimpleData>
+		<SimpleData name="CODE_ARR">2</SimpleData>
+		<SimpleData name="CODE_DEPT">33</SimpleData>
+		<SimpleData name="NOM_DEPT">GIRONDE</SimpleData>
+		<SimpleData name="CODE_REG">75</SimpleData>
+		<SimpleData name="NOM_REG">AQUITAINE-LIMOUSIN-POITOU-CHARENTES</SimpleData>
+		<SimpleData name="id_map">0</SimpleData>
+		<SimpleData name="id_gaspar">33DDTM20010027</SimpleData>
+		<SimpleData name="ID_ZONE">R33200100270008</SimpleData>
+		<SimpleData name="NOM_ZONE">Zone rouge hachure bleue</SimpleData>
+		<SimpleData name="codezone">Zone rouge hachure bleue</SimpleData>
+		<SimpleData name="TYPEREG">02</SimpleData>
+		<SimpleData name="NOM_TYPERE">Prescriptions</SimpleData>
+		<SimpleData name="soumisalea">OUI</SimpleData>
+		<SimpleData name="nomreg">33DDTM20010027_Reglement.pdf</SimpleData>
+		<SimpleData name="lienreg">http://www.donnees.aquitaine.developpement-durable.gouv.fr/DOCUMENTS/SPR/PLAN_PREVENTION_RISQUES/PPRn/33DDTM20010027_Reglement.pdf</SimpleData>
+		<SimpleData name="nomplan">33DDTM20010027_PlanZonage.pdf</SimpleData>
+		<SimpleData name="lienplan">http://www.donnees.aquitaine.developpement-durable.gouv.fr/DOCUMENTS/SPR/PLAN_PREVENTION_RISQUES/PPRn/33DDTM20010027_PlanZonage.pdf</SimpleData>
+		<SimpleData name="srce_geom">IGN, SCAN25</SimpleData>
+		<SimpleData name="srce_annee">2001</SimpleData>
+		<SimpleData name="precision_">DC</SimpleData>
+		<SimpleData name="NOM_PRECIS">Dcamtrique</SimpleData>
+		<SimpleData name="date_maj">2014/10/31</SimpleData>
+	</SchemaData></ExtendedData>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>-0.507127343786483,44.804661040615983 -0.50716337483718,44.804605423724915 -0.507239961742076,44.804603402588057 -0.507765108504113,44.804589901685794 -0.50874465050851,44.804111982628065 -0.509282205987862,44.80388988697095 -0.511876313945775,44.803858964454243 -0.512015740663074,44.804042048867977 -0.509883381582995,44.80426099801344 -0.509835989083914,44.804323048739867 -0.509783096872321,44.804655385760348 -0.509819700451332,44.805198875241544 -0.509865687719187,44.805418443750462 -0.510072488464189,44.805786336154839 -0.510145757170272,44.805913381093852 -0.510337737587543,44.806244579921227 -0.508865881671861,44.806411357273419 -0.508236880960828,44.804695266198415 -0.507851685579623,44.804723826487333 -0.507030233663146,44.804802668169579 -0.507127343786483,44.804661040615983</coordinates></LinearRing></outerBoundaryIs></Polygon>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#floirac_test">
+		<SimpleData name="ID_GEOFLA">COMMUNE00000000000003949</SimpleData>
+		<SimpleData name="CODE_COM">065</SimpleData>
+		<SimpleData name="INSEE_COM">33065</SimpleData>
+		<SimpleData name="NOM_COM">BOULIAC</SimpleData>
+		<SimpleData name="STATUT">Commune simple</SimpleData>
+		<SimpleData name="X_CHF_LIEU">423219</SimpleData>
+		<SimpleData name="Y_CHF_LIEU">6418996</SimpleData>
+		<SimpleData name="X_CENTROID">423100</SimpleData>
+		<SimpleData name="Y_CENTROID">6419392</SimpleData>
+		<SimpleData name="Z_MOYEN">41</SimpleData>
+		<SimpleData name="SUPERFICIE">781</SimpleData>
+		<SimpleData name="POPULATION">3228</SimpleData>
+		<SimpleData name="CODE_ARR">2</SimpleData>
+		<SimpleData name="CODE_DEPT">33</SimpleData>
+		<SimpleData name="NOM_DEPT">GIRONDE</SimpleData>
+		<SimpleData name="CODE_REG">75</SimpleData>
+		<SimpleData name="NOM_REG">AQUITAINE-LIMOUSIN-POITOU-CHARENTES</SimpleData>
+		<SimpleData name="id_map">0</SimpleData>
+		<SimpleData name="id_gaspar">33DDTM20010027</SimpleData>
+		<SimpleData name="ID_ZONE">R33200100270009</SimpleData>
+		<SimpleData name="NOM_ZONE">Zone rouge hachure bleue</SimpleData>
+		<SimpleData name="codezone">Zone rouge hachure bleue</SimpleData>
+		<SimpleData name="TYPEREG">02</SimpleData>
+		<SimpleData name="NOM_TYPERE">Prescriptions</SimpleData>
+		<SimpleData name="soumisalea">OUI</SimpleData>
+		<SimpleData name="nomreg">33DDTM20010027_Reglement.pdf</SimpleData>
+		<SimpleData name="lienreg">http://www.donnees.aquitaine.developpement-durable.gouv.fr/DOCUMENTS/SPR/PLAN_PREVENTION_RISQUES/PPRn/33DDTM20010027_Reglement.pdf</SimpleData>
+		<SimpleData name="nomplan">33DDTM20010027_PlanZonage.pdf</SimpleData>
+		<SimpleData name="lienplan">http://www.donnees.aquitaine.developpement-durable.gouv.fr/DOCUMENTS/SPR/PLAN_PREVENTION_RISQUES/PPRn/33DDTM20010027_PlanZonage.pdf</SimpleData>
+		<SimpleData name="srce_geom">IGN, SCAN25</SimpleData>
+		<SimpleData name="srce_annee">2001</SimpleData>
+		<SimpleData name="precision_">DC</SimpleData>
+		<SimpleData name="NOM_PRECIS">Dcamtrique</SimpleData>
+		<SimpleData name="date_maj">2014/10/31</SimpleData>
+	</SchemaData></ExtendedData>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>-0.506675202972898,44.810388258190322 -0.507118126258423,44.810292319490941 -0.507182475461536,44.81036179339231 -0.507477472361367,44.810639725690635 -0.50882141885792,44.810205016087579 -0.508938893864627,44.809896737242028 -0.509949152772795,44.80967793502051 -0.509620885457358,44.810940254213683 -0.509129904483353,44.811312803950642 -0.508689223610295,44.811645792318615 -0.507529819989554,44.812037739278331 -0.507378079856439,44.811335264752913 -0.506947784924252,44.810702977527008 -0.506675202972898,44.810388258190322</coordinates></LinearRing></outerBoundaryIs></Polygon>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#floirac_test">
+		<SimpleData name="ID_GEOFLA">COMMUNE00000000000003949</SimpleData>
+		<SimpleData name="CODE_COM">065</SimpleData>
+		<SimpleData name="INSEE_COM">33065</SimpleData>
+		<SimpleData name="NOM_COM">BOULIAC</SimpleData>
+		<SimpleData name="STATUT">Commune simple</SimpleData>
+		<SimpleData name="X_CHF_LIEU">423219</SimpleData>
+		<SimpleData name="Y_CHF_LIEU">6418996</SimpleData>
+		<SimpleData name="X_CENTROID">423100</SimpleData>
+		<SimpleData name="Y_CENTROID">6419392</SimpleData>
+		<SimpleData name="Z_MOYEN">41</SimpleData>
+		<SimpleData name="SUPERFICIE">781</SimpleData>
+		<SimpleData name="POPULATION">3228</SimpleData>
+		<SimpleData name="CODE_ARR">2</SimpleData>
+		<SimpleData name="CODE_DEPT">33</SimpleData>
+		<SimpleData name="NOM_DEPT">GIRONDE</SimpleData>
+		<SimpleData name="CODE_REG">75</SimpleData>
+		<SimpleData name="NOM_REG">AQUITAINE-LIMOUSIN-POITOU-CHARENTES</SimpleData>
+		<SimpleData name="id_map">0</SimpleData>
+		<SimpleData name="id_gaspar">33DDTM20010027</SimpleData>
+		<SimpleData name="ID_ZONE">R33200100270015</SimpleData>
+		<SimpleData name="NOM_ZONE">Zone rouge hachure bleue liser rouge</SimpleData>
+		<SimpleData name="codezone">Zone rouge hachure bleue liser rouge</SimpleData>
+		<SimpleData name="TYPEREG">02</SimpleData>
+		<SimpleData name="NOM_TYPERE">Prescriptions</SimpleData>
+		<SimpleData name="soumisalea">OUI</SimpleData>
+		<SimpleData name="nomreg">33DDTM20010027_Reglement.pdf</SimpleData>
+		<SimpleData name="lienreg">http://www.donnees.aquitaine.developpement-durable.gouv.fr/DOCUMENTS/SPR/PLAN_PREVENTION_RISQUES/PPRn/33DDTM20010027_Reglement.pdf</SimpleData>
+		<SimpleData name="nomplan">33DDTM20010027_PlanZonage.pdf</SimpleData>
+		<SimpleData name="lienplan">http://www.donnees.aquitaine.developpement-durable.gouv.fr/DOCUMENTS/SPR/PLAN_PREVENTION_RISQUES/PPRn/33DDTM20010027_PlanZonage.pdf</SimpleData>
+		<SimpleData name="srce_geom">IGN, SCAN25</SimpleData>
+		<SimpleData name="srce_annee">2001</SimpleData>
+		<SimpleData name="precision_">DC</SimpleData>
+		<SimpleData name="NOM_PRECIS">Dcamtrique</SimpleData>
+		<SimpleData name="date_maj">2014/10/31</SimpleData>
+	</SchemaData></ExtendedData>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>-0.517861624654197,44.804894325443883 -0.516976043621449,44.805113027797844 -0.51597325006297,44.803514007510238 -0.516035474611741,44.803507167104286 -0.51613097043273,44.803625399040634 -0.516465786855396,44.80362909531933 -0.516689320914019,44.803718127543078 -0.516710438949919,44.803824782848807 -0.516754236867381,44.804026842822616 -0.51686289777728,44.80416738045907 -0.517121244587524,44.804326656492222 -0.517264395930571,44.804490009784246 -0.517392685966689,44.804701152628432 -0.517568066559387,44.804876051411377 -0.517861429853453,44.804891214623595 -0.517861624654197,44.804894325443883</coordinates></LinearRing></outerBoundaryIs></Polygon>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#floirac_test">
+		<SimpleData name="ID_GEOFLA">COMMUNE00000000000003949</SimpleData>
+		<SimpleData name="CODE_COM">065</SimpleData>
+		<SimpleData name="INSEE_COM">33065</SimpleData>
+		<SimpleData name="NOM_COM">BOULIAC</SimpleData>
+		<SimpleData name="STATUT">Commune simple</SimpleData>
+		<SimpleData name="X_CHF_LIEU">423219</SimpleData>
+		<SimpleData name="Y_CHF_LIEU">6418996</SimpleData>
+		<SimpleData name="X_CENTROID">423100</SimpleData>
+		<SimpleData name="Y_CENTROID">6419392</SimpleData>
+		<SimpleData name="Z_MOYEN">41</SimpleData>
+		<SimpleData name="SUPERFICIE">781</SimpleData>
+		<SimpleData name="POPULATION">3228</SimpleData>
+		<SimpleData name="CODE_ARR">2</SimpleData>
+		<SimpleData name="CODE_DEPT">33</SimpleData>
+		<SimpleData name="NOM_DEPT">GIRONDE</SimpleData>
+		<SimpleData name="CODE_REG">75</SimpleData>
+		<SimpleData name="NOM_REG">AQUITAINE-LIMOUSIN-POITOU-CHARENTES</SimpleData>
+		<SimpleData name="id_map">0</SimpleData>
+		<SimpleData name="id_gaspar">33DDTM20010037</SimpleData>
+		<SimpleData name="ID_ZONE">R33200100370009</SimpleData>
+		<SimpleData name="NOM_ZONE">Zone rouge hachure bleue</SimpleData>
+		<SimpleData name="codezone">Zone rouge hachure bleue</SimpleData>
+		<SimpleData name="TYPEREG">02</SimpleData>
+		<SimpleData name="NOM_TYPERE">Prescriptions</SimpleData>
+		<SimpleData name="soumisalea">OUI</SimpleData>
+		<SimpleData name="nomreg">33DDTM20010037_Reglement.pdf</SimpleData>
+		<SimpleData name="lienreg">http://www.donnees.aquitaine.developpement-durable.gouv.fr/DOCUMENTS/SPR/PLAN_PREVENTION_RISQUES/PPRn/33DDTM20010037_Reglement.pdf</SimpleData>
+		<SimpleData name="nomplan">33DDTM20010037_PlanZonage.pdf</SimpleData>
+		<SimpleData name="lienplan">http://www.donnees.aquitaine.developpement-durable.gouv.fr/DOCUMENTS/SPR/PLAN_PREVENTION_RISQUES/PPRn/33DDTM20010037_PlanZonage.pdf</SimpleData>
+		<SimpleData name="srce_geom">IGN, SCAN25</SimpleData>
+		<SimpleData name="srce_annee">2001</SimpleData>
+		<SimpleData name="precision_">DC</SimpleData>
+		<SimpleData name="NOM_PRECIS">Dcamtrique</SimpleData>
+		<SimpleData name="date_maj">2014/10/31</SimpleData>
+	</SchemaData></ExtendedData>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>-0.51317632796123,44.803597122365836 -0.517242017073627,44.80343112410052 -0.517244698569879,44.803432239850856 -0.517242247997421,44.803432923191316 -0.513165521374636,44.803602775472967 -0.51317632796123,44.803597122365836</coordinates></LinearRing></outerBoundaryIs></Polygon>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#floirac_test">
+		<SimpleData name="ID_GEOFLA">COMMUNE00000000000003949</SimpleData>
+		<SimpleData name="CODE_COM">065</SimpleData>
+		<SimpleData name="INSEE_COM">33065</SimpleData>
+		<SimpleData name="NOM_COM">BOULIAC</SimpleData>
+		<SimpleData name="STATUT">Commune simple</SimpleData>
+		<SimpleData name="X_CHF_LIEU">423219</SimpleData>
+		<SimpleData name="Y_CHF_LIEU">6418996</SimpleData>
+		<SimpleData name="X_CENTROID">423100</SimpleData>
+		<SimpleData name="Y_CENTROID">6419392</SimpleData>
+		<SimpleData name="Z_MOYEN">41</SimpleData>
+		<SimpleData name="SUPERFICIE">781</SimpleData>
+		<SimpleData name="POPULATION">3228</SimpleData>
+		<SimpleData name="CODE_ARR">2</SimpleData>
+		<SimpleData name="CODE_DEPT">33</SimpleData>
+		<SimpleData name="NOM_DEPT">GIRONDE</SimpleData>
+		<SimpleData name="CODE_REG">75</SimpleData>
+		<SimpleData name="NOM_REG">AQUITAINE-LIMOUSIN-POITOU-CHARENTES</SimpleData>
+		<SimpleData name="id_map">0</SimpleData>
+		<SimpleData name="id_gaspar">33DDTM20010037</SimpleData>
+		<SimpleData name="ID_ZONE">R33200100370008</SimpleData>
+		<SimpleData name="NOM_ZONE">Zone rouge</SimpleData>
+		<SimpleData name="codezone">Zone rouge</SimpleData>
+		<SimpleData name="TYPEREG">03</SimpleData>
+		<SimpleData name="NOM_TYPERE">Interdiction</SimpleData>
+		<SimpleData name="soumisalea">OUI</SimpleData>
+		<SimpleData name="nomreg">33DDTM20010037_Reglement.pdf</SimpleData>
+		<SimpleData name="lienreg">http://www.donnees.aquitaine.developpement-durable.gouv.fr/DOCUMENTS/SPR/PLAN_PREVENTION_RISQUES/PPRn/33DDTM20010037_Reglement.pdf</SimpleData>
+		<SimpleData name="nomplan">33DDTM20010037_PlanZonage.pdf</SimpleData>
+		<SimpleData name="lienplan">http://www.donnees.aquitaine.developpement-durable.gouv.fr/DOCUMENTS/SPR/PLAN_PREVENTION_RISQUES/PPRn/33DDTM20010037_PlanZonage.pdf</SimpleData>
+		<SimpleData name="srce_geom">IGN, SCAN25</SimpleData>
+		<SimpleData name="srce_annee">2001</SimpleData>
+		<SimpleData name="precision_">DC</SimpleData>
+		<SimpleData name="NOM_PRECIS">Dcamtrique</SimpleData>
+		<SimpleData name="date_maj">2014/10/31</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-0.523881516808996,44.806193398043 -0.524069361762767,44.806233471332433 -0.523884028002879,44.806195973304824 -0.523881516808996,44.806193398043</coordinates></LinearRing></outerBoundaryIs></Polygon><Polygon><outerBoundaryIs><LinearRing><coordinates>-0.52407265318334,44.806234137272511 -0.526565960954014,44.806144035525293 -0.526564829120968,44.806146811531676 -0.524076347904595,44.806234884810664 -0.52407265318334,44.806234137272511</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#floirac_test">
+		<SimpleData name="ID_GEOFLA">COMMUNE00000000000003949</SimpleData>
+		<SimpleData name="CODE_COM">065</SimpleData>
+		<SimpleData name="INSEE_COM">33065</SimpleData>
+		<SimpleData name="NOM_COM">BOULIAC</SimpleData>
+		<SimpleData name="STATUT">Commune simple</SimpleData>
+		<SimpleData name="X_CHF_LIEU">423219</SimpleData>
+		<SimpleData name="Y_CHF_LIEU">6418996</SimpleData>
+		<SimpleData name="X_CENTROID">423100</SimpleData>
+		<SimpleData name="Y_CENTROID">6419392</SimpleData>
+		<SimpleData name="Z_MOYEN">41</SimpleData>
+		<SimpleData name="SUPERFICIE">781</SimpleData>
+		<SimpleData name="POPULATION">3228</SimpleData>
+		<SimpleData name="CODE_ARR">2</SimpleData>
+		<SimpleData name="CODE_DEPT">33</SimpleData>
+		<SimpleData name="NOM_DEPT">GIRONDE</SimpleData>
+		<SimpleData name="CODE_REG">75</SimpleData>
+		<SimpleData name="NOM_REG">AQUITAINE-LIMOUSIN-POITOU-CHARENTES</SimpleData>
+		<SimpleData name="id_map">0</SimpleData>
+		<SimpleData name="id_gaspar">33DDTM20010027</SimpleData>
+		<SimpleData name="ID_ZONE">R33200100270007</SimpleData>
+		<SimpleData name="NOM_ZONE">Zone rouge hachure bleue</SimpleData>
+		<SimpleData name="codezone">Zone rouge hachure bleue</SimpleData>
+		<SimpleData name="TYPEREG">02</SimpleData>
+		<SimpleData name="NOM_TYPERE">Prescriptions</SimpleData>
+		<SimpleData name="soumisalea">OUI</SimpleData>
+		<SimpleData name="nomreg">33DDTM20010027_Reglement.pdf</SimpleData>
+		<SimpleData name="lienreg">http://www.donnees.aquitaine.developpement-durable.gouv.fr/DOCUMENTS/SPR/PLAN_PREVENTION_RISQUES/PPRn/33DDTM20010027_Reglement.pdf</SimpleData>
+		<SimpleData name="nomplan">33DDTM20010027_PlanZonage.pdf</SimpleData>
+		<SimpleData name="lienplan">http://www.donnees.aquitaine.developpement-durable.gouv.fr/DOCUMENTS/SPR/PLAN_PREVENTION_RISQUES/PPRn/33DDTM20010027_PlanZonage.pdf</SimpleData>
+		<SimpleData name="srce_geom">IGN, SCAN25</SimpleData>
+		<SimpleData name="srce_annee">2001</SimpleData>
+		<SimpleData name="precision_">DC</SimpleData>
+		<SimpleData name="NOM_PRECIS">Dcamtrique</SimpleData>
+		<SimpleData name="date_maj">2014/10/31</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-0.517244698569879,44.803432239850856 -0.518031948635293,44.803759803959899 -0.518062968918885,44.804076569187522 -0.518069689869794,44.804202202322962 -0.518074825567687,44.804302085042451 -0.518030736088564,44.804744570483408 -0.517871742284713,44.804891973253959 -0.517870216498414,44.804892021679017 -0.517861429853453,44.804891214623595 -0.517568066559387,44.804876051411377 -0.517392685966689,44.804701152628432 -0.517264395930571,44.804490009784246 -0.517121244587524,44.804326656492222 -0.51686289777728,44.80416738045907 -0.516754236867381,44.804026842822616 -0.516710438949919,44.803824782848807 -0.516689320914019,44.803718127543078 -0.516465786855396,44.80362909531933 -0.51613097043273,44.803625399040634 -0.516035474611741,44.803507167104286 -0.51597325006297,44.803514007510238 -0.516976043621449,44.805113027797844 -0.516913256055331,44.805129217440957 -0.515776680016111,44.803601485849605 -0.513591853370837,44.803764175280151 -0.513120148367837,44.803800081438808 -0.513048209340685,44.803663806183209 -0.513165521374636,44.803602775472967 -0.517242247997421,44.803432923191316 -0.517244698569879,44.803432239850856</coordinates></LinearRing></outerBoundaryIs></Polygon><Polygon><outerBoundaryIs><LinearRing><coordinates>-0.520263305019822,44.804688190274874 -0.520862901650481,44.804937647817141 -0.522414864520615,44.807120139505294 -0.521837833347989,44.807311519112616 -0.521787272476551,44.807226191057929 -0.521770533147345,44.807128587289235 -0.521916189984465,44.807028920709584 -0.522026999712981,44.806906450668954 -0.522022206128384,44.806811705041447 -0.521700401423182,44.806748931263364 -0.5214741689668,44.806575372318392 -0.521364008108274,44.806375019509851 -0.521385912891646,44.806148692286811 -0.521407723574395,44.805921302244201 -0.521366590179194,44.805767703667584 -0.521264583793044,44.805757953355645 -0.52083861575504,44.805645235750035 -0.520263305019822,44.804688190274874</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#floirac_test">
+		<SimpleData name="ID_GEOFLA">COMMUNE00000000000003949</SimpleData>
+		<SimpleData name="CODE_COM">065</SimpleData>
+		<SimpleData name="INSEE_COM">33065</SimpleData>
+		<SimpleData name="NOM_COM">BOULIAC</SimpleData>
+		<SimpleData name="STATUT">Commune simple</SimpleData>
+		<SimpleData name="X_CHF_LIEU">423219</SimpleData>
+		<SimpleData name="Y_CHF_LIEU">6418996</SimpleData>
+		<SimpleData name="X_CENTROID">423100</SimpleData>
+		<SimpleData name="Y_CENTROID">6419392</SimpleData>
+		<SimpleData name="Z_MOYEN">41</SimpleData>
+		<SimpleData name="SUPERFICIE">781</SimpleData>
+		<SimpleData name="POPULATION">3228</SimpleData>
+		<SimpleData name="CODE_ARR">2</SimpleData>
+		<SimpleData name="CODE_DEPT">33</SimpleData>
+		<SimpleData name="NOM_DEPT">GIRONDE</SimpleData>
+		<SimpleData name="CODE_REG">75</SimpleData>
+		<SimpleData name="NOM_REG">AQUITAINE-LIMOUSIN-POITOU-CHARENTES</SimpleData>
+		<SimpleData name="id_map">0</SimpleData>
+		<SimpleData name="id_gaspar">33DDTM20010027</SimpleData>
+		<SimpleData name="ID_ZONE">R33200100270005</SimpleData>
+		<SimpleData name="NOM_ZONE">Zone rouge</SimpleData>
+		<SimpleData name="codezone">Zone rouge</SimpleData>
+		<SimpleData name="TYPEREG">03</SimpleData>
+		<SimpleData name="NOM_TYPERE">Interdiction</SimpleData>
+		<SimpleData name="soumisalea">OUI</SimpleData>
+		<SimpleData name="nomreg">33DDTM20010027_Reglement.pdf</SimpleData>
+		<SimpleData name="lienreg">http://www.donnees.aquitaine.developpement-durable.gouv.fr/DOCUMENTS/SPR/PLAN_PREVENTION_RISQUES/PPRn/33DDTM20010027_Reglement.pdf</SimpleData>
+		<SimpleData name="nomplan">33DDTM20010027_PlanZonage.pdf</SimpleData>
+		<SimpleData name="lienplan">http://www.donnees.aquitaine.developpement-durable.gouv.fr/DOCUMENTS/SPR/PLAN_PREVENTION_RISQUES/PPRn/33DDTM20010027_PlanZonage.pdf</SimpleData>
+		<SimpleData name="srce_geom">IGN, SCAN25</SimpleData>
+		<SimpleData name="srce_annee">2001</SimpleData>
+		<SimpleData name="precision_">DC</SimpleData>
+		<SimpleData name="NOM_PRECIS">Dcamtrique</SimpleData>
+		<SimpleData name="date_maj">2014/10/31</SimpleData>
+	</SchemaData></ExtendedData>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>-0.532349365660611,44.816242836610719 -0.531661361602778,44.816396334707726 -0.529096269336067,44.817072711649921 -0.527900786984119,44.815282695638835 -0.527530576221559,44.814728322813046 -0.526616183313055,44.813358955054689 -0.526098876712837,44.812597018711067 -0.525691596909719,44.811996119941114 -0.524220591949727,44.809829669474716 -0.52410926898884,44.809665452694844 -0.52410729357402,44.809658336297986 -0.524101236841116,44.80965231492241 -0.524071200406216,44.809603518178278 -0.524012993550314,44.809511294996184 -0.523304146050087,44.80837057696732 -0.522937684077612,44.807856233047175 -0.522414864520615,44.807120139505294 -0.520862901650481,44.804937647817141 -0.523881325714289,44.806193357276236 -0.523881516808996,44.806193398043 -0.523884028002879,44.806195973304824 -0.524069361762767,44.806233471332433 -0.524072507983716,44.806234142518008 -0.52407265318334,44.806234137272511 -0.524076347904595,44.806234884810664 -0.526564829120968,44.806146811531676 -0.528117976516393,44.809107365390361 -0.528480625067516,44.809843928847933 -0.529739722213905,44.812552541428254 -0.5300136667535,44.812886229533177 -0.530519317566334,44.813473986866839 -0.531013786463009,44.814089146333487 -0.532038601970512,44.815740537230553 -0.532349365660611,44.816242836610719</coordinates></LinearRing></outerBoundaryIs></Polygon>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#floirac_test">
+		<SimpleData name="ID_GEOFLA">COMMUNE00000000000003949</SimpleData>
+		<SimpleData name="CODE_COM">065</SimpleData>
+		<SimpleData name="INSEE_COM">33065</SimpleData>
+		<SimpleData name="NOM_COM">BOULIAC</SimpleData>
+		<SimpleData name="STATUT">Commune simple</SimpleData>
+		<SimpleData name="X_CHF_LIEU">423219</SimpleData>
+		<SimpleData name="Y_CHF_LIEU">6418996</SimpleData>
+		<SimpleData name="X_CENTROID">423100</SimpleData>
+		<SimpleData name="Y_CENTROID">6419392</SimpleData>
+		<SimpleData name="Z_MOYEN">41</SimpleData>
+		<SimpleData name="SUPERFICIE">781</SimpleData>
+		<SimpleData name="POPULATION">3228</SimpleData>
+		<SimpleData name="CODE_ARR">2</SimpleData>
+		<SimpleData name="CODE_DEPT">33</SimpleData>
+		<SimpleData name="NOM_DEPT">GIRONDE</SimpleData>
+		<SimpleData name="CODE_REG">75</SimpleData>
+		<SimpleData name="NOM_REG">AQUITAINE-LIMOUSIN-POITOU-CHARENTES</SimpleData>
+		<SimpleData name="id_map">0</SimpleData>
+		<SimpleData name="id_gaspar">33DDTM20010027</SimpleData>
+		<SimpleData name="ID_ZONE">R33200100270006</SimpleData>
+		<SimpleData name="NOM_ZONE">Zone rouge</SimpleData>
+		<SimpleData name="codezone">Zone rouge</SimpleData>
+		<SimpleData name="TYPEREG">03</SimpleData>
+		<SimpleData name="NOM_TYPERE">Interdiction</SimpleData>
+		<SimpleData name="soumisalea">OUI</SimpleData>
+		<SimpleData name="nomreg">33DDTM20010027_Reglement.pdf</SimpleData>
+		<SimpleData name="lienreg">http://www.donnees.aquitaine.developpement-durable.gouv.fr/DOCUMENTS/SPR/PLAN_PREVENTION_RISQUES/PPRn/33DDTM20010027_Reglement.pdf</SimpleData>
+		<SimpleData name="nomplan">33DDTM20010027_PlanZonage.pdf</SimpleData>
+		<SimpleData name="lienplan">http://www.donnees.aquitaine.developpement-durable.gouv.fr/DOCUMENTS/SPR/PLAN_PREVENTION_RISQUES/PPRn/33DDTM20010027_PlanZonage.pdf</SimpleData>
+		<SimpleData name="srce_geom">IGN, SCAN25</SimpleData>
+		<SimpleData name="srce_annee">2001</SimpleData>
+		<SimpleData name="precision_">DC</SimpleData>
+		<SimpleData name="NOM_PRECIS">Dcamtrique</SimpleData>
+		<SimpleData name="date_maj">2014/10/31</SimpleData>
+	</SchemaData></ExtendedData>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>-0.518031948635293,44.803759803959899 -0.520263305019822,44.804688190274874 -0.52083861575504,44.805645235750035 -0.521264583793044,44.805757953355645 -0.521366590179194,44.805767703667584 -0.521407723574395,44.805921302244201 -0.521385912891646,44.806148692286811 -0.521364008108274,44.806375019509851 -0.5214741689668,44.806575372318392 -0.521700401423182,44.806748931263364 -0.522022206128384,44.806811705041447 -0.522026999712981,44.806906450668954 -0.521916189984465,44.807028920709584 -0.521770533147345,44.807128587289235 -0.521787272476551,44.807226191057929 -0.521837833347989,44.807311519112616 -0.519385157202246,44.80812358508237 -0.518941006674076,44.808587701388184 -0.518969919652439,44.809158201655428 -0.519286463985545,44.809706861371325 -0.519262676017278,44.809781700884926 -0.519195877017959,44.810485691938865 -0.519225228389043,44.810608595964027 -0.519280269618395,44.810638199666222 -0.519390416741176,44.811147722658326 -0.519736419506539,44.812365825831321 -0.519964878670009,44.812896186544798 -0.520055035469137,44.813013359073409 -0.5203958735867,44.813445936468298 -0.520455935686058,44.813658841837544 -0.520467422450555,44.813884370277151 -0.52037443454202,44.814673535438736 -0.520368539191354,44.815209869807646 -0.520321410301278,44.81528219304991 -0.520300266417963,44.81523542545164 -0.520305783626274,44.815711631186602 -0.520459977878304,44.816717091475972 -0.520552908063051,44.817314900877157 -0.520545499497558,44.817451118674057 -0.52054239836657,44.817504890235639 -0.520533863830442,44.817508137500802 -0.520509851609252,44.817464417101313 -0.52006847637222,44.816682888132114 -0.519838423938534,44.816206229957587 -0.519647229513292,44.816094698014133 -0.519270862083292,44.81598687224966 -0.519129913135128,44.816034864056363 -0.519136082936565,44.81615120441618 -0.51910516173167,44.816342786497394 -0.519515880146159,44.817150851483753 -0.519839431267577,44.817725111240613 -0.520074887040549,44.818142797209276 -0.520035251406226,44.818189202169883 -0.519789326753085,44.818247163852483 -0.518898703335614,44.818455760070719 -0.518550902878179,44.818536961626087 -0.517488457625672,44.818786150998292 -0.517248517394608,44.818678996705529 -0.516699802749495,44.81843334708838 -0.515958875539806,44.818332869888586 -0.515616332913634,44.818382946465981 -0.514962095109562,44.818478176898125 -0.514503180896067,44.818629250440516 -0.51331780820555,44.819020731378139 -0.512317656292328,44.819094067738661 -0.511884863799686,44.818818479180543 -0.511596652192,44.818504243939344 -0.51105808450763,44.817861340586894 -0.510935958587135,44.817736666903798 -0.510864029144621,44.817746646759858 -0.510387217815462,44.817258861925701 -0.510422570545004,44.817216779087204 -0.510352379552103,44.817145339763044 -0.510340897825626,44.816578469254196 -0.510188256736077,44.816427713620115 -0.509659628618035,44.816338330993801 -0.509578237833713,44.815825858521976 -0.508658085208347,44.814084227746548 -0.508184027492913,44.813645838313512 -0.507662107997415,44.812641588334593 -0.507529819989554,44.812037739278331 -0.508689223610295,44.811645792318615 -0.509129904483353,44.811312803950642 -0.509620885457358,44.810940254213683 -0.509949152772795,44.80967793502051 -0.508938893864627,44.809896737242028 -0.50882141885792,44.810205016087579 -0.507477472361367,44.810639725690635 -0.507182475461536,44.81036179339231 -0.507118126258423,44.810292319490941 -0.506675202972898,44.810388258190322 -0.506236940081684,44.809883957106308 -0.506087026308913,44.809271193465193 -0.506010028132033,44.809181426333119 -0.505962144724977,44.809010460844668 -0.506013595928934,44.808964753318946 -0.505887171999562,44.808448315754944 -0.506262198426146,44.805938160423217 -0.506958641632494,44.804908759029779 -0.507030233663146,44.804802668169579 -0.507851685579623,44.804723826487333 -0.508236880960828,44.804695266198415 -0.508865881671861,44.806411357273419 -0.510337737587543,44.806244579921227 -0.510145757170272,44.805913381093852 -0.510072488464189,44.805786336154839 -0.509865687719187,44.805418443750462 -0.509819700451332,44.805198875241544 -0.509783096872321,44.804655385760348 -0.509835989083914,44.804323048739867 -0.509883381582995,44.80426099801344 -0.512015740663074,44.804042048867977 -0.512107432972757,44.804160263798558 -0.512206680867647,44.804289721854403 -0.512832194081173,44.805481002464063 -0.513398681440078,44.805484947342272 -0.513247006142608,44.804043167766466 -0.51322148197465,44.803993421161906 -0.513120148367837,44.803800081438808 -0.513591853370837,44.803764175280151 -0.515776680016111,44.803601485849605 -0.516913256055331,44.805129217440957 -0.516976043621449,44.805113027797844 -0.517861624654197,44.804894325443883 -0.517870216498414,44.804892021679017 -0.517871742284713,44.804891973253959 -0.518030736088564,44.804744570483408 -0.518074825567687,44.804302085042451 -0.518069689869794,44.804202202322962 -0.518062968918885,44.804076569187522 -0.518031948635293,44.803759803959899</coordinates></LinearRing></outerBoundaryIs></Polygon>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#floirac_test">
+		<SimpleData name="ID_GEOFLA">COMMUNE00000000000003949</SimpleData>
+		<SimpleData name="CODE_COM">065</SimpleData>
+		<SimpleData name="INSEE_COM">33065</SimpleData>
+		<SimpleData name="NOM_COM">BOULIAC</SimpleData>
+		<SimpleData name="STATUT">Commune simple</SimpleData>
+		<SimpleData name="X_CHF_LIEU">423219</SimpleData>
+		<SimpleData name="Y_CHF_LIEU">6418996</SimpleData>
+		<SimpleData name="X_CENTROID">423100</SimpleData>
+		<SimpleData name="Y_CENTROID">6419392</SimpleData>
+		<SimpleData name="Z_MOYEN">41</SimpleData>
+		<SimpleData name="SUPERFICIE">781</SimpleData>
+		<SimpleData name="POPULATION">3228</SimpleData>
+		<SimpleData name="CODE_ARR">2</SimpleData>
+		<SimpleData name="CODE_DEPT">33</SimpleData>
+		<SimpleData name="NOM_DEPT">GIRONDE</SimpleData>
+		<SimpleData name="CODE_REG">75</SimpleData>
+		<SimpleData name="NOM_REG">AQUITAINE-LIMOUSIN-POITOU-CHARENTES</SimpleData>
+		<SimpleData name="id_map">0</SimpleData>
+		<SimpleData name="id_gaspar">33DDTM20010024</SimpleData>
+		<SimpleData name="ID_ZONE">R33200100240012</SimpleData>
+		<SimpleData name="NOM_ZONE">Zone rouge</SimpleData>
+		<SimpleData name="codezone">Zone rouge</SimpleData>
+		<SimpleData name="TYPEREG">03</SimpleData>
+		<SimpleData name="NOM_TYPERE">Interdiction</SimpleData>
+		<SimpleData name="soumisalea">OUI</SimpleData>
+		<SimpleData name="nomreg">33DDTM20010024_Reglement.pdf</SimpleData>
+		<SimpleData name="lienreg">http://www.donnees.aquitaine.developpement-durable.gouv.fr/DOCUMENTS/SPR/PLAN_PREVENTION_RISQUES/PPRn/33DDTM20010024_Reglement.pdf</SimpleData>
+		<SimpleData name="nomplan">33DDTM20010024_PlanZonage.pdf</SimpleData>
+		<SimpleData name="lienplan">http://www.donnees.aquitaine.developpement-durable.gouv.fr/DOCUMENTS/SPR/PLAN_PREVENTION_RISQUES/PPRn/33DDTM20010024_PlanZonage.pdf</SimpleData>
+		<SimpleData name="srce_geom">IGN, SCAN25</SimpleData>
+		<SimpleData name="srce_annee">2001</SimpleData>
+		<SimpleData name="precision_">DC</SimpleData>
+		<SimpleData name="NOM_PRECIS">Dcamtrique</SimpleData>
+		<SimpleData name="date_maj">2014/10/31</SimpleData>
+	</SchemaData></ExtendedData>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>-0.526565960954014,44.806144035525293 -0.5265683292027,44.806143949916084 -0.528124287882092,44.809109018514462 -0.531014681329024,44.814085465576902 -0.532038601970512,44.815740537230553 -0.531013786463009,44.814089146333487 -0.530519317566334,44.813473986866839 -0.5300136667535,44.812886229533177 -0.529739722213905,44.812552541428254 -0.528480625067516,44.809843928847933 -0.528117976516393,44.809107365390361 -0.526564829120968,44.806146811531676 -0.526565960954014,44.806144035525293</coordinates></LinearRing></outerBoundaryIs></Polygon>
+  </Placemark>
+</Folder>
+<Schema name="floirac_test" id="floirac_test">
+	<SimpleField name="ID_GEOFLA" type="string"></SimpleField>
+	<SimpleField name="CODE_COM" type="string"></SimpleField>
+	<SimpleField name="INSEE_COM" type="string"></SimpleField>
+	<SimpleField name="NOM_COM" type="string"></SimpleField>
+	<SimpleField name="STATUT" type="string"></SimpleField>
+	<SimpleField name="X_CHF_LIEU" type="int"></SimpleField>
+	<SimpleField name="Y_CHF_LIEU" type="int"></SimpleField>
+	<SimpleField name="X_CENTROID" type="int"></SimpleField>
+	<SimpleField name="Y_CENTROID" type="int"></SimpleField>
+	<SimpleField name="Z_MOYEN" type="int"></SimpleField>
+	<SimpleField name="SUPERFICIE" type="float"></SimpleField>
+	<SimpleField name="POPULATION" type="int"></SimpleField>
+	<SimpleField name="CODE_ARR" type="string"></SimpleField>
+	<SimpleField name="CODE_DEPT" type="string"></SimpleField>
+	<SimpleField name="NOM_DEPT" type="string"></SimpleField>
+	<SimpleField name="CODE_REG" type="string"></SimpleField>
+	<SimpleField name="NOM_REG" type="string"></SimpleField>
+	<SimpleField name="id_map" type="int"></SimpleField>
+	<SimpleField name="id_gaspar" type="string"></SimpleField>
+	<SimpleField name="ID_ZONE" type="string"></SimpleField>
+	<SimpleField name="NOM_ZONE" type="string"></SimpleField>
+	<SimpleField name="codezone" type="string"></SimpleField>
+	<SimpleField name="TYPEREG" type="string"></SimpleField>
+	<SimpleField name="NOM_TYPERE" type="string"></SimpleField>
+	<SimpleField name="soumisalea" type="string"></SimpleField>
+	<SimpleField name="nomreg" type="string"></SimpleField>
+	<SimpleField name="lienreg" type="string"></SimpleField>
+	<SimpleField name="nomplan" type="string"></SimpleField>
+	<SimpleField name="lienplan" type="string"></SimpleField>
+	<SimpleField name="srce_geom" type="string"></SimpleField>
+	<SimpleField name="srce_annee" type="int"></SimpleField>
+	<SimpleField name="precision_" type="string"></SimpleField>
+	<SimpleField name="NOM_PRECIS" type="string"></SimpleField>
+	<SimpleField name="OBSERVATIO" type="string"></SimpleField>
+	<SimpleField name="date_maj" type="string"></SimpleField>
+</Schema>
+</Document></kml>
