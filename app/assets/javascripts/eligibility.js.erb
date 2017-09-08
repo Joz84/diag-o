@@ -10,6 +10,7 @@ var address = $('.data-for-js').data('address');
 var center = {lat: 44.80,  lng:-0.51};
 
 function initMap() {
+
   map = new google.maps.Map(document.getElementById('map'), {
     center: center,
     zoom: 15,
@@ -22,9 +23,9 @@ function initMap() {
   google.maps.event.addListenerOnce(map, 'tilesloaded', function(evt) {
     bounds = map.getBounds();
   });
-    marker = new google.maps.Marker({
-      position: center
-    });
+  marker = new google.maps.Marker({
+    position: center
+  });
 
   console.log(address)
 
@@ -41,16 +42,16 @@ function initMap() {
     polygon1.setMap(map);
   }
 
-  var input = address;
-  // var types = document.getElementById('type-selector');
-  // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-  // map.controls[google.maps.ControlPosition.TOP_LEFT].push(types);
+  var input = document.getElementById('pac-input');
+  var types = document.getElementById('type-selector');
+  map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+  map.controls[google.maps.ControlPosition.TOP_LEFT].push(types);
 
   var autocomplete = new google.maps.places.Autocomplete(input);
   autocomplete.addListener('place_changed', function() {
     marker.setMap(null);
     var place = autocomplete.getPlace();
-    var newBounds = new google.maps.LatLngBounds(bounds.getSouthWest(), bounds.getNorthEast()); //Changed
+    var newBounds = new google.maps.LatLngBounds(bounds.getSouthWest(), bounds.getNorthEast());
   // removed newBounds = bounds;
     if (!place.geometry) {
       geocodeAddress(input.value);//Added on 27/09/2016
@@ -63,7 +64,7 @@ function initMap() {
     map.fitBounds(newBounds);
     if (google.maps.geometry.poly.containsLocation(place.geometry.location, polygon1)){
       alert('Votre addresse est en zone ' + zone1.dataset.color);
-      console.log(polygon2.poly.path)
+      console.log(polygon1.poly.path)
     } else {
       alert('The address is outside of the area.');
     };
