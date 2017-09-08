@@ -21,38 +21,11 @@ function initMap() {
       position: center
     });
 
-// ctaLayer = new google.maps.KmlLayer({
-//     url: 'http://res.cloudinary.com/zanzibar/raw/upload/v1504776893/floirac_test_fbetds.kml',
-//     map: map
-//   });
 
-// var zone1 = document.getElementById('zone1');
-// console.log(@ZoneTest)
-
-// var pointslist = $('.data-for-js').data('pointslist')
 var zoneslist = $('.data-for-js').data('zoneslist')
-// var zone = $('.data-for-js').data('zone')
-// var zones = $('.data-for-js').data('zones')
+
 console.log(zoneslist)
-// console.log(zones[0]['colore'])
 
-// var ZoneTest = <%= @array %>
-// console.log(ZoneTest)
-
-// for (i = 0; i < zones.length; i++) {
-
-//   new google.maps.Polygon({
-//       path: pointslist,
-//       geodesic: true,
-//       strokeColor: 'FF0000',
-//       strokeOpacity: 1.0,
-//       strokeWeight: 4,
-//       fillColor: '#FFA500',
-//       fillOpacity: 0.35
-//     });
-
-//     text += cars[i] + "<br>";
-// }
 for (i = 0; i < zoneslist.length; i++) {
   polygon1 = new google.maps.Polygon({
       path: zoneslist[i][0],
@@ -67,20 +40,6 @@ for (i = 0; i < zoneslist.length; i++) {
   polygon1.setMap(map);
 }
 
-
-
-
-// polygon2 = new google.maps.Polygon({
-//     path: areaRouge,
-//     geodesic: true,
-//     strokeColor: '#FF0000',
-//     strokeOpacity: 1.0,
-//     strokeWeight: 4,
-//     fillColor: '#FF0000',
-//     fillOpacity: 0.35
-//   });
-
-  // polygon2.setMap(map);
 
   var input = /** @type {!HTMLInputElement} */(
     document.getElementById('pac-input'));
@@ -106,8 +65,6 @@ for (i = 0; i < zoneslist.length; i++) {
       if (google.maps.geometry.poly.containsLocation(place.geometry.location, polygon1)){
       alert('Votre addresse est en zone ' + zone1.dataset.color);
       console.log(polygon2.poly.path)
-      } else if (google.maps.geometry.poly.containsLocation(place.geometry.location, polygon2)) {
-      alert('Votre addresse est en zone rouge!');
       } else {
       alert('The address is outside of the area.');
       };
@@ -115,19 +72,3 @@ for (i = 0; i < zoneslist.length; i++) {
 }
 
 var center = new google.maps.LatLng({ lat: 44.803432239850856,  lng:-0.517244698569879 });
-
-
-// var areaOrange = [
-//  { lat: 44.80359712236584, lng: -0.51317632796123 },
-//  { lat: 44.80343112410052,  lng:-0.517242017073627 },
-//  { lat: 44.803432239850856, lng:-0.517244698569879 },
-//  { lat: 44.803432923191316,  lng:-0.517242247997421 },
-//  { lat: 44.7917,  lng:-0.5161 },
-//  { lat: 44.7928,  lng:-0.5007 },
-// ];
-
-  var areaRouge = [
-   { lat: 44.803432239850856,  lng:-0.517244698569879 },
-   { lat: 44.8037598039599,  lng:-0.518031948635293 },
-   { lat: 44.80407656918752,  lng:-0.518062968918885 },
-  ];
