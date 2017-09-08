@@ -3,7 +3,12 @@
       data-color="<%= @color %>"
       data-area="<%= @area_orange %>"></div>
 <!-- fin du bout de code -->
+<!-- Test -->
+<%#= content_tag 'div', class: "data-for-js", data: {pointslist: @pointslist} do %>
+<%= content_tag 'div', class: "data-for-js", data: {zoneslist: @zoneslist} do %>
 
+<% end %>
+<!-- Fin Test -->
 
 <input id="pac-input" class="controls" type="text" placeholder="Enter a location">
 <div class="container-fluid">
@@ -27,9 +32,3 @@
     </div>
   </div>
 </div>
-
-<% content_for(:js) do %>
-  <%= javascript_tag do %>
-      console.log(@Zone1Array)
-  <% end %>
-<% end %>
