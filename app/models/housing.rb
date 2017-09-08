@@ -1,5 +1,5 @@
 class Housing < ApplicationRecord
-  belongs_to :booking
+  has_many :bookings
   has_many :user_housings
   has_many :users, through: :user_housings
 
