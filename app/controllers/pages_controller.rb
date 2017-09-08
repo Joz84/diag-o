@@ -6,7 +6,6 @@ class PagesController < ApplicationController
   end
 
   def eligibility
-
     @address = params[:query][:address]
 
     @town = Town.first

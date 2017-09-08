@@ -4,15 +4,15 @@ var marker;
 var bounds;
 var eligibility = false;
 
+// if ($('#map').length) {
 window.onload = initMap;
+// }
 
 var zoneslist = $('.data-for-js').data('zoneslist');
 var address = $('.data-for-js').data('address');
 var center = {lat: 44.80,  lng:-0.51};
 
 function initMap() {
-
-  $('#zone').html('--');;
 
   map = new google.maps.Map(document.getElementById('map'), {
     center: center,
@@ -64,7 +64,7 @@ function initMap() {
     marker.setPosition(place.geometry.location);
     marker.setMap(map);
     map.setCenter(marker.getPosition());
-    map.setZoom(12);
+    map.setZoom(17);
     map.panTo(marker.position);
 
     for (i = 0; i < zoneslist.length; i++) {
@@ -74,25 +74,32 @@ function initMap() {
         });
       switch(zoneslist[i][1]) {
           case "#D0021B":
-              color = "rouge"
+              color_name = "rouge"
               break;
           case "#F5A623":
-              color = "orange"
+              color_name = "orange"
               break;
           case "#F8E71C":
-              color = "jaune"
+              color_name = "jaune"
               break;
           default:
-              color = "jaune mineur"
+              color_name = "jaune mineur"
       }
+      $('#address').html(place["formatted_address"]);
+
       if (google.maps.geometry.poly.containsLocation(place.geometry.location, polygon)){
-        console.log('Votre addresse est en zone ' + color) ;
-        $('#zone').html('Votre addresse est en zone ' + '<span style="color:' + zoneslist[i][1] + '">' + color + '</span>');
+        $('#zone').html('Votre habitation est en zone ' + '<span style="color:' + zoneslist[i][1] + '">' + color_name + '</span>');
+        $('#conclusion').html('<span style="color:green">Vous êtes élligible, le diagnostic de votre habitation sera prise en charge à 100% par votre mairie.</span>');
+        $('#calltoaction').html('Planifiez un rendez-vous avec un diagnosticien dés maintenant.');
         eligibility = true;
       };
     }
     if (eligibility == false){
-      console.log("Vous n'êtes pas élligible");
+        console.log(place);
+        $('#zone').html('Votre habitation n\'est pas en zone désignée inondable');
+        $('#conclusion').html('<span style="color:red">Vous n\'êtes pas élligible, le diagnostic de votre habitation ne sera pas prise en charge.</span>');
+        $('#calltoaction').html('Le rendez-vous avec le diagnosticien sera à votre charge.');
+
     }
 
 

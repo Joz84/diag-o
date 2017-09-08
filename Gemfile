@@ -18,6 +18,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'json'
 
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
