@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :bookings
   has_many :user_housings
   has_many :housings, through: :user_housings
+  has_one :calendar, :dependent => :destroy
 
  enum role: [ :client, :diagnostician ]
 
