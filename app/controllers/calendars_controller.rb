@@ -1,6 +1,5 @@
 class CalendarsController < ApplicationController
-def create
-
+  def create
     @calendar = current_user.calendar
     @newbooking = @calendar.bookings.build(booking_params) #creates event in creator's calendar
 
@@ -16,7 +15,6 @@ def create
       redirect_to '/main' #'/main/#{@calendar.id}'
     else
       redirect_to '/compose'
-      end
-
+    end
   end
 end
