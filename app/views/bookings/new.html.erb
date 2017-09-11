@@ -1,0 +1,7 @@
+<%= month_calendar do |date| %>
+  <%= date %>
+  <%= simple_form_for :new_booking, url: bookings_path, method: :post  do |f| %>
+    <%= f.input_field :date, value: "#{date}", as: :hidden %>
+    <%= f.button :submit %>
+  <% end %>
+<% end %>

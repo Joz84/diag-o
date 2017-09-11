@@ -1,0 +1,7 @@
+<% @bookings.each do |booking| %>
+  <h1><%= booking.comment %></h1>
+  <h1><%= booking.set_at %></h1>
+  <p><%= current_user.bookings.count %></p>
+<% end %>
+
+
