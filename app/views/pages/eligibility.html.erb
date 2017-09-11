@@ -2,32 +2,31 @@
 <div  id="zone1"
       data-color="<%= @color %>"
       data-area="<%= @area_orange %>"></div>
-<!-- fin du bout de code -->
-<!-- Test -->
-<%#= content_tag 'div', class: "data-for-js", data: {pointslist: @pointslist} do %>
-<%= content_tag 'div', class: "data-for-js", data: {zoneslist: @zoneslist} do %>
 
+<%= content_tag 'div', class: "data-for-js", data: {zoneslist: @zoneslist, address: @address} do %>
 <% end %>
-<!-- Fin Test -->
 
-<input id="pac-input" class="controls" type="text" placeholder="Enter a location">
+
 <div class="container-fluid">
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-6">
-      <div id="map">
-
+      <div class="map-wrapper">
+        <input id="pac-input" class="controls" type="text" placeholder="Entrer une adresse">
+        <div id="map">
+        </div>
       </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-6">
       <div class="report">
           <h4 class="margin-bottom-small underline">Rapport d'élligibilité</h4>
           <h6>Adresse de l'habitation concernée:</h6>
-          <h3><%= @address %></h3>
-          <h6>Coordonnées:</h6>
-          <h3><%= @address %></h3>
+          <h4 id="address">--</h4>
+          <h6>Situation:</h6>
+          <h4 id="zone">--</h4>
           <h6>Éligibilité:</h6>
-          <h4 class="green margin-bottom-small">Vous êtes élligible, le diagnostic de votre habitation sera prise en charge à 100% par votre mairie</h4>
-          <%= link_to "Planifier un rendez-vous", root_path , class: "btn btn-default btn-green "  %>
+          <h4 class="margin-bottom-small" id="conclusion">--</h4>
+          <h4 class="margin-bottom-small" id="calltoaction">--</h4>
+          <%= link_to "Prendre un rendez-vous", root_path , class: "btn btn-default btn-green "  %>
       </div>
     </div>
   </div>

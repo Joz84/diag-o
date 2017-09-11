@@ -14,10 +14,10 @@ User.create!(email: "test2@test", password: "test23453", first_name: "DiagoMax",
 User.create!(email: "test3@test.vm", password: "test35678", first_name: "DiagoSam", last_name: "Cha", address: "Floirac", phone:"06 11 22 33 44", role:1)
 
 #Housings
-Housing.create!(address:"Bouliac", created_at:"01-01-2017", updated_at:"01-01-2017")
+housing = Housing.create!(address:"Bouliac", created_at:"01-01-2017", updated_at:"01-01-2017")
 
 #Bookings
-Booking.create!(user_id:"1", housing_id:"", set_at:"01-01-2017", comment:"Booking is OK", confirmed_at:"02-01-2017")
+Booking.create!(user_id:"1", housing_id: housing.id, set_at:"01-01-2017", comment:"Booking is OK", confirmed_at:"02-01-2017")
 
 
 serialized_file = File.read(Rails.root.join('lib', 'seeds', 'floirac_test.json'))
@@ -35,14 +35,20 @@ floirac_zones.each do |zone|
   end
 
   town_id = Town.find_by_zipcode(zipcode).id
-  colore = z["codezone"]
+
+  case z["codezone"]
+    when "Zone rouge hachure bleue liser rouge" then color = "#D0021B"
+    when "Zone rouge hachure bleue" then color = "#F5A623"
+    when "Zone jaune" then color = "#F8E71C"
+    else color = "#FFF9AC"
+  end
+
   id_zone = z["ID_ZONE"]
 
   g = zone["geometry"]["coordinates"]
-  h =
 
   if zone["geometry"]["type"] == "Polygon"
-    Zone.create!(town_id: town_id, colore: colore, id_zone: id_zone)
+    Zone.create!(town_id: town_id, color: color, id_zone: id_zone)
     puts "Zone Polygone créée avec l'id: #{Zone.last.id_zone}"
 
       g[0].each do |point|
@@ -55,7 +61,7 @@ floirac_zones.each do |zone|
   elsif zone["geometry"]["type"] == "MultiPolygon"
     g.each_with_index do |polygon, index|
       id_zone = z["ID_ZONE"] + "-#{index+1}"
-      Zone.create!(town_id: town_id, colore: colore, id_zone: id_zone)
+      Zone.create!(town_id: town_id, color: color, id_zone: id_zone)
       puts "Zone Multipolygone créée avec l'id: #{Zone.last.id_zone}"
 
       g[index].each do |poly|
