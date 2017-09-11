@@ -7,20 +7,15 @@ class PagesController < ApplicationController
 
   def eligibility
     @address = params[:query][:address]
-  end
 
-  def eligibility
-    @array = []
-    @ZoneTest = Zone.first.points.each do |p|
-      h = {}
-      h['lat'] = p.lat
-      h['lng'] = p.lng
-      @array << h
+    @town = Town.first
+    @zoneslist = @town.zones.map do |zone|
+      zoneinfos = []
+      zoneinfos << zone.points.map do |point|
+        {'lat' => point.lat.to_f, 'lng' => point.lng.to_f}
+      end
+      zoneinfos << zone.color
+      zoneinfos
     end
   end
 end
-
-
-
-
-

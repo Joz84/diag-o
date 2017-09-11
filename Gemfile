@@ -19,6 +19,7 @@ gem 'uglifier'
 gem 'json'
 gem "simple_calendar", "~> 2.0"
 
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
