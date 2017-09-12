@@ -1,0 +1,8 @@
+<%= month_calendar do |date| %>
+  <%= date %>
+    <% @bookings.each do |booking| %>
+      <% if booking.set_at == date %>
+        <p><%= booking.comment %></p>
+      <% end %>
+    <% end %>
+<% end %>

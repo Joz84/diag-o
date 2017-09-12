@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20170908132126) do
-
+ActiveRecord::Schema.define(version: 20170912074039) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,15 +23,9 @@ ActiveRecord::Schema.define(version: 20170908132126) do
     t.datetime "confirmed_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "calendar_id"
-    t.index ["calendar_id"], name: "index_bookings_on_calendar_id"
+    t.string "start_hour"
     t.index ["housing_id"], name: "index_bookings_on_housing_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
-  end
-
-  create_table "calendars", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "housings", force: :cascade do |t|
@@ -99,7 +91,6 @@ ActiveRecord::Schema.define(version: 20170908132126) do
     t.index ["town_id"], name: "index_zones_on_town_id"
   end
 
-  add_foreign_key "bookings", "calendars"
   add_foreign_key "bookings", "housings"
   add_foreign_key "bookings", "users"
   add_foreign_key "points", "zones"
