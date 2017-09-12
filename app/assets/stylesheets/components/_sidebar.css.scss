@@ -1,0 +1,27 @@
+.sidebar {
+  position: fixed;
+  width: 200px;
+  height: calc(100vh - 70px);;
+  background-color: $blue-gray;
+
+}
+.sidebar-button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 70px;
+  padding: 0 0 0 15px;
+  border-bottom: 1px solid #454C70;
+  p {
+    color: white;
+    margin: 0px;
+  }
+  .fa {
+    margin-right: 5px;
+  }
+  &:hover {
+    background-color: $dark-blue-gray;
+    cursor: pointer;
+  }
+
+}

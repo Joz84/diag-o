@@ -1,13 +1,11 @@
 <%= month_calendar do |date| %>
-  <%= date %>
-    <!-- Afficher le bouton uniquement si la date et la demi journée ne sont pas bookés -->
-    <!-- si aucun booking n'existe avec cette date et cette demi journée -->
+  <%= date.day %>
     <% if Booking.where(set_at: date, start_hour: "8").count == 0 %>
       <%= render "shared/button_with_data", form_name: "data_form",
                                               path: bookings_path,
                                               value1: "#{date}",
                                               value2: "8",
-                                              button_text: "Réserver cette matinée"
+                                              button_text: "matinée"
                                               %>
     <% end %>
     <% if Booking.where(set_at: date, start_hour: "14").count == 0 %>
@@ -15,7 +13,7 @@
                                             path: bookings_path,
                                             value1: "#{date}",
                                             value2: "14",
-                                            button_text: "Réserver cette aprés-midi"
+                                            button_text: "aprés-midi"
                                             %>
     <% end %>
 <% end %>
