@@ -1,7 +1,8 @@
-<% @bookings.each do |booking| %>
-  <h1><%= booking.comment %></h1>
-  <h1><%= booking.set_at %></h1>
-  <p><%= current_user.bookings.count %></p>
+<%= month_calendar do |date| %>
+  <%= date %>
+    <% @bookings.each do |booking| %>
+      <% if booking.set_at == date %>
+        <p><%= booking.comment %></p>
+      <% end %>
+    <% end %>
 <% end %>
-
-
