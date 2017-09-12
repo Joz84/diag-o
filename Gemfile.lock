@@ -76,8 +76,6 @@ GEM
       activesupport (>= 4.2.0)
     gmaps4rails (2.1.2)
     i18n (0.8.6)
-    i18n-js (3.0.1)
-      i18n (~> 0.6, >= 0.6.6)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
@@ -115,6 +113,8 @@ GEM
     pry-rails (0.3.6)
       pry (>= 0.10.4)
     puma (3.10.0)
+    pundit (1.1.0)
+      activesupport (>= 3.0.0)
     rack (2.0.3)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -207,7 +207,6 @@ DEPENDENCIES
   font-awesome-sass
   geocoder
   gmaps4rails
-  i18n-js
   jbuilder (~> 2.0)
   jquery-rails
   json
@@ -216,6 +215,7 @@ DEPENDENCIES
   pry-byebug
   pry-rails
   puma
+  pundit
   rails (= 5.1.1)
   rails-assets-underscore!
   redis
