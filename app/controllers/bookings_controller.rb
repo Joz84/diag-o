@@ -7,7 +7,6 @@ class BookingsController < ApplicationController
     @user = current_user
     @months = %w(janvier février mars avril mai juin juillet août septembre octobre novembre décembre)
     @week_days = %w(lundi mardi mercredi jeudi vendredi samedi dimanche)
-
   end
 
   def new
@@ -31,4 +30,10 @@ class BookingsController < ApplicationController
 
   def delete
   end
+
+
+  private
+
+
+
 end

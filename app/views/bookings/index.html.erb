@@ -2,22 +2,24 @@
 
 <%= month_calendar do |date| %>
   <div class="date-day"><%= date.day %></div>
-    <% if Booking.where(set_at: date, start_hour: "8").count == 0 %>
+  <div class="cell-content">
+    <% if half_day_is_booked?(date, "8h") %>
       <%= render "shared/button_with_data", form_name: "data_form",
                                               path: @user_bookings_path,
                                               value1: "#{date}",
-                                              value2: "8",
+                                              value2: "8h",
                                               button_text: "matinée",
                                               btn_class: "btn-calendar"
                                               %>
     <% end %>
-    <% if Booking.where(set_at: date, start_hour: "14").count == 0 %>
+    <% if Booking.where(set_at: date, start_hour: "14h").count == 0 %>
       <%= render "shared/button_with_data", form_name: "data_form",
                                             path: @user_bookings_path,
                                             value1: "#{date}",
-                                            value2: "14",
+                                            value2: "14h",
                                             button_text: "aprés-midi",
                                             btn_class: "btn-calendar"
                                             %>
     <% end %>
+  </div>
 <% end %>
