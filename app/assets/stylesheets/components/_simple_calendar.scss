@@ -11,7 +11,7 @@
     border-collapse: collapse;
     box-sizing: border-box;
     width: 100%;
-    height: 622px;
+    height: 580px;
   }
   tr {
     border-collapse: collapse;
@@ -100,13 +100,21 @@
   .current-month {}
 
   .has-events {}
+  .cell-content {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%
+  }
+  .btn-container{
+    width: 80%;
+  }
   .btn-calendar {
-    margin: 2% 2% 2% 20%;
-    width: 75%;
-    height: 45px;
+    width: 100%;
+    height: 53px;
     border: 1px solid $anis;
     border-left: 8px solid $anis;
-    font-size: 10px;
+    font-size: 14px;
     color: $medium-gray;
   }
 }
