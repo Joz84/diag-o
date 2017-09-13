@@ -3,10 +3,9 @@ class BookingsController < ApplicationController
   end
 
   def index
-    @bookings = Booking.all
+    @bookings = Booking.where(diagnostician: current_user)
+    @dates = @bookings.map{ |booking| booking.set_at}
     @user = current_user
-    @months = %w(janvier février mars avril mai juin juillet août septembre octobre novembre décembre)
-    @week_days = %w(lundi mardi mercredi jeudi vendredi samedi dimanche)
   end
 
   def new
@@ -15,25 +14,23 @@ class BookingsController < ApplicationController
 
   def create
     @user = current_user
-    @new_booking = Booking.new( user_id: User.find_by_first_name("Jo").id,
-                                housing_id: Housing.first,
-                                set_at: params[:data_form][:value1],
-                                start_hour: params[:data_form][:value2],
-                                comment: Faker::Name.unique.name,
-                                )
-    if @new_booking.save
-      redirect_to user_bookings_path
+    @diagnostician = User.find_by_first_name("Jo")
+    @booking = @diagnostician.bookings.new(booking_params)
+    @booking.housing = current_user.particulier? ? current_user.housing : nil
+    if @booking.save
+      redirect_to bookings_path
     else
       raise
     end
   end
 
-  def delete
+  def destroy
+    raise
   end
-
 
   private
 
-
-
+  def booking_params
+    params.require(:booking).permit(:set_at, :comment)
+  end
 end

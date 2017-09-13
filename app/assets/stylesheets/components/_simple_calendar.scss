@@ -15,17 +15,17 @@
   }
   tr {
     border-collapse: collapse;
+    border-bottom: 2px solid $medium-gray;
   }
   thead {
     height: 15px;
   }
   th {
     padding: 0px;
-    border-bottom: 2px solid rgb(221, 221, 221);
+    border-bottom: 2px solid $medium-gray;
     border-collapse: collapse;
     border-left: 1px solid rgb(221, 221, 221);
     border-right: 1px solid rgb(221, 221, 221);
-    border-top: 0px none rgb(51, 51, 51);
     box-sizing: border-box;
     text-align: center;
     font-size: 16px;
@@ -37,13 +37,11 @@
     font-size: 12px;
 
     border: 1px solid #ddd;
-    border-top-color: rgb(221, 221, 221);
     border-top-style: solid;
     border-top-width: 1px;
     border-right-color: rgb(221, 221, 221);
     border-right-style: solid;
     border-right-width: 1px;
-    border-bottom-color: rgb(221, 221, 221);
     border-bottom-style: solid;
     border-bottom-width: 1px;
     border-left-color: rgb(221, 221, 221);
@@ -73,7 +71,7 @@
   .wday-6 {}
 
   .today {
-    background: #FFFFC0
+    background: $yellow;
   }
   .calendar-heading {
     font-weight: bold;
@@ -108,13 +106,41 @@
   }
   .btn-container{
     width: 80%;
+    i {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      color: $medium-gray;
+    }
   }
   .btn-calendar {
     width: 100%;
-    height: 53px;
+    height: 45px;
+    font-size: 14px;
+    padding: 5px;
+    color: $medium-gray;
+    display: flex;
+    align-items: center;
+    margin: 4px 0px 4px 0px;
+  }
+  .btn-calendar-tobook {
     border: 1px solid $anis;
     border-left: 8px solid $anis;
-    font-size: 14px;
-    color: $medium-gray;
+    width: 100%;
+    text-align: center;
+  }
+  .btn-calendar-booked {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid $yellow;
+    border-left: 8px solid $yellow;
+
+    p, a, i {
+      margin: 0px;
+    }
+    width: 100%;
+    height: 45px;
   }
 }

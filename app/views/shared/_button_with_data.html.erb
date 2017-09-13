@@ -1,5 +1,7 @@
-  <%= simple_form_for form_name, url: path, method: :post  do |f| %>
-    <%= f.input_field :value1, value: value1, as: :hidden %>
-    <%= f.input_field :value2, value: value2, as: :hidden %>
-    <%= f.button :submit, value: button_text, class: btn_class %>
+  <%= simple_form_for Booking.new do |f| %>
+    <%= f.input :set_at, input_html: { value: set_at }, as: :hidden %>
+    <%= f.input :comment, input_html: { value: "" }, as: :hidden %>
+    <div class="btn-calendar">
+      <%= f.button :submit, value: (set_at.hour == 8 ? "8h-12h" : "14h-18h"), class: "btn-calendar btn-calendar-tobook" %>
+    </div>
   <% end %>
