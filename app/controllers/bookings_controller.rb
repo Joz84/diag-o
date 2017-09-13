@@ -1,12 +1,13 @@
 class BookingsController < ApplicationController
-  $count = 0
-
   def show
   end
 
   def index
     @bookings = Booking.all
     @user = current_user
+    @months = %w(janvier février mars avril mai juin juillet août septembre octobre novembre décembre)
+    @week_days = %w(lundi mardi mercredi jeudi vendredi samedi dimanche)
+
   end
 
   def new
@@ -26,7 +27,6 @@ class BookingsController < ApplicationController
     else
       raise
     end
-    $count += 1
   end
 
   def delete

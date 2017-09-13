@@ -1,5 +1,5 @@
   <%= simple_form_for form_name, url: path, method: :post  do |f| %>
     <%= f.input_field :value1, value: value1, as: :hidden %>
     <%= f.input_field :value2, value: value2, as: :hidden %>
-    <%= f.button :submit, value: button_text %>
+    <%= f.button :submit, value: button_text, class: btn_class %>
   <% end %>

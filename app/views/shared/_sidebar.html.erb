@@ -1,0 +1,5 @@
+<div class="sidebar">
+  <% @buttons.each do |button| %>
+    <%= render "shared/sidebar-button", text: button[1][:text], icon: button[1][:icon], link: button[1][:link]  %>
+  <% end %>
+</div>
