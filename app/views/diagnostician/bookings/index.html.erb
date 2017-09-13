@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <% @bookings.each do |booking| %>
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+      <%= booking.id %>
+      RDV le
+      <%= booking.set_at %>
+      Avec:
+      <%= booking.booker.first_name %>
+      <%= booking.booker.last_name %>
+      au:
+      <%= booking.housing.address %>
+
+    </div>
+    <% end %>
+  </div>
+</div>
