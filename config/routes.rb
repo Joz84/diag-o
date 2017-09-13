@@ -5,8 +5,12 @@ Rails.application.routes.draw do
   get '/eligibility', to: 'pages#eligibility'
 
 
-  resources :users, only: [:show] do
-    resources :bookings, only: [:new, :create, :index]
+  resources :users, only: [:index, :show] do
+    resources :bookings, only: [:new, :create]
+  end
+
+  namespace :my do
+    resources :bookings, only: [:index]
   end
 
 end

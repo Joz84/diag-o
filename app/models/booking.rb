@@ -4,4 +4,11 @@ class Booking < ApplicationRecord
   validates :start_hour, presence: :true
   validates :set_at, presence: :true
   validates :user_id, presence: :true
+
+
+  def self.particulier
+    User.where(housing_id: self.housing)
+  end
+
+
 end
