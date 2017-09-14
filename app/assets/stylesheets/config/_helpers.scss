@@ -1,7 +1,12 @@
+$shadow: 0 2px 5px 0 rgba(0,0,0,0.07),0 2px 0 0 rgba(0,0,0,0.03);
+
 .margin-bottom-small {
   margin-bottom: 40px;
 }
 .underline {
   border-bottom: 2px solid $medium-gray;
   padding-bottom: 5px;
+}
+.padding-content {
+  padding: 0 20px 0 20px;
 }

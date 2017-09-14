@@ -1,34 +1,32 @@
 <%= render "/shared/sidebar"%>
 
-<div class="container">
-  <div class="row">
+<div class="dashboard-content">
+  <div class="padding-content">
     <h3>Mes usagers</h3>
-  </div>
 
     <% @bookings.each do |booking| %>
-
-  <div class="row">
-    <div class="col-xs-6 col-md-4 col-lg-2">
-      <%= booking.booker.first_name %>
-      <%= booking.booker.last_name %>
-    </div>
-    <div class="col-xs-6 col-md-4 col-lg-3">
-      <%= booking.housing.address %>
-      <%= booking.housing.address %>
-    </div>
-    <div class="col-xs-6 col-md-4 col-lg-2">
-      <%= booking.booker.email %>
-    </div>
-    <div class="col-xs-6 col-md-4 col-lg-2">
-      <%= booking.booker.phone %>
-    </div>
-    <div class="col-xs-6 col-md-4 col-lg-3">
-      <%if booking.confirmed_at != nil %>
-        <%= "RDV confirmé" %>
-      <% else %>
-        <%= "En attente de confirmation pour" %>
-      <% end %>
-      <%= booking.set_at.strftime("le %d %b %Y") %>
+    <div class="user">
+      <div class="line">
+        <div class="user-name">
+          <h5><%= booking.booker.first_name %> <%= booking.booker.last_name %></h5>
+        </div>
+        <div class="user-status">
+          <%if booking.confirmed_at != nil %>
+            <p class="status accepted">
+              <%= "RDV confirmé" %>
+            <% else %>
+            <p class="status declined">
+              <%= "En attente de confirmation pour" %>
+              <%= booking.set_at.strftime("le %d %b %Y") %>
+            <% end %>
+            <i class="fa fa-pencil"></i></p>
+        </div>
+      </div>
+      <div class="line">
+          <p class="user-data email"><%= booking.booker.email %></p>
+          <p class="user-data"><%= booking.booker.phone %></p>
+          <p class="user-data address"><%= booking.housing.address %></p>
+      </div>
     </div>
     <% end %>
   </div>
