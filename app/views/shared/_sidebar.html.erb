@@ -1,5 +1,7 @@
 <div class="sidebar">
-  <% @buttons.each do |button| %>
-    <%= render "shared/sidebar-button", text: button[1][:text], icon: button[1][:icon], link: button[1][:link]  %>
-  <% end %>
+  <%= render "shared/sidebar-button", text: t('buttons.button1.text'), icon: t('buttons.button1.icon'), link: "" %>
+  <%= render "shared/sidebar-button", text: t('buttons.button2.text'), icon: t('buttons.button2.icon'), link: "" %>
+  <%= render "shared/sidebar-button", text: t('buttons.button3.text'), icon: t('buttons.button3.icon'), link: bookings_path %>
+  <%= render "shared/sidebar-button", text: t('buttons.button4.text'), icon: t('buttons.button4.icon'), link: "" %>
+  <%= render "shared/sidebar-button", text: t('buttons.button5.text'), icon: t('buttons.button5.icon'), link: "" %>
 </div>

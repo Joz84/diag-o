@@ -1,7 +1,5 @@
   <%= simple_form_for Booking.new do |f| %>
     <%= f.input :set_at, input_html: { value: set_at }, as: :hidden %>
     <%= f.input :comment, input_html: { value: "" }, as: :hidden %>
-    <div class="btn-calendar">
-      <%= f.button :submit, value: (set_at.hour == 8 ? "8h-12h" : "14h-18h"), class: "btn-calendar btn-calendar-tobook" %>
-    </div>
+    <%= f.button :submit, value: (set_at.hour == 8 ? "8h-12h" : "14h-18h"), class: "btn-calendar-tobook" %>
   <% end %>
