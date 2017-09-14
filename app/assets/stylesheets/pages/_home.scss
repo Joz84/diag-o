@@ -3,9 +3,6 @@
   color: $medium-gray;
   background-color: white;
 }
-.home p {
-  font-size: 16px;
-}
 .home h1 {
   font-family: $body-font;
   font-size: 48px;
@@ -44,7 +41,8 @@
   width: 100%;
 }
 .page-content, .page-content {
-  width: 800px;
+  margin: auto;
+  width: 60%;
   margin-top: 110px;
 }
 .page-text-information {
