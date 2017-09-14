@@ -9,6 +9,7 @@ class User < ApplicationRecord
 
  enum role: [ :particulier, :diagnostician ]
 
+
 # # conversation.update! status: 0
 # conversation.active!
 # conversation.active? # => true

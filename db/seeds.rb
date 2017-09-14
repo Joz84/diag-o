@@ -1,9 +1,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 UserHousing.destroy_all
-Housing.destroy_all
 Booking.destroy_all
+Housing.destroy_all
 User.destroy_all
+Diagnostic.destroy_all
+Point.destroy_all
+Zone.destroy_all
+Town.destroy_all
 
 puts "All tables are destroyed !"
 
@@ -11,22 +15,22 @@ puts "Generating random users"
 
 #Users / Client
 diagnostician = User.create!(email: "jo@yahoo.fr", password: "123456", first_name: "Jo", last_name: "Sera", address: "Floirac", phone:"06 11 22 33 44", role:1)
-jules = User.create!(email: "test1@test", password: "test1343", first_name: "Jules", last_name: "Mar", address: "Floirac", phone:"06 11 22 33 44", role:0)
-max = User.create!(email: "test2@test", password: "test23453", first_name: "DiagoMax", last_name: "Bou", address: "Floirac", phone:"06 11 22 33 44", role:1)
-sami = User.create!(email: "test3@test.vm", password: "test35678", first_name: "DiagoSam", last_name: "Cha", address: "Floirac", phone:"06 11 22 33 44", role:1)
+jules = User.create!(email: "jules@yahoo.fr", password: "123456", first_name: "Jules", last_name: "Marchello", address: "Bordeaux", phone:"06 11 22 33 44", role:0)
+max = User.create!(email: "max@yahoo.fr", password: "123456", first_name: "Max", last_name: "Boue", address: "Bègles", phone:"06 11 22 33 44", role:1)
+sami = User.create!(email: "sam@yahoo.fr", password: "123456", first_name: "Sam", last_name: "Chalalala", address: "Cenon", phone:"06 11 22 33 44", role:1)
 
 #Housings
 housing1 = Housing.create!(address:"Auchan drive Bouliac", created_at:"01-01-2017", updated_at:"01-01-2017")
-user_housing = UserHousing.create!(user_id: jules.id, housing_id: Housing.last.id, user_state: 1 )
+user_housing = UserHousing.create!(user: jules, housing: Housing.last, user_state: 1 )
 
 housing2 = Housing.create!(address:"Auchan Bouliac", created_at:"01-01-2017", updated_at:"01-01-2017")
-user_housing = UserHousing.create!(user_id: jules.id, housing_id: Housing.last.id, user_state: 1 )
+user_housing = UserHousing.create!(user: jules, housing: Housing.last, user_state: 1 )
 
 housing3 = Housing.create!(address:"Auchan drive Bouliac", created_at:"01-01-2017", updated_at:"01-01-2017")
-user_housing = UserHousing.create!(user_id: max.id, housing_id: Housing.last.id, user_state: 1 )
+user_housing = UserHousing.create!(user: max, housing: Housing.last, user_state: 1 )
 
 housing4 = Housing.create!(address:"Auchan drive Bouliac", created_at:"01-01-2017", updated_at:"01-01-2017")
-user_housing = UserHousing.create!(user_id: sami.id, housing_id: Housing.last.id, user_state: 1 )
+user_housing = UserHousing.create!(user: sami, housing: Housing.last, user_state: 1 )
 
 puts "Housing créé: #{Housing.count}"
 puts "UserHousing créé: #{UserHousing.count}"
@@ -34,10 +38,10 @@ puts "UserHousing créé: #{UserHousing.count}"
 housings = [housing1, housing2, housing3, housing4]
 
 
-
 #Bookings
 10.times do
-  Booking.create!(user_id: diagnostician.id, housing_id: housings.sample, set_at:"01-01-2017", start_hour:"8", comment:"Book seed #{Booking.count}", confirmed_at:"02-01-2017")
+  Diagnostic.create!
+  Booking.create!(user_id: diagnostician.id, housing: housings.sample, diagnostic: Diagnostic.all.sample, set_at:"01-01-2017", start_hour:"8", comment:"Book seed #{Booking.count}", confirmed_at:"02-01-2017")
 end
 
 puts "Booking créé: #{Booking.count}"
