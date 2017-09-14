@@ -2,4 +2,5 @@
   <% @buttons.each do |button| %>
     <%= render "shared/sidebar-button", text: button[1][:text], icon: button[1][:icon], link: button[1][:link]  %>
   <% end %>
+  <%= link_to "My users", diagnostician_bookings_path %>
 </div>

@@ -17,16 +17,16 @@ sami = User.create!(email: "test3@test.vm", password: "test35678", first_name: "
 
 #Housings
 housing1 = Housing.create!(address:"Auchan drive Bouliac", created_at:"01-01-2017", updated_at:"01-01-2017")
-user_housing = UserHousing.create!(user_id: jules.id, housing_id: Housing.last.id, user_state: 1 )
+user_housing = UserHousing.create!(user: jules, housing: Housing.last, user_state: 1 )
 
 housing2 = Housing.create!(address:"Auchan Bouliac", created_at:"01-01-2017", updated_at:"01-01-2017")
-user_housing = UserHousing.create!(user_id: jules.id, housing_id: Housing.last.id, user_state: 1 )
+user_housing = UserHousing.create!(user: jules, housing: Housing.last, user_state: 1 )
 
 housing3 = Housing.create!(address:"Auchan drive Bouliac", created_at:"01-01-2017", updated_at:"01-01-2017")
-user_housing = UserHousing.create!(user_id: max.id, housing_id: Housing.last.id, user_state: 1 )
+user_housing = UserHousing.create!(user: max, housing: Housing.last, user_state: 1 )
 
 housing4 = Housing.create!(address:"Auchan drive Bouliac", created_at:"01-01-2017", updated_at:"01-01-2017")
-user_housing = UserHousing.create!(user_id: sami.id, housing_id: Housing.last.id, user_state: 1 )
+user_housing = UserHousing.create!(user: sami, housing: Housing.last, user_state: 1 )
 
 puts "Housing créé: #{Housing.count}"
 puts "UserHousing créé: #{UserHousing.count}"
