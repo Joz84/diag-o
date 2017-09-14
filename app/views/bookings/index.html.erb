@@ -4,24 +4,39 @@
   <%= month_calendar do |date| %>
     <div class="date-day"><%= date.day %></div>
     <div class="cell-content">
-     <div class="btn-container">
-      <% ["8","14"].each do |hour| %>
-          <% unless @dates.include? date_with_hour(date, hour) %>
-            <% if date_in_past(date) %>
-              <%= render "shared/button_with_data", set_at: date_with_hour(date, hour), link: Booking.new, btn_class:  "btn-calendar-tobook" %>
+      <div class="btn-container">
+        <% ["8","14"].each do |hour| %>
+          <!-- PAST -->
+          <% unless date_in_past(date) %>
+            <% unless @dates.include? date_with_hour(date, hour) %>
+              <!-- PAS DE DIAGNOSTIC CE JOUR -->
+              <div class= "btn-calendar btn-calendar-nothing">
+              </div>
             <% else %>
-            <% end %>
-          <% else %>
-            <%= link_to @bookings[@dates.index(date_with_hour(date, hour))], method: :delete do %>
-              <div class="btn-calendar">
-                <div class= "btn-calendar-booked">
-                  <i class="fa fa-retweet"></i>
-                  <p>Non dispo.</p>
+              <!-- DIAGNOSTIC DU JOUR -->
+              <%= link_to @bookings[@dates.index(date_with_hour(date, hour))] do %>
+                <div class= "btn-calendar btn-calendar-booked">
+                  <i class="fa fa-eye"></i>
+                  <p>Consulter diag.</p>
                 </div>
+              <% end %>
+            <% end %>
+          <!-- FUTUR -->
+          <% else %>
+            <% unless @dates.include? date_with_hour(date, hour) %>
+              <!-- PAS DE DIAGNOSTIC CE JOUR -->
+              <%= render "shared/button_with_data", set_at: date_with_hour(date, hour), link: Booking.new, btn_class: "btn-calendar btn-calendar-tobook" %>
+            <% else %>
+              <!-- BOOKÉ -->
+              <div class= "btn-calendar btn-calendar-booked">
+                <%= link_to @bookings[@dates.index(date_with_hour(date, hour))], method: :delete do %>
+                  <i class="fa fa-retweet"></i>
+                <% end %>
+                <p>Non dispo</p>
               </div>
             <% end %>
           <% end %>
-      <% end %>
+        <% end %>
       </div>
     </div>
   <% end %>

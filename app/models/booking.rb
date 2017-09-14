@@ -8,5 +8,4 @@ class Booking < ApplicationRecord
   def booker
     self.housing.users.first
   end
-
 end

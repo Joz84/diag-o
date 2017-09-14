@@ -107,34 +107,37 @@
     justify-content: space-between;
     flex-direction: column;
   }
-  .btn-calendar-tobook {
-    border: 1px solid $anis;
-    border-left: 8px solid $anis;
-    width: 100%;
-    text-align: center;
-    margin-bottom: 5%;
-    margin-top: 5%;
-    height: 42px;
-  }
-  .btn-calendar-booked {
+  .btn-calendar {
     position: relative;
+    margin-bottom: 4%;
+    margin-top: 4%;
+    text-align: center;
+    width: 100%;
+    height: 42px;
+    background-color: white;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid $yellow;
-    border-left: 8px solid $yellow;
-    width: 100%;
-    margin-bottom: 5%;
-    margin-top: 5%;
-    height: 42px;
-    p, a, i {
-      margin: 0px;
-    }
     i {
       position: absolute;
       top: 5px;
       right: 5px;
       color: $medium-gray;
+    }
+  }
+  .btn-calendar-tobook {
+    border: 1px solid $anis;
+    border-left: 8px solid $anis;
+  }
+  .btn-calendar-doneinpast {
+    border: 1px solid $regular-gray;
+    border-left: 8px solid $regular-gray;
+  }
+  .btn-calendar-booked {
+    border: 1px solid $yellow;
+    border-left: 8px solid $yellow;
+    p, a, i {
+      margin: 0px;
     }
   }
 }

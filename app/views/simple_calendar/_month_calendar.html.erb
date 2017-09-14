@@ -9,7 +9,7 @@
     <thead>
       <tr class="text-center">
         <% week_days.each do |day| %>
-          <% unless day == "dimanche" %>
+          <% unless day == "dimanche" || day == "samedi" %>
             <th><%= day %></th>
           <% end %>
         <% end %>
@@ -20,7 +20,7 @@
       <% date_range.each_slice(7) do |week| %>
         <tr>
           <% week.each do |day| %>
-            <% unless day.sunday? %>
+            <% unless weekend?(day) %>
               <%= content_tag :td, class: calendar.td_classes_for(day) do %>
                 <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(block) %>
                   <% capture_haml(day, sorted_events.fetch(day, []), &block) %>
