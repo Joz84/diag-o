@@ -9,7 +9,9 @@
     <thead>
       <tr class="text-center">
         <% week_days.each do |day| %>
-        <th><%= day %></th>
+          <% unless day == "dimanche" %>
+            <th><%= day %></th>
+          <% end %>
         <% end %>
       </tr>
     </thead>
@@ -18,11 +20,13 @@
       <% date_range.each_slice(7) do |week| %>
         <tr>
           <% week.each do |day| %>
-            <%= content_tag :td, class: calendar.td_classes_for(day) do %>
-              <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(block) %>
-                <% capture_haml(day, sorted_events.fetch(day, []), &block) %>
-              <% else %>
-                <% block.call day, sorted_events.fetch(day, []) %>
+            <% unless day.sunday? %>
+              <%= content_tag :td, class: calendar.td_classes_for(day) do %>
+                <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(block) %>
+                  <% capture_haml(day, sorted_events.fetch(day, []), &block) %>
+                <% else %>
+                  <% block.call day, sorted_events.fetch(day, []) %>
+                <% end %>
               <% end %>
             <% end %>
           <% end %>
