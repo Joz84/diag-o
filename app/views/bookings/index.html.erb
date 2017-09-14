@@ -1,23 +1,25 @@
 <%= render "/shared/sidebar"%>
 
-<%= month_calendar do |date| %>
-  <div class="date-day"><%= date.day %></div>
-  <div class="cell-content">
-   <div class="btn-container">
-    <% ["8","14"].each do |hour| %>
-      <% unless @dates.include? booking_on_date(date, hour) and  %>
-          <%= render "shared/button_with_data", set_at: booking_on_date(date, hour) %>
-      <% else %>
-        <%= link_to @bookings[@dates.index(booking_on_date(date, hour))], method: :delete do %>
-          <div class="btn-calendar">
-            <div class= "btn-calendar-booked">
-              <i class="fa fa-retweet"></i>
-              <p>Non dispo.</p>
+<div class="dashboard-content">
+  <%= month_calendar do |date| %>
+    <div class="date-day"><%= date.day %></div>
+    <div class="cell-content">
+     <div class="btn-container">
+      <% ["8","14"].each do |hour| %>
+        <% unless @dates.include? booking_on_date(date, hour) and  %>
+            <%= render "shared/button_with_data", set_at: booking_on_date(date, hour) %>
+        <% else %>
+          <%= link_to @bookings[@dates.index(booking_on_date(date, hour))], method: :delete do %>
+            <div class="btn-calendar">
+              <div class= "btn-calendar-booked">
+                <i class="fa fa-retweet"></i>
+                <p>Non dispo.</p>
+              </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
       <% end %>
-    <% end %>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
