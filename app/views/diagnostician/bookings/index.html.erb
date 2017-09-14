@@ -1,16 +1,33 @@
+<%= render "/shared/sidebar"%>
+
 <div class="container">
   <div class="row">
+    <h3>Mes usagers</h3>
+  </div>
     <% @bookings.each do |booking| %>
-    <div class="col-xs-12 col-md-8 col-md-offset-2">
-      <%= booking.id %>
-      RDV le
-      <%= booking.set_at %>
-      Avec:
+
+  <div class="row">
+    <div class="col-xs-6 col-md-4 col-lg-2">
       <%= booking.booker.first_name %>
       <%= booking.booker.last_name %>
-      au:
+    </div>
+    <div class="col-xs-6 col-md-4 col-lg-3">
       <%= booking.housing.address %>
-
+      <%= booking.housing.address %>
+    </div>
+    <div class="col-xs-6 col-md-4 col-lg-2">
+      <%= booking.booker.email %>
+    </div>
+    <div class="col-xs-6 col-md-4 col-lg-2">
+      <%= booking.booker.phone %>
+    </div>
+    <div class="col-xs-6 col-md-4 col-lg-3">
+      <%if booking.confirmed_at != nil %>
+        <%= "RDV confirmé" %>
+      <% else %>
+        <%= "En attente de confirmation pour" %>
+      <% end %>
+      <%= booking.set_at.strftime("le %d %b %Y") %>
     </div>
     <% end %>
   </div>

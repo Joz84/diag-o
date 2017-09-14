@@ -1,6 +1,7 @@
 class Diagnostician::BookingsController < ApplicationController
   def index
     @bookings = Booking.where(diagnostician: current_user)
+    @user = current_user
   end
 
   def create
