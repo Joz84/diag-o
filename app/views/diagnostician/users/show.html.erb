@@ -3,4 +3,11 @@
   <%= render "shared/map"%>
   <%= @myhousings.class %>
   <%= @hash %>
+  <%= @bookings.class %>
+  <%= @bookings.size %>
+  <% @bookings.each do |booking| %>
+    <div>
+      <%= booking.id %>
+    </div>
+  <% end %>
 </div>

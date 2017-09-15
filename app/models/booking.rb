@@ -5,7 +5,16 @@ class Booking < ApplicationRecord
   validates :set_at, presence: :true
   validates :user_id, presence: :true
 
+  scope :for_me, -> (user) { where(diagnostician: user) }
+  scope :to_come, -> { where("set_at > ?", DateTime.now) }
+
   def booker
     self.housing.users.first
+  end
+
+  def self.incoming user
+    for_me(user)
+      .to_come
+      .first(5)
   end
 end
