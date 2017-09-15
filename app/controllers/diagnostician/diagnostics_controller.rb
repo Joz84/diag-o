@@ -14,5 +14,6 @@ class Diagnostician::DiagnosticsController < ApplicationController
   end
 
   def update
+
   end
 end

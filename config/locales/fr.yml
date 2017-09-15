@@ -71,5 +71,7 @@ fr:
       text: "Particuliers"
       icon: "users"
       link: "user_bookings"
-  date:
-    month_names: "Septembre"
+  tooltip:
+    confirmation: "RDV confirmé"
+    annulation: "Supprimer le RDV"
+    deconfirmation: "Annuler la confirmation"
