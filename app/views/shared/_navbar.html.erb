@@ -10,9 +10,10 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Host", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Trips", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "+ Ajouter un nouveau diagnostique", "#", class: "btn-slim flexbox" %>
+      <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
+        <i class="fa fa-bell"></i>
+      <% end %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">

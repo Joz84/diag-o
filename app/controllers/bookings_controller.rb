@@ -17,7 +17,8 @@ class BookingsController < ApplicationController
     @diagnostician = User.find_by_first_name("Jo")
     @booking = @diagnostician.bookings.new(booking_params)
     @booking.diagnostic = Diagnostic.new
-    @booking.housing = current_user.particulier? ? current_user.housing : nil
+    # @booking.housing = current_user.particulier? ? current_user.housing : nil
+    @booking.housing = Housing.last ## POUR TEST
     if @booking.save
       redirect_to bookings_path
     else

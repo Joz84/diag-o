@@ -119,10 +119,9 @@
     align-items: center;
     justify-content: center;
     i {
-      position: absolute;
-      top: 5px;
-      right: 5px;
       color: $medium-gray;
+      margin-right: 5px;
+      font-size: 16px;
     }
   }
   .btn-calendar-tobook {
@@ -136,7 +135,7 @@
   .btn-calendar-booked {
     border: 1px solid $yellow;
     border-left: 8px solid $yellow;
-    p, a, i {
+    p, a {
       margin: 0px;
     }
   }
