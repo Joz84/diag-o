@@ -56,7 +56,7 @@ fr:
       icon: "eye"
       link: "@user"
     button2:
-      text: "Compte-rendus"
+      text: "Diagnostiques"
       icon: "list"
       link: "user_bookings"
     button3:

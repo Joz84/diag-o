@@ -13,13 +13,14 @@
         <div class="user-status">
           <%if booking.confirmed_at != nil %>
             <p class="status accepted">
-              <%= "RDV confirmé" %>
+              <%= "RDV confirmé" %><i class="fa fa-pencil"></i><i class="fa fa-times"></i>
+            </p>
             <% else %>
             <p class="status declined">
               <%= "En attente de confirmation pour" %>
-              <%= booking.set_at.strftime("le %d %b %Y") %>
+              <%= booking.set_at.strftime("le %d %b %Y") %><i class="fa fa-pencil"></i><i class="fa fa-check"></i>
+            </p>
             <% end %>
-            <i class="fa fa-pencil"></i></p>
         </div>
       </div>
       <div class="line">
