@@ -10,3 +10,8 @@ $shadow: 0 2px 5px 0 rgba(0,0,0,0.07),0 2px 0 0 rgba(0,0,0,0.03);
 .padding-content {
   padding: 0 20px 0 20px;
 }
+.flexbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
