@@ -13,7 +13,8 @@ class Diagnostician::UsersController < ApplicationController
       marker.lng housing.longitude
       marker.json({ address: housing.address })
 
-    @bookings = Booking.incoming(current_user)
     end
+
+    @incoming = Booking.incoming(current_user)
   end
 end

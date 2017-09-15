@@ -7,6 +7,8 @@ class Booking < ApplicationRecord
 
   scope :for_me, -> (user) { where(diagnostician: user) }
   scope :to_come, -> { where("set_at > ?", DateTime.now) }
+  scope :ending_soon, -> { order(set_at: :asc) }
+
 
   def booker
     self.housing.users.first
@@ -15,6 +17,7 @@ class Booking < ApplicationRecord
   def self.incoming user
     for_me(user)
       .to_come
-      .first(5)
+      .ending_soon
   end
+
 end

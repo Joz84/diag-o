@@ -43,6 +43,8 @@ housings = [housing1, housing2, housing3, housing4]
 10.times do
   Diagnostic.create!
   Booking.create!(user_id: diagnostician.id, housing: housings.sample, diagnostic: Diagnostic.all.sample, set_at:"01-01-2017", start_hour:"8", comment:"Book seed #{Booking.count}", confirmed_at:"02-01-2017")
+  Booking.create!(user_id: diagnostician.id, housing: housings.sample, diagnostic: Diagnostic.all.sample, set_at:"12-12-2017", start_hour:"8", comment:"Book seed #{Booking.count}", confirmed_at:"02-01-2017")
+
 end
 
 puts "Booking créé: #{Booking.count}"
