@@ -1,6 +1,7 @@
 class Diagnostician::DiagnosticsController < ApplicationController
   def index
     @diagnostics = Diagnostic.all
+    @housings = Housing.all
   end
 
   def create

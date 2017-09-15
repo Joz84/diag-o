@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   namespace :diagnostician do
     resources :bookings, only: [ :index, :new, :create, :destroy]
     resources :diagnostics, only: [ :index, :new, :create, :edit, :update]
+    resources :users, only: [:show]
   end
 
   devise_for :users
