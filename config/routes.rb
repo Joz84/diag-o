@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
   namespace :diagnostician do
-    resources :bookings, only: [ :index, :new, :create, :destroy]
+    resources :bookings, only: [ :index, :show, :new, :create, :destroy]
     resources :diagnostics, only: [ :index, :new, :create, :edit, :update]
-    resources :users, only: [:show]
+    resources :users, only: [:show, :index]
   end
 
   devise_for :users

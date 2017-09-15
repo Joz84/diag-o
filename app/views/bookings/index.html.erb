@@ -14,10 +14,10 @@
               </div>
             <% else %>
               <!-- DIAGNOSTIC DU JOUR -->
-              <%= link_to @bookings[@dates.index(date_with_hour(date, hour))] do %>
+              <%= link_to diagnostician_booking_path(@dates.index(date_with_hour(date, hour))) do %>
+              <%#= raise %>
                 <div class= "btn-calendar btn-calendar-booked">
                   <i class="fa fa-eye"></i>
-                  <p>Consulter diag.</p>
                 </div>
               <% end %>
             <% end %>
