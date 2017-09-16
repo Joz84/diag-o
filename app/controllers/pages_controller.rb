@@ -6,7 +6,7 @@ class PagesController < ApplicationController
   end
 
   def eligibility
-    @address = params[:query][:address]
+    @address = Geocoder.coordinates(params[:query][:address])
 
     @town = Town.first
     @zoneslist = @town.zones.map do |zone|
