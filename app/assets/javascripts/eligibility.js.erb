@@ -6,11 +6,10 @@ var eligibility = false;
 
 if ($('#map').length) {
 window.onload = initMap;
-}
-
 var zoneslist = $('.data-for-js').data('zoneslist');
 var address = $('.data-for-js').data('address');
-var center = {lat: 44.80,  lng:-0.51};
+var center = {lat: address[0],  lng:address[1]};
+}
 
 function initMap() {
 
