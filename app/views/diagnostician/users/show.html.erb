@@ -1,6 +1,14 @@
+
 <%= render "shared/sidebar"%>
 <div class="dashboard-content">
-  <%= render "shared/map"%>
-  <%= @myhousings.class %>
-  <%= @hash %>
+  <div class="row">
+    <div class="col-xs-12 col-md-7">
+      <%= render "shared/map"%>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <%= render "shared/next_bookings"%>
+    </div>
+  </div>
 </div>

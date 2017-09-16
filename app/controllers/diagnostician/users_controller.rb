@@ -7,7 +7,10 @@ class Diagnostician::UsersController < ApplicationController
       marker.lat housing.latitude
       marker.lng housing.longitude
       marker.json({ address: housing.address })
+
     end
+
+    @incoming = Booking.incoming(current_user)
   end
 
   def index

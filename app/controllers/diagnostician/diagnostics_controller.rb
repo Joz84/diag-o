@@ -4,7 +4,7 @@ class Diagnostician::DiagnosticsController < ApplicationController
     @housings = Housing.all
   end
 
-  def create
+  def show
   end
 
   def new
