@@ -24,13 +24,13 @@ sami = User.create!(email: "sam@yahoo.fr", password: "123456", first_name: "Sam"
 housing1 = Housing.create!(address:"Auchan drive Bouliac", created_at:"01-01-2017", updated_at:"01-01-2017")
 user_housing = UserHousing.create!(user: jules, housing: Housing.last, user_state: 1 )
 
-housing2 = Housing.create!(address:"Auchan Bouliac", created_at:"01-01-2017", updated_at:"01-01-2017")
+housing2 = Housing.create!(address:" 2 rue de l'église Bouliac", created_at:"01-01-2017", updated_at:"01-01-2017")
 user_housing = UserHousing.create!(user: jules, housing: Housing.last, user_state: 1 )
 
-housing3 = Housing.create!(address:"Auchan drive Bouliac", created_at:"01-01-2017", updated_at:"01-01-2017")
+housing3 = Housing.create!(address:" 6 Chemin de Créon 33270 BOULIAC", created_at:"01-01-2017", updated_at:"01-01-2017")
 user_housing = UserHousing.create!(user: max, housing: Housing.last, user_state: 1 )
 
-housing4 = Housing.create!(address:"Auchan drive Bouliac", created_at:"01-01-2017", updated_at:"01-01-2017")
+housing4 = Housing.create!(address:"gestion de l’eau 24 route de Latresne Bouliac", created_at:"01-01-2017", updated_at:"01-01-2017")
 user_housing = UserHousing.create!(user: sami, housing: Housing.last, user_state: 1 )
 
 puts "Housing créé: #{Housing.count}"
@@ -42,8 +42,8 @@ housings = [housing1, housing2, housing3, housing4]
 #Bookings
 10.times do
   Diagnostic.create!
-  Booking.create!(user_id: diagnostician.id, housing: housings.sample, diagnostic: Diagnostic.all.sample, set_at:"01-01-2017", start_hour:"8", comment:"Book seed #{Booking.count}", confirmed_at:"02-01-2017")
-  Booking.create!(user_id: diagnostician.id, housing: housings.sample, diagnostic: Diagnostic.all.sample, set_at:"12-12-2017", start_hour:"8", comment:"Book seed #{Booking.count}", confirmed_at:"02-01-2017")
+  Booking.create!(user_id: diagnostician.id, housing: housings.sample, diagnostic: Diagnostic.all.sample, set_at:"01-01-2017", comment:"Book seed #{Booking.count}", confirmed_at:"02-01-2017")
+  Booking.create!(user_id: diagnostician.id, housing: housings.sample, diagnostic: Diagnostic.all.sample, set_at:"12-12-2017", comment:"Book seed #{Booking.count}", confirmed_at:"02-01-2017")
 
 end
 
