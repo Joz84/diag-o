@@ -4,6 +4,7 @@ class Booking < ApplicationRecord
   belongs_to :diagnostic
   validates :set_at, presence: :true
   validates :user_id, presence: :true
+  belongs_to :user
 
   scope :for_me, -> (user) { where(diagnostician: user) }
   scope :to_come, -> { where("set_at > ?", DateTime.now) }
@@ -15,7 +16,7 @@ class Booking < ApplicationRecord
   end
 
   def self.incoming user
-    for_me(user).to_come.ending_soon
+    for_me(user).to_come.ending_soon.first(2)
   end
 
 end

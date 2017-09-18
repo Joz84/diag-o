@@ -2,6 +2,13 @@
   position: absolute;
   left: 200px;
   width: calc(100% - 200px);
+  a {
+    color: $blue-gray;
+    &:hover{
+      color: $yellow;
+      text-decoration: none;
+    }
+  }
 }
 
 .dashboard-container {
