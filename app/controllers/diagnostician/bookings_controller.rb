@@ -1,4 +1,6 @@
 class Diagnostician::BookingsController < ApplicationController
+  before_action :params_booking, only: [:show, :destroy, :update]
+
   def index
     @bookings = Booking.where(diagnostician: current_user)
     @dates = @bookings.map{ |booking| booking.set_at}
@@ -6,20 +8,18 @@ class Diagnostician::BookingsController < ApplicationController
   end
 
   def show
-
   end
 
   def create
   end
 
   def destroy
-    @booking = Booking.find(params[:id])
     @booking.destroy
     redirect_back(fallback_location: root_path)
   end
 
   def update
-    @booking = Booking.find(params[:id])
+
     if @booking.confirmed_at
       @booking.confirmed_at = nil
     else
@@ -29,5 +29,14 @@ class Diagnostician::BookingsController < ApplicationController
       redirect_back(fallback_location: root_path)
     end
   end
+
+  private
+
+  def params_booking
+    @booking = Booking.find(params[:id])
+    @user = current_user
+
+  end
+
 
 end

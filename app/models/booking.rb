@@ -15,9 +15,7 @@ class Booking < ApplicationRecord
   end
 
   def self.incoming user
-    for_me(user)
-      .to_come
-      .ending_soon
+    for_me(user).to_come.ending_soon
   end
 
 end
