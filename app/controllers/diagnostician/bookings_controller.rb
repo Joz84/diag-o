@@ -8,6 +8,13 @@ class Diagnostician::BookingsController < ApplicationController
   end
 
   def show
+    @booking = Booking.find(params[:id])
+    @housing = @booking.housing
+    @hash = Gmaps4rails.build_markers(@housing) do |housing, marker|
+      marker.lat housing.latitude
+      marker.lng housing.longitude
+      marker.json({ address: housing.address })
+    end
   end
 
   def create

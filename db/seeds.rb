@@ -24,13 +24,13 @@ sami = User.create!(email: "sam@yahoo.fr", password: "123456", first_name: "Sam"
 housing1 = Housing.create!(address:"77, rue des étoiles rouges, 28054 Montigny le Gannelon", created_at:"01-01-2017", updated_at:"01-01-2017")
 user_housing = UserHousing.create!(user: jules, housing: Housing.last, user_state: 1 )
 
-housing2 = Housing.create!(address:"23, rue du chien qui fume, 92400 Asnières sur Seine", created_at:"01-01-2017", updated_at:"01-01-2017")
+housing2 = Housing.create!(address:" 2 rue de l'église Bouliac", created_at:"01-01-2017", updated_at:"01-01-2017")
 user_housing = UserHousing.create!(user: jules, housing: Housing.last, user_state: 1 )
 
-housing3 = Housing.create!(address:"67 rue Edouard Manet, 92800 Gennevilliers", created_at:"01-01-2017", updated_at:"01-01-2017")
+housing3 = Housing.create!(address:" 6 Chemin de Créon 33270 BOULIAC", created_at:"01-01-2017", updated_at:"01-01-2017")
 user_housing = UserHousing.create!(user: max, housing: Housing.last, user_state: 1 )
 
-housing4 = Housing.create!(address:"99, rue de Lapallise, 32000 La Test de Buch", created_at:"01-01-2017", updated_at:"01-01-2017")
+housing4 = Housing.create!(address:"gestion de l’eau 24 route de Latresne Bouliac", created_at:"01-01-2017", updated_at:"01-01-2017")
 user_housing = UserHousing.create!(user: sami, housing: Housing.last, user_state: 1 )
 
 puts "Housing créé: #{Housing.count}"
