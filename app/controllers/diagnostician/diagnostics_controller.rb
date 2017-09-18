@@ -1,10 +1,13 @@
 class Diagnostician::DiagnosticsController < ApplicationController
+  before_action :params_user, only: [:index, :show]
+
   def index
-    @diagnostics = Diagnostic.all
+    @diagnostics = Diagnostic.all # car un seul diagnosticien pour l'instant
     @housings = Housing.all
   end
 
   def show
+    @diagnostic = Diagnostic.find(params[:id])
   end
 
   def new
@@ -15,5 +18,11 @@ class Diagnostician::DiagnosticsController < ApplicationController
 
   def update
 
+  end
+
+  private
+
+  def params_user
+    @user = current_user
   end
 end

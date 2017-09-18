@@ -10,6 +10,7 @@ class UsersController < ApplicationController
       marker.json({ address: housing.address })
     end
     @bookings = Booking.incoming(current_user)
+    @diagnostics = Diagnostic.last(3).reverse
   end
 
   private
