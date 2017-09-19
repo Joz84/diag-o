@@ -18,10 +18,10 @@ class PagesController < ApplicationController
       zoneinfos
     end
 
-    session[:infos][:address]
-    session[:infos][:eligibility]
-    session[:infos][:booking]
+    # session[:infos][:address]
+    # session[:infos][:eligibility]
+    # session[:infos][:booking]
 
-    session[:infos]
+    # session[:infos]
   end
 end
