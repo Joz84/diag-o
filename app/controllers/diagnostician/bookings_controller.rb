@@ -2,7 +2,7 @@ class Diagnostician::BookingsController < ApplicationController
   before_action :params_booking, only: [:show, :destroy, :update]
 
   def index
-    @bookings = policy_scope Booking.where(diagnostician: current_user)
+    @bookings = Booking.where(diagnostician: current_user)
     @dates = @bookings.map{ |booking| booking.set_at}
     @user = current_user
   end

@@ -1,7 +1,7 @@
 class DiagnosticPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope
+      scope.all
     end
   end
 
@@ -30,3 +30,5 @@ class DiagnosticPolicy < ApplicationPolicy
   end
 
 end
+
+

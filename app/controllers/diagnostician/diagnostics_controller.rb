@@ -2,7 +2,7 @@ class Diagnostician::DiagnosticsController < ApplicationController
   before_action :params_user, only: [:index, :show]
 
   def index
-    @diagnostics = policy_scope(Diagnostic.all) # car un seul diagnosticien pour l'instant
+    @diagnostics = policy_scope(Diagnostic) # car un seul diagnosticien pour l'instant
     @housings = Housing.all
   end
 
