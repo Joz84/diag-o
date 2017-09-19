@@ -28,15 +28,9 @@ class Diagnostician::BookingsController < ApplicationController
   end
 
   def update
-
-    if @booking.confirmed_at
-      @booking.confirmed_at = nil
-    else
-      @booking.confirmed_at = DateTime.now
-    end
-    if @booking.save!
-      redirect_back(fallback_location: root_path)
-    end
+    @booking.confirmed_at = @booking.confirmed_at ? nil : DateTime.now
+    @booking.save!
+    redirect_back(fallback_location: root_path)
   end
 
   private
