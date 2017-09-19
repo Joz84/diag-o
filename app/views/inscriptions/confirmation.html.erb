@@ -1,3 +1,18 @@
 <%= render "shared/breadcrumb", page: @page %>
 
 <h3 class="text-center "><%= t('inscription.confirmation1') %></h3>
+
+<div class="flex-horizontal">
+  <div class="signup-box padding-box">
+      <p>Adresse concerné par le diagnostic:</p>
+      <h4 class="underline-light"><%= session[:address] %></h4>
+      <p>Classement en zone:</p>
+      <h4 class="underline-light"><%= session[:color] %></h4>
+      <p>Date du rendez-vous:</p>
+      <h4 class="underline-light"><%= session[:date] %></h4>
+      <p>Vous êtes joignable:</p>
+      <h4><%= current_user.phone %></h4>
+      <h4 class="underline-light"><%= current_user.email %></h4>
+      <%= link_to "Valider", root_path, class: "btn-green flexbox center" %>
+  </div>
+</div>

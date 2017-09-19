@@ -6,7 +6,7 @@ class InscriptionsController < ApplicationController
     @bookings = Booking.where(diagnostician: @user)
     @dates = @bookings.map{ |booking| booking.set_at}
 
-    session = { address: params[:query][:address] }
+    session[:address] = params[:query][:address]
     # session[:infos][:eligibility]
     # session[:infos][:booking]
     # session[:infos]
