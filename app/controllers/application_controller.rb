@@ -29,4 +29,12 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.permit(:account_update, keys: user_data)
   end
 
+  def after_sign_in_path_for(resource)
+    if resource.sign_in_count == 1
+      confirmation_path
+    else
+      root_path
+    end
+  end
+
 end

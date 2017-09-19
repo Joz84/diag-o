@@ -18,7 +18,6 @@
     </div>
     <div class="col-xs-12 col-sm-12 col-md-6">
       <div class="report">
-          <%#= session[:message] %>
           <h4 class="margin-bottom-small underline">Rapport d'élligibilité</h4>
           <h6>Adresse de l'habitation concernée:</h6>
           <h4 id="address">--</h4>
@@ -27,7 +26,10 @@
           <h6>Éligibilité:</h6>
           <h4 class="margin-bottom-small" id="conclusion">--</h4>
           <h4 class="margin-bottom-small" id="calltoaction">--</h4>
-          <%= link_to "Prendre un rendez-vous", disponibility_path , class: "btn-green flexbox"  %>
+          <%= simple_form_for :query, url: '/disponibility', method: :get do |f| %>
+            <%= f.input :address, value: "default"%>
+            <%= f.button :submit, value: "Prendre un rendez-vous", class: "btn-green flexbox" %>
+          <% end %>
       </div>
     </div>
   </div>

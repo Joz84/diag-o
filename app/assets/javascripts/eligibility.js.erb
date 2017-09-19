@@ -34,8 +34,6 @@ function initMap() {
     }
   });
 
-  console.log(address)
-
   for (i = 0; i < zoneslist.length; i++) {
     polygon = new google.maps.Polygon({
         path: zoneslist[i][0],
@@ -90,6 +88,8 @@ function initMap() {
               color_name = "jaune mineur"
       }
       $('#address').html(place["formatted_address"]);
+      var input_for_session = document.getElementById('query_address')
+      input_for_session.value = place["formatted_address"];
 
       if (google.maps.geometry.poly.containsLocation(place.geometry.location, polygon)){
         $('#zone').html('Votre habitation est en zone ' + '<span style="color:' + zoneslist[i][1] + '">' + color_name + '</span>');

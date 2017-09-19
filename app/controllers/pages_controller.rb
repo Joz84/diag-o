@@ -8,7 +8,6 @@ class PagesController < ApplicationController
   def eligibility
     unless params[:query].nil?
       @address = Geocoder.coordinates(params[:query][:address])
-      session[:booking][:address] = @address
     end
 
     @town = Town.first
