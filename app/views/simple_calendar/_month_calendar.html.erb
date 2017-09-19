@@ -1,9 +1,14 @@
 <div class="simple-calendar">
+
   <div class="calendar-heading">
     <%= link_to t('simple_calendar.previous', default: '<'), calendar.url_for_previous_view %>
       <span class="calendar-title"><%= months[start_date.month-1] %> <%= start_date.year %></span>
     <%= link_to t('simple_calendar.next', default: '>'), calendar.url_for_next_view %>
   </div>
+
+  <% unless user_signed_in? %>
+    <p class="warning-label text-center"><%= t('agenda.first_landing') %></p>
+  <% end %>
 
   <table class="table table-striped">
     <thead>

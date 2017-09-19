@@ -1,4 +1,6 @@
 class BookingsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :create]
+
   def show
     @booking = Booking.find(params[:id])
   end
@@ -6,7 +8,7 @@ class BookingsController < ApplicationController
   def index
     @bookings = Booking.where(diagnostician: current_user)
     @dates = @bookings.map{ |booking| booking.set_at}
-    @user = current_user
+    @user = User.find_by_first_name("Jo")
   end
 
   def new
@@ -14,16 +16,20 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @user = current_user
     @diagnostician = User.find_by_first_name("Jo")
-    @booking = @diagnostician.bookings.new(booking_params)
-    @booking.diagnostic = Diagnostic.new
-    # @booking.housing = current_user.particulier? ? current_user.housing : nil
-    @booking.housing = Housing.last ## POUR TEST
-    if @booking.save
-      redirect_to bookings_path
+
+    if current_user
+      @booking = @diagnostician.bookings.new(booking_params)
+      @booking.diagnostic = Diagnostic.new
+      # @booking.housing = current_user.particulier? ? current_user.housing : nil
+      @booking.housing = Housing.last ## POUR TEST
+      if @booking.save
+        redirect_to bookings_path
+      else
+        raise
+      end
     else
-      raise
+      redirect_to new_user_registration_path
     end
   end
 

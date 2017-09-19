@@ -75,3 +75,5 @@ fr:
     confirmation: "RDV confirmé"
     annulation: "Supprimer le RDV"
     deconfirmation: "Annuler la confirmation"
+  agenda:
+    first_landing: "Pour prendre un rendez-vous, sélectionnez une demi journée parmi les disponbilités des diagnosticiens en opération."
