@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :user_housings
   has_many :housings, through: :user_housings
 
- enum role: [ :particulier, :diagnostician ]
+enum role: [:particulier, :diagnostician, :city, :partner, :admin]
 
 
 # # conversation.update! status: 0
