@@ -19,6 +19,10 @@ $shadow: 0 2px 5px 0 rgba(0,0,0,0.07),0 2px 0 0 rgba(0,0,0,0.03);
   display: flex;
   justify-content: center;
 }
+.flex-vertical {
+  display: flex;
+  align-items: center;
+}
 .fixed-top {
   position: fixed;
   top: 0px;
@@ -37,4 +41,7 @@ $shadow: 0 2px 5px 0 rgba(0,0,0,0.07),0 2px 0 0 rgba(0,0,0,0.03);
 .warning-label {
   background-color: $yellow;
   padding: 5px 0 5px 0;
+}
+a:hover {
+  text-decoration: none !important;
 }

@@ -76,4 +76,14 @@ fr:
     annulation: "Supprimer le RDV"
     deconfirmation: "Annuler la confirmation"
   agenda:
-    first_landing: "Pour prendre un rendez-vous, sélectionnez une demi journée parmi les disponbilités des diagnosticiens en opération."
+  inscription:
+    breadcrumb1: "Choix des disponibilités"
+    breadcrumb2: "Enregistrement"
+    breadcrumb3: "Récapitulatif"
+    disponibility1: "Choisissez la date et l'heure du rendez-vous."
+    disponibility2: "Le diagnostique prend un peu moins d'une demi-journée."
+    disponibility3:
+    signup1: "Enregistrez vos informations"
+    signup2: "La prise de rendez-vous requiert vos coordonnées."
+
+

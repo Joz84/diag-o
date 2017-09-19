@@ -6,10 +6,6 @@
     <%= link_to t('simple_calendar.next', default: '>'), calendar.url_for_next_view %>
   </div>
 
-  <% unless user_signed_in? %>
-    <p class="warning-label text-center"><%= t('agenda.first_landing') %></p>
-  <% end %>
-
   <table class="table table-striped">
     <thead>
       <tr class="text-center">

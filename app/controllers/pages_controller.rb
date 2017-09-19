@@ -6,7 +6,10 @@ class PagesController < ApplicationController
   end
 
   def eligibility
-    @address = Geocoder.coordinates(params[:query][:address])
+    unless params[:query].nil?
+      @address = Geocoder.coordinates(params[:query][:address])
+      session[:booking][:address] = @address
+    end
 
     @town = Town.first
     @zoneslist = @town.zones.map do |zone|
@@ -17,11 +20,5 @@ class PagesController < ApplicationController
       zoneinfos << zone.color
       zoneinfos
     end
-
-    # session[:infos][:address]
-    # session[:infos][:eligibility]
-    # session[:infos][:booking]
-
-    # session[:infos]
   end
 end

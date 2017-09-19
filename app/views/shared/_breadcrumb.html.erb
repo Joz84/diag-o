@@ -1,0 +1,19 @@
+<div class="breadcrumb flex-horizontal">
+  <ul>
+    <li class="<%= "green" if current_page?(disponibility_path) || current_page?(new_user_registration_path) || current_page?(confirmation_path)|| current_page?(user_registration_path) || current_page?(edit_user_registration_path)  %>">
+      <p class="number-in-circle">1</p>
+      <p class="text-over-line"><%= t('inscription.breadcrumb1') %></p>
+      <div class="line-under-text"></div>
+    </li>
+    <li class="<%= "green" if current_page?(new_user_registration_path) || current_page?(confirmation_path) %>">
+      <p class="number-in-circle">2</p>
+      <p class="text-over-line "><%= t('inscription.breadcrumb2') %></p>
+      <div class="line-under-text"></div>
+    </li>
+    <li class="<%= "green" if current_page?(confirmation_path) %>">
+      <p class="number-in-circle">3</p>
+      <p class="text-over-line"><%= t('inscription.breadcrumb3') %></p>
+      <div class="line-under-text"></div>
+    </li>
+  </ul>
+</div>
