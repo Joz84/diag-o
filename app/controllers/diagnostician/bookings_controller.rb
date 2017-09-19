@@ -8,6 +8,7 @@ class Diagnostician::BookingsController < ApplicationController
   end
 
   def show
+    authorize @booking
     @booking = Booking.find(params[:id])
     @housing = @booking.housing
     @hash = Gmaps4rails.build_markers(@housing) do |housing, marker|
@@ -18,6 +19,7 @@ class Diagnostician::BookingsController < ApplicationController
   end
 
   def create
+    authorize @booking
   end
 
   def destroy

@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :params_user, only: [:show]
 
   def show
+    authorize @user
     @bookings = Booking.all.where(diagnostician: @user)
     @myhousings = @bookings.map { |b| b.housing unless (b.housing.latitude.nil? || b.housing.longitude.nil?) }.compact
     @hash = Gmaps4rails.build_markers(@myhousings) do |housing, marker|
