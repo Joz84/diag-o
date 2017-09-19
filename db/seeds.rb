@@ -21,7 +21,7 @@ sami = User.create!(email: "sam@yahoo.fr", password: "123456", first_name: "Sam"
 
 
 #Housings
-housing1 = Housing.create!(address:"77, rue des étoiles rouges, 28054 Montigny le Gannelon", created_at:"01-01-2017", updated_at:"01-01-2017")
+housing1 = Housing.create!(address:"Auchan Drive Bouliac", created_at:"01-01-2017", updated_at:"01-01-2017")
 user_housing = UserHousing.create!(user: jules, housing: Housing.last, user_state: 1 )
 
 housing2 = Housing.create!(address:" 2 rue de l'église Bouliac", created_at:"01-01-2017", updated_at:"01-01-2017")
