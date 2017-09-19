@@ -15,9 +15,9 @@ puts "Generating random users"
 
 #Users / Client
 diagnostician = User.create!(email: "jo@yahoo.fr", password: "123456", first_name: "Jo", last_name: "Sera", address: "Floirac", phone:"06 11 22 33 44", role:1)
-jules = User.create!(email: "jules@yahoo.fr", password: "123456", first_name: "Jules", last_name: "Marchello", address: "Bordeaux", phone:"06 11 22 33 44", role:1)
-max = User.create!(email: "max@yahoo.fr", password: "123456", first_name: "Max", last_name: "Boue", address: "Bègles", phone:"06 11 22 33 44", role:1)
-sami = User.create!(email: "sam@yahoo.fr", password: "123456", first_name: "Sam", last_name: "Chalalala", address: "Cenon", phone:"06 11 22 33 44", role:1)
+jules = User.create!(email: "jules@yahoo.fr", password: "123456", first_name: "Jules", last_name: "Marchello", address: "Bordeaux", phone:"06 11 22 33 44", role:0)
+max = User.create!(email: "max@yahoo.fr", password: "123456", first_name: "Max", last_name: "Boue", address: "Bègles", phone:"06 11 22 33 44", role:0)
+sami = User.create!(email: "sam@yahoo.fr", password: "123456", first_name: "Sam", last_name: "Chalalala", address: "Cenon", phone:"06 11 22 33 44", role:0)
 
 
 #Housings
