@@ -9,6 +9,7 @@ gem 'puma'
 gem 'rails', '5.1.1'
 gem 'redis'
 gem 'pundit'
+gem 'open-uri'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
