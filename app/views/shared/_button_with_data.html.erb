@@ -1,0 +1,4 @@
+  <%= simple_form_for link do |f| %>
+    <%= f.input :set_at, input_html: { value: set_at }, as: :hidden %>
+    <%= f.button :submit, value: (set_at.hour == 8 ? "8h-12h" : "14h-18h"), class: btn_class %>
+  <% end %>

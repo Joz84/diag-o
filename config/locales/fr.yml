@@ -50,3 +50,28 @@ fr:
     card2: "Sit amet consectetuer adipiscing elit sed diam nonummy. Zzril delenit augue duis dolore te feugait nulla facilisi nam liber. Esse molestie."
     card3: "Sit amet consectetuer adipiscing elit sed diam nonummy. Zzril delenit augue duis dolore te feugait nulla facilisi nam liber. Esse molestie."
     image: "http://res.cloudinary.com/doodlid/image/upload/v1504858096/diago_bg03.jpg"
+  buttons:
+    button1:
+      text: "Vue d'ensemble"
+      icon: "eye"
+      link: "@user"
+    button2:
+      text: "Diagnostiques"
+      icon: "list"
+      link: "user_bookings"
+    button3:
+      text: "Agenda"
+      icon: "calendar"
+      link: "user_bookings_path(@user)"
+    button4:
+      text: "Messagerie"
+      icon: "envelope-o"
+      link: "user_bookings"
+    button5:
+      text: "Particuliers"
+      icon: "users"
+      link: "user_bookings"
+  tooltip:
+    confirmation: "RDV confirmé"
+    annulation: "Supprimer le RDV"
+    deconfirmation: "Annuler la confirmation"

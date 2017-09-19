@@ -2,11 +2,11 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home, :eligibility]
 
   def home
-
+    @user = current_user
   end
 
   def eligibility
-    @address = params[:query][:address]
+    @address = Geocoder.coordinates(params[:query][:address])
 
     @town = Town.first
     @zoneslist = @town.zones.map do |zone|
@@ -17,5 +17,11 @@ class PagesController < ApplicationController
       zoneinfos << zone.color
       zoneinfos
     end
+
+    session[:infos][:address]
+    session[:infos][:eligibility]
+    session[:infos][:booking]
+
+    session[:infos]
   end
 end

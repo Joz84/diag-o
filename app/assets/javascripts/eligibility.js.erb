@@ -4,13 +4,12 @@ var marker;
 var bounds;
 var eligibility = false;
 
-// if ($('#map').length) {
+if ($('#map').length) {
 window.onload = initMap;
-// }
-
 var zoneslist = $('.data-for-js').data('zoneslist');
 var address = $('.data-for-js').data('address');
-var center = {lat: 44.80,  lng:-0.51};
+var center = {lat: address[0],  lng:address[1]};
+}
 
 function initMap() {
 
@@ -27,7 +26,12 @@ function initMap() {
     bounds = map.getBounds();
   });
   marker = new google.maps.Marker({
-    position: center
+    position: center,
+    title: 'Diag-o eligibility',
+    icon: {
+      url: "http://res.cloudinary.com/doodlid/image/upload/v1505158241/Save%20images/diago_marker.svg",
+      scaledSize: new google.maps.Size(64, 91)
+    }
   });
 
   console.log(address)
@@ -64,7 +68,7 @@ function initMap() {
     marker.setPosition(place.geometry.location);
     marker.setMap(map);
     map.setCenter(marker.getPosition());
-    map.setZoom(17);
+    map.setZoom(16);
     map.panTo(marker.position);
 
     for (i = 0; i < zoneslist.length; i++) {

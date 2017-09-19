@@ -1,7 +1,35 @@
+$shadow: 0 2px 5px 0 rgba(0,0,0,0.07),0 2px 0 0 rgba(0,0,0,0.03);
+
 .margin-bottom-small {
   margin-bottom: 40px;
 }
 .underline {
   border-bottom: 2px solid $medium-gray;
   padding-bottom: 5px;
+}
+.padding-content {
+  padding: 0 20px 0 20px;
+}
+.flexbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.margin-top{
+  margin-top: 70px;
+}
+.fixed-top {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 10;
+}
+.fixed-under-top {
+  position: fixed;
+  top: 70px;
+  width: 100%;
+  z-index: 10;
+}
+.min-width {
+  min-width: 200px;
 }

@@ -18,6 +18,7 @@
     </div>
     <div class="col-xs-12 col-sm-12 col-md-6">
       <div class="report">
+          <%= session[:message] %>
           <h4 class="margin-bottom-small underline">Rapport d'élligibilité</h4>
           <h6>Adresse de l'habitation concernée:</h6>
           <h4 id="address">--</h4>
@@ -26,7 +27,7 @@
           <h6>Éligibilité:</h6>
           <h4 class="margin-bottom-small" id="conclusion">--</h4>
           <h4 class="margin-bottom-small" id="calltoaction">--</h4>
-          <%= link_to "Prendre un rendez-vous", root_path , class: "btn btn-default btn-green "  %>
+          <%= link_to "Prendre un rendez-vous", root_path , class: "btn-green flexbox"  %>
       </div>
     </div>
   </div>

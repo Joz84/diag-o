@@ -1,0 +1,142 @@
+.simple-calendar {
+  table {
+    -webkit-border-horizontal-spacing: 0px;
+    -webkit-border-vertical-spacing: 0px;
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid rgb(221, 221, 221);
+    border-collapse: collapse;
+    box-sizing: border-box;
+    width: 100%;
+    height: 580px;
+  }
+  tr {
+    border-collapse: collapse;
+    border-bottom: 2px solid $medium-gray;
+  }
+  thead {
+    height: 15px;
+  }
+  th {
+    padding: 0px;
+    border-collapse: collapse;
+    border-left: 1px solid rgb(221, 221, 221);
+    border-right: 1px solid rgb(221, 221, 221);
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 16px;
+  }
+
+  td {
+    padding: 0px;
+    vertical-align: top;
+    font-size: 12px;
+
+    border: 1px solid #ddd;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-right-color: rgb(221, 221, 221);
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-left-color: rgb(221, 221, 221);
+    border-left-style: solid;
+    border-left-width: 1px;
+  }
+  .day {
+    height: 100px;
+    position: relative;
+    padding: 0px;
+  }
+  .date-day {
+    position: absolute;
+    font-size: 16px;
+    font-weight: bold;
+    top: 2%;
+    left: 5%;
+    opacity: 0.5;
+  }
+
+  .wday-0 {}
+  .wday-1 {}
+  .wday-2 {}
+  .wday-3 {}
+  .wday-4 {}
+  .wday-5 {}
+  .wday-6 {}
+
+  .today {
+    background: $yellow;
+  }
+  .calendar-heading {
+    font-weight: bold;
+    font-size: $dashboard-title;
+    margin: 20px 0 20px 0;
+    text-align: center;
+
+  }
+  span.calendar-title {
+    margin: 20px;
+  }
+
+  .past {}
+  .future {}
+
+  .start-date {}
+
+  .prev-month {
+    background: #DDD;
+  }
+  .next-month {
+    background: #DDD;
+  }
+  .current-month {}
+
+  .has-events {}
+  .cell-content {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%
+  }
+  .btn-container{
+    width: 80%;
+    height: 100%;
+    padding-right: 5%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+  .btn-calendar {
+    position: relative;
+    margin-bottom: 4%;
+    margin-top: 4%;
+    text-align: center;
+    width: 100%;
+    height: 42px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    i {
+      color: $medium-gray;
+      margin-right: 5px;
+      font-size: 16px;
+    }
+  }
+  .btn-calendar-tobook {
+    border: 1px solid $anis;
+    border-left: 8px solid $anis;
+  }
+  .btn-calendar-doneinpast {
+    border: 1px solid $regular-gray;
+    border-left: 8px solid $regular-gray;
+  }
+  .btn-calendar-booked {
+    border: 1px solid $yellow;
+    border-left: 8px solid $yellow;
+    p, a {
+      margin: 0px;
+    }
+  }
+}

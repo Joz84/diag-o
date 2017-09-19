@@ -1,24 +1,51 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-User.destroy_all
+UserHousing.destroy_all
 Booking.destroy_all
+Housing.destroy_all
+User.destroy_all
+Diagnostic.destroy_all
+Point.destroy_all
+Zone.destroy_all
+Town.destroy_all
+
 puts "All tables are destroyed !"
 
 puts "Generating random users"
 
 #Users / Client
-User.create!(email: "test@test", password: "test98776", first_name: "Jo", last_name: "Sera", address: "Floirac", phone:"06 11 22 33 44", role:0)
-User.create!(email: "test1@test", password: "test1343", first_name: "Jules", last_name: "Mar", address: "Floirac", phone:"06 11 22 33 44", role:0)
-User.create!(email: "test2@test", password: "test23453", first_name: "DiagoMax", last_name: "Bou", address: "Floirac", phone:"06 11 22 33 44", role:1)
-User.create!(email: "test3@test.vm", password: "test35678", first_name: "DiagoSam", last_name: "Cha", address: "Floirac", phone:"06 11 22 33 44", role:1)
+diagnostician = User.create!(email: "jo@yahoo.fr", password: "123456", first_name: "Jo", last_name: "Sera", address: "Floirac", phone:"06 11 22 33 44", role:1)
+jules = User.create!(email: "jules@yahoo.fr", password: "123456", first_name: "Jules", last_name: "Marchello", address: "Bordeaux", phone:"06 11 22 33 44", role:0)
+max = User.create!(email: "max@yahoo.fr", password: "123456", first_name: "Max", last_name: "Boue", address: "Bègles", phone:"06 11 22 33 44", role:0)
+sami = User.create!(email: "sam@yahoo.fr", password: "123456", first_name: "Sam", last_name: "Chalalala", address: "Cenon", phone:"06 11 22 33 44", role:0)
+
 
 #Housings
-housing = Housing.create!(address:"Bouliac", created_at:"01-01-2017", updated_at:"01-01-2017")
+housing1 = Housing.create!(address:"77, rue des étoiles rouges, 28054 Montigny le Gannelon", created_at:"01-01-2017", updated_at:"01-01-2017")
+user_housing = UserHousing.create!(user: jules, housing: Housing.last, user_state: 1 )
+
+housing2 = Housing.create!(address:" 2 rue de l'église Bouliac", created_at:"01-01-2017", updated_at:"01-01-2017")
+user_housing = UserHousing.create!(user: jules, housing: Housing.last, user_state: 1 )
+
+housing3 = Housing.create!(address:" 6 Chemin de Créon 33270 BOULIAC", created_at:"01-01-2017", updated_at:"01-01-2017")
+user_housing = UserHousing.create!(user: max, housing: Housing.last, user_state: 1 )
+
+housing4 = Housing.create!(address:"gestion de l’eau 24 route de Latresne Bouliac", created_at:"01-01-2017", updated_at:"01-01-2017")
+user_housing = UserHousing.create!(user: sami, housing: Housing.last, user_state: 1 )
+
+puts "Housing créé: #{Housing.count}"
+puts "UserHousing créé: #{UserHousing.count}"
+
+housings = [housing1, housing2, housing3, housing4]
+
 
 #Bookings
-Booking.create!(user_id:"1", housing_id: housing.id, set_at:"01-01-2017", comment:"Booking is OK", confirmed_at:"02-01-2017")
+10.times do
+  Diagnostic.create!
+  Booking.create!(user_id: diagnostician.id, housing: housings.sample, diagnostic: Diagnostic.last, set_at:"#{rand(1..25)}-#{rand(9..12)}-2017", comment:"Book seed #{Booking.count}", confirmed_at: nil)
+end
 
+puts "Booking créé: #{Booking.count}"
 
 serialized_file = File.read(Rails.root.join('lib', 'seeds', 'floirac_test.json'))
 
@@ -72,7 +99,6 @@ floirac_zones.each do |zone|
         puts "Point créé pour Multipolygone: lng:#{Point.last.lng}, lat#{Point.last.lat} pour zone #{Point.last.zone.id_zone}"
       end
     end
-
     end
   end
 

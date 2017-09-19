@@ -18,7 +18,8 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'json'
-
+gem "simple_calendar", "~> 2.0"
+gem "faker"
 
 group :development, :test do
   gem 'pry-byebug'

@@ -1,0 +1,47 @@
+<% @bookings.each do |booking| %>
+  <%= link_to diagnostician_booking_path(booking) do %>
+    <div class="user">
+      <div class="line">
+        <div class="user-name">
+          <h5><%= booking.booker.first_name %> <%= booking.booker.last_name %></h5>
+        </div>
+        <div class="user-status">
+          <%= booking.set_at.strftime("le %d %b %Y") %>
+        </div>
+      </div>
+      <div class="line">
+          <p class="user-data email"><%= booking.booker.email %></p>
+          <p class="user-data phone"><%= booking.booker.phone %></p>
+          <div>
+            <%if booking.confirmed_at != nil %>
+              <p class="status accepted">
+                <%= "RDV confirmé" %>
+                <%= booking.confirmed_at.strftime("le %d %b %Y") %>
+                <%= link_to diagnostician_booking_path(booking) do %>
+                  <i class="fa fa-pencil status accepted"></i>
+                <% end %>
+                <%= link_to diagnostician_booking_path(booking), method: :patch do %>
+                  <i class="fa fa-times status accepted" data-toggle="tooltip" data-placement="left" title="<%= t('tooltip.deconfirmation') %>"></i>
+                <% end %>
+                <%= link_to diagnostician_booking_path(booking), method: :delete do %>
+                  <i class="fa fa-trash status accepted" data-toggle="tooltip" data-placement="left" title="<%= t('tooltip.annulation') %>"></i>
+                <% end %>
+              </p>
+              <% else %>
+              <span class="status declined"><%= "En attente de confirmation" %></span>
+                  <i class="fa fa-pencil status declined"></i>
+                <%= link_to diagnostician_booking_path(booking), method: :patch do %>
+                  <i class="fa fa-check status declined" data-toggle="tooltip" data-placement="left" title="<%= t('tooltip.confirmation') %>"></i>
+                <% end %>
+                <%= link_to diagnostician_booking_path(booking), method: :delete do %>
+                  <i class="fa fa-trash status declined" data-toggle="tooltip" data-placement="left" title="<%= t('tooltip.annulation') %>"></i>
+                <% end %>
+            <% end %>
+          </div>
+      </div>
+      <div class="line">
+        <p class="user-data address"><%= booking.housing.address %></p>
+      </div>
+    </div>
+  <% end %>
+<% end %>
