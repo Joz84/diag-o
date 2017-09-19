@@ -2,12 +2,13 @@ class Diagnostician::BookingsController < ApplicationController
   before_action :params_booking, only: [:show, :destroy, :update]
 
   def index
-    @bookings = Booking.where(diagnostician: current_user)
+    @bookings = policy_scope Booking.where(diagnostician: current_user)
     @dates = @bookings.map{ |booking| booking.set_at}
     @user = current_user
   end
 
   def show
+    authorize @booking
     @booking = Booking.find(params[:id])
     @housing = @booking.housing
     @hash = Gmaps4rails.build_markers(@housing) do |housing, marker|
@@ -18,6 +19,7 @@ class Diagnostician::BookingsController < ApplicationController
   end
 
   def create
+    authorize @booking
   end
 
   def destroy
