@@ -6,8 +6,14 @@ class PagesController < ApplicationController
   end
 
   def eligibility
+    session[:address] = nil
+    session[:color] = nil
+    session[:date] = nil
+    session[:hour] = nil
+
     unless params[:query].nil?
-      @address = Geocoder.coordinates(params[:query][:address])
+      @address = params[:query][:address]
+      @address_geocoded = Geocoder.coordinates(params[:query][:address])
     end
 
     @town = Town.first
