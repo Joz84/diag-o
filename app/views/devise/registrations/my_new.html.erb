@@ -1,5 +1,6 @@
 <%= render "shared/breadcrumb", page: @page %>
 
+
 <div class="flex-horizontal">
   <div class="signup-box">
     <div class="signup-top flexbox">
@@ -23,6 +24,7 @@
           <%= f.input :password_confirmation, required: true, label: false %>
         </div>
         <div class="form-actions">
+          <%= f.input :role, value: 0, required: true, label: false %>
           <%= f.button :submit, "Réserver le rendez-vous", class: "btn-green" %>
         </div>
       <% end %>
