@@ -11,12 +11,12 @@
     <p>Classement en zone:</p>
     <h4 class="underline-light"><%= session[:color] %></h4>
     <p>Date du rendez-vous:</p>
-    <h4 class="underline-light"><%= session[:date] %> entre <%= session[:hour] %></h4>
+    <h4 class="underline-light"><%= session[:date] %> entre <%= session[:hour]== "8" ? "8h-12h" : "14h-18h" %></h4>
     <p>Vous êtes joignable au:</p>
     <h4><%= current_user.phone %></h4>
     <h4 class="underline-light"><%= current_user.email %></h4>
     <%= simple_form_for Booking.new do |f| %>
-      <%= f.button :submit, class: "btn-green flexbox center" %>
+      <%= f.button :submit,  "Valider le rendez-vous", class: "btn-green flexbox center" %>
     <% end %>
   </div>
 </div>

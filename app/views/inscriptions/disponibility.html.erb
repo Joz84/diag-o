@@ -3,12 +3,12 @@
 <h3 class="text-center "><%= t('inscription.disponibility1') %></h3>
 <p class="text-center margin-bottom-small"><%= t('inscription.disponibility2') %></p>
 
-<%= month_calendar do |date| %>
+<%= calendar start_date_param: :my_date, number_of_days: 25, partial: 'simple_calendar/disponibility_calendar' do |date| %>
   <div class="date-day"><%= date.day %></div>
   <div class="cell-content">
     <div class="btn-container">
       <% ["8","14"].each do |hour| %>
-        <% if date_in_past(date) %>
+        <% if date_in_futur(date) %>
           <% unless @dates.include? date_with_hour(date, hour) %>
             <%= simple_form_for :query, url: "/checkpoint", method: :get do |f| %>
               <%= f.input_field :date, as: :hidden, value: date %>
@@ -16,7 +16,6 @@
               <%= f.button :submit, value: (hour == "8" ? "8h-12h" : "14h-18h"), id: "btn-date", class: "btn-calendar btn-calendar-tobook" %>
             <% end %>
           <% else %>
-            <div class= "btn-calendar btn-calendar-nothing"></div>
           <% end %>
         <% end %>
       <% end %>

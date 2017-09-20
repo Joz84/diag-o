@@ -100,9 +100,9 @@ function initMap() {
 
 
     if (google.maps.geometry.poly.containsLocation(place.geometry.location, polygon)){
-      $('#zone').html('Votre habitation est en zone ' + '<span style="color:' + zoneslist[i][1] + '">' + color_name + '</span>');
+      $('#zone').html( 'Votre habitation est en zone ' + '<span style="color:' + zoneslist[i][1] + '">' + color_name + '</span>');
       $('#conclusion').html('<span style="color:green">Vous êtes élligible, le diagnostic de votre habitation sera prise en charge à 100% par votre mairie.</span>');
-      $('#calltoaction').html('Planifiez un rendez-vous avec un diagnosticien dés maintenant.');
+      $('#calltoaction').html('Planifiez un rendez-vous avec notre diagnosticien dés maintenant.');
       eligibility = true;
       address_for_session.value = place["formatted_address"];
       color_for_session.value = color_name;

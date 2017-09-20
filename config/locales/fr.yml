@@ -54,23 +54,22 @@ fr:
     button1:
       text: "Vue d'ensemble"
       icon: "eye"
-      link: "@user"
     button2:
       text: "Diagnostiques"
       icon: "list"
-      link: "user_bookings"
     button3:
       text: "Agenda"
       icon: "calendar"
-      link: "user_bookings_path(@user)"
     button4:
       text: "Messagerie"
       icon: "envelope-o"
-      link: "user_bookings"
     button5:
       text: "Particuliers"
       icon: "users"
-      link: "user_bookings"
+    button6:
+      text: "Mon profil"
+      icon: "user"
+      titre: "Mise à jour des informations"
   tooltip:
     confirmation: "RDV confirmé"
     annulation: "Supprimer le RDV"
@@ -79,7 +78,7 @@ fr:
   inscription:
     breadcrumb1: "Choix des disponibilités"
     breadcrumb2: "Enregistrement"
-    breadcrumb3: "Récapitulatif"
+    breadcrumb3: "Validation"
     disponibility1: "Choisissez la date et l'heure du rendez-vous."
     disponibility2: "Le diagnostique prend un peu moins d'une demi-journée."
     disponibility3:

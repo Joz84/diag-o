@@ -4,7 +4,7 @@
     <div class="btn-container">
       <% ["8","14"].each do |hour| %>
         <!-- PAST -->
-        <% unless date_in_past(date) %>
+        <% unless date_in_futur(date) %>
           <% unless @dates.include? date_with_hour(date, hour) %>
             <!-- PAS DE BOOKING CE JOUR -->
             <div class= "btn-calendar btn-calendar-nothing">
