@@ -19,6 +19,7 @@ fr:
       invalid_token: "Jeton d'authentification incorrect."
       timeout: "Votre séance est expirée, veuillez vous reconnecter pour continuer."
       inactive: "Votre compte n'est pas encore activé."
+      already_authenticated: "Vous êtes déjà connecté"
     sessions:
       signed_in: "Réussite de la connexion."
       signed_out: "Réussite de la deconnexion."
@@ -98,6 +99,8 @@ fr:
         unhappy?: "Pas content(e)?"
         are_you_sure?: "Êtes-vous sûr?"
         back: "Retour"
+      user:
+        signed_up: "Vous êtes bien enregistré"
     unlocks:
       new:
         resend_unlock_instructions: "Renvoyez le mail pour déverrouiller mon compte"

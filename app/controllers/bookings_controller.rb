@@ -18,7 +18,7 @@ class BookingsController < ApplicationController
   def create
     @diagnostician = User.find_by_first_name("Jo")
 
-    if current_user
+    if current_user.diagnostician?
       @booking = @diagnostician.bookings.new(booking_params)
       @booking.diagnostic = Diagnostic.new
       # @booking.housing = current_user.particulier? ? current_user.housing : nil
@@ -29,7 +29,18 @@ class BookingsController < ApplicationController
         raise
       end
     else
-      redirect_to new_user_registration_path
+      housing = Housing.create!(address: session[:address])
+      user_housing = UserHousing.create!(user: current_user, housing: housing, user_state: 1 )
+      diagnostic = Diagnostic.new
+      date = session[:date]
+      hour = session[:hour]
+      booking = Booking.create!(user: @diagnostician, housing: housing, diagnostic: diagnostic, set_at: DateTime.parse(date.to_s + " 0"+ hour + ":00:00 +0000"), comment:"Booking eligible n°#{Booking.count}", confirmed_at: nil)
+      if housing.save! && user_housing.save! && diagnostic.save! && booking.save!
+        flash[:notice] = "Votre rendez-vous est confirmé, un diagnosticien vous appelera sous peu."
+        redirect_to user_path(current_user)
+      else
+        redirect_to "/confirmation"
+      end
     end
   end
 
