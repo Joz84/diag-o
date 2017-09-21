@@ -15,7 +15,7 @@ $shadow: 0 2px 5px 0 rgba(0,0,0,0.07),0 2px 0 0 rgba(0,0,0,0.03);
   padding-bottom: 20px;
 }
 .padding-content {
-  padding: 0 20px 0 20px;
+  padding: 20px;
 }
 .padding-box {
   padding: 20px;
@@ -50,4 +50,10 @@ $shadow: 0 2px 5px 0 rgba(0,0,0,0.07),0 2px 0 0 rgba(0,0,0,0.03);
 }
 a:hover {
   text-decoration: none !important;
+}
+#info {
+  background-color: $diago;
+  color: white;
+  padding: 10px;
+
 }

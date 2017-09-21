@@ -4,33 +4,28 @@ var marker;
 var bounds;
 var eligibility = false;
 
-if ($('#map').length) {
-window.onload = initMap;
-var zoneslist = $('.data-for-js').data('zoneslist');
-var address = $('.data-for-js').data('address');
-var geocoded = $('.data-for-js').data('geocoded');
+// INIT MAP AND ZONES
+if ($('#map').length && $(document).ready()) {
+  var zoneslist = $('.data-for-js').data('zoneslist');
+  var address = $('.data-for-js').data('address');
+  var geocoded = $('.data-for-js').data('geocoded');
+  var input = document.getElementById('pac-input');
+  var types = document.getElementById('type-selector');
+  var autocomplete = new google.maps.places.Autocomplete(input);
 
-console.log("Adresse de la home: " + address, geocoded);
+  console.log("Adresse de la home: " + address, geocoded);
 
-var center = {lat: geocoded[0],  lng:geocoded[1]};
+  var center = {lat: geocoded[0],  lng:geocoded[1]};
 
-// document.getElementById('pac-input').value = address;
-}
+  document.getElementById('pac-input').value = address;
+  setTimeout(function(){
+    document.getElementById('pac-input').focus();
+    setTimeout(function(){
+      $(".pac-container .pac-item:first").click();
+    },1000);
+    }, 1000);
 
-function initMap() {
 
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: center,
-    zoom: 15,
-    scaleControl: true,
-    center: center,
-    disableDefaultUI: false
-  });
-  geocoder = new google.maps.Geocoder();
-  bounds = new google.maps.LatLngBounds();
-  google.maps.event.addListenerOnce(map, 'tilesloaded', function(evt) {
-    bounds = map.getBounds();
-  });
   marker = new google.maps.Marker({
     position: center,
     title: 'Diag-o eligibility',
@@ -39,6 +34,19 @@ function initMap() {
       scaledSize: new google.maps.Size(64, 91)
     }
   });
+
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: center,
+    zoom: 15,
+    scaleControl: true,
+    center: center,
+    disableDefaultUI: false
+  });
+
+  setMarker(center, map)
+
+  geocoder = new google.maps.Geocoder();
+  bounds = new google.maps.LatLngBounds();
 
   for (i = 0; i < zoneslist.length; i++) {
     polygon = new google.maps.Polygon({
@@ -53,28 +61,69 @@ function initMap() {
     polygon.setMap(map);
   }
 
-  var input = document.getElementById('pac-input');
-  var types = document.getElementById('type-selector');
+  google.maps.event.addListenerOnce(map, 'tilesloaded', function(evt) {
+    bounds = map.getBounds();
+  });
+  window.onload = loadListener();
+
   map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
   map.controls[google.maps.ControlPosition.TOP_LEFT].push(types);
+}
 
-  var autocomplete = new google.maps.places.Autocomplete(input);
-  autocomplete.addListener('place_changed', function() {
-    marker.setMap(null);
+function setMarker(center, map) {
+  marker.setPosition(center);
+  marker.setMap(map);
+  map.setCenter(marker.getPosition());
+  map.setZoom(16);
+  map.panTo(marker.position);
+}
+
+function loadListener() {
+  autocomplete.addListener('place_changed', function(){
     var place = autocomplete.getPlace();
+    checkForEligibility(place);
+  });
+  // var firstResult = $(".pac-container .pac-item:first").text();
+  $(document).keypress(function (e) {
+    if (e.which == 13) {
+      var firstResult = $(".pac-container .pac-item:first").text();
+
+      var geocoder = new google.maps.Geocoder();
+      geocoder.geocode({"address":firstResult }, function(results, status) {
+          if (status == google.maps.GeocoderStatus.OK) {
+              var lat = results[0].geometry.location.lat(),
+                  lng = results[0].geometry.location.lng(),
+                  placeName = results[0].address_components[0].long_name,
+                  latlng = new google.maps.LatLng(lat, lng);
+
+                  $(".pac-container .pac-item:first").addClass("pac-selected");
+                  $(".pac-container").css("display","none");
+                  $("#searchTextField").val(firstResult);
+                  $(".pac-container").css("visibility","hidden");
+            console.log( "placeName: " + placeName);
+            console.log( "latlng " + latlng);
+            setMarker(placeName, latlng);
+          }
+        });
+    // checkForEligibility(place);
+    }
+  });
+}
+
+function checkForEligibility(place) {
+    marker.setMap(null);
+
     var newBounds = new google.maps.LatLngBounds(bounds.getSouthWest(), bounds.getNorthEast());
-  // removed newBounds = bounds;
+
     if (!place.geometry) {
       geocodeAddress(input.value);//Added on 27/09/2016
-      //window.alert("Autocomplete's returned place contains no geometry");
+      window.alert("Autocomplete's returned place contains no geometry");
       return;
     };
-    marker.setPosition(place.geometry.location);
-    marker.setMap(map);
-    map.setCenter(marker.getPosition());
-    map.setZoom(16);
-    map.panTo(marker.position);
 
+    setMarker(place.geometry.location, map);
+
+    // CHECK FOR ELIGIBILITY
     for (i = 0; i < zoneslist.length; i++) {
       polygon = new google.maps.Polygon({
           path: zoneslist[i][0],
@@ -94,28 +143,26 @@ function initMap() {
               color_name = "jaune mineur"
       }
 
-    $('#address').html(place["formatted_address"]);
-    var address_for_session = document.getElementById('query_address')
-    var color_for_session = document.getElementById('query_color')
+      $('#address').html(place["formatted_address"]);
+      $('#info').hide();
+      var address_for_session = document.getElementById('query_address')
+      var color_for_session = document.getElementById('query_color')
 
-
-    if (google.maps.geometry.poly.containsLocation(place.geometry.location, polygon)){
-      $('#zone').html( 'Votre habitation est en zone ' + '<span style="color:' + zoneslist[i][1] + '">' + color_name + '</span>');
-      $('#conclusion').html('<span style="color:green">Vous êtes élligible, le diagnostic de votre habitation sera prise en charge à 100% par votre mairie.</span>');
-      $('#calltoaction').html('Planifiez un rendez-vous avec notre diagnosticien dés maintenant.');
-      eligibility = true;
-      address_for_session.value = place["formatted_address"];
-      color_for_session.value = color_name;
-      console.log("Color: " + color_name);
-      $('#btn-rendez-vous').removeClass("hidden");
-    };
-  }
-   if (eligibility == false){
+      if (google.maps.geometry.poly.containsLocation(place.geometry.location, polygon)){
+        $('#zone').html( 'Votre habitation est en zone ' + '<span style="color:' + zoneslist[i][1] + '">' + color_name + '</span>');
+        $('#conclusion').html('<span style="color:green">Vous êtes élligible, le diagnostic de votre habitation sera prise en charge à 100% par votre mairie.</span>');
+        $('#calltoaction').html('Planifiez un rendez-vous avec notre diagnosticien dés maintenant.');
+        eligibility = true;
+        address_for_session.value = place["formatted_address"];
+        color_for_session.value = color_name;
+        // console.log("Color: " + color_name);
+        $('#btn-rendez-vous').removeClass("hidden");
+      };
+    }
+    if (eligibility == false){
       color_name = "-"
       $('#zone').html('Votre habitation n\'est pas en zone désignée inondable');
       $('#conclusion').html('<span style="color:red">Vous n\'êtes pas élligible, le diagnostic de votre habitation ne sera pas prise en charge.</span>');
       $('#calltoaction').html('Le rendez-vous avec le diagnosticien sera à votre charge.');
     }
-  });
 }
-
