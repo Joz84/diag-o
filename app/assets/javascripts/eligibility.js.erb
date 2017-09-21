@@ -19,7 +19,6 @@ if ($('#map').length && $(document).ready()) {
 
   document.getElementById('pac-input').value = address;
   setTimeout(function(){
-    document.getElementById('pac-input').value = $(".pac-container .pac-item:first").text();
     document.getElementById('pac-input').focus();
     setTimeout(function(){
       $(".pac-container .pac-item:first").click();
@@ -145,6 +144,7 @@ function checkForEligibility(place) {
       }
 
       $('#address').html(place["formatted_address"]);
+      $('#info').hide();
       var address_for_session = document.getElementById('query_address')
       var color_for_session = document.getElementById('query_color')
 
