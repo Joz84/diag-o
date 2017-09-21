@@ -13,6 +13,7 @@ class Diagnostician::DiagnosticsController < ApplicationController
   end
 
   def show
+    authorize @diagnostic
     @diagnostic = Diagnostic.find(params[:id])
   end
 

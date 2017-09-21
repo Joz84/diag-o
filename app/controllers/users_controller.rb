@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :params_user, only: [:show]
 
   def show
+    authorize @user
     if @user.diagnostician?
       @private_bookings = @users.bookings.where(diagnostician: @user)
       @private_housings = @private_bookings.map { |b| b.housing unless (b.housing.latitude.nil? || b.housing.longitude.nil?) }.compact
@@ -14,7 +15,6 @@ class UsersController < ApplicationController
       draw_marker(@user.housings)
       @diagnostics = @user.housings.map { |housing| housing.bookings.first.diagnostic }
     end
-
   end
 
   private

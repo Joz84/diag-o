@@ -17,7 +17,7 @@
               <p> <%=@booking.booker.phone%> </p>
               <p> <%=@booking.booker.address%> </p>
               <p>Demande reçue le <%= @booking.created_at.strftime(" %d %b %Y") %></p>
-              <% if @booking.confirmed_at > @booking.created_at %>
+              <% if @booking.confirmed_at.nil? != true && @booking.confirmed_at > @booking.created_at %>
                 <p>Demande confirmée le <%= @booking.confirmed_at.strftime(" %d %b %Y") %></p>
               <% end %>
               <p>Commentaires: <%= @booking.comment %></p>

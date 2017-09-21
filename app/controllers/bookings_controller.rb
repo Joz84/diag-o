@@ -6,7 +6,7 @@ class BookingsController < ApplicationController
   end
 
   def index
-    @bookings = Booking.where(diagnostician: current_user)
+    @bookings = policy_scope(Booking).where(diagnostician: current_user)
     @dates = @bookings.map{ |booking| booking.set_at}
     @user = User.find_by_first_name("Jo")
   end

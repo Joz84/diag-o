@@ -15,15 +15,11 @@ class PagesController < ApplicationController
       @address = params[:query][:address]
       @address_geocoded = Geocoder.coordinates(params[:query][:address])
     end
-
+    
     @town = Town.first
     @zoneslist = @town.zones.map do |zone|
-      zoneinfos = []
-      zoneinfos << zone.points.map do |point|
-        {'lat' => point.lat.to_f, 'lng' => point.lng.to_f}
-      end
-      zoneinfos << zone.color
-      zoneinfos
+      zonepoints = zone.points.map { |point| {'lat' => point.lat.to_f, 'lng' => point.lng.to_f} }
+      [ zonepoints, zone.color ]
     end
   end
 end

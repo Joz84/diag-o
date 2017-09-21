@@ -8,6 +8,7 @@ class Diagnostician::BookingsController < ApplicationController
   end
 
   def show
+    authorize @booking
     @booking = Booking.find(params[:id])
     @housing = @booking.housing
     @hash = Gmaps4rails.build_markers(@housing) do |housing, marker|
@@ -18,6 +19,7 @@ class Diagnostician::BookingsController < ApplicationController
   end
 
   def create
+    authorize @booking
   end
 
   def destroy
@@ -26,15 +28,8 @@ class Diagnostician::BookingsController < ApplicationController
   end
 
   def update
-
-    if @booking.confirmed_at
-      @booking.confirmed_at = nil
-    else
-      @booking.confirmed_at = DateTime.now
-    end
-    if @booking.save!
-      redirect_back(fallback_location: root_path)
-    end
+    @booking.update( confirmed_at: @booking.confirmed_at ? nil : DateTime.now )
+    redirect_back(fallback_location: root_path)
   end
 
   private

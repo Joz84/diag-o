@@ -13,7 +13,7 @@ class User < ApplicationRecord
   has_many :housings, through: :user_housings
   has_many :diagnostics, through: :bookings
 
-  enum role: [ :particulier, :diagnostician ]
+  enum role: [:particulier, :diagnostician, :city, :partner, :admin]
   after_initialize :init
 
   def init
