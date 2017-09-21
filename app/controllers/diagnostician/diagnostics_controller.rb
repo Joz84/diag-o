@@ -4,10 +4,10 @@ class Diagnostician::DiagnosticsController < ApplicationController
   def index
     @user = current_user
     if @user.diagnostician?
-      @diagnostics = Diagnostic.all # car un seul diagnosticien pour l'instant
+      @diagnostics = @user.diagnostics # car un seul diagnosticien pour l'instant
       @housings = Housing.all
     else
-      @diagnostics =
+      @diagnostics = @user.
     end
   end
 
