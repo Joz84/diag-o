@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :set_locale
   before_action :configure_permitted_parameters, if: :devise_controller?
+  helper_method :private_diagnostics
 
   def set_locale
     I18n.locale = :fr
@@ -14,6 +15,10 @@ class ApplicationController < ActionController::Base
       # devise_parameter_sanitizer.permit(:account_update, keys: user_data)
   end
 
+  def private_diagnostics
+    self.housings.map { |housing| housing.bookings.first.diagnostic }
+  end
+
   def after_sign_in_path_for(resource)
     if resource.sign_in_count == 1
       confirmation_path
@@ -21,5 +26,7 @@ class ApplicationController < ActionController::Base
       root_path
     end
   end
+
+
 
 end

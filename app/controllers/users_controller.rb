@@ -2,15 +2,19 @@ class UsersController < ApplicationController
   before_action :params_user, only: [:show]
 
   def show
-    @bookings = Booking.all.where(diagnostician: @user)
-    @myhousings = @bookings.map { |b| b.housing unless (b.housing.latitude.nil? || b.housing.longitude.nil?) }.compact
-    @hash = Gmaps4rails.build_markers(@myhousings) do |housing, marker|
-      marker.lat housing.latitude
-      marker.lng housing.longitude
-      marker.json({ address: housing.address })
+    if @user.diagnostician?
+      @private_bookings = @users.bookings.where(diagnostician: @user)
+      @private_housings = @private_bookings.map { |b| b.housing unless (b.housing.latitude.nil? || b.housing.longitude.nil?) }.compact
+      draw_marker(@private_housings)
+      @diagnostics = @user.diagnostics.last(3).reverse
+      end
+      @bookings = Booking.incoming(@user)
+    else
+      @bookings = @user.housings.map { |housing| housing.bookings }.flatten
+      draw_marker(@user.housings)
+      @diagnostics = @user.housings.map { |housing| housing.bookings.first.diagnostic }
     end
-    @bookings = Booking.incoming(current_user)
-    @diagnostics = Diagnostic.last(3).reverse
+
   end
 
   private
@@ -19,4 +23,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def draw_marker(housings)
+    Gmaps4rails.build_markers(housings) do |housing, marker|
+      marker.lat housing.latitude
+      marker.lng housing.longitude
+      marker.json({ address: housing.address })
+  end
 end

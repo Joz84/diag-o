@@ -7,7 +7,8 @@ class Diagnostician::DiagnosticsController < ApplicationController
       @diagnostics = @user.diagnostics # car un seul diagnosticien pour l'instant
       @housings = Housing.all
     else
-      @diagnostics = @user.
+      @diagnostics = @user.housings.map { |housing| housing.bookings.first.diagnostic }
+      @housings = @user.housings
     end
   end
 
