@@ -2,8 +2,14 @@ class Diagnostician::DiagnosticsController < ApplicationController
   before_action :params_user, only: [:index, :show]
 
   def index
-    @diagnostics = policy_scope(Diagnostic) # car un seul diagnosticien pour l'instant
-    @housings = Housing.all
+    @user = current_user
+    if @user.diagnostician?
+      @diagnostics = @user.diagnostics # car un seul diagnosticien pour l'instant
+      @housings = Housing.all
+    else
+      @diagnostics = @user.housings.map { |housing| housing.bookings.first.diagnostic }
+      @housings = @user.housings
+    end
   end
 
   def show

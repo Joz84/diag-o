@@ -16,7 +16,7 @@ module ApplicationHelper
     DateTime.parse(date.to_s + " 0"+ hour + ":00:00 +0000")
   end
 
-  def date_in_past(date)
+  def date_in_futur(date)
     (Date.today <=> date) < 1
   end
 
@@ -27,4 +27,6 @@ module ApplicationHelper
   def weekend?(day)
     day.sunday? || day.saturday?
   end
+
+
 end

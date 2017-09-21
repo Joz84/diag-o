@@ -8,7 +8,13 @@ if ($('#map').length) {
 window.onload = initMap;
 var zoneslist = $('.data-for-js').data('zoneslist');
 var address = $('.data-for-js').data('address');
-var center = {lat: address[0],  lng:address[1]};
+var geocoded = $('.data-for-js').data('geocoded');
+
+console.log("Adresse de la home: " + address, geocoded);
+
+var center = {lat: geocoded[0],  lng:geocoded[1]};
+
+// document.getElementById('pac-input').value = address;
 }
 
 function initMap() {
@@ -33,8 +39,6 @@ function initMap() {
       scaledSize: new google.maps.Size(64, 91)
     }
   });
-
-  console.log(address)
 
   for (i = 0; i < zoneslist.length; i++) {
     polygon = new google.maps.Polygon({
@@ -89,24 +93,29 @@ function initMap() {
           default:
               color_name = "jaune mineur"
       }
-      $('#address').html(place["formatted_address"]);
 
-      if (google.maps.geometry.poly.containsLocation(place.geometry.location, polygon)){
-        $('#zone').html('Votre habitation est en zone ' + '<span style="color:' + zoneslist[i][1] + '">' + color_name + '</span>');
-        $('#conclusion').html('<span style="color:green">Vous êtes élligible, le diagnostic de votre habitation sera prise en charge à 100% par votre mairie.</span>');
-        $('#calltoaction').html('Planifiez un rendez-vous avec un diagnosticien dés maintenant.');
-        eligibility = true;
-      };
+    $('#address').html(place["formatted_address"]);
+    var address_for_session = document.getElementById('query_address')
+    var color_for_session = document.getElementById('query_color')
+
+
+    if (google.maps.geometry.poly.containsLocation(place.geometry.location, polygon)){
+      $('#zone').html( 'Votre habitation est en zone ' + '<span style="color:' + zoneslist[i][1] + '">' + color_name + '</span>');
+      $('#conclusion').html('<span style="color:green">Vous êtes élligible, le diagnostic de votre habitation sera prise en charge à 100% par votre mairie.</span>');
+      $('#calltoaction').html('Planifiez un rendez-vous avec notre diagnosticien dés maintenant.');
+      eligibility = true;
+      address_for_session.value = place["formatted_address"];
+      color_for_session.value = color_name;
+      console.log("Color: " + color_name);
+      $('#btn-rendez-vous').removeClass("hidden");
+    };
+  }
+   if (eligibility == false){
+      color_name = "-"
+      $('#zone').html('Votre habitation n\'est pas en zone désignée inondable');
+      $('#conclusion').html('<span style="color:red">Vous n\'êtes pas élligible, le diagnostic de votre habitation ne sera pas prise en charge.</span>');
+      $('#calltoaction').html('Le rendez-vous avec le diagnosticien sera à votre charge.');
     }
-    if (eligibility == false){
-        console.log(place);
-        $('#zone').html('Votre habitation n\'est pas en zone désignée inondable');
-        $('#conclusion').html('<span style="color:red">Vous n\'êtes pas élligible, le diagnostic de votre habitation ne sera pas prise en charge.</span>');
-        $('#calltoaction').html('Le rendez-vous avec le diagnosticien sera à votre charge.');
-
-    }
-
-
   });
 }
 

@@ -1,4 +1,6 @@
 class BookingsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :create]
+
   def show
     @booking = Booking.find(params[:id])
   end
@@ -6,7 +8,7 @@ class BookingsController < ApplicationController
   def index
     @bookings = policy_scope(Booking).where(diagnostician: current_user)
     @dates = @bookings.map{ |booking| booking.set_at}
-    @user = current_user
+    @user = User.find_by_first_name("Jo")
   end
 
   def new
@@ -14,16 +16,31 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @user = current_user
     @diagnostician = User.find_by_first_name("Jo")
-    @booking = @diagnostician.bookings.new(booking_params)
-    @booking.diagnostic = Diagnostic.new
-    # @booking.housing = current_user.particulier? ? current_user.housing : nil
-    @booking.housing = Housing.last ## POUR TEST
-    if @booking.save
-      redirect_to bookings_path
+
+    if current_user.diagnostician?
+      @booking = @diagnostician.bookings.new(booking_params)
+      @booking.diagnostic = Diagnostic.new
+      # @booking.housing = current_user.particulier? ? current_user.housing : nil
+      @booking.housing = Housing.last ## POUR TEST
+      if @booking.save
+        redirect_to bookings_path
+      else
+        raise
+      end
     else
-      raise
+      housing = Housing.create!(address: session[:address])
+      user_housing = UserHousing.create!(user: current_user, housing: housing, user_state: 1 )
+      diagnostic = Diagnostic.new
+      date = session[:date]
+      hour = session[:hour]
+      booking = Booking.create!(user: @diagnostician, housing: housing, diagnostic: diagnostic, set_at: DateTime.parse(date.to_s + " 0"+ hour + ":00:00 +0000"), comment:"Booking eligible n°#{Booking.count}", confirmed_at: nil)
+      if housing.save! && user_housing.save! && diagnostic.save! && booking.save!
+        flash[:notice] = "Votre rendez-vous est confirmé, un diagnosticien vous appelera sous peu."
+        redirect_to user_path(current_user)
+      else
+        redirect_to "/confirmation"
+      end
     end
   end
 
