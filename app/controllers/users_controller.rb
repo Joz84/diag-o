@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   def show
     authorize @user
     if @user.diagnostician?
-      @private_bookings = @users.bookings.where(diagnostician: @user)
+      @private_bookings = @user.bookings.where(diagnostician: @user)
       @private_housings = @private_bookings.map { |b| b.housing unless (b.housing.latitude.nil? || b.housing.longitude.nil?) }.compact
       draw_marker(@private_housings)
       @diagnostics = @user.diagnostics.last(3).reverse
