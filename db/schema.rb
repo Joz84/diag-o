@@ -10,10 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
+ActiveRecord::Schema.define(version: 20170926152720) do
+
 ActiveRecord::Schema.define(version: 20170920140857) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answers", force: :cascade do |t|
+    t.bigint "question_id"
+    t.bigint "option_choice_id"
+    t.bigint "diagnostic_id"
+    t.integer "numeric"
+    t.string "string"
+    t.boolean "boolean"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["diagnostic_id"], name: "index_answers_on_diagnostic_id"
+    t.index ["option_choice_id"], name: "index_answers_on_option_choice_id"
+    t.index ["question_id"], name: "index_answers_on_question_id"
+  end
 
   create_table "bookings", force: :cascade do |t|
     t.bigint "user_id"
@@ -42,6 +61,20 @@ ActiveRecord::Schema.define(version: 20170920140857) do
     t.float "longitude"
   end
 
+  create_table "option_choices", force: :cascade do |t|
+    t.string "name"
+    t.bigint "option_group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["option_group_id"], name: "index_option_choices_on_option_group_id"
+  end
+
+  create_table "option_groups", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "points", force: :cascade do |t|
     t.bigint "zone_id"
     t.datetime "created_at", null: false
@@ -51,8 +84,35 @@ ActiveRecord::Schema.define(version: 20170920140857) do
     t.index ["zone_id"], name: "index_points_on_zone_id"
   end
 
+  create_table "questions", force: :cascade do |t|
+    t.string "name"
+    t.bigint "section_id"
+    t.string "information"
+    t.bigint "option_group_id"
+    t.integer "input_type"
+    t.string "slug"
+    t.bigint "unit_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["option_group_id"], name: "index_questions_on_option_group_id"
+    t.index ["section_id"], name: "index_questions_on_section_id"
+    t.index ["unit_id"], name: "index_questions_on_unit_id"
+  end
+
+  create_table "sections", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "towns", force: :cascade do |t|
     t.string "zipcode"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "units", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -100,10 +160,17 @@ ActiveRecord::Schema.define(version: 20170920140857) do
     t.index ["town_id"], name: "index_zones_on_town_id"
   end
 
+  add_foreign_key "answers", "diagnostics"
+  add_foreign_key "answers", "option_choices"
+  add_foreign_key "answers", "questions"
   add_foreign_key "bookings", "diagnostics"
   add_foreign_key "bookings", "housings"
   add_foreign_key "bookings", "users"
+  add_foreign_key "option_choices", "option_groups"
   add_foreign_key "points", "zones"
+  add_foreign_key "questions", "option_groups"
+  add_foreign_key "questions", "sections"
+  add_foreign_key "questions", "units"
   add_foreign_key "user_housings", "housings"
   add_foreign_key "user_housings", "users"
   add_foreign_key "zones", "towns"
