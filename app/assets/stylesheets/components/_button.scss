@@ -6,6 +6,10 @@
   border: none;
   padding: 0px 30px 0px 30px;
   max-width: 350px;
+  &:hover {
+    background-color: $yellow;
+    color: white;
+  }
 }
 .btn-slim {
   color: white;

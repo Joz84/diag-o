@@ -1,14 +1,24 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  validates :first_name, presence: :true
+  validates :last_name, presence: :true
+  validates :phone, presence: :true
+  validates :role, presence: :true
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :bookings
   has_many :user_housings
   has_many :housings, through: :user_housings
+  has_many :diagnostics, through: :bookings
 
-enum role: [:particulier, :diagnostician, :city, :partner, :admin]
+  enum role: [:particulier, :diagnostician, :city, :partner, :admin]
+  after_initialize :init
 
+  def init
+    self.role  ||= 0
+  end
 
 # # conversation.update! status: 0
 # conversation.active!

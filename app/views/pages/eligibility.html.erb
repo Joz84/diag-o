@@ -3,7 +3,7 @@
       data-color="<%= @color %>"
       data-area="<%= @area_orange %>"></div>
 
-<%= content_tag 'div', class: "data-for-js", data: {zoneslist: @zoneslist, address: @address} do %>
+<%= content_tag 'div', class: "data-for-js", data: {zoneslist: @zoneslist, address: @address, geocoded: @address_geocoded} do %>
 <% end %>
 
 
@@ -18,8 +18,8 @@
     </div>
     <div class="col-xs-12 col-sm-12 col-md-6">
       <div class="report">
-          <%= session[:message] %>
           <h4 class="margin-bottom-small underline">Rapport d'élligibilité</h4>
+          <h6 id="info">Précisez votre adresse à l'aide de la liste sur la carte.</h6>
           <h6>Adresse de l'habitation concernée:</h6>
           <h4 id="address">--</h4>
           <h6>Situation:</h6>
@@ -27,7 +27,11 @@
           <h6>Éligibilité:</h6>
           <h4 class="margin-bottom-small" id="conclusion">--</h4>
           <h4 class="margin-bottom-small" id="calltoaction">--</h4>
-          <%= link_to "Prendre un rendez-vous", root_path , class: "btn-green flexbox"  %>
+          <%= simple_form_for :query, url: '/disponibility', method: :get do |f| %>
+            <%= f.input :address, as: :hidden, value: "default"%>
+            <%= f.input :color, as: :hidden, value: "default"%>
+            <%= f.button :submit, value: "Prendre un rendez-vous", id: "btn-rendez-vous", class: "hidden btn-green flexbox" %>
+          <% end %>
       </div>
     </div>
   </div>
