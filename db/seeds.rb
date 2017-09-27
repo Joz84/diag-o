@@ -8,6 +8,12 @@ Diagnostic.destroy_all
 Point.destroy_all
 Zone.destroy_all
 Town.destroy_all
+# Answer.destroy_all
+# Question.destroy_all
+# Section.destroy_all
+# Unit.destroy_all
+# OptionChoice.destroy_all
+# OptionGroup.destroy_all
 
 puts "All tables are destroyed !"
 
@@ -104,37 +110,33 @@ floirac_zones.each do |zone|
 
 end
 
-sections = ["Conscience du Risque", "Situation de la Commune", "Réseaux intérieurs", "Crue Historique de 1988"]
+sections = ["inhabitant", "risk_awarness", "works_against_inondation", "place", "history",
+"accessibility", "history_references", "housing", "structure", "refugee", "furniture", "exit", "airflow", "sanitation", "electricity", "warming"]
 sections.each do |section|
   Section.create(name: section)
 end
 puts "Création des #{Section.all.size} sections"
 
-units = ["cm", "m", "km", "€", "jours", "années"]
+units = ["cm", "m", "m^2", "km", "€", "jours", "années"]
 units.each do |unit|
   Unit.create(name: unit)
 end
 puts "Création des #{Unit.all.size} unités de mesure"
 
 
-option_groups = ["Vrai ou Faux",
-                 "groupe 2",
-                 "groupe 3"]
+option_groups = ["groupe 1", "groupe 2", "groupe 3", "groupe 4", "groupe 5", "groupe 6"]
 option_groups.each do |option|
   OptionGroup.create(name: option)
 end
 puts "Création des #{OptionGroup.all.size} option groups"
 
 option_choices = {
-  "Vrai ou Faux" => ["Vrai", "Faux", "NSP"],
-  "groupe 2" => ["choix1", "choix2", "choix3"],
-  "groupe 3" => ["choix1", "choix2", "choix3"],
-  "groupe 4" => ["choix1", "choix2", "choix3"],
-  "groupe 5" => ["choix1", "choix2", "choix3"],
-  "groupe 6" => ["choix1", "choix2", "choix3"],
-  "groupe 7" => ["choix1", "choix2", "choix3"],
-  "groupe 8" => ["choix1", "choix2", "choix3"],
-  "groupe 9" => ["choix1", "choix2", "choix3"],
+  "groupe 1" => ["Vrai", "Faux", "NSP"],
+  "groupe 2" => ["Oui", "Non", "Sans avis"],
+  "groupe 3" => ["1", "2", "3", "4", "plus"],
+  "groupe 4" => [1900..2017],
+  "groupe 5" => [1..100000],
+  "groupe 6" => ["", "nil"]
 }
 
 option_choices.each { |key, value|
@@ -145,4 +147,24 @@ option_choices.each { |key, value|
 
 puts "Création des #{OptionChoice.all.size} option choices"
 
-Question.create(section_id: 1, name: "Avie", information: "aware_of_risk_awareness", option_group: 1,  )
+question1 = Question.create( section_id: 1, name: "Nom de l’occupant principal?", information: "habitant", option_group_id: 6)
+question2 = Question.create( section_id: 1, name: "Nombre d'occupants?", information: "habitant", option_group_id: 3)
+question3 = Question.create( section_id: 1, name: "Nombre de mineurs?", information: "habitant", option_group_id: 3)
+question4 = Question.create( section_id: 1, name: "Nombre de personnes âgées?", information: "habitant", option_group_id: 3)
+question5 = Question.create( section_id: 1, name: "Nombre de personnes à mobilité réduite?", information: "habitant", option_group_id: 3)
+question6 = Question.create( section_id: 1, name: "Nombre de personnes dépendantes autres?", information: "habitant", option_group_id: 3)
+question7 = Question.create( section_id: 1, name: "Année d'entrée dans le logement?", information: "habitant", option_group_id: 4)
+question8 = Question.create( section_id: 4, name: "Superficie du terrain?", information: "logement", option_group_id: 5, unit_id: 2)
+question9 = Question.create( section_id: 4, name: "Nombre de logements?", information: "logement", option_group_id: 3)
+question10 = Question.create( section_id: 4, name: "Surface habitable?", information: "logement", option_group_id: 5, unit_id: 2)
+question11 = Question.create( section_id: 4, name: "Année de construction?", information: "logement", option_group_id: 4)
+question12 = Question.create( section_id: 2, name: "Avez-vous été informé d'un potentiel risque d'inondation de votre habitation à l'achat ou à la location ?", information: "risque", option_group_id: 2)
+question13 = Question.create( section_id: 2, name: "Avez-vous été informé des risques d'inondation sur la Ville de Nîmes ?", information: "risque", option_group_id: 2)
+question14 = Question.create( section_id: 2, name: "Votre habitation est-elle concernée par les risques d'inondation ?", information: "risque", option_group_id: 2)
+question15 = Question.create( section_id: 2, name: "Le risque d'inondation vous semble-t-il préoccupant ?", information: "risque", option_group_id: 2)
+question16 = Question.create( section_id: 2, name: "Avez-vous connaissance d'un Plan Communal de Sauvegarde ?", information: "risque", option_group_id: 2)
+question17 = Question.create( section_id: 2, name: "Savez-vous ce qu'est un PPRI?", information: "risque", option_group_id: 2)
+question18 = Question.create( section_id: 10, name: "Présence d'un espace refuge conforme au PPRi? ", information: "refuge", option_group_id: 3)
+question19 = Question.create( section_id: 10, name: "Superficie de l'espace", information: "refuge", option_group_id: 5, unit_id: 2)
+question20 = Question.create( section_id: 10, name: "Possibilité d'évacuation ?", information: "refuge", option_group_id: 2)
+
