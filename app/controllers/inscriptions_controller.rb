@@ -1,5 +1,6 @@
 class InscriptionsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:disponibility, :checkpoint]
+  after_action :verify_authorized, except: [:disponibility, :checkpoint, :confirmation]
 
   def disponibility
     @user = User.find_by_first_name("Jo")
