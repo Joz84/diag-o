@@ -23,10 +23,14 @@ class Diagnostician::DiagnosticsController < ApplicationController
   end
 
   def edit
+    @user = current_user
+    @diagnostic = Diagnostic.find(params[:id])
+    authorize @diagnostic
+    @sections = Section.all
+    @questions = Question.where
   end
 
   def update
-
   end
 
   private
