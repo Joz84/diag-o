@@ -1,4 +1,9 @@
 class Question < ApplicationRecord
-  belongs_to :option_group_id
-  belongs_to :unit_id
+  has_many :option_groups
+  has_many :units
+  has_many :sections
+
+  validates :name, presence: true, uniqueness: true, allow_blank: false
+  validates :input_type, presence: true
+
 end
