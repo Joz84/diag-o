@@ -14,10 +14,10 @@ puts "All tables are destroyed !"
 puts "Generating random users"
 
 #Users / Client
-diagnostician = User.create!(email: "jo@yahoo.fr", password: "123456", first_name: "Jo", last_name: "Sera", address: "Floirac", phone:"06 11 22 33 44", role:1)
-jules = User.create!(email: "jules@yahoo.fr", password: "123456", first_name: "Jules", last_name: "Marchello", address: "Bordeaux", phone:"06 11 22 33 44", role:0)
-max = User.create!(email: "max@yahoo.fr", password: "123456", first_name: "Max", last_name: "Boue", address: "Bègles", phone:"06 11 22 33 44", role:0)
-sami = User.create!(email: "sam@yahoo.fr", password: "123456", first_name: "Sam", last_name: "Chalalala", address: "Cenon", phone:"06 11 22 33 44", role:0)
+diagnostician = User.create!(email: "jo@yahoo.fr", password: "123456", first_name: "Jo", last_name: "Sera", phone:"06 11 22 33 44", role:1)
+jules = User.create!(email: "jules@yahoo.fr", password: "123456", first_name: "Jules", last_name: "Marchello", phone:"06 11 22 33 44", role:0)
+max = User.create!(email: "max@yahoo.fr", password: "123456", first_name: "Max", last_name: "Boue", phone:"06 11 22 33 44", role:0)
+sami = User.create!(email: "sam@yahoo.fr", password: "123456", first_name: "Sam", last_name: "Chalalala", phone:"06 11 22 33 44", role:0)
 
 
 #Housings
@@ -104,3 +104,45 @@ floirac_zones.each do |zone|
 
 end
 
+sections = ["Conscience du Risque", "Situation de la Commune", "Réseaux intérieurs", "Crue Historique de 1988"]
+sections.each do |section|
+  Section.create(name: section)
+end
+puts "Création des #{Section.all.size} sections"
+
+units = ["cm", "m", "km", "€", "jours", "années"]
+units.each do |unit|
+  Unit.create(name: unit)
+end
+puts "Création des #{Unit.all.size} unités de mesure"
+
+
+option_groups = ["Vrai ou Faux",
+                 "groupe 2",
+                 "groupe 3"]
+option_groups.each do |option|
+  OptionGroup.create(name: option)
+end
+puts "Création des #{OptionGroup.all.size} option groups"
+
+option_choices = {
+  "Vrai ou Faux" => ["Vrai", "Faux", "NSP"],
+  "groupe 2" => ["choix1", "choix2", "choix3"],
+  "groupe 3" => ["choix1", "choix2", "choix3"],
+  "groupe 4" => ["choix1", "choix2", "choix3"],
+  "groupe 5" => ["choix1", "choix2", "choix3"],
+  "groupe 6" => ["choix1", "choix2", "choix3"],
+  "groupe 7" => ["choix1", "choix2", "choix3"],
+  "groupe 8" => ["choix1", "choix2", "choix3"],
+  "groupe 9" => ["choix1", "choix2", "choix3"],
+}
+
+option_choices.each { |key, value|
+  value.each {|choix|
+    OptionChoice.create(option_group: OptionGroup.find_by(name: key), name: choix)
+  }
+}
+
+puts "Création des #{OptionChoice.all.size} option choices"
+
+Question.create(section_id: 1, name: "Avie", information: "aware_of_risk_awareness", option_group: 1,  )
