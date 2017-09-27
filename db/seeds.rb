@@ -117,7 +117,9 @@ end
 puts "Création des #{Unit.all.size} unités de mesure"
 
 
-option_groups = ["Vrai ou Faux", "groupe 2", "groupe 3"]
+option_groups = ["Vrai ou Faux",
+                 "groupe 2",
+                 "groupe 3"]
 option_groups.each do |option|
   OptionGroup.create(name: option)
 end
@@ -143,4 +145,4 @@ option_choices.each { |key, value|
 
 puts "Création des #{OptionChoice.all.size} option choices"
 
-Question.create(section_id: 1, name: "Avie", information: "aware_of_risk_awareness", option_group: 1)
+Question.create(section_id: 1, name: "Avie", information: "aware_of_risk_awareness", option_group: 1,  )
