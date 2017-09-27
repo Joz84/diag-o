@@ -1,5 +1,4 @@
 class Unit < ApplicationRecord
-  belongs_to :questions
-
+  has_many :questions
   validates :name, presence: true
 end
