@@ -1,6 +1,5 @@
 class InscriptionsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:disponibility, :checkpoint]
-  include Pundit
   after_action :verify_authorized, except: [:disponibility, :checkpoint, :confirmation]
 
   def disponibility
