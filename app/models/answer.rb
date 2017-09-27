@@ -1,5 +1,6 @@
 class Answer < ApplicationRecord
-  belongs_to :question_id
-  belongs_to :question_choice_id
-  belongs_to :diag_id
+  belongs_to :question
+  belongs_to :diagnostic
+  has_many :option_choices
+
 end
