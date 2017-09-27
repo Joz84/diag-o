@@ -3,7 +3,13 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>TODO</title>
+    <meta name="description" content=<%= t('metas.description.google-result') %>>
+    <!-- Facebook !-->
+    <meta property="og:title" content=<%= t('metas.titles.home') %>>
+    <meta property="og:image" content="facebook-card.jpg">
+    <meta property="og:description" content=<%= t("metas.description.facebook-card") %>>
+    <meta property="og:site_name" content=<%= t('metas.site_name') %>/>
+    <title><%= yield(:title_tag).blank? ? t('metas.titles.home') : yield(:title_tag) %></title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
