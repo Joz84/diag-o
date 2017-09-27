@@ -15,7 +15,12 @@ if ($('#map').length && $(document).ready()) {
 
   console.log("Adresse de la home: " + address, geocoded);
 
-  var center = {lat: geocoded[0],  lng:geocoded[1]};
+  if (address.length > 0) {
+    var center = {lat: geocoded[0],  lng:geocoded[1]};
+  }
+  else {
+    var center = { lat: 48.856614, lng: 2.3522219 };
+  }
 
   document.getElementById('pac-input').value = address;
   setTimeout(function(){
