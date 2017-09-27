@@ -29,6 +29,10 @@ $shadow: 0 2px 5px 0 rgba(0,0,0,0.07),0 2px 0 0 rgba(0,0,0,0.03);
   display: flex;
   justify-content: center;
 }
+.flex-left {
+  display: flex;
+  justify-content: left;
+}
 .flex-vertical {
   display: flex;
   align-items: center;
