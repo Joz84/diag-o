@@ -14,7 +14,9 @@
         <% @sections.each do |section| %>
           <div id="Section-<%= section.id %>" class="tabcontent">
             <h3><%= section.name %></h3>
-            <p><%= section.questions %></p>
+            <% section.questions.each do |q| %>
+              <p><%= q.name } %></p>
+            <% end %>
           </div>
         <% end %>
   </div>
