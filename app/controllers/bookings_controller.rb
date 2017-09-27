@@ -1,5 +1,7 @@
 class BookingsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :create]
+  after_action :verify_authorized, except: [:create]
+
 
   def show
     @booking = Booking.find(params[:id])
