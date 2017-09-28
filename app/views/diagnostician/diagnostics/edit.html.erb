@@ -22,13 +22,11 @@
                     <%= f.input :question_id, input_html: { value: q.id }, as: :hidden %>
                     <%= f.input :diagnostic_id, input_html: { value: @diagnostic.id }, as: :hidden %>
 
-
-                <% if q.option_group_id.nil? %>
-                    <%= f.input :string %>
-                <% elsif q.option_group_id.between?(1, 100)%>
-                    <%= f.input :option_choice_id, collection: q.choices %>
-                <% end %>
-
+                      <% if q.option_group_id == 6 %>
+                          <%= f.input :string, label: q.name %>
+                      <% elsif q.option_group_id.between?(1, 10)%>
+                          <%= f.input :option_choice_id, label: q.name, collection: q.choices %>
+                      <% end %>
 
                     <%= f.button :submit %>
 
