@@ -55,5 +55,14 @@ fr:
     signup2: "La prise de rendez-vous requiert vos coordonnées."
     confirmation1: "Récapitulatif de votre rendez-vous"
     validation: "Réserver le rendez-vous"
+  metas:
+    titles:
+      home: "Diag-o | Prévention du risque inondation"
+      eligilibity: "Rapport d'éligibilité"
+      diagnostics: "Vos diagnostics"
+    description:
+      google-result: "Diag-o facilite la prévention contre le risque inondation."
+      facebook-card: "Diag-o permet une meilleure prévention des risques d'inondation grâce à une prise de rendez-vous facilité, des diagnostics automatisés et un suivi par la collectivité."
+    site_name: "Diag-o"
 
 
