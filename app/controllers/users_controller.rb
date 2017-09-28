@@ -8,7 +8,6 @@ class UsersController < ApplicationController
       @private_housings = @private_bookings.map { |b| b.housing unless (b.housing.latitude.nil? || b.housing.longitude.nil?) }.compact
       draw_marker(@private_housings)
       @diagnostics = @user.diagnostics.last(3).reverse
-      end
       @bookings = Booking.incoming(@user)
     else
       @bookings = @user.housings.map { |housing| housing.bookings }.flatten
@@ -24,9 +23,12 @@ class UsersController < ApplicationController
   end
 
   def draw_marker(housings)
-    Gmaps4rails.build_markers(housings) do |housing, marker|
+    @hash = Gmaps4rails.build_markers(housings) do |housing, marker|
       marker.lat housing.latitude
       marker.lng housing.longitude
       marker.json({ address: housing.address })
+      marker.picture({ :url => "http://res.cloudinary.com/doodlid/image/upload/v1505158241/Save%20images/diago_marker.svg", :width => 64,
+        :height => 91 });
+    end
   end
 end
