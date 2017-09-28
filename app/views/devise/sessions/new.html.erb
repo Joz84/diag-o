@@ -13,12 +13,10 @@
             <%= f.input :password, required: false, placeholder: "password", label: false %>
             <%= f.input :remember_me, class: "bottom-left", as: :boolean if devise_mapping.rememberable? %>
           </div>
-
           <div class="form-actions">
-            <%= f.button :submit, "Log in", class: "btn-green" %>
+            <%= f.button :submit,  t(".sign_in"), class: "btn-green" %>
           </div>
         <% end %>
-
       </div>
     </div>
   </div>
