@@ -14,8 +14,25 @@
         <% @sections.each do |section| %>
           <div id="Section-<%= section.id %>" class="tabcontent">
             <h3><%= section.name %></h3>
-            <% section.questions.each do |q| %>
-              <p><%= q.name } %></p>
+
+              <% section.questions.each do |q| %>
+
+                <!-- Début du MEGA EACH -->
+                  <%= simple_form_for Answer.new do |f| %>
+                    <%= f.input :question_id, input_html: { value: q.id }, as: :hidden %>
+                    <%= f.input :diagnostic_id, input_html: { value: @diagnostic.id }, as: :hidden %>
+
+
+                <% if q.option_group_id.nil? %>
+                    <%= f.input :string %>
+                <% elsif q.option_group_id.between?(1, 100)%>
+                    <%= f.input :option_choice_id, collection: q.choices %>
+                <% end %>
+
+
+                    <%= f.button :submit %>
+
+              <% end %>
             <% end %>
           </div>
         <% end %>

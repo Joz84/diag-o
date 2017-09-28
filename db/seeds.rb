@@ -147,13 +147,13 @@ option_choices.each { |key, value|
 
 puts "Création des #{OptionChoice.all.size} option choices"
 
-question1 = Question.create( section_id: 1, name: "Nom de l’occupant principal?", information: "habitant", option_group_id: 6)
-question2 = Question.create( section_id: 1, name: "Nombre d'occupants?", information: "habitant", option_group_id: 3)
+question1 = Question.create( section_id: 1, name: "Nom de l’occupant principal?", information: "habitant", option_group_id: 1)
+question2 = Question.create( section_id: 1, name: "Nombre d'occupants?", information: "habitant", option_group_id: 2)
 question3 = Question.create( section_id: 1, name: "Nombre de mineurs?", information: "habitant", option_group_id: 3)
-question4 = Question.create( section_id: 1, name: "Nombre de personnes âgées?", information: "habitant", option_group_id: 3)
-question5 = Question.create( section_id: 1, name: "Nombre de personnes à mobilité réduite?", information: "habitant", option_group_id: 3)
-question6 = Question.create( section_id: 1, name: "Nombre de personnes dépendantes autres?", information: "habitant", option_group_id: 3)
-question7 = Question.create( section_id: 1, name: "Année d'entrée dans le logement?", information: "habitant", option_group_id: 4)
+question4 = Question.create( section_id: 1, name: "Nombre de personnes âgées?", information: "habitant", option_group_id: 4)
+question5 = Question.create( section_id: 1, name: "Nombre de personnes à mobilité réduite?", information: "habitant", option_group_id: 5)
+question6 = Question.create( section_id: 1, name: "Nombre de personnes dépendantes autres?", information: "habitant", option_group_id: 6)
+question7 = Question.create( section_id: 1, name: "Année d'entrée dans le logement?", information: "habitant", option_group_id: 1)
 question8 = Question.create( section_id: 4, name: "Superficie du terrain?", information: "logement", option_group_id: 5, unit_id: 2)
 question9 = Question.create( section_id: 4, name: "Nombre de logements?", information: "logement", option_group_id: 3)
 question10 = Question.create( section_id: 4, name: "Surface habitable?", information: "logement", option_group_id: 5, unit_id: 2)
