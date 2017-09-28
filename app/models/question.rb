@@ -15,7 +15,8 @@ class Question < ApplicationRecord
     OptionChoice.all.where(option_group_id: id)
   end
 
-  def current_answer
-    Answer.all.where(question: self)
+  def current_answer_for(diag_id)
+    answer = Answer.where(question: self, diagnostic_id: diag_id).last
+    # answer.string? ? answer.string : OptionChoice.find(answer.option_choice_id).name
   end
 end
