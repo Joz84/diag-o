@@ -29,7 +29,6 @@ class Diagnostician::DiagnosticsController < ApplicationController
     @diagnostic = Diagnostic.find(params[:id])
     authorize @diagnostic
     @sections = Section.all
-    @answer = Answer.create(params[:diagnostic_id])
   end
 
   def update

@@ -18,17 +18,13 @@
               <% section.questions.each do |q| %>
 
                 <!-- Début du MEGA EACH -->
-                  <%= simple_form_for Answer.new do |f| %>
-                    <%= f.input :question_id, input_html: { value: q.id }, as: :hidden %>
-                    <%= f.input :diagnostic_id, input_html: { value: @diagnostic.id }, as: :hidden %>
+                  <%#= simple_form_for :answer, url: awser_pth(@answer.id), mothod: :patch do |f| %>
 
-                      <% if q.option_group_id == 6 %>
-                          <%= f.input :string, label: q.name %>
-                      <% elsif q.option_group_id.between?(1, 10)%>
-                          <%= f.input :option_choice_id, label: q.name, collection: q.choices %>
-                      <% end %>
+                  <%= simple_form_for q.answers.find_or_create_by(diagnostic: @diagnostic) do |f| %>
 
-                    <%= f.button :submit %>
+                    <%= f.input q.input_type.to_sym, { label: q.name }.merge( q.option_choice_id? ? {collection: q.option_choices} : {}) %>
+
+                  <%= f.button :submit %>
 
               <% end %>
             <% end %>
@@ -40,7 +36,7 @@
 
 
 <script>
- function openCity(evt, cityName) {
+ function openCity(event, elementId) {
   // Declare all variables
   var i, tabcontent, tablinks;
 
@@ -57,8 +53,8 @@
   }
 
   // Show the current tab, and add an "active" class to the button that opened the tab
-  document.getElementById(cityName).style.display = "block";
-  evt.currentTarget.className += " active";
+  document.getElementById(elementId).style.display = "block";
+  event.currentTarget.className += " active";
   }
 
    // Get the element with id="defaultOpen" and click on it

@@ -124,13 +124,14 @@ end
 puts "Création des #{Unit.all.size} unités de mesure"
 
 
-option_groups = ["groupe 1", "groupe 2", "groupe 3", "groupe 4", "groupe 5", "groupe 6"]
+option_groups = ["groupe 0", "groupe 1", "groupe 2", "groupe 3", "groupe 4", "groupe 5", "groupe 6"]
 option_groups.each do |option|
   OptionGroup.create(name: option)
 end
 puts "Création des #{OptionGroup.all.size} option groups"
 
 option_choices = {
+  "groupe 0" => [],
   "groupe 1" => ["Vrai", "Faux", "NSP"],
   "groupe 2" => ["Oui", "Non", "Sans avis"],
   "groupe 3" => ["1", "2", "3", "4", "plus"],
@@ -147,24 +148,24 @@ option_choices.each { |key, value|
 
 puts "Création des #{OptionChoice.all.size} option choices"
 
-question1 = Question.create( section_id: 1, name: "Nom de l’occupant principal?", information: "nom_habitant", option_group_id: 1)
-question2 = Question.create( section_id: 1, name: "Nombre d'occupants?", information: "nombre_occupants", option_group_id: 2)
-question3 = Question.create( section_id: 1, name: "Nombre de mineurs?", information: "nombre_mineurs", option_group_id: 3)
-question4 = Question.create( section_id: 1, name: "Nombre de personnes âgées?", information: "nombre_seniors", option_group_id: 4)
-question5 = Question.create( section_id: 1, name: "Nombre de personnes à mobilité réduite?", information: "nombre_pmr", option_group_id: 5)
-question6 = Question.create( section_id: 1, name: "Nombre de personnes dépendantes autres?", information: "nombre_dependants", option_group_id: 6)
-question7 = Question.create( section_id: 1, name: "Année d'entrée dans le logement?", information: "duree_habitation", option_group_id: 1)
-question8 = Question.create( section_id: 4, name: "Superficie du terrain?", information: "superficie_terrain", option_group_id: 5, unit_id: 2)
-question9 = Question.create( section_id: 4, name: "Nombre de logements?", information: "nombre_logements", option_group_id: 3)
-question10 = Question.create( section_id: 4, name: "Surface habitable?", information: "surface_habitable", option_group_id: 5, unit_id: 2)
-question11 = Question.create( section_id: 4, name: "Année de construction?", information: "annee_construction", option_group_id: 4)
-question12 = Question.create( section_id: 2, name: "Avez-vous été informé d'un potentiel risque d'inondation de votre habitation à l'achat ou à la location ?", information: "conscience_risque", option_group_id: 2)
-question13 = Question.create( section_id: 2, name: "Avez-vous été informé des risques d'inondation sur la ville de Nîmes ?", information: "informe_zone", option_group_id: 2)
-question14 = Question.create( section_id: 2, name: "Votre habitation est-elle concernée par les risques d'inondation ?", information: "informe_habitation", option_group_id: 2)
-question15 = Question.create( section_id: 2, name: "Le risque d'inondation vous semble-t-il préoccupant ?", information: "risque_preoccupant", option_group_id: 2)
-question16 = Question.create( section_id: 2, name: "Avez-vous connaissance d'un Plan Communal de Sauvegarde ?", information: "informe_pcs", option_group_id: 2)
-question17 = Question.create( section_id: 2, name: "Savez-vous ce qu'est un PPRI?", information: "informe_ppri", option_group_id: 2)
-question18 = Question.create( section_id: 10, name: "Présence d'un espace refuge conforme au PPRi? ", information: "refuge_ppri", option_group_id: 3)
-question19 = Question.create( section_id: 10, name: "Superficie de l'espace", information: "superficie_espace", option_group_id: 5, unit_id: 2)
-question20 = Question.create( section_id: 10, name: "Possibilité d'évacuation ?", information: "evacuation", option_group_id: 2)
+question1 = Question.create( section_id: 1, name: "Nom de l’occupant principal?", information: "nom_habitant", option_group_id: 1, input_type: 0)
+question2 = Question.create( section_id: 1, name: "Nombre d'occupants?", information: "nombre_occupants", option_group_id: 2, input_type: 2)
+question3 = Question.create( section_id: 1, name: "Nombre de mineurs?", information: "nombre_mineurs", option_group_id: 3, input_type: 2)
+question4 = Question.create( section_id: 1, name: "Nombre de personnes âgées?", information: "nombre_seniors", option_group_id: 4, input_type: 1)
+question5 = Question.create( section_id: 1, name: "Nombre de personnes à mobilité réduite?", information: "nombre_pmr", option_group_id: 5, input_type: 1)
+question6 = Question.create( section_id: 1, name: "Nombre de personnes dépendantes autres?", information: "nombre_dependants", input_type: 1)
+question7 = Question.create( section_id: 1, name: "Année d'entrée dans le logement?", information: "duree_habitation", option_group_id: 1, input_type: 2)
+question8 = Question.create( section_id: 4, name: "Superficie du terrain?", information: "superficie_terrain", option_group_id: 5, unit_id: 2, input_type: 1)
+question9 = Question.create( section_id: 4, name: "Nombre de logements?", information: "nombre_logements", option_group_id: 3, input_type: 2)
+question10 = Question.create( section_id: 4, name: "Surface habitable?", information: "surface_habitable", option_group_id: 5, unit_id: 2, input_type: 1)
+question11 = Question.create( section_id: 4, name: "Année de construction?", information: "annee_construction", option_group_id: 4, input_type: 1)
+question12 = Question.create( section_id: 2, name: "Avez-vous été informé d'un potentiel risque d'inondation de votre habitation à l'achat ou à la location ?", information: "conscience_risque", option_group_id: 2, input_type: 2)
+question13 = Question.create( section_id: 2, name: "Avez-vous été informé des risques d'inondation sur la ville de Nîmes ?", information: "informe_zone", option_group_id: 2, input_type: 2)
+question14 = Question.create( section_id: 2, name: "Votre habitation est-elle concernée par les risques d'inondation ?", information: "informe_habitation", option_group_id: 2, input_type: 2)
+question15 = Question.create( section_id: 2, name: "Le risque d'inondation vous semble-t-il préoccupant ?", information: "risque_preoccupant", option_group_id: 2, input_type: 2)
+question16 = Question.create( section_id: 2, name: "Avez-vous connaissance d'un Plan Communal de Sauvegarde ?", information: "informe_pcs", option_group_id: 2, input_type: 2)
+question17 = Question.create( section_id: 2, name: "Savez-vous ce qu'est un PPRI?", information: "informe_ppri", option_group_id: 2, input_type: 2)
+question18 = Question.create( section_id: 10, name: "Présence d'un espace refuge conforme au PPRi? ", information: "refuge_ppri", option_group_id: 3, input_type: 2)
+question19 = Question.create( section_id: 10, name: "Superficie de l'espace", information: "superficie_espace", option_group_id: 5, unit_id: 2, input_type: 1)
+question20 = Question.create( section_id: 10, name: "Possibilité d'évacuation ?", information: "evacuation", option_group_id: 2, input_type: 2)
 
