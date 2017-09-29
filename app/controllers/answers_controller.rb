@@ -1,5 +1,5 @@
 class AnswersController < ApplicationController
-  after_action :verify_authorized, except: [:create]
+  after_action :verify_authorized, except: [:create, :update]
 
 
   def create
@@ -10,6 +10,10 @@ class AnswersController < ApplicationController
       else
         raise
       end
+  end
+
+  def update
+
   end
 
   private
