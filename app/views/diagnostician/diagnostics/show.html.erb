@@ -6,7 +6,7 @@
       <div class="flex-left">
         <% @sections.each do |section| %>
           <div class="tab">
-            <button class="tablinks" onclick="openCity(event, 'Section-<%= section.id %>')" id="Section<%= section.id %>"><%= section.name %></button>
+            <button class="tablinks" onclick="openTab(event, 'Section-<%= section.id %>')" id="Section<%= section.id %>"><%= section.name %></button>
           </div>
         <% end %>
       </div>
@@ -32,7 +32,7 @@
 
 
 <script>
- function openCity(event, elementId) {
+ function openTab(event, elementId) {
   // Declare all variables
   var i, tabcontent, tablinks;
 

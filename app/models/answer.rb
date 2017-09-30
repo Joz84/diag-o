@@ -5,14 +5,7 @@ class Answer < ApplicationRecord
 
   def litteral_answer
     array = self.attributes.slice('string', 'boolean', 'numeric', 'option_choice_id')
-    if array.compact.first[0] == 'option_choice_id'
-      OptionChoice.find(array.compact.first[1]).name
-    else
-      array.compact.first[1].to_s
-    end
+    array.compact.first[0] == 'option_choice_id' ? OptionChoice.find(array.compact.first[1]).name : array.compact.first[1].to_s
   end
 
 end
-
-
- # || "numeric" || "boolean" || "option_choice_id") && value == true
