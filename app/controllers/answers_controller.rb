@@ -3,6 +3,7 @@ class AnswersController < ApplicationController
 
 
   def create
+    raise
     @diagnostic = Diagnostic.find(params[:answer][:diagnostic_id])
     @answer = Answer.create(answer_params)
       if @answer.save!
@@ -13,13 +14,20 @@ class AnswersController < ApplicationController
   end
 
   def update
-
+    raise
+    @answer = Answer.find(params[:id])
+    @diagnostic = Diagnostic.find(@answer.diagnostic_id)
+      if @answer.update(answer_params)
+        redirect_to edit_diagnostician_diagnostic_path(@diagnostic)
+      else
+        render :edit
+      end
   end
 
   private
 
   def answer_params
-    params.require(:answer).permit(:diagnostic_id, :string, :question_id, :option_choice_id)
+    params.require(:answer).permit(:diagnostic_id, :string, :nuemric, :boolean, :question_id, :option_choice_id)
   end
 
 end
