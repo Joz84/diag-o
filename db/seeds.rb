@@ -8,6 +8,13 @@ Diagnostic.destroy_all
 Point.destroy_all
 Zone.destroy_all
 Town.destroy_all
+Answer.destroy_all
+OptionChoice.destroy_all
+OptionGroup.destroy_all
+Section.destroy_all
+Question.destroy_all
+
+
 # Answer.destroy_all
 # Question.destroy_all
 # Section.destroy_all
@@ -146,15 +153,17 @@ option_choices.each { |key, value|
   }
 }
 
+# RAPPEL enum input_type: {option_choice_id: 0, numeric: 1, string: 2, boolean: 3}
+
 puts "Création des #{OptionChoice.all.size} option choices"
 
-question1 = Question.create( section_id: 1, name: "Nom de l’occupant principal?", information: "nom_habitant", option_group_id: 1, input_type: 0)
-question2 = Question.create( section_id: 1, name: "Nombre d'occupants?", information: "nombre_occupants", option_group_id: 2, input_type: 2)
-question3 = Question.create( section_id: 1, name: "Nombre de mineurs?", information: "nombre_mineurs", option_group_id: 3, input_type: 2)
-question4 = Question.create( section_id: 1, name: "Nombre de personnes âgées?", information: "nombre_seniors", option_group_id: 4, input_type: 1)
-question5 = Question.create( section_id: 1, name: "Nombre de personnes à mobilité réduite?", information: "nombre_pmr", option_group_id: 5, input_type: 1)
-question6 = Question.create( section_id: 1, name: "Nombre de personnes dépendantes autres?", information: "nombre_dependants", input_type: 1)
-question7 = Question.create( section_id: 1, name: "Année d'entrée dans le logement?", information: "duree_habitation", option_group_id: 1, input_type: 2)
+question1 = Question.create( section_id: 1, name: "Nom de l’occupant principal?", information: "nom_habitant", input_type: 2)
+question2 = Question.create( section_id: 1, name: "Nombre d'occupants?", information: "nombre_occupants", option_group_id: 3, input_type: 0)
+question3 = Question.create( section_id: 1, name: "Nombre de mineurs?", information: "nombre_mineurs", option_group_id: 3, input_type: 0)
+question4 = Question.create( section_id: 1, name: "Nombre de personnes âgées?", information: "nombre_seniors", option_group_id: 3, input_type: 0)
+question5 = Question.create( section_id: 1, name: "Nombre de personnes à mobilité réduite?", information: "nombre_pmr", option_group_id: 3, input_type: 1)
+question6 = Question.create( section_id: 1, name: "Nombre de personnes dépendantes autres?", information: "nombre_dependants", option_group_id: 3, input_type: 0)
+question7 = Question.create( section_id: 1, name: "Année d'entrée dans le logement?", information: "duree_habitation", option_group_id: 4, input_type: 0)
 question8 = Question.create( section_id: 4, name: "Superficie du terrain?", information: "superficie_terrain", option_group_id: 5, unit_id: 2, input_type: 1)
 question9 = Question.create( section_id: 4, name: "Nombre de logements?", information: "nombre_logements", option_group_id: 3, input_type: 2)
 question10 = Question.create( section_id: 4, name: "Surface habitable?", information: "surface_habitable", option_group_id: 5, unit_id: 2, input_type: 1)

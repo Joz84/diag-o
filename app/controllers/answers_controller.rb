@@ -14,10 +14,9 @@ class AnswersController < ApplicationController
   end
 
   def update
-    raise
     @answer = Answer.find(params[:id])
     @diagnostic = Diagnostic.find(@answer.diagnostic_id)
-      if @answer.update(answer_params)
+      if @answer.update!(answer_params)
         redirect_to edit_diagnostician_diagnostic_path(@diagnostic)
       else
         render :edit

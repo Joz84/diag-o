@@ -6,12 +6,12 @@ class Question < ApplicationRecord
   delegate :option_choices, to: :option_group
   validates :name, presence: true, uniqueness: true, allow_blank: false
 
-  def current_answer_for(diag_id)
-    unless self.nil?
-      answer = Answer.where(question: self, diagnostic_id: diag_id).last
-    # unless answer.nil?
-      # answer.string? ? answer.string : OptionChoice.find(answer.option_choice_id).name
-    end
+  def answer_is(diag)
+    self.answers.where(diagnostic: diag).first
+  end
+
+  def has_answer?(diag)
+    self.answers.where(diagnostic: diag).first.attributes.slice('string', 'boolean', 'numeric', 'option_choice_id').compact.any?
   end
 
 end

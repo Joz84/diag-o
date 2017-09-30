@@ -16,9 +16,12 @@
             <h3><%= section.name %></h3>
 
               <% section.questions.each do |q| %>
-
+              <% if q.has_answer?(@diagnostic) %>
+                <p class="has-answer"><strong><%= q.name %></strong></p>
+                <%= q.answer_is(@diagnostic).litteral_answer %>
+              <% else %>
                 <p><strong><%= q.name %></strong></p>
-                <p><%= q.current_answer_for(@diagnostic) %></p>
+              <% end %>
 
             <% end %>
           </div>
