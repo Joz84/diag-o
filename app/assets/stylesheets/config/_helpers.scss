@@ -1,4 +1,6 @@
 $shadow: 0 2px 5px 0 rgba(0,0,0,0.07),0 2px 0 0 rgba(0,0,0,0.03);
+$border-radius: 13px;
+$border-color: $medium-gray;
 
 .fullscreen-wrapper-under-navbar {
   background-color: #F6F6F8;
@@ -8,14 +10,14 @@ $shadow: 0 2px 5px 0 rgba(0,0,0,0.07),0 2px 0 0 rgba(0,0,0,0.03);
   background-position: center center;
   background-attachment: fixed;
 }
-.margin-bottom-small {
-  margin-bottom: 40px;
+.margin-bottom-medium {
+  margin-bottom: 40px !important;
 }
 .center {
   margin: auto;
 }
 .underline {
-  border-bottom: 2px solid $medium-gray;
+  border-bottom: 2px solid $dark-gray;
   padding-bottom: 5px;
 }
 .underline-light {
@@ -67,5 +69,4 @@ a:hover {
   background-color: $diago;
   color: white;
   padding: 10px;
-
 }

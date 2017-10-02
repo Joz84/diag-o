@@ -1,5 +1,5 @@
 <div class="form-fake-wrap">
-  <%= simple_form_for :query, url: url , method: :get do |f| %>
+  <%= simple_form_for :query, url: url , method: method.to_sym do |f| %>
       <%= f.input :result, label: label , placeholder: placeholder, :label_html => { :class => 'search-field' } %>
       <%= f.button :submit, class: 'btn btn-anis', id: "button-search", value: btn_text %>
   <% end %>

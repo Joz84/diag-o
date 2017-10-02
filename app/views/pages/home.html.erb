@@ -2,7 +2,7 @@
   <div class="banner" id="page1" >
     <div class="banner-call">
       <h1><%= t('landing.title_html') %></h1>
-      <%= render 'shared/search_form', url: '/eligibility', label: false, placeholder: t('landing.placeholder'), btn_text: t('landing.button_text') %>
+      <%= render 'shared/search_form', url: '/eligibility', method: "get", label: false, placeholder: t('landing.placeholder'), btn_text: t('landing.button_text') %>
       <p class="invert text-on-image"><%= t('landing.subtitle') %></p>
     </div>
     <%= render 'shared/next_page', target_page: "#page2", icon: "fa-arrow-circle-down", label: false %>

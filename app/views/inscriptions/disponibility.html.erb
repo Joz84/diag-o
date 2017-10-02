@@ -1,7 +1,7 @@
 <%= render "shared/breadcrumb", page: @page %>
 
 <h3 class="text-center "><%= t('inscription.disponibility1') %></h3>
-<p class="text-center margin-bottom-small"><%= t('inscription.disponibility2') %></p>
+<p class="text-center margin-bottom-medium"><%= t('inscription.disponibility2') %></p>
 
 <%= calendar start_date_param: :my_date, number_of_days: 25, partial: 'simple_calendar/disponibility_calendar' do |date| %>
   <div class="date-day"><%= date.day %></div>

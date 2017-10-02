@@ -1,7 +1,6 @@
 .card-info {
   height: 350px;
-  border: none;
-  padding:20px;
+  margin: 20px 0 20px 0;
   .fa {
     border: 2px solid $diago;
     width: 90px;
@@ -11,6 +10,4 @@
     font-size: 48px;
     margin: 20px;
   }
-  margin-bottom: 20px;
-  margin-top: 20px;
 }

@@ -1,8 +1,8 @@
 class Diagnostician::DiagnosticsController < ApplicationController
-  before_action :params_user, only: [:index, :show]
+  before_action :params_user, only: [:index, :show, :edit]
+  before_action :params_diagnostic, only: [:show, :edit]
 
   def index
-    @user = current_user
     if @user.diagnostician?
       @diagnostics = policy_scope(Diagnostic)
       @diagnostics = @user.diagnostics # car un seul diagnosticien pour l'instant
@@ -15,7 +15,6 @@ class Diagnostician::DiagnosticsController < ApplicationController
   end
 
   def show
-    @diagnostic = Diagnostic.find(params[:id])
     authorize @diagnostic
     if params[:query]
       @plan_id = params[:query][:result]
@@ -26,19 +25,18 @@ class Diagnostician::DiagnosticsController < ApplicationController
   end
 
   def edit
-    @user = current_user
-    @diagnostic = Diagnostic.find(params[:id])
     authorize @diagnostic
     @sections = Section.all
     @questions = Question.where
-  end
-
-  def update
   end
 
   private
 
   def params_user
     @user = current_user
+  end
+
+  def params_diagnostic
+    @diagnostic = Diagnostic.find(params[:id])
   end
 end

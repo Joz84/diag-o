@@ -10,7 +10,7 @@
     height: 580px;
     a {
       font-size: 16px;
-      color: $medium-gray;
+      color: $dark-gray;
       &:hover {
         text-decoration: none;
       }
@@ -18,7 +18,7 @@
   }
   tr {
     border-collapse: collapse;
-    border-bottom: 2px solid $medium-gray;
+    border-bottom: 2px solid $dark-gray;
   }
   thead {
     height: 15px;
@@ -126,7 +126,7 @@
     align-items: center;
     justify-content: center;
     i {
-      color: $medium-gray;
+      color: $dark-gray;
       margin-right: 5px;
       font-size: 16px;
     }
@@ -136,8 +136,8 @@
     border-left: 8px solid $anis;
   }
   .btn-calendar-doneinpast {
-    border: 1px solid $regular-gray;
-    border-left: 8px solid $regular-gray;
+    border: 1px solid $medium-gray;
+    border-left: 8px solid $medium-gray;
   }
   .btn-calendar-booked {
     border: 1px solid $yellow;
