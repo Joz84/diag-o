@@ -3,6 +3,35 @@
 <div class="dashboard-content">
   <div class="padding-content">
     <h1>Diagnostic réf: <%= @diagnostic.id %></h1>
+    <h4>Ajouter un plan FloorPlanner:</h4>
+    <%= render "shared/search_form", url: diagnostician_diagnostic_path(@diagnostic), placeholder: t('diagnostic.placeholder'), label: false, btn_text: t('diagnostic.button_text') %>
+    <h4>Plan: </h4>
+    <iframe
+      src="https://floorplanner.com/projects/<%= @plan_id %>/viewer?view=3d&section=180"
+      frameborder='0'
+      width='100%'
+      height='650'
+      scrolling='no'
+      >
+    </iframe>
   </div>
 </div>
 
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    view == '2d'
+
+    function display() {
+      if (view == '3d') {
+        $('#fp2d').hide();
+        $('#fp3d').show();
+        fpViewer.display3D(design);
+      } else {
+        $('#fp2d').show();
+        $('#fp3d').hide();
+        fpViewer.display2D(design);
+      }
+    }
+  <% end %>
+<% end %>

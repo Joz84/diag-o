@@ -1,7 +1,5 @@
 <%= render "shared/breadcrumb", page: @page %>
 
-<%#= raise %>
-
 <h3 class="text-center "><%= t('inscription.confirmation1') %></h3>
 
 <div class="flex-horizontal">
@@ -16,7 +14,7 @@
     <h4><%= current_user.phone %></h4>
     <h4 class="underline-light"><%= current_user.email %></h4>
     <%= simple_form_for Booking.new do |f| %>
-      <%= f.button :submit,  "Valider le rendez-vous", class: "btn-green flexbox center" %>
+      <%= f.button :submit,  t('inscription.validation'), class: "btn btn-anis flexbox center" %>
     <% end %>
   </div>
 </div>

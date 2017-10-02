@@ -17,6 +17,9 @@ class Diagnostician::DiagnosticsController < ApplicationController
   def show
     @diagnostic = Diagnostic.find(params[:id])
     authorize @diagnostic
+    if params[:query]
+      @plan_id = params[:query][:result]
+    end
   end
 
   def new

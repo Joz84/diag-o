@@ -1,4 +1,4 @@
-.search-form-fake-wrap {
+.form-fake-wrap {
   position: relative;
   display: flex;
   align-items: center;
@@ -6,19 +6,15 @@
   background: #FFFFFF;
   border: 2px solid #4A4A4A;
   border-radius: 20px;
-  width: 90%;
   height: 70px;
 }
 form.simple_form.query {
   width: calc(100% - 24px);
 }
-.form-group.string.required.query_address {
+.form-group.string.required.query_result {
   margin-bottom: 0px;
 }
-label.search-field {
-  display: none;
-}
-input#query_address {
+input#query_result {
   background-color: white;
   border: none;
   box-shadow: none;
