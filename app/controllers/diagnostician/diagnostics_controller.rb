@@ -1,6 +1,6 @@
 class Diagnostician::DiagnosticsController < ApplicationController
   before_action :params_user, only: [:index, :show, :edit]
-  before_action :params_diagnostic, only: [:show, :edit]
+  before_action :params_diagnostic, only: [:show, :edit, :add_plan, :delete_plan]
 
   def index
     if @user.diagnostician?
@@ -15,7 +15,7 @@ class Diagnostician::DiagnosticsController < ApplicationController
   end
 
   def show
-    authorize @diagnostic
+    # authorize @diagnostic
     if params[:query]
       @plan_id = params[:query][:result]
     end
@@ -28,6 +28,19 @@ class Diagnostician::DiagnosticsController < ApplicationController
     authorize @diagnostic
     @sections = Section.all
     @questions = Question.where
+  end
+
+  def add_plan
+    # authorize @diagnostic
+    @diagnostic.plan = params[:query][:result]
+    @diagnostic.save!
+    redirect_to diagnostician_diagnostic_path(@diagnostic)
+  end
+
+  def delete_plan
+    @diagnostic.plan = nil
+    @diagnostic.save!
+    redirect_to diagnostician_diagnostic_path(@diagnostic)
   end
 
   private

@@ -17,16 +17,17 @@
 
     <% if @diagnostic.plan.nil? %>
       <p>Ajouter un plan FloorPlanner:</p>
-      <%= render "shared/search_form", url: diagnostician_diagnostic_path(@diagnostic), method: 'patch', placeholder: t('diagnostic.placeholder'), label: false, btn_text: t('diagnostic.button_text') %>
+
+      <%= render "shared/search_form", url: add_plan_path, method_name: 'get', placeholder: t('diagnostic.placeholder'), label: false, btn_text: t('diagnostic.button_text') %>
     <% else %>
       <h4>Plan: </h4>
-      <%= link_to diagnostician_diagnostic_path(@diagnostic), method: :delete do %>
+      <%= link_to delete_plan_path, method: :get do %>
         <p><i class="fa fa-trash"></i>Supprimer le plan FloorPlanner:</p>
       <% end %>
       <div id='app'>
           <div id='fp2d'>
             <iframe
-              src="https://floorplanner.com/projects/<%= @plan_id %>/viewer?view=2d&section=180"
+              src="https://floorplanner.com/projects/<%= @diagnostic.plan %>/viewer?view=3d&section=180"
               frameborder='0'
               width='100%'
               height='650'
