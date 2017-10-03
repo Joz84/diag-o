@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   before_action :configure_permitted_parameters, if: :devise_controller?
   helper_method :private_diagnostics
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+
 
   include Pundit
 
@@ -17,8 +19,7 @@ class ApplicationController < ActionController::Base
   end
 
   def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :role, :phone])
-      # devise_parameter_sanitizer.permit(:account_update, keys: user_data)
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :role, :phone])
   end
 
   def private_diagnostics
@@ -33,11 +34,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
-
   def user_not_authorized
     flash[:alert] = "You are not authorized to perform this action."
-    redirect_to(root_path)
+    redirect_to request.referer || root_path
   end
 
   private
@@ -45,5 +44,4 @@ class ApplicationController < ActionController::Base
   def skip_pundit?
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   end
-
 end

@@ -13,9 +13,9 @@
             <div class="col-xs-12 col-md-6">
                 <h5>Client</h5>
               <p><%= @booking.booker.first_name %> <%= @booking.booker.last_name %></p>
-              <p> <%=@booking.booker.email%> </p>
-              <p> <%=@booking.booker.phone%> </p>
-              <p> <%=@booking.booker.address%> </p>
+              <p> <%= @booking.booker.email %> </p>
+              <p> <%= @booking.booker.phone %> </p>
+              <p> <%= @booking.housing.address %> </p>
               <p>Demande reçue le <%= @booking.created_at.strftime(" %d %b %Y") %></p>
               <% if @booking.confirmed_at.nil? != true && @booking.confirmed_at > @booking.created_at %>
                 <p>Demande confirmée le <%= @booking.confirmed_at.strftime(" %d %b %Y") %></p>

@@ -27,6 +27,4 @@ module ApplicationHelper
   def weekend?(day)
     day.sunday? || day.saturday?
   end
-
-
 end

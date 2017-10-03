@@ -1,6 +1,5 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home, :eligibility]
-  skip_before_action :verify_authorized
 
   def home
     @user = current_user

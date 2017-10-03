@@ -1,14 +1,14 @@
 class BookingsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :create]
-  after_action :verify_authorized, except: [:create]
-
+  skip_before_action :authenticate_user!, only: [:create]
+  after_action :verify_authorized
+  before_action :params_booking, only: [:show, :destroy]
 
   def show
-    @booking = Booking.find(params[:id])
   end
 
   def index
     @bookings = policy_scope(Booking).where(diagnostician: current_user)
+    authorize @bookings
     @dates = @bookings.map{ |booking| booking.set_at}
     @user = User.find_by_first_name("Jo")
   end
@@ -47,19 +47,13 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    @booking = Booking.find(params[:id])
-    if @booking.destroy
-      redirect_to bookings_path
-    end
+    authorize @booking
+    redirect_to bookings_path if @booking.destroy
   end
 
   private
 
   def booking_params
     params.require(:booking).permit(:set_at, :comment, :id)
-  end
-
-  def update
-
   end
 end
