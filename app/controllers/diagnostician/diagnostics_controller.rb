@@ -11,11 +11,10 @@ class Diagnostician::DiagnosticsController < ApplicationController
       @diagnostics = @user.housings.map { |housing| housing.bookings.first.diagnostic }
       @housings = @user.housings
     end
-
   end
 
   def show
-    # authorize @diagnostic
+    authorize @diagnostic
     if params[:query]
       @plan_id = params[:query][:result]
     end
@@ -31,7 +30,7 @@ class Diagnostician::DiagnosticsController < ApplicationController
   end
 
   def add_plan
-    # authorize @diagnostic
+    authorize @diagnostic
     @diagnostic.plan = params[:query][:result]
     @diagnostic.save!
     redirect_to diagnostician_diagnostic_path(@diagnostic)
