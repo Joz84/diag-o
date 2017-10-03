@@ -40,6 +40,9 @@ $shadow: 0 2px 5px 0 rgba(0,0,0,0.07),0 2px 0 0 rgba(0,0,0,0.03);
   display: flex;
   align-items: center;
 }
+.flex-wrap {
+  flex-wrap: wrap;
+}
 .fixed-top {
   position: fixed;
   top: 0px;
