@@ -64,5 +64,7 @@ fr:
       google-result: "Diag-o facilite la prévention contre le risque inondation."
       facebook-card: "Diag-o permet une meilleure prévention des risques d'inondation grâce à une prise de rendez-vous facilité, des diagnostics automatisés et un suivi par la collectivité."
     site_name: "Diag-o"
+  pundit:
+    rescue: "You are not authorized to perform this action."
 
 

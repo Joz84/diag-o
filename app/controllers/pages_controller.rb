@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home, :eligibility]
+  skip_before_action :verify_authorized
 
   def home
     @user = current_user
@@ -15,7 +16,7 @@ class PagesController < ApplicationController
       @address = params[:query][:address]
       @address_geocoded = Geocoder.coordinates(params[:query][:address])
     end
-    
+
     @town = Town.first
     @zoneslist = @town.zones.map do |zone|
       zonepoints = zone.points.map { |point| {'lat' => point.lat.to_f, 'lng' => point.lng.to_f} }
