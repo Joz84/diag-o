@@ -3,9 +3,6 @@ $shadow: 0 2px 5px 0 rgba(0,0,0,0.07),0 2px 0 0 rgba(0,0,0,0.03);
 .margin-bottom-small {
   margin-bottom: 40px;
 }
-.has-answer {
-  color: $green !important;
-}
 .center {
   margin: auto;
 }
@@ -58,12 +55,16 @@ $shadow: 0 2px 5px 0 rgba(0,0,0,0.07),0 2px 0 0 rgba(0,0,0,0.03);
 .min-width {
   min-width: 200px;
 }
+//CONFIG
 a:hover {
   text-decoration: none !important;
 }
+select {
+  height: 45px !important;
+}
+
 #info {
   background-color: $diago;
   color: white;
   padding: 10px;
-
 }
