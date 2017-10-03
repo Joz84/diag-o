@@ -6,7 +6,7 @@
       <div class="flex-left">
         <% @sections.each do |section| %>
           <div class="tab">
-            <button class="tablinks" onclick="openCity(event, 'Section-<%= section.id %>')" id="Section<%= section.id %>"><%= section.name %></button>
+            <button class="tablinks" onclick="openTab(event, 'Section-<%= section.id %>')" id="Section<%= section.id %>"><%= section.name %></button>
           </div>
         <% end %>
       </div>
@@ -14,8 +14,13 @@
         <% @sections.each do |section| %>
           <div id="Section-<%= section.id %>" class="tabcontent">
             <h3><%= section.name %></h3>
-            <% section.questions.each do |q| %>
-              <p><%= q.name } %></p>
+              <% section.questions.each do |q| %>
+
+                  <%= simple_form_for q.answers.find_or_create_by(diagnostic: @diagnostic) do |f| %>
+                    <%= f.input q.input_type.to_sym, { label: q.name }.merge( q.option_choice_id? ? {collection: q.option_choices} : {}) %>
+                  <%= f.button :submit, :class => "btn-primary" %>
+
+              <% end %>
             <% end %>
           </div>
         <% end %>
@@ -25,7 +30,7 @@
 
 
 <script>
- function openCity(evt, cityName) {
+ function openTab(event, elementId) {
   // Declare all variables
   var i, tabcontent, tablinks;
 
@@ -42,8 +47,8 @@
   }
 
   // Show the current tab, and add an "active" class to the button that opened the tab
-  document.getElementById(cityName).style.display = "block";
-  evt.currentTarget.className += " active";
+  document.getElementById(elementId).style.display = "block";
+  event.currentTarget.className += " active";
   }
 
    // Get the element with id="defaultOpen" and click on it

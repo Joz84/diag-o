@@ -15,7 +15,9 @@ class Diagnostician::DiagnosticsController < ApplicationController
   end
 
   def show
+    @user = current_user
     @diagnostic = Diagnostic.find(params[:id])
+    @sections = Section.all
     authorize @diagnostic
   end
 
@@ -27,7 +29,6 @@ class Diagnostician::DiagnosticsController < ApplicationController
     @diagnostic = Diagnostic.find(params[:id])
     authorize @diagnostic
     @sections = Section.all
-    @questions = Question.where
   end
 
   def update

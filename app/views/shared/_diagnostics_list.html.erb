@@ -13,11 +13,13 @@
         <div>
           <p class="user-data address"><%= diagnostic.booking.booker.first_name %> <%= diagnostic.booking.booker.last_name %> : <%= diagnostic.booking.housing.address %></p>
         </div>
+      <% end %>
         <div class="min-width text-right">
           <span class="status declined"><%= "En cours" %></span>
-          <i class="fa fa-pencil"></i>
+          <%= link_to edit_diagnostician_diagnostic_path(diagnostic) do %>
+            <i class="fa fa-pencil"></i>
+          <% end %>
         </div>
       </div>
     </div>
-  <% end %>
 <% end %>
