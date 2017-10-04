@@ -6,7 +6,7 @@
           <h5>Diagnostic réf diag-o<%= diagnostic.id %></h5>
         </div>
         <div class="user-status">
-          Rendez-vous du <%= diagnostic.booking.set_at.strftime("le %d %b %Y") %>
+          <h5>Rendez-vous du <%= diagnostic.booking.set_at.strftime("%d %b %Y") %></h5>
         </div>
       </div>
       <div class="line">
@@ -15,10 +15,13 @@
         </div>
       <% end %>
         <div class="min-width text-right">
-          <span class="status declined"><%= "En cours" %></span>
-          <%= link_to edit_diagnostician_diagnostic_path(diagnostic) do %>
-            <i class="fa fa-pencil"></i>
+          <p class="status declined"><%= "En cours" %>
+          <% if @user.diagnostician? %>
+            <%= link_to edit_diagnostician_diagnostic_path(diagnostic) do %>
+              <i class="fa fa-pencil"></i>
+            <% end %>
           <% end %>
+          </p>
         </div>
       </div>
     </div>

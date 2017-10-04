@@ -10,7 +10,7 @@
         <% end %>
         </div>
         <div class="user-status">
-          <%= booking.set_at.strftime("le %d %b %Y") %>
+          <h5> <%= booking.set_at.strftime("le %d %b %Y") %></h5>
         </div>
       </div>
       <div class="line">
@@ -26,9 +26,9 @@
               <p class="status accepted">
                 <%= "RDV confirmé" %>
                 <%= booking.confirmed_at.strftime("le %d %b %Y") %>
-                <% if @user.diagnostician? %>
+                <% if current_user.diagnostician? %>
                   <%= link_to diagnostician_booking_path(booking) do %>
-                    <i class="fa fa-pencil status accepted"></i>
+                    <i class="fa fa-eye status accepted"></i>
                   <% end %>
                   <%= link_to diagnostician_booking_path(booking), method: :patch do %>
                     <i class="fa fa-times status accepted" data-toggle="tooltip" data-placement="left" title="<%= t('tooltip.deconfirmation') %>"></i>
@@ -41,7 +41,7 @@
               <% else %>
               <span class="status declined"><%= "En attente de confirmation" %></span>
               <% if @user.diagnostician? %>
-                  <i class="fa fa-pencil status declined"></i>
+                  <i class="fa fa-eye status declined"></i>
                 <%= link_to diagnostician_booking_path(booking), method: :patch do %>
                   <i class="fa fa-check status declined" data-toggle="tooltip" data-placement="left" title="<%= t('tooltip.confirmation') %>"></i>
                 <% end %>

@@ -18,7 +18,8 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def create?
-    user_admin_or_diag
+    # user_admin_or_diag_or_owner
+    true
   end
 
   def update?
