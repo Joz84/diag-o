@@ -19,6 +19,11 @@ $dashboard-title: 22px;
 body {
   font-family: $body-font;
 }
+h1 {
+  .fa {
+    font-size: 36px;
+  }
+}
 h2 {
   font-size: 48px;
   font-weight: 700;

@@ -2,14 +2,16 @@
 
 <div class="dashboard-content">
   <div class="padding-content">
-    <h1>Diagnostique <%= @diagnostic.id %></h1>
-      <div class="flex-left">
-        <% @sections.each do |section| %>
-          <div class="tab">
-            <button class="tablinks" onclick="openTab(event, 'Section-<%= section.id %>')" id="Section<%= section.id %>"><%= section.name %></button>
-          </div>
-        <% end %>
-      </div>
+    <h1>Diagnostique <%= @diagnostic.id %>
+      <%= render "shared/link_icon", link: diagnostician_diagnostic_path(@diagnostic), fontawesome: "eye", klass: "" %>
+    </h1>
+    <div class="flex-left">
+      <% @sections.each do |section| %>
+        <div class="tab">
+          <button class="tablinks" onclick="openTab(event, 'Section-<%= section.id %>')" id="Section<%= section.id %>"><%= section.name %></button>
+        </div>
+      <% end %>
+    </div>
 
         <% @sections.each do |section| %>
           <div id="Section-<%= section.id %>" class="tabcontent">

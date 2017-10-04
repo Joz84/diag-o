@@ -27,9 +27,8 @@
                 <%= "RDV confirmé" %>
                 <%= booking.confirmed_at.strftime("le %d %b %Y") %>
                 <% if current_user.diagnostician? %>
-                  <%= link_to diagnostician_booking_path(booking) do %>
-                    <i class="fa fa-eye status accepted"></i>
-                  <% end %>
+                  <%= render "shared/link_icon", link: diagnostician_booking_path(booking), fontawesome: "eye", klass: "status accepted" %>
+
                   <%= link_to diagnostician_booking_path(booking), method: :patch do %>
                     <i class="fa fa-times status accepted" data-toggle="tooltip" data-placement="left" title="<%= t('tooltip.deconfirmation') %>"></i>
                   <% end %>

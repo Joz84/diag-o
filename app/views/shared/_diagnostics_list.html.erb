@@ -1,5 +1,6 @@
 <% @diagnostics.each do |diagnostic| %>
   <%= link_to diagnostician_diagnostic_path(diagnostic) do %>
+
     <div class="user">
       <div class="line">
         <div class="user-name">
@@ -13,16 +14,14 @@
         <div>
           <p class="user-data address"><%= diagnostic.booking.booker.first_name %> <%= diagnostic.booking.booker.last_name %> : <%= diagnostic.booking.housing.address %></p>
         </div>
-      <% end %>
+
         <div class="min-width text-right">
           <p class="status declined"><%= "En cours" %>
-          <% if @user.diagnostician? %>
-            <%= link_to edit_diagnostician_diagnostic_path(diagnostic) do %>
-              <i class="fa fa-pencil"></i>
-            <% end %>
-          <% end %>
           </p>
         </div>
+
       </div>
     </div>
+
+  <% end %>
 <% end %>

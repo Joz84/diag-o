@@ -2,7 +2,9 @@
 
 <div class="dashboard-content">
   <div class="padding-content">
-    <h1>Diagnostique <%= @diagnostic.id %></h1>
+    <h1>Diagnostique <%= @diagnostic.id %>
+      <%= render "shared/link_icon", link: edit_diagnostician_diagnostic_path(@diagnostic), fontawesome: "pencil", klass: "" %>
+    </h1>
       <div class="flex-left">
         <% @sections.each do |section| %>
           <div class="tab">

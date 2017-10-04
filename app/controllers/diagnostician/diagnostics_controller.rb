@@ -1,5 +1,5 @@
 class Diagnostician::DiagnosticsController < ApplicationController
-  before_action :params_user, only: [:index, :show]
+  before_action :params_user, only: [:index, :show, :edit]
   before_action :params_diagnostic, only: [:show, :edit]
 
   def index
