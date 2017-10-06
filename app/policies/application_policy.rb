@@ -50,4 +50,18 @@ class ApplicationPolicy
       scope
     end
   end
+
+  private
+
+  def user_admin_or_current_user
+    user.admin? or record == user
+  end
+
+  def user_admin_or_diag
+    user.diagnostician? or user.admin?
+  end
+
+  def user_admin_or_diag_or_owner
+    user.diagnostician? or user.admin? or record.booker == user
+  end
 end

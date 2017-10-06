@@ -6,28 +6,27 @@ class UserPolicy < ApplicationPolicy
   end
 
   def index?
-    user.diagnostician? or user.admin?
+    user_admin_or_diag
   end
 
   def show?
-    true
+    user_admin_or_current_user
   end
 
   def new?
-    user.diagnostician? or user.admin?
+    user_admin_or_diag
   end
 
   def create?
-    user.diagnostician? or user.admin?
+    user_admin_or_diag
   end
 
   def update?
-    user.diagnostician? or user.admin?
+    user_admin_or_diag
   end
 
   def destroy?
-    user.diagnostician? or user.admin?
+    user_admin_or_diag
   end
-
 
 end

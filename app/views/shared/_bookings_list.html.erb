@@ -25,7 +25,7 @@
               <p class="status accepted">
                 <%= "RDV confirmé" %>
                 <%= booking.confirmed_at.strftime("le %d %b %Y") %>
-                <% if @user.diagnostician? %>
+                <% if current_user.diagnostician? %>
                   <%= link_to diagnostician_booking_path(booking) do %>
                     <i class="fa fa-eye status accepted"></i>
                   <% end %>
@@ -41,14 +41,14 @@
                 <% end %>
               </p>
               <% else %>
-              <p class="status declined"><%= "En attente de confirmation" %>
-                <% if @user.diagnostician? %>
-                  <%= link_to diagnostician_booking_path(booking), method: :patch do %>
-                    <i class="fa fa-check status declined" data-toggle="tooltip" data-placement="left" title="<%= t('tooltip.confirmation') %>"></i>
-                  <% end %>
-                  <%= link_to diagnostician_booking_path(booking), method: :delete do %>
-                    <i class="fa fa-trash status declined" data-toggle="tooltip" data-placement="left" title="<%= t('tooltip.annulation') %>"></i>
-                  <% end %>
+              <span class="status declined"><%= "En attente de confirmation" %></span>
+              <% if @user.diagnostician? %>
+                  <i class="fa fa-eye status declined"></i>
+                <%= link_to diagnostician_booking_path(booking), method: :patch do %>
+                  <i class="fa fa-check status declined" data-toggle="tooltip" data-placement="left" title="<%= t('tooltip.confirmation') %>"></i>
+                <% end %>
+                <%= link_to diagnostician_booking_path(booking), method: :delete do %>
+                  <i class="fa fa-trash status declined" data-toggle="tooltip" data-placement="left" title="<%= t('tooltip.annulation') %>"></i>
                 <% end %>
               </p>
             <% end %>

@@ -1,16 +1,11 @@
 class Diagnostician::DiagnosticsController < ApplicationController
-  before_action :params_user, only: [:index, :show, :edit]
-  before_action :params_diagnostic, only: [:show, :edit, :add_plan, :delete_plan]
+  before_action :params_user, only: [:index, :show]
+  before_action :params_diagnostic, only: [:show, :edit]
 
   def index
-    if @user.diagnostician?
-      @diagnostics = policy_scope(Diagnostic)
-      @diagnostics = @user.diagnostics # car un seul diagnosticien pour l'instant
-      @housings = Housing.all
-    else
-      @diagnostics = @user.housings.map { |housing| housing.bookings.first.diagnostic }
-      @housings = @user.housings
-    end
+    @diagnostics = policy_scope(Diagnostic)
+    @diagnostics = @user.diagnostics # car un seul diagnosticien pour l'instant
+    @housings = Housing.all
   end
 
   def show
@@ -19,9 +14,6 @@ class Diagnostician::DiagnosticsController < ApplicationController
     if params[:query]
       @plan_id = params[:query][:result]
     end
-  end
-
-  def new
   end
 
   def edit
