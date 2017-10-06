@@ -1,12 +1,3 @@
-.devise-screens-wrapper {
-  background-color: #F6F6F8;
-  width: 100%;
-  height: calc(100vh - 70px);
-  // object-fit: cover;
-  background-size: cover;
-  background-position: center center;
-  background-attachment: fixed;
-}
 .login {
   background-image: url('http://res.cloudinary.com/doodlid/image/upload/v1505416511/grant-ritchie-338783_opedqr.jpg');
 }
@@ -52,6 +43,8 @@
 }
 .login-form {
   width: 300px;
+}
+.form-inputs {
   input {
     border: none;
     border-bottom: 1px solid $blue-gray;
@@ -59,7 +52,7 @@
     margin-bottom: 30px;
     font-size: 16px;
   }
-  .btn btn-anis {
+  .btn {
     width: 250px;
     border: none;
   }
@@ -90,7 +83,7 @@ label.boolean.optional {
     margin-bottom: 30px;
     font-size: 16px;
   }
-  .btn btn-anis {
+  .btn {
     width: 300px;
     border: none;
   }

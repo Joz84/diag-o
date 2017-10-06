@@ -1,13 +1,23 @@
 $shadow: 0 2px 5px 0 rgba(0,0,0,0.07),0 2px 0 0 rgba(0,0,0,0.03);
+$border-radius: 13px;
+$border-color: $medium-gray;
 
-.margin-bottom-small {
-  margin-bottom: 40px;
+.fullscreen-wrapper-under-navbar {
+  background-color: #F6F6F8;
+  width: 100%;
+  height: calc(100vh - 70px);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+.margin-bottom-medium {
+  margin-bottom: 40px !important;
 }
 .center {
   margin: auto;
 }
 .underline {
-  border-bottom: 2px solid $medium-gray;
+  border-bottom: 2px solid $dark-gray;
   padding-bottom: 5px;
 }
 .underline-light {

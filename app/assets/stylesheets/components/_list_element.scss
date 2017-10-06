@@ -1,17 +1,16 @@
-.user {
+.list-element {
   padding: 20px;
-  border: 1px solid $regular-gray;
-  border-radius: 8px;
+  border: 1px solid $medium-gray;
+  border-radius: $border-radius;
   margin-bottom: 10px;
   box-shadow: $shadow;
   h5 {
     margin-top: 0px;
-    font-weight: bold;
   }
-  .fa {
-    margin-left: 10px;
+  i {
+    margin-left: 20px;
   }
-  p {
+  p, h3 {
     margin-bottom: 0px;
   }
 }
@@ -27,55 +26,18 @@
 .email {
   min-width: 15%;
 }
-.address, .phone {
+.address, .phone, .user-body {
   flex-grow: 1;
 }
-.user-body {
-  flex-grow: 1;
-}
-.user-name {
+.list-name {
   min-width: 100px;
-}
-.user-name h3 {
-  font-size: 13px;
-  margin-bottom: 0px;
-}
-.user-name p {
-  font-size: 13px;
-  font-weight: lighter;
-  opacity: 0.6;
-  margin-top: 5px;
-  margin-bottom: 0px;
-}
-.user-body {
-  font-size: 13px;
-  color: rgba(0,0,0,0.5);
-}
-.user-body {
-  color: rgba(0,0,0,0.4);
-}
-.user-body strong{
-  color: rgba(0,0,0,0.9);
-  color: rgba(0,0,0,0.9);
-}
-.user-body p {
-  margin: 6px 0;
-}
-.user-status {
-  font-size: 14px;
-  font-weight: bold;
-  margin-left: 10px;
 }
 .status.accepted {
   color: $anis;
-  i {
-    margin-left: 10px;
-    margin-left: 10px;
-  }
 }
 .status.declined {
   color: $yellow;
 }
 .status.pending {
-  color: lightgrey;
+  color: $light-gray;
 }

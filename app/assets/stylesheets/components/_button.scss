@@ -1,12 +1,14 @@
 .btn, input.btn {
   color: white;
-  border-radius: 13px;
+  background-color: $anis;
+  border-radius: $border-radius;
   height: 50px;
   border: none;
   padding: 0px 30px 0px 30px;
   max-width: 350px;
   box-shadow: none;
   -webkit-box-shadow: none !important;
+  border-bottom:none;
   &:hover {
     background-color: $yellow;
     color: white;
