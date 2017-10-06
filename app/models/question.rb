@@ -11,7 +11,7 @@ class Question < ApplicationRecord
   end
 
   def has_answer?(diag)
-    self.answers.where(diagnostic: diag).first.attributes.slice('string', 'boolean', 'numeric', 'option_choice_id').compact.any?
+    self.answers.where(diagnostic: diag).first.attribute.slice('string', 'boolean', 'numeric', 'option_choice_id').compact.any?
   end
 
 end

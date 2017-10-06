@@ -2,6 +2,7 @@ class BookingsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:create]
   after_action :verify_authorized
   before_action :params_booking, only: [:show, :destroy]
+  skip_before_action :authenticate_user!, only: [:show, :create]
 
   def show
   end
@@ -11,6 +12,7 @@ class BookingsController < ApplicationController
     authorize @bookings
     @dates = @bookings.map{ |booking| booking.set_at}
     @user = User.find_by_first_name("Jo")
+    authorize @bookings
   end
 
   def new
@@ -19,6 +21,8 @@ class BookingsController < ApplicationController
 
   def create
     diagnostician = User.find_by_first_name("Jo")
+
+    authorize @diagnostician
 
     if current_user.diagnostician?
       booking = diagnostician.bookings.new(booking_params)
@@ -45,8 +49,8 @@ class BookingsController < ApplicationController
                             confirmed_at: nil)
       authorize booking
       if housing.save! && user_housing.save! && diagnostic.save! && booking.save!
-        flash[:notice] = t('inscription.confirmation')
         redirect_to user_path(current_user)
+        flash[:notice] = t('inscription.confirmation')
       else
         redirect_to confirmation_path
         flash[:alert] = t('commons.issue')
@@ -65,7 +69,9 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
   end
 
+
   def booking_params
     params.require(:booking).permit(:set_at, :comment, :id)
   end
+
 end

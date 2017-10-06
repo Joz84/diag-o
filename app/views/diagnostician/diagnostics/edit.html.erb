@@ -12,16 +12,15 @@
         </div>
       <% end %>
     </div>
-
         <% @sections.each do |section| %>
-          <div id="Section-<%= section.id %>" class="tabcontent">
-            <h3><%= section.name %></h3>
+          <div id="Section-<%= section.id %>">
+            <h3><%= section.name.capitalize %></h3>
               <% section.questions.each do |q| %>
-
+                <div class="margin-bottom-small">
                   <%= simple_form_for q.answers.find_or_create_by(diagnostic: @diagnostic) do |f| %>
                     <%= f.input q.input_type.to_sym, { label: q.name }.merge( q.option_choice_id? ? {collection: q.option_choices} : {}) %>
-                  <%= f.button :submit, :class => "btn-primary" %>
-
+                  <%= f.button :submit, :class => "btn btn-anis" %>
+                </div>
               <% end %>
             <% end %>
           </div>
