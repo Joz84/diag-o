@@ -1,6 +1,6 @@
 class Diagnostician::DiagnosticsController < ApplicationController
   before_action :params_user, only: [:index, :show, :edit]
-  before_action :params_diagnostic, only: [:show, :edit]
+  before_action :params_diagnostic, only: [:show, :edit, :add_plan, :delete_plan]
 
   def index
     @diagnostics = policy_scope(Diagnostic)
@@ -12,7 +12,7 @@ class Diagnostician::DiagnosticsController < ApplicationController
     @sections = Section.all
     authorize @diagnostic
     if params[:query]
-      @plan_id = params[:query][:result]
+      @plan_id = params[:query][:address]
     end
   end
 
@@ -23,12 +23,13 @@ class Diagnostician::DiagnosticsController < ApplicationController
 
   def add_plan
     authorize @diagnostic
-    @diagnostic.plan = params[:query][:result]
+    @diagnostic.plan = params[:query][:address]
     @diagnostic.save!
     redirect_to diagnostician_diagnostic_path(@diagnostic)
   end
 
   def delete_plan
+    authorize @diagnostic
     @diagnostic.plan = nil
     @diagnostic.save!
     redirect_to diagnostician_diagnostic_path(@diagnostic)
