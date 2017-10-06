@@ -21,6 +21,7 @@ gem 'uglifier'
 gem 'json'
 gem "simple_calendar", "~> 2.0"
 gem "faker"
+gem "nokogiri"
 
 group :development, :test do
   gem 'pry-byebug'

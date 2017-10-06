@@ -39,6 +39,9 @@ fr:
       text: "Mon profil"
       icon: "user"
       titre: "Mise à jour des informations"
+    button7:
+      text: "Évaluation"
+      icon: "home"
   tooltip:
     confirmation: "RDV confirmé"
     annulation: "Supprimer le RDV"
@@ -69,6 +72,9 @@ fr:
     rescue: "Vous n'êtes pas authorisé à effectuer cette action."
   commons:
     issue: "Une erreur s'est produite, si cela se reproduit, contactez l'administration du site"
+  valuation:
+    form_rescue: "Remplissez les champs nécessaires à l'évaluation"
+    form_title: "Évaluation de bien"
   diagnostic:
     placeholder: "Renseigner l'ID du plan, ex: 51010669"
     button_text: "Ajouter le plan"
