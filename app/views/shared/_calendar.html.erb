@@ -3,12 +3,11 @@
   <div class="cell-content">
     <div class="btn-container">
       <% ["8","14"].each do |hour| %>
+
         <!-- PAST -->
         <% unless date_in_futur(date) %>
           <% unless @dates.include? date_with_hour(date, hour) %>
             <!-- PAS DE BOOKING CE JOUR -->
-            <div class= "btn-calendar btn-calendar-nothing">
-            </div>
           <% else %>
             <!-- BOOKING DU JOUR -->
             <%= link_to diagnostician_booking_path(@dates.index(date_with_hour(date, hour))) do %>
@@ -17,11 +16,12 @@
               </div>
             <% end %>
           <% end %>
+
         <!-- FUTUR -->
         <% else %>
           <% unless @dates.include? date_with_hour(date, hour) %>
             <!-- DIAGNOSTIC DU JOUR -->
-            <% if user_signed_in? %> <!-- IT'S THE DIAGNOSTICIAN AGENDA !-->
+            <% if user_signed_in? %>
               <%= render "shared/button_with_data", set_at: date_with_hour(date, hour), link: Booking.new, btn_class: "btn-calendar btn-calendar-tobook" %>
             <% else %>
               <%= render "shared/button_with_data", set_at: date_with_hour(date, hour), link: new_user_registration_path, btn_class: "btn-calendar btn-calendar-tobook" %>
@@ -37,6 +37,7 @@
           <% end %>
         <% end %>
       <% end %>
+
     </div>
   </div>
 <% end %>

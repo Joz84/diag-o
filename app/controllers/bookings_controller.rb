@@ -1,6 +1,5 @@
 class BookingsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :create]
-  after_action :verify_authorized, except: [:create]
+  skip_before_action :authenticate_user!, only: [:show, :create]
 
 
   def show
@@ -11,6 +10,7 @@ class BookingsController < ApplicationController
     @bookings = policy_scope(Booking).where(diagnostician: current_user)
     @dates = @bookings.map{ |booking| booking.set_at}
     @user = User.find_by_first_name("Jo")
+    authorize @bookings
   end
 
   def new
@@ -20,15 +20,17 @@ class BookingsController < ApplicationController
   def create
     @diagnostician = User.find_by_first_name("Jo")
 
+    authorize @diagnostician
+
     if current_user.diagnostician?
       @booking = @diagnostician.bookings.new(booking_params)
       @booking.diagnostic = Diagnostic.new
       # @booking.housing = current_user.particulier? ? current_user.housing : nil
-      @booking.housing = Housing.last ## POUR TEST
+      @booking.housing = Housing.first ## POUR TEST
       if @booking.save
         redirect_to bookings_path
       else
-        raise
+        flash[:alert] = t('fash.booking_save_error')
       end
     else
       housing = Housing.create!(address: session[:address])
@@ -38,10 +40,10 @@ class BookingsController < ApplicationController
       hour = session[:hour]
       booking = Booking.create!(user: @diagnostician, housing: housing, diagnostic: diagnostic, set_at: DateTime.parse(date.to_s + " 0"+ hour + ":00:00 +0000"), comment:"Booking eligible n°#{Booking.count}", confirmed_at: nil)
       if housing.save! && user_housing.save! && diagnostic.save! && booking.save!
-        flash[:notice] = "Votre rendez-vous est confirmé, un diagnosticien vous appelera sous peu."
+        flash[:notice] = t('flash.booking_save_ok')
         redirect_to user_path(current_user)
       else
-        redirect_to "/confirmation"
+        redirect_to confirmation_path
       end
     end
   end
@@ -59,7 +61,4 @@ class BookingsController < ApplicationController
     params.require(:booking).permit(:set_at, :comment, :id)
   end
 
-  def update
-
-  end
 end

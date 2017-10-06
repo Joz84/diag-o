@@ -29,6 +29,13 @@ class DiagnosticPolicy < ApplicationPolicy
     user.diagnostician? or user.admin?
   end
 
+  def add_plan?
+    user.diagnostician? or user.admin?
+  end
+
+  def delete_plan?
+    user.diagnostician? or user.admin?
+  end
 end
 
 

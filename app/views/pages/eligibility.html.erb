@@ -20,15 +20,15 @@
     </div>
     <div class="col-xs-12 col-sm-12 col-md-6">
       <div class="report">
-          <h4 class="margin-bottom-small underline">Rapport d'élligibilité</h4>
+          <h4 class="margin-bottom-medium underline">Rapport d'élligibilité</h4>
           <h6 id="info">Précisez votre adresse à l'aide du champ de recherche et de la liste sur la carte.</h6>
           <h6>Adresse de l'habitation concernée:</h6>
           <h4 id="address">--</h4>
           <h6>Situation:</h6>
           <h4 id="zone">--</h4>
           <h6>Éligibilité:</h6>
-          <h4 class="margin-bottom-small" id="conclusion">--</h4>
-          <h4 class="margin-bottom-small" id="calltoaction">--</h4>
+          <h4 class="margin-bottom-medium" id="conclusion">--</h4>
+          <h4 class="margin-bottom-medium" id="calltoaction">--</h4>
           <%= simple_form_for :query, url: '/disponibility', method: :get do |f| %>
             <%= f.input :address, as: :hidden, value: "default"%>
             <%= f.input :color, as: :hidden, value: "default"%>
