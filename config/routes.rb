@@ -16,8 +16,6 @@ Rails.application.routes.draw do
   get "diagnostician/diagnostic/:id/delete_plan", to: "diagnostician/diagnostics#delete_plan", as: "delete_plan"
 
   resources :users, only: [:show]
+  resources :answers
   resources :bookings, only: [:new, :create, :show, :destroy, :index, :update]
-
-
-
 end

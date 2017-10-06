@@ -14,6 +14,7 @@ class Diagnostician::DiagnosticsController < ApplicationController
   end
 
   def show
+    @sections = Section.all
     authorize @diagnostic
     if params[:query]
       @plan_id = params[:query][:result]
@@ -26,7 +27,6 @@ class Diagnostician::DiagnosticsController < ApplicationController
   def edit
     authorize @diagnostic
     @sections = Section.all
-    @questions = Question.where
   end
 
   def add_plan
