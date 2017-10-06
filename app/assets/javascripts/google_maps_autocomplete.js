@@ -24,9 +24,6 @@ function onPlaceChanged() {
 
 google.maps.event.addDomListener(window, 'load', function() {
   initializeAutocomplete('my_query_address');
-});
-
-google.maps.event.addDomListener(window, 'load', function() {
   initializeAutocomplete('query_address');
+  initializeAutocomplete('query_geoloc');
 });
-

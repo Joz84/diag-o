@@ -58,9 +58,44 @@ $shadow: 0 2px 5px 0 rgba(0,0,0,0.07),0 2px 0 0 rgba(0,0,0,0.03);
 a:hover {
   text-decoration: none !important;
 }
+input, select {
+  height: 45px !important;
+}
+.checkbox input[type="checkbox"] {
+  top: -20px;
+}
 #info {
   background-color: $diago;
   color: white;
   padding: 10px;
-
+}
+.full-screen-wrapper-with-navbar {
+  background-color: #F6F6F8;
+  width: 100%;
+  height: calc(100vh - 70px);
+  // object-fit: cover;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+//SPLITSCREEN
+.splitscreen-wrapper{
+  position: relative;
+  width: 100%;
+  margin: 0px;
+}
+.splitscreen-column {
+  width: 50%;
+  height: calc(100vh - 70px);
+  float: left;
+  background-size: cover;
+}
+#splitscreen-title {
+  position: absolute;
+  left: 50%;
+  padding: 20px;
+  background-color: white;
+  border-radius: 13px;
+  color: $dark-gray;
+  margin-left: -136px;
 }

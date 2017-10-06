@@ -1,11 +1,11 @@
 <%= render "shared/breadcrumb", page: @page %>
 
 <div class="flex-horizontal">
-  <div class="signup-box">
-    <div class="signup-top flexbox">
+  <div class="form-box">
+    <div class="form-title flexbox">
       <h3 class="text-center "><%= t('inscription.signup1') %></h3>
     </div>
-    <div class="signup-form">
+    <div class="form-inputs">
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
         <div class="form-inputs ">

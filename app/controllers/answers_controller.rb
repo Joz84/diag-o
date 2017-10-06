@@ -1,7 +1,6 @@
 class AnswersController < ApplicationController
   after_action :verify_authorized, except: [:create, :update]
 
-
   def create
     raise
     @diagnostic = Diagnostic.find(params[:answer][:diagnostic_id])

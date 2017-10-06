@@ -2,37 +2,27 @@
   position: relative;
   display: flex;
   align-items: center;
-  padding: 5px 15px 5px 20px;
+  padding: 0 20px 0 20px;
   background: #FFFFFF;
   border: 2px solid #4A4A4A;
   border-radius: 20px;
   width: 90%;
   height: 70px;
-}
-form.simple_form.query {
-  width: calc(100% - 24px);
-}
-.form-group.string.required.query_address {
-  margin-bottom: 0px;
-}
-label.search-field {
-  display: none;
-}
-input#query_address {
-  background-color: white;
-  border: none;
-  box-shadow: none;
+  input {
+    border: none;
+    box-shadow: none;
+  }
+  .form-group {
+    margin-bottom: 0px;
+  }
+  form.simple_form.query {
+    width: calc(100% - 24px);
+  }
 }
 input#button-search {
   position: absolute;
   right: 10px;
-  top: 8px;
+  top: 10px;
   width: 200px;
-  color: white;
-  background-color: $anis;
-  border-radius: 13px;
-  height: 50px;
-  border: none;
-  padding: 10px 30px 10px 30px;
-  max-width: 350px;
+  padding: 0px 30px 0px 30px;
 }

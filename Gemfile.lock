@@ -218,6 +218,7 @@ DEPENDENCIES
   jquery-rails
   json
   listen (~> 3.0.5)
+  nokogiri
   pg
   pry-byebug
   pry-rails
