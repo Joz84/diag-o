@@ -13,8 +13,8 @@ class PagesController < ApplicationController
     session[:hour] = nil
 
     unless params[:query].nil?
-      @address = params[:query][:address]
-      @address_geocoded = Geocoder.coordinates(params[:query][:address])
+      @address = params[:query][:result]
+      @address_geocoded = Geocoder.coordinates(params[:query][:result])
     end
 
     @town = Town.first

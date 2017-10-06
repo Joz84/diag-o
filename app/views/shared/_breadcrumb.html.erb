@@ -1,19 +1,11 @@
 <div class="breadcrumb flex-horizontal">
   <ul>
-    <li class="<%= "green" if session[:page] >= 1 %>">
-      <p class="number-in-circle">1</p>
-      <p class="text-over-line"><%= t('inscription.breadcrumb1') %></p>
-      <div class="line-under-text"></div>
-    </li>
-    <li class="<%= "green" if session[:page] >= 2 %>">
-      <p class="number-in-circle">2</p>
-      <p class="text-over-line "><%= t('inscription.breadcrumb2') %></p>
-      <div class="line-under-text"></div>
-    </li>
-    <li class="<%= "green" if session[:page] >= 3 %>">
-      <p class="number-in-circle">3</p>
-      <p class="text-over-line"><%= t('inscription.breadcrumb3') %></p>
-      <div class="line-under-text"></div>
-    </li>
+    <% 3.times do |x| %>
+      <li class="<%= "green" if session[:page] >= x+1 %>">
+        <p class="number-in-circle"><%= x+1 %></p>
+        <p class="text-over-line"><%= t('inscription.breadcrumb'+(x+1).to_s) %></p>
+        <div class="line-under-text"></div>
+      </li>
+    <% end %>
   </ul>
 </div>

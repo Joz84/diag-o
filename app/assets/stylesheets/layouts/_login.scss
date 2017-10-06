@@ -42,6 +42,8 @@
 }
 .login-form {
   width: 300px;
+}
+.form-inputs {
   input {
     border: none;
     border-bottom: 1px solid $blue-gray;
@@ -49,7 +51,7 @@
     margin-bottom: 30px;
     font-size: 16px;
   }
-  .btn-green {
+  .btn {
     width: 250px;
     border: none;
   }
@@ -80,7 +82,7 @@ label.boolean.optional {
     margin-bottom: 30px;
     font-size: 16px;
   }
-  .btn-green {
+  .btn {
     width: 300px;
     border: none;
   }

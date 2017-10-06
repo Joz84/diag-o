@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170926152720) do
+ActiveRecord::Schema.define(version: 20171002144523) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20170926152720) do
   create_table "diagnostics", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "plan"
   end
 
   create_table "housings", force: :cascade do |t|
@@ -69,6 +70,14 @@ ActiveRecord::Schema.define(version: 20170926152720) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "plans", force: :cascade do |t|
+    t.integer "planID"
+    t.bigint "diagnostic_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["diagnostic_id"], name: "index_plans_on_diagnostic_id"
   end
 
   create_table "points", force: :cascade do |t|
@@ -163,6 +172,7 @@ ActiveRecord::Schema.define(version: 20170926152720) do
   add_foreign_key "bookings", "housings"
   add_foreign_key "bookings", "users"
   add_foreign_key "option_choices", "option_groups"
+  add_foreign_key "plans", "diagnostics"
   add_foreign_key "points", "zones"
   add_foreign_key "questions", "option_groups"
   add_foreign_key "questions", "sections"

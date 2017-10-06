@@ -30,6 +30,7 @@ class Diagnostician::BookingsController < ApplicationController
   def update
     authorize @booking
     @booking.update( confirmed_at: @booking.confirmed_at ? nil : DateTime.now )
+    authorize @booking
     redirect_back(fallback_location: root_path)
   end
 

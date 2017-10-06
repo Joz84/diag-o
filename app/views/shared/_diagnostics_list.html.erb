@@ -1,7 +1,6 @@
 <% @diagnostics.each do |diagnostic| %>
   <%= link_to diagnostician_diagnostic_path(diagnostic) do %>
-
-    <div class="user">
+    <div class="list-element">
       <div class="line">
         <div class="user-name">
           <h5>Diagnostic réf diag-o<%= diagnostic.id %></h5>
