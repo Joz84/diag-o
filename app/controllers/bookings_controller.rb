@@ -22,7 +22,7 @@ class BookingsController < ApplicationController
   def create
     diagnostician = User.find_by_first_name("Jo")
 
-    authorize @diagnostician
+    authorize diagnostician
 
     if current_user.diagnostician?
       booking = diagnostician.bookings.new(booking_params)
@@ -36,24 +36,26 @@ class BookingsController < ApplicationController
         (flash[:alert] = t('commons.issue'))
       end
     else
-      housing = Housing.create!(address: session[:address])
-      user_housing = UserHousing.create!(user: current_user, housing: housing, user_state: 1 )
-      diagnostic = Diagnostic.create!
+      @housing = Housing.create!(address: session[:address])
+      @user_housing = UserHousing.create!(user: current_user, housing: @housing, user_state: 1 )
+      @diagnostic = Diagnostic.create!
+      authorize @diagnostic
       date = session[:date]
       hour = session[:hour]
-      booking = Booking.new(user: diagnostician,
-                            housing: housing,
-                            diagnostic: diagnostic,
+      @booking = Booking.new(user: diagnostician,
+                            housing: @housing,
+                            diagnostic: @diagnostic,
                             set_at: DateTime.parse(date.to_s + " 0"+ hour + ":00:00 +0000"),
                             comment:"Booking eligible n°#{Booking.count}",
                             confirmed_at: nil)
-      authorize booking
-      if housing.save! && user_housing.save! && diagnostic.save! && booking.save!
+      authorize @booking
+      if @housing.save! && @user_housing.save! && @diagnostic.save! && @booking.save!
         redirect_to user_path(current_user)
         flash[:notice] = t('inscription.confirmation')
       else
         redirect_to confirmation_path
         flash[:alert] = t('commons.issue')
+
       end
     end
   end

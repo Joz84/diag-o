@@ -2,30 +2,26 @@
 
 <div class="dashboard-content">
   <div class="padding-content">
-    <div class="row">
-      <div class="col-xs-12 col-md-5">
+    <div class="splitscreen-wrapper">
+      <div class="splitscreen-column">
         <%= render "/shared/map" %>
       </div>
-      <div class="col-xs-12 col-md-7">
-        <div class="dashboard-container">
-              <h4>Infos booker:</h4>
-          <div class="row">
-            <div class="col-xs-12 col-md-6">
-                <h5>Client</h5>
-              <p><%= @booking.booker.first_name %> <%= @booking.booker.last_name %></p>
-              <p> <%= @booking.booker.email %> </p>
-              <p> <%= @booking.booker.phone %> </p>
-              <p> <%= @booking.housing.address %> </p>
-              <p>Demande reçue le <%= @booking.created_at.strftime(" %d %b %Y") %></p>
-              <% if @booking.confirmed_at.nil? != true && @booking.confirmed_at > @booking.created_at %>
-                <p>Demande confirmée le <%= @booking.confirmed_at.strftime(" %d %b %Y") %></p>
-              <% end %>
-              <p>Commentaires: <%= @booking.comment %></p>
-            </div>
-            <div class="col-xs-12 col-md-6">
-              <h5>Infos housing:</h5>
-              <p><%= @booking.housing.address %></p>
-            </div>
+      <div class="splitscreen-column">
+        <div class="padding-content">
+          <div class="underline">
+            <h4>Infos sur le particulier:</h4>
+            <p>Prénom Nom:<%= @booking.booker.first_name.capitalize %> <%= @booking.booker.last_name.capitalize %></stronp></p>
+            <p>Email: <%= @booking.booker.email %> </p>
+            <p>Téléphone: <%= @booking.booker.phone %> </p>
+            <p>Adresse postale: <%= @booking.housing.address %> </p>
+            <p>Demande reçue le <%= @booking.created_at.strftime(" %d %b %Y") %></p>
+            <% if @booking.confirmed_at.nil? != true && @booking.confirmed_at > @booking.created_at %>
+              <p>Demande confirmée le <%= @booking.confirmed_at.strftime(" %d %b %Y") %></p>
+            <% end %>
+            <p>Commentaires: <%= @booking.comment %></p>
+          </div>
+          <h4>Infos sur l'habitat:</h4>
+          <p><%= @booking.housing.address %></p>
           </div>
         </div>
       </div>

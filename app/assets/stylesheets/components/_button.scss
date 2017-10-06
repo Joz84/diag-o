@@ -9,6 +9,9 @@
   box-shadow: none;
   -webkit-box-shadow: none !important;
   border-bottom:none;
+  p {
+    margin-bottom: 0px;
+  }
   &:hover {
     background-color: $yellow;
     color: white;
@@ -34,4 +37,9 @@
 }
 .with-border {
   border: 1px solid $medium-gray;
+}
+input {
+  &:focus {
+    border: none;
+  }
 }

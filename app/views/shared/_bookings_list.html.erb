@@ -35,22 +35,26 @@
                   <% end %>
                 <% end %>
               </p>
-              <% else %>
+            <% else %>
               <span class="status declined"><%= "En attente de confirmation" %></span>
               <% if @user.diagnostician? %>
-                  <i class="fa fa-eye status declined"></i>
                 <%= link_to diagnostician_booking_path(booking), method: :patch do %>
                   <i class="fa fa-check status declined" data-toggle="tooltip" data-placement="left" title="<%= t('tooltip.confirmation') %>"></i>
                 <% end %>
-                <%= link_to diagnostician_booking_path(booking), method: :delete do %>
-                  <i class="fa fa-trash status declined" data-toggle="tooltip" data-placement="left" title="<%= t('tooltip.annulation') %>"></i>
-                <% end %>
-              </p>
+                <%#= link_to diagnostician_booking_path(booking), method: :delete do %>
+                  <!-- <i class="fa fa-trash status declined" data-toggle="tooltip" data-placement="left" title="<%= t('tooltip.annulation') %>"></i> -->
+                <%# end %>
+              <% end %>
             <% end %>
           </div>
       </div>
       <div class="line">
-        <p class="user-data address">Adresse du rendez-vous: <%= booking.housing.address %></p>
+        <p class="user-data address"><%= t('diagnotic.address') %><%= booking.housing.address %></p>
+        <% if @user.diagnostician? %>
+          <%= link_to diagnostician_booking_path(booking), method: :get do %>
+            <i class="fa fa-eye status declined"></i>
+          <% end %>
+        <% end %>
       </div>
     </div>
 <% end %>

@@ -18,7 +18,7 @@ class DiagnosticPolicy < ApplicationPolicy
   end
 
   def create?
-    user_admin_or_diag
+    true
   end
 
   def update?

@@ -13,6 +13,9 @@ $border-color: $medium-gray;
 .margin-bottom-medium {
   margin-bottom: 40px !important;
 }
+.margin-bottom-small {
+  margin-bottom: 10px !important;
+}
 .center {
   margin: auto;
 }
@@ -31,7 +34,7 @@ $border-color: $medium-gray;
   padding: 20px;
 }
 .flexbox {
-  display: flex;
+  display: flex !important;
   justify-content: center;
   align-items: center;
 }

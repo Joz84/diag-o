@@ -1,10 +1,12 @@
-<%= link_to link do %>
-<div class="sidebar-button">
-  <div>
-    <p>
-      <i class="fa fa-<%= icon %>" aria-hidden="true"></i>
-      <%= text %>
-    </p>
+<%= link_to link, id: id do %>
+  <div class="<%= klass %>">
+    <div>
+      <p>
+        <% unless icon == "none" %>
+          <i class="fa fa-<%= icon %>" aria-hidden="true"></i>
+        <% end %>
+        <%= text %>
+      </p>
+    </div>
   </div>
-</div>
 <% end %>
