@@ -11,11 +11,27 @@ class Diagnostician::DiagnosticsController < ApplicationController
   def show
     @sections = Section.all
     authorize @diagnostic
+    if params[:query]
+      @plan_id = params[:query][:result]
+    end
   end
 
   def edit
-    @sections = Section.all
     authorize @diagnostic
+    @sections = Section.all
+  end
+
+  def add_plan
+    authorize @diagnostic
+    @diagnostic.plan = params[:query][:result]
+    @diagnostic.save!
+    redirect_to diagnostician_diagnostic_path(@diagnostic)
+  end
+
+  def delete_plan
+    @diagnostic.plan = nil
+    @diagnostic.save!
+    redirect_to diagnostician_diagnostic_path(@diagnostic)
   end
 
   private

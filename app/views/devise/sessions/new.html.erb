@@ -1,7 +1,7 @@
-<div class="devise-screens-wrapper login flexbox">
+<div class="fullscreen-wrapper-under-navbar login flexbox">
   <div class="login-box">
     <div class="login-top">
-      <div class="tab active_tab"><p>Connexion</p></div>
+      <div class="tab active_tab"><p><%= t('.sign_in') %></p></div>
       <div class="tab"><p><%= render "devise/shared/top_links" %></p></div>
       <div class="tab long-tab"><p><%= render "devise/shared/links" %></p></div>
     </div>
@@ -14,7 +14,7 @@
             <%= f.input :remember_me, class: "bottom-left", as: :boolean if devise_mapping.rememberable? %>
           </div>
           <div class="form-actions">
-            <%= f.button :submit,  t(".sign_in"), class: "btn-green" %>
+            <%= f.button :submit,  t(".sign_in"), class: "btn btn-anis" %>
           </div>
         <% end %>
       </div>

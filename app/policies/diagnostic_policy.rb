@@ -28,6 +28,14 @@ class DiagnosticPolicy < ApplicationPolicy
   def destroy?
     user_admin_or_diag
   end
+
+  def add_plan?
+    user.diagnostician? or user.admin?
+  end
+
+  def delete_plan?
+    user.diagnostician? or user.admin?
+  end
 end
 
 

@@ -1,15 +1,6 @@
 // Specific CSS for your home-page
 .home {
-  color: $medium-gray;
   background-color: white;
-}
-.home h1 {
-  font-family: $body-font;
-  font-size: 48px;
-  font-weight: 500;
-  line-height: 58px;
-  letter-spacing: -2px;
-  margin-bottom: 30px;
 }
 .menu {
   font-size: 20px;
@@ -42,7 +33,7 @@
 }
 .page-content, .page-content {
   margin: auto;
-  width: 60%;
+  width: 70%;
   margin-top: 110px;
 }
 .page-text-information {

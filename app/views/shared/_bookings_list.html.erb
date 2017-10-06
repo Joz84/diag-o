@@ -1,16 +1,15 @@
 <% @bookings.each do |booking| %>
-  <%= link_to diagnostician_booking_path(booking) do %>
-    <div class="user">
+    <div class="list-element">
       <div class="line">
-        <div class="user-name">
+        <div class="list-name">
         <% if @user.diagnostician? %>
           <h5><%= booking.booker.first_name %> <%= booking.booker.last_name %></h5>
         <% else %>
           <h5>Diagnosticien: <%= booking.user.first_name %> <%= booking.user.last_name %></h5>
         <% end %>
         </div>
-        <div class="user-status">
-          <h5> <%= booking.set_at.strftime("le %d %b %Y") %></h5>
+        <div class="list-date">
+          <p><%= booking.set_at.strftime("le %d %b %Y") %></p>
         </div>
       </div>
       <div class="line">
@@ -30,6 +29,9 @@
                   <%= link_to diagnostician_booking_path(booking) do %>
                     <i class="fa fa-eye status accepted"></i>
                   <% end %>
+                  <%= link_to diagnostician_booking_path(booking) do %>
+                    <i class="fa fa-pencil status accepted"></i>
+                  <% end %>
                   <%= link_to diagnostician_booking_path(booking), method: :patch do %>
                     <i class="fa fa-times status accepted" data-toggle="tooltip" data-placement="left" title="<%= t('tooltip.deconfirmation') %>"></i>
                   <% end %>
@@ -48,7 +50,7 @@
                 <%= link_to diagnostician_booking_path(booking), method: :delete do %>
                   <i class="fa fa-trash status declined" data-toggle="tooltip" data-placement="left" title="<%= t('tooltip.annulation') %>"></i>
                 <% end %>
-              <% end %>
+              </p>
             <% end %>
           </div>
       </div>
@@ -56,5 +58,4 @@
         <p class="user-data address">Adresse du rendez-vous: <%= booking.housing.address %></p>
       </div>
     </div>
-  <% end %>
 <% end %>

@@ -2,34 +2,102 @@
 
 <div class="dashboard-content">
   <div class="padding-content">
-    <h1>Diagnostique <%= @diagnostic.id %></h1>
+
+    <h1>Diagnostique réf 0<%= @diagnostic.id %></h1>
+      <div class="tabs flex-left flex-wrap">
+
+        <div class="list-element margin-bottom-medium">
+      <div class="line">
+        <div class="list-name">
+          <p><%= @diagnostic.booking.booker.first_name %> <%= @diagnostic.booking.booker.last_name %> : <%= @diagnostic.booking.housing.address %></p>
+        </div>
+        <div class="list-status">
+          <p>Rendez-vous du <%= @diagnostic.booking.set_at.strftime("%d %b %Y") %></p>
+        </div>
+      </div>
+    </div>
+
+    <% if @diagnostic.plan.nil? %>
+      <p>Ajouter un plan FloorPlanner:</p>
+
+      <%= render "shared/search_form", url: add_plan_path, method_name: 'get', placeholder: t('diagnostic.placeholder'), label: false, btn_text: t('diagnostic.button_text') %>
+    <% else %>
+      <h4>Plan: </h4>
+      <%= link_to delete_plan_path, method: :get do %>
+        <p><i class="fa fa-trash"></i>Supprimer le plan FloorPlanner:</p>
+      <% end %>
+      <div id='app'>
+          <div id='fp2d'>
+            <iframe
+              src="https://floorplanner.com/projects/<%= @diagnostic.plan %>/viewer?view=3d&section=180"
+              frameborder='0'
+              width='100%'
+              height='650'
+              scrolling='no'
+              zoom='1'
+              >
+            </iframe>
+          </div>
+          <div id='fp3d'></div>
+      </div>
+    <% end %>
+
       <div class="flex-left">
+
         <% @sections.each do |section| %>
-          <div class="tab">
-            <button class="tablinks" onclick="openTab(event, 'Section-<%= section.id %>')" id="Section<%= section.id %>"><%= section.name %></button>
+          <div>
+            <button class="btn btn-inverse with-border" onclick="openTab(event, 'Section-<%= section.id %>')" id="Section<%= section.id %>"><%= section.name.capitalize %></button>
           </div>
         <% end %>
       </div>
 
         <% @sections.each do |section| %>
           <div id="Section-<%= section.id %>" class="tabcontent">
-            <h3><%= section.name %></h3>
+            <h3><%= section.name.capitalize %></h3>
 
               <% section.questions.each do |q| %>
-              <% if q.has_answer?(@diagnostic) %>
+              <%# if q.has_answer?(@diagnostic) %>
                 <p class="has-answer"><strong><%= q.name %></strong></p>
-                <%= q.answer_is(@diagnostic).litteral_answer %>
-              <% else %>
+                <%#= q.answer_is(@diagnostic).litteral_answer %>
+              <%# else %>
                 <p><strong><%= q.name %></strong></p>
-              <% end %>
+              <%# end %>
 
             <% end %>
           </div>
         <% end %>
+
   </div>
 </div>
 
 
+
+<% content_for(:after_js) do %>
+
+  <%= javascript_tag do %>
+
+    var theme = {
+      ui: {
+        initView: '2d',
+        rotate3d: false,
+        zoom: '1'
+      },
+      engine: {
+        useSection3D: false,
+        wallSectionHeight: 180,
+        wallTopColor3D: "7F7F7F",
+        wallTopColor2D: "000000",
+        engineAutoDims: true,
+        showGrid: false,
+        showDims: true,
+        showObjects: true,
+        showLabels: true,
+        useMetric: true,
+        visuals: 'ALL',
+      }
+    };
+  <% end %>
+<% end %>
 
 <script>
  function openTab(event, elementId) {
@@ -57,3 +125,4 @@
   document.getElementById("Section1").click();
 
 </script>
+
