@@ -72,14 +72,6 @@ ActiveRecord::Schema.define(version: 20171002144523) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "plans", force: :cascade do |t|
-    t.integer "planID"
-    t.bigint "diagnostic_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["diagnostic_id"], name: "index_plans_on_diagnostic_id"
-  end
-
   create_table "points", force: :cascade do |t|
     t.bigint "zone_id"
     t.datetime "created_at", null: false
@@ -172,7 +164,6 @@ ActiveRecord::Schema.define(version: 20171002144523) do
   add_foreign_key "bookings", "housings"
   add_foreign_key "bookings", "users"
   add_foreign_key "option_choices", "option_groups"
-  add_foreign_key "plans", "diagnostics"
   add_foreign_key "points", "zones"
   add_foreign_key "questions", "option_groups"
   add_foreign_key "questions", "sections"

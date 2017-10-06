@@ -3,15 +3,20 @@
   width: 200px;
   height: 100vh;
   background-color: $blue-gray;
-
+}
+.sidebar-right {
+  position: absolute;
+  right: 0px;
+  width: 250px;
+  padding: 10px 10px 0 0;
+  background-color: transparent;
 }
 .sidebar-button {
   display: flex;
   align-items: center;
   width: 100%;
-  height: 70px;
-  padding: 0 0 0 15px;
   border-bottom: 1px solid #454C70;
+  height: 70px;
   p {
     color: white;
     margin: 0px;
@@ -20,5 +25,23 @@
     background-color: $dark-blue-gray;
     cursor: pointer;
   }
-
+}
+.sidebar-button-capsule {
+  display: flex;
+  align-items: center;
+  border-radius: $border-radius;
+  border: 1px solid $medium-gray;
+  width: 100%;
+  padding: 0px 10px 0px 10px;
+  color: $dark-gray;
+  height: 45px;
+  background-color: transparent;
+  margin-bottom: 10px;
+  p {
+    margin: 0px;
+  }
+  &.active {
+    background-color: $anis;
+    color: white;
+  }
 }

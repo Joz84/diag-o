@@ -78,6 +78,8 @@ fr:
   diagnostic:
     placeholder: "Renseigner l'ID du plan, ex: 51010669"
     button_text: "Ajouter le plan"
+    address: "Adresse du rendez-vous:"
+    pending: "En cours"
   flash:
     booking_save_error: "Horaires non réservé, veuillez contacter l'administration du service."
     booking_save_ok: "Votre rendez-vous est confirmé, un diagnosticien vous appelera sous peu."

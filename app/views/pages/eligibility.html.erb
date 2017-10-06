@@ -5,7 +5,7 @@
       data-color="<%= @color %>"
       data-area="<%= @area_orange %>"></div>
 
-<%= content_tag 'div', class: "data-for-js", data: {zoneslist: @zoneslist, address: @address, geocoded: @address_geocoded} do %>
+<%= content_tag 'div', class: "data-for-js", data: {zoneslist: @zoneslist, address: @address || "Bordeaux", geocoded: @address_geocoded || [48.856614,  2.3522219]} do %>
 <% end %>
 
 

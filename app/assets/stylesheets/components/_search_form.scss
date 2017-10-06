@@ -10,6 +10,9 @@
   input {
     border: none;
     box-shadow: none;
+    &:focus {
+      border: none;
+    }
   }
   .form-group {
     margin-bottom: 0px;

@@ -11,16 +11,15 @@
       </div>
       <div class="line">
         <div>
-          <p class="user-data address"><%= diagnostic.booking.booker.first_name %> <%= diagnostic.booking.booker.last_name %> : <%= diagnostic.booking.housing.address %></p>
-        </div>
-
-        <div class="min-width text-right">
-          <p class="status declined"><%= "En cours" %>
+          <p class="user-data address">
+            <%= diagnostic.booking.booker.first_name %> <%= diagnostic.booking.booker.last_name %> : <%= diagnostic.booking.housing.address %>
           </p>
         </div>
-
+        <div class="min-width text-right">
+          <p class="status declined"><%= t('diagnostic.pending') %>
+          </p>
+        </div>
       </div>
     </div>
-
   <% end %>
 <% end %>
