@@ -52,6 +52,10 @@
     margin-bottom: 30px;
     font-size: 16px;
   }
+  .btn {
+    width: 250px;
+    border: none;
+  }
 }
 .form-control:focus {
   border: none;
@@ -78,6 +82,10 @@ label.boolean.optional {
     box-shadow: none;
     margin-bottom: 30px;
     font-size: 16px;
+  }
+  .btn {
+    width: 300px;
+    border: none;
   }
 }
 .signup-top {

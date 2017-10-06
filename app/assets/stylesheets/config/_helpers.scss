@@ -13,9 +13,6 @@ $border-color: $medium-gray;
 .margin-bottom-medium {
   margin-bottom: 40px !important;
 }
-.has-answer {
-  color: $green !important;
-}
 .center {
   margin: auto;
 }
@@ -50,6 +47,9 @@ $border-color: $medium-gray;
   display: flex;
   align-items: center;
 }
+.flex-wrap {
+  flex-wrap: wrap;
+}
 .fixed-top {
   position: fixed;
   top: 0px;
@@ -65,9 +65,14 @@ $border-color: $medium-gray;
 .min-width {
   min-width: 200px;
 }
+//CONFIG
 a:hover {
   text-decoration: none !important;
 }
+select {
+  height: 45px !important;
+}
+
 #info {
   background-color: $diago;
   color: white;

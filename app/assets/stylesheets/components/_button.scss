@@ -1,4 +1,4 @@
-.btn {
+.btn, input.btn {
   color: white;
   background-color: $anis;
   border-radius: $border-radius;
@@ -7,6 +7,7 @@
   padding: 0px 30px 0px 30px;
   max-width: 350px;
   box-shadow: none;
+  -webkit-box-shadow: none !important;
   border-bottom:none;
   &:hover {
     background-color: $yellow;
@@ -16,6 +17,9 @@
 .btn-anis {
   background-color: $anis;
 }
+.btn-blue-gray {
+  background-color: $blue-gray;
+}
 .btn-slim {
   color: white;
   background-color: $anis;
@@ -23,4 +27,11 @@
   height: 40px;
   border: none;
   padding: 0px 30px 0px 30px;
+}
+.btn-inverse {
+  color: $dark-gray;
+  background-color: transparent;
+}
+.with-border {
+  border: 1px solid $medium-gray;
 }

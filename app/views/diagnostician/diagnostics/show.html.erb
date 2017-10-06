@@ -2,9 +2,11 @@
 
 <div class="dashboard-content">
   <div class="padding-content">
-    <h1>Diagnostic réf: <%= @diagnostic.id %></h1>
 
-    <div class="list-element margin-bottom-medium">
+    <h1>Diagnostique réf 0<%= @diagnostic.id %></h1>
+      <div class="tabs flex-left flex-wrap">
+
+        <div class="list-element margin-bottom-medium">
       <div class="line">
         <div class="list-name">
           <p><%= @diagnostic.booking.booker.first_name %> <%= @diagnostic.booking.booker.last_name %> : <%= @diagnostic.booking.housing.address %></p>
@@ -41,24 +43,25 @@
     <% end %>
 
       <div class="flex-left">
+
         <% @sections.each do |section| %>
-          <div class="tab">
-            <button class="tablinks" onclick="openTab(event, 'Section-<%= section.id %>')" id="Section<%= section.id %>"><%= section.name %></button>
+          <div>
+            <button class="btn btn-inverse with-border" onclick="openTab(event, 'Section-<%= section.id %>')" id="Section<%= section.id %>"><%= section.name.capitalize %></button>
           </div>
         <% end %>
       </div>
 
         <% @sections.each do |section| %>
           <div id="Section-<%= section.id %>" class="tabcontent">
-            <h3><%= section.name %></h3>
+            <h3><%= section.name.capitalize %></h3>
 
               <% section.questions.each do |q| %>
-              <% if q.has_answer?(@diagnostic) %>
+              <%# if q.has_answer?(@diagnostic) %>
                 <p class="has-answer"><strong><%= q.name %></strong></p>
-                <%= q.answer_is(@diagnostic).litteral_answer %>
-              <% else %>
+                <%#= q.answer_is(@diagnostic).litteral_answer %>
+              <%# else %>
                 <p><strong><%= q.name %></strong></p>
-              <% end %>
+              <%# end %>
 
             <% end %>
           </div>
