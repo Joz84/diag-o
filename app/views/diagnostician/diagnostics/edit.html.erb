@@ -3,7 +3,7 @@
 <div class="dashboard-content">
   <div class="padding-content">
     <h1>Diagnostique <%= @diagnostic.id %>
-      <%= render "shared/link_icon", link: diagnostician_diagnostic_path(@diagnostic), fontawesome: "eye", klass: "" %>
+      <%= link_to(content_tag(:i, nil, class: 'fa fa-eye'), diagnostician_diagnostic_path(@diagnostic))%>
     </h1>
     <div class="flex-left">
       <% @sections.each do |section| %>

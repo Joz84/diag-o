@@ -5,7 +5,7 @@
   <div class="padding-content">
     <h1>Diagnostique <%= @diagnostic.id %>
       <% if @user.diagnostician? %>
-        <%= render "shared/link_icon", link: edit_diagnostician_diagnostic_path(@diagnostic), fontawesome: "pencil", klass: "" %>
+        <%= link_to(content_tag(:i, nil, class: 'fa fa-pencil'), edit_diagnostician_diagnostic_path(@diagnostic))%>
       <% end %>
     </h1>
 

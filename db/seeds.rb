@@ -26,6 +26,9 @@ max = User.create!(email: "max@yahoo.fr", password: "123456", first_name: "Max",
 sami = User.create!(email: "sam@yahoo.fr", password: "123456", first_name: "Sam", last_name: "Chalalala", phone:"06 11 22 33 44", role:0)
 
 #Housings
+housing0 = Housing.create!(address:"Diagnostician house", created_at:"01-01-2017", updated_at:"01-01-2017")
+user_housing = UserHousing.create!(user: diagnostician, housing: Housing.last, user_state: 1 )
+
 housing1 = Housing.create!(address:"Auchan Drive Bouliac", created_at:"01-01-2017", updated_at:"01-01-2017")
 user_housing = UserHousing.create!(user: jules, housing: Housing.last, user_state: 1 )
 

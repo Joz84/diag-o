@@ -86,5 +86,6 @@ fr:
   booking:
     confirmed: "RDV confirmé"
     pending: "À confirmer"
+    selfbook: "Indispo"
 
 
