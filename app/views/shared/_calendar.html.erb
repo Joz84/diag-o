@@ -9,11 +9,9 @@
           <% unless @dates.include? date_with_hour(date, hour) %>
             <!-- PAS DE BOOKING CE JOUR -->
           <% else %>
-            <!-- BOOKING DU JOUR -->
+            <!-- LIEN VERS DIAGNOSTIC PASSÉ -->
             <%= link_to diagnostician_booking_path(@dates.index(date_with_hour(date, hour))) do %>
-              <div class= "btn-calendar btn-calendar-booked">
-                <i class="fa fa-eye"></i>
-              </div>
+              <div class= "btn btn-calendar btn-calendar-booked"><i class="fa fa-eye"></i></div>
             <% end %>
           <% end %>
 
@@ -28,12 +26,12 @@
             <% end %>
           <% else %>
             <!-- BOOKÉ -->
-            <div class= "btn-calendar btn-calendar-booked">
-              <%= link_to @bookings[@dates.index(date_with_hour(date, hour))], method: :delete do %>
+            <%= link_to @bookings[@dates.index(date_with_hour(date, hour))], method: :delete do %>
+              <div class= "btn btn-calendar btn-calendar-booked">
                 <i class="fa fa-retweet"></i>
-              <% end %>
-              <p>Non dispo</p>
-            </div>
+                <p>Non dispo</p>
+              </div>
+            <% end %>
           <% end %>
         <% end %>
       <% end %>

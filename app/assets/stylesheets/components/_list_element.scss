@@ -32,10 +32,10 @@
 .list-name {
   min-width: 100px;
 }
-.status.accepted {
+.status.accepted, .status.accepted a {
   color: $anis;
 }
-.status.declined {
+.status.declined, .status.declined a {
   color: $yellow;
 }
 .status.pending {

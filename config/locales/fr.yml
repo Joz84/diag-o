@@ -83,5 +83,8 @@ fr:
   flash:
     booking_save_error: "Horaires non réservé, veuillez contacter l'administration du service."
     booking_save_ok: "Votre rendez-vous est confirmé, un diagnosticien vous appelera sous peu."
+  booking:
+    confirmed: "RDV confirmé"
+    pending: "À confirmer"
 
 

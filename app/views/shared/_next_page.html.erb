@@ -1,3 +1,2 @@
-<%= link_to target_page, :class => "next_page scroll" do %>
-  <i class="fa <%= icon %>" aria-hidden="true"></i>
-<% end %>
+<%= link_to(content_tag(:i, nil, class: 'fa fa-arrow-circle-down'), target_page, class: "next_page scroll") %>
+
