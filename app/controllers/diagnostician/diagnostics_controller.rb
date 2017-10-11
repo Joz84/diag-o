@@ -11,6 +11,7 @@ class Diagnostician::DiagnosticsController < ApplicationController
   def show
     @sections = Section.all
     authorize @diagnostic
+    @booking = @diagnostic.booking
     if params[:query]
       @plan_id = params[:query][:address]
     end

@@ -1,7 +1,7 @@
 <%= render "shared/sidebar"%>
 
 <div class="dashboard-content">
-  <div class="padding-content">
+  <div class="padding-box">
     <h1>Diagnostique <%= @diagnostic.id %>
       <%= link_to(content_tag(:i, nil, class: 'fa fa-eye'), diagnostician_diagnostic_path(@diagnostic))%>
     </h1>

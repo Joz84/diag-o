@@ -1,4 +1,4 @@
-.card-info {
+.card-compact {
   height: 350px;
   margin: 20px 0 20px 0;
   .fa {
@@ -10,4 +10,46 @@
     font-size: 48px;
     margin: 20px;
   }
+}
+.card-note {
+  i.big {
+    font-size: 56px;
+    border: 1px solid #DADADA;
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    line-height: inherit;
+  }
+  position: relative;
+  min-height: 600px;
+  min-width: 380px;
+  border: $border-light;
+  border-radius: $border-radius;
+  padding: $white-space;
+  margin: $padding-side;
+  .btns {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: calc(100% - 40px);
+  }
+}
+.card-mini {
+  margin: 5px;
+  padding: 10px;
+  font-weight: 700;
+  p {
+    margin: 0px;
+  }
+  i {
+    color: $anis;
+    font-size: 24px;
+  }
+}
+.border-right {
+  border-right: 1px solid $medium-gray;
+}
+.card-line {
+  min-height: 150px;
+  margin: 20px 0 20px 0;
 }

@@ -2,7 +2,7 @@
 <%= render "shared/sidebar_forjs"%>
 
 <div class="dashboard-content with_right_sidebar">
-  <div class="padding-content">
+  <div class="padding-box">
     <h1>Diagnostique <%= @diagnostic.id %>
       <% if @user.diagnostician? %>
         <%= link_to(content_tag(:i, nil, class: 'fa fa-pencil'), edit_diagnostician_diagnostic_path(@diagnostic))%>
@@ -10,16 +10,7 @@
     </h1>
 
     <!-- INFOS -->
-    <div class="list-element margin-bottom-medium">
-      <div class="line">
-        <div class="list-name">
-          <p><%= @diagnostic.booking.booker.first_name %> <%= @diagnostic.booking.booker.last_name %> : <%= @diagnostic.booking.housing.address %></p>
-        </div>
-        <div class="list-status">
-        <p>Rendez-vous du <%= @diagnostic.booking.set_at.strftime("%d %b %Y") %></p>
-        </div>
-      </div>
-    </div>
+    <%= render "shared/card_line" %>
 
     <!-- PLAN -->
     <% if @user.diagnostician? %>
@@ -53,12 +44,8 @@
       <div id="Section-<%= section.id %>" class="tabcontent">
         <h3><%= t('sections.'+section.name).capitalize %></h3>
         <% section.questions.each do |q| %>
-          <%# if q.has_answer?(@diagnostic) %>
-            <p class="has-answer"><strong><%= q.name %></strong></p>
+            <p><%= q.name %></p>
             <%#= q.answer_is(@diagnostic).litteral_answer %>
-          <%# else %>
-            <p><strong><%= q.name %></strong></p>
-          <%# end %>
         <% end %>
       </div>
     <% end %>
@@ -92,7 +79,7 @@
     };
   <% end %>
 <% end %>
-<!--
+
 <script>
  function openTab(event, elementId) {
   // Declare all variables
@@ -118,4 +105,4 @@
    // Get the element with id="defaultOpen" and click on it
   // document.getElementById("Section1").click(); << INFINITE LOOP?
 </script>
- -->
+

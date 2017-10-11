@@ -1,0 +1,8 @@
+<div class="card-note card-line text-center">
+  <h3><%= @booking.booker.first_name.capitalize %> <%= @booking.booker.last_name.capitalize %></h3>
+  <div class="flexbox">
+    <div class="card-mini border-right"><i class="fa fa-envelope-o"></i><p><%= @booking.booker.email %></p></div>
+    <div class="card-mini border-right"><i class="fa fa-phone"></i><p><%= @booking.booker.phone %></p></div>
+    <div class="card-mini"><i class="fa fa-home"></i><p><%= @booking.housing.address %></p></div>
+  </div>
+</div>
