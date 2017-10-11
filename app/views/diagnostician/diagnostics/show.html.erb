@@ -51,8 +51,8 @@
     <!-- FORM -->
     <% @sections.each do |section| %>
       <div id="Section-<%= section.id %>" class="tabcontent">
-        <h3><%= section.name.capitalize %></h3>
-          <% section.questions.each do |q| %>
+        <h3><%= t('sections.'+section.name).capitalize %></h3>
+        <% section.questions.each do |q| %>
           <%# if q.has_answer?(@diagnostic) %>
             <p class="has-answer"><strong><%= q.name %></strong></p>
             <%#= q.answer_is(@diagnostic).litteral_answer %>
@@ -92,7 +92,7 @@
     };
   <% end %>
 <% end %>
-
+<!--
 <script>
  function openTab(event, elementId) {
   // Declare all variables
@@ -118,4 +118,4 @@
    // Get the element with id="defaultOpen" and click on it
   // document.getElementById("Section1").click(); << INFINITE LOOP?
 </script>
-
+ -->

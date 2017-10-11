@@ -1,10 +1,10 @@
 <div class="sidebar-right">
   <%= render "shared/sidebar-button", text: "Infos générales", klass: "sidebar-button-capsule", icon: "info-circle", link: "", id:"tab-info" %>
-  <%= render "shared/sidebar-button", text: "plan", klass: "sidebar-button-capsule", icon: "map-o", link: "", id:"tab-map" %>
+  <%= render "shared/sidebar-button", text: "Plan", klass: "sidebar-button-capsule", icon: "map-o", link: "", id:"tab-map" %>
 
   <% @sections.each do |section| %>
     <div>
-      <button class="sidebar-button-capsule tablinks" onclick="openTab(event, 'Section-<%= section.id %>')" id="Section<%= section.id %>"><%= section.name.capitalize %>
+      <button class="sidebar-button-capsule tablinks" onclick="openTab(event, 'Section-<%= section.id %>')" id="Section<%= section.id %>"><%= t('sections.'+section.name).capitalize %>
       </button>
     </div>
   <% end %>
