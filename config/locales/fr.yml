@@ -88,6 +88,8 @@ fr:
     pending: "À confirmer"
     selfbook: "Indispo"
   sections:
+    infos: "infos générales"
+    plans: "plans"
     inhabitant: "habitant"
     risk_awarness: "notion du risque"
     works_against_inondation: "actions préventives"

@@ -12,6 +12,7 @@ class Diagnostician::DiagnosticsController < ApplicationController
     @sections = Section.all
     authorize @diagnostic
     @booking = @diagnostic.booking
+    draw_marker(@booking.housing)
     if params[:query]
       @plan_id = params[:query][:address]
     end

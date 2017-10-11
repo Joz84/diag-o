@@ -1,0 +1,26 @@
+<div id="tab-plan" class="card-note card-line text-center tabcontent">
+  <% if @diagnostic.plan.nil? %>
+    <h4>Ajouter un plan FloorPlanner:</h4>
+    <%= render "shared/search_form", url: add_plan_path, method_name: 'get', placeholder: t('diagnostic.placeholder'), label: false, btn_text: t('diagnostic.button_text') %>
+  <% else %>
+    <h4>Plans:
+    <%= link_to delete_plan_path, method: :get do %>
+      <i class="fa fa-trash"></i> (Retirer ce plan)
+    <% end %>
+   </h4>
+    <div id='app'>
+        <div id='fp2d'>
+          <iframe
+            src="https://floorplanner.com/projects/<%= @diagnostic.plan %>/viewer?view=2d&section=180"
+            frameborder='0'
+            width='100%'
+            height='650'
+            scrolling='no'
+            zoom='1'
+            >
+          </iframe>
+        </div>
+        <div id='fp3d'></div>
+    </div>
+  <% end %>
+</div>

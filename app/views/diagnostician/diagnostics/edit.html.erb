@@ -1,36 +1,40 @@
-<%= render "shared/sidebar"%>
+<div class="dashboard-wrap">
+  <%= render "shared/sidebar"%>
+  <%= render "shared/sidebar_forjs"%>
 
-<div class="dashboard-content">
-  <div class="padding-box">
-    <h1>Diagnostique <%= @diagnostic.id %>
-      <%= link_to(content_tag(:i, nil, class: 'fa fa-eye'), diagnostician_diagnostic_path(@diagnostic))%>
-    </h1>
-    <div class="flex-left">
+  <div class="dashboard-content with_right_sidebar">
+    <div class="padding-box">
+      <h1 class="text-center">Diagnostique <%= @diagnostic.id %>
+        <%= link_to(content_tag(:i, nil, class: 'fa fa-eye'), diagnostician_diagnostic_path(@diagnostic))%>
+      </h1>
       <% @sections.each do |section| %>
-        <div class="tab">
-          <button class="tablinks" onclick="openTab(event, 'Section-<%= section.id %>')" id="Section<%= section.id %>"><%= section.name %></button>
+        <div id="Section-<%= section.id %>" class="tabcontent card-note card-line text-center">
+          <h3 class="margin-bottom-medium"><%= section.name.capitalize %></h3>
+            <% section.questions.each do |q| %>
+              <div class="margin-bottom-small text-left">
+                <%= simple_form_for q.answers.find_or_create_by(diagnostic: @diagnostic) do |f| %>
+                  <%= f.input q.input_type.to_sym, { label: q.name }.merge( q.option_choice_id? ? {collection: q.option_choices} : {}) %>
+                <% end %>
+              </div>
+          <% end %>
         </div>
       <% end %>
     </div>
-        <% @sections.each do |section| %>
-          <div id="Section-<%= section.id %>">
-            <h3><%= section.name.capitalize %></h3>
-              <% section.questions.each do |q| %>
-                <div class="margin-bottom-small">
-                  <%= simple_form_for q.answers.find_or_create_by(diagnostic: @diagnostic) do |f| %>
-                    <%= f.input q.input_type.to_sym, { label: q.name }.merge( q.option_choice_id? ? {collection: q.option_choices} : {}) %>
-                  <%= f.button :submit, :class => "btn btn-anis" %>
-                </div>
-              <% end %>
-            <% end %>
-          </div>
-        <% end %>
   </div>
 </div>
 
 
 
 <script>
+  $(window).load(function(){
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    document.getElementById('tab-info').style.display = "block";
+    document.getElementById('tab-btn-info').className += " active";
+  });
+
  function openTab(event, elementId) {
   // Declare all variables
   var i, tabcontent, tablinks;

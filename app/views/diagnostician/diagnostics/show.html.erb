@@ -1,62 +1,62 @@
-<%= render "shared/sidebar"%>
-<%= render "shared/sidebar_forjs"%>
+<div class="dashboard-wrap">
+  <%= render "shared/sidebar"%>
+  <%= render "shared/sidebar_forjs"%>
 
-<div class="dashboard-content with_right_sidebar">
-  <div class="padding-box">
-    <h1>Diagnostique <%= @diagnostic.id %>
-      <% if @user.diagnostician? %>
-        <%= link_to(content_tag(:i, nil, class: 'fa fa-pencil'), edit_diagnostician_diagnostic_path(@diagnostic))%>
-      <% end %>
-    </h1>
-
-    <!-- INFOS -->
-    <%= render "shared/card_line" %>
-
-    <!-- PLAN -->
-    <% if @user.diagnostician? %>
-      <% if @diagnostic.plan.nil? %>
-        <p>Ajouter un plan FloorPlanner:</p>
-        <%= render "shared/search_form", url: add_plan_path, method_name: 'get', placeholder: t('diagnostic.placeholder'), label: false, btn_text: t('diagnostic.button_text') %>
-      <% else %>
-        <h4>Plan: </h4>
-        <%= link_to delete_plan_path, method: :get do %>
-          <p><i class="fa fa-trash"></i>Supprimer le plan FloorPlanner:</p>
+  <div class="dashboard-content with_right_sidebar">
+    <div class="padding-box">
+      <h1 class="text-center">Diagnostique <%= @diagnostic.id %>
+        <% if @user.diagnostician? %>
+          <%= link_to(content_tag(:i, nil, class: 'fa fa-pencil'), edit_diagnostician_diagnostic_path(@diagnostic))%>
         <% end %>
-        <div id='app'>
-            <div id='fp2d'>
-              <iframe
-                src="https://floorplanner.com/projects/<%= @diagnostic.plan %>/viewer?view=2d&section=180"
-                frameborder='0'
-                width='100%'
-                height='650'
-                scrolling='no'
-                zoom='1'
-                >
-              </iframe>
+      </h1>
+
+      <!-- INFOS -->
+      <div class="tabcontent" id="tab-info">
+        <%= render "shared/card_line" %>
+        <div class="card-note card-line text-center">
+          <%= render "shared/map"%>
+        </div>
+      </div>
+
+      <!-- PLAN -->
+      <% if @user.diagnostician? %>
+        <%= render "ask_and_display" %>
+      <% end %>
+
+      <!-- FORM -->
+      <% @sections.each do |section| %>
+        <div id="Section-<%= section.id %>" class="tabcontent card-note card-line text-center">
+          <h3 class="underline"><%= t('sections.'+section.name).capitalize %></h3>
+          <% section.questions.each do |q| %>
+            <div class="text-left">
+              <p><%= q.name %></p>
+              <% if q.answers.nil? %>
+                <p>-------</p>
+              <% else %>
+                <p>-------</p>
+                <%#= q.answer_is(@diagnostic).litteral_answer %>
+              <% end %>
             </div>
-            <div id='fp3d'></div>
+          <% end %>
         </div>
       <% end %>
-    <% end %>
 
-    <!-- FORM -->
-    <% @sections.each do |section| %>
-      <div id="Section-<%= section.id %>" class="tabcontent">
-        <h3><%= t('sections.'+section.name).capitalize %></h3>
-        <% section.questions.each do |q| %>
-            <p><%= q.name %></p>
-            <%#= q.answer_is(@diagnostic).litteral_answer %>
-        <% end %>
-      </div>
-    <% end %>
-
+    </div>
   </div>
 </div>
-
 
 <!-- JS FOR PLAN -->
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
+    $(window).load(function(){
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+      }
+      document.getElementById('tab-info').style.display = "block";
+      document.getElementById('tab-btn-info').className += " active";
+    });
+
     var theme = {
       ui: {
         initView: '2d',
@@ -100,9 +100,11 @@
   // Show the current tab, and add an "active" class to the button that opened the tab
   document.getElementById(elementId).style.display = "block";
   event.currentTarget.className += " active";
+
+    // Get the element with id="defaultOpen" and click on it
+  // document.getElementById("tab-info").click(); << INFINITE LOOP?
   }
 
-   // Get the element with id="defaultOpen" and click on it
-  // document.getElementById("Section1").click(); << INFINITE LOOP?
+
 </script>
 
