@@ -1,7 +1,13 @@
+.dashboard-wrap {
+  background-color: $light-gray;
+  min-width: 100%;
+  min-height: calc(100vh);
+}
 .dashboard-content{
-  position: absolute;
+  position: relative;
   left: 200px;
   width: calc(100% - 200px);
+  min-height: calc(100vh - 70px);
   a {
     color: $blue-gray;
     &:hover{

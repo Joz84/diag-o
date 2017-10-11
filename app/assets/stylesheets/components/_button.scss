@@ -17,19 +17,17 @@
     color: white;
   }
 }
-.btn-anis {
-  background-color: $anis;
-}
-.btn-blue-gray {
-  background-color: $blue-gray;
-}
-.btn-slim {
+.btn-slim, a.btn-slim {
   color: white;
   background-color: $anis;
   border-radius: 40px;
   height: 40px;
   border: none;
   padding: 0px 30px 0px 30px;
+  &:hover {
+    background-color: $yellow !important;
+    color: white;
+  }
 }
 .btn-inverse {
   color: $dark-gray;
@@ -42,4 +40,13 @@ input {
   &:focus {
     border: none;
   }
+}
+.btn-anis {
+  background-color: $anis !important;
+}
+.btn-red {
+  background-color: red !important;
+}
+.btn-blue-gray {
+  background-color: $blue-gray !important;
 }

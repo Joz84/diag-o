@@ -10,6 +10,9 @@
   width: 250px;
   padding: 10px 10px 0 0;
   background-color: transparent;
+  button {
+    text-align: left !important;
+  }
 }
 .sidebar-button {
   display: flex;

@@ -109,7 +109,7 @@ floirac_zones.each do |zone|
 end
 
 sections = ["inhabitant", "risk_awarness", "works_against_inondation", "place", "history",
-"accessibility", "history_references", "housing", "structure", "refugee", "furniture", "exit", "airflow", "sanitation", "electricity", "warming"]
+"accessibility", "history_references", "housing", "structure", "shelter", "furniture", "exit", "airflow", "sanitation", "electricity", "warming"]
 sections.each do |section|
   Section.create(name: section)
 end
@@ -148,24 +148,25 @@ option_choices.each { |key, value|
 
 puts "Création des #{OptionChoice.count} option choices"
 
-question1 = Question.create( section_id: 1, name: "Nom de l’occupant principal?", information: "nom_habitant", input_type: 2)
-question2 = Question.create( section_id: 1, name: "Nombre d'occupants?", information: "nombre_occupants", option_group_id: 3, input_type: 0)
-question3 = Question.create( section_id: 1, name: "Nombre de mineurs?", information: "nombre_mineurs", option_group_id: 3, input_type: 0)
-question4 = Question.create( section_id: 1, name: "Nombre de personnes âgées?", information: "nombre_seniors", option_group_id: 3, input_type: 0)
-question5 = Question.create( section_id: 1, name: "Nombre de personnes à mobilité réduite?", information: "nombre_pmr", option_group_id: 3, input_type: 1)
-question6 = Question.create( section_id: 1, name: "Nombre de personnes dépendantes autres?", information: "nombre_dependants", option_group_id: 3, input_type: 0)
-question7 = Question.create( section_id: 1, name: "Année d'entrée dans le logement?", information: "duree_habitation", option_group_id: 4, input_type: 0)
-question8 = Question.create( section_id: 4, name: "Superficie du terrain?", information: "superficie_terrain", option_group_id: 5, unit_id: 2, input_type: 1)
-question9 = Question.create( section_id: 4, name: "Nombre de logements?", information: "nombre_logements", option_group_id: 3, input_type: 2)
-question10 = Question.create( section_id: 4, name: "Surface habitable?", information: "surface_habitable", option_group_id: 5, unit_id: 2, input_type: 1)
-question11 = Question.create( section_id: 4, name: "Année de construction?", information: "annee_construction", option_group_id: 4, input_type: 1)
-question12 = Question.create( section_id: 2, name: "Avez-vous été informé d'un potentiel risque d'inondation de votre habitation à l'achat ou à la location ?", information: "conscience_risque", option_group_id: 2, input_type: 2)
-question13 = Question.create( section_id: 2, name: "Avez-vous été informé des risques d'inondation sur la ville de Nîmes ?", information: "informe_zone", option_group_id: 2, input_type: 2)
-question14 = Question.create( section_id: 2, name: "Votre habitation est-elle concernée par les risques d'inondation ?", information: "informe_habitation", option_group_id: 2, input_type: 2)
-question15 = Question.create( section_id: 2, name: "Le risque d'inondation vous semble-t-il préoccupant ?", information: "risque_preoccupant", option_group_id: 2, input_type: 2)
-question16 = Question.create( section_id: 2, name: "Avez-vous connaissance d'un Plan Communal de Sauvegarde ?", information: "informe_pcs", option_group_id: 2, input_type: 2)
-question17 = Question.create( section_id: 2, name: "Savez-vous ce qu'est un PPRI?", information: "informe_ppri", option_group_id: 2, input_type: 2)
-question18 = Question.create( section_id: 10, name: "Présence d'un espace refuge conforme au PPRi? ", information: "refuge_ppri", option_group_id: 3, input_type: 2)
-question19 = Question.create( section_id: 10, name: "Superficie de l'espace", information: "superficie_espace", option_group_id: 5, unit_id: 2, input_type: 1)
-question20 = Question.create( section_id: 10, name: "Possibilité d'évacuation ?", information: "evacuation", option_group_id: 2, input_type: 2)
+question1 = Question.create!( section: Section.find_by(name: "inhabitant"), name: "Nom de l’occupant principal?", option_group: OptionGroup.find_by(name: "groupe 0"), information: "nom_habitant", input_type: 2)
+question2 = Question.create!( section: Section.find_by(name: "inhabitant"), name: "Nombre d'occupants?", information: "nombre_occupants", option_group: OptionGroup.find_by(name: "groupe 0"), input_type: 0)
+question3 = Question.create!( section: Section.find_by(name: "inhabitant"), name: "Nombre de mineurs?", information: "nombre_mineurs", option_group: OptionGroup.find_by(name: "groupe 0"), input_type: 0)
+question4 = Question.create!( section: Section.find_by(name: "inhabitant"), name: "Nombre de personnes âgées?", information: "nombre_seniors", option_group: OptionGroup.find_by(name: "groupe 0"), input_type: 0)
+question5 = Question.create!( section: Section.find_by(name: "inhabitant"), name: "Nombre de personnes à mobilité réduite?", information: "nombre_pmr", option_group: OptionGroup.find_by(name: "groupe 0"), input_type: 1)
+question6 = Question.create!( section: Section.find_by(name: "inhabitant"), name: "Nombre de personnes dépendantes autres?", information: "nombre_dependants", option_group: OptionGroup.find_by(name: "groupe 0"), input_type: 0)
+question7 = Question.create!( section: Section.find_by(name: "inhabitant"), name: "Année d'entrée dans le logement?", information: "duree_habitation", option_group: OptionGroup.find_by(name: "groupe 0"), input_type: 0)
+question8 = Question.create!( section: Section.find_by(name: "place"), name: "Superficie du terrain?", information: "superficie_terrain", option_group: OptionGroup.find_by(name: "groupe 0"), unit_id: 2, input_type: 1)
+question9 = Question.create!( section: Section.find_by(name: "place"), name: "Nombre de logements?", information: "nombre_logements", option_group: OptionGroup.find_by(name: "groupe 0"), input_type: 2)
+question10 = Question.create!( section: Section.find_by(name: "place"), name: "Surface habitable?", information: "surface_habitable", option_group: OptionGroup.find_by(name: "groupe 0"), unit_id: 2, input_type: 1)
+question11 = Question.create!( section: Section.find_by(name: "place"), name: "Année de construction?", information: "annee_construction", option_group: OptionGroup.find_by(name: "groupe 0"), input_type: 1)
+question12 = Question.create!( section: Section.find_by(name: "place"), name: "Avez-vous été informé d'un potentiel risque d'inondation de votre habitation à l'achat ou à la location ?", information: "conscience_risque", option_group: OptionGroup.find_by(name: "groupe 0"), input_type: 2)
+question13 = Question.create!( section: Section.find_by(name: "risk_awarness"), name: "Avez-vous été informé des risques d'inondation sur la ville de Nîmes ?", information: "informe_zone", option_group: OptionGroup.find_by(name: "groupe 0"), input_type: 2)
+question14 = Question.create!( section: Section.find_by(name: "risk_awarness"), name: "Votre habitation est-elle concernée par les risques d'inondation ?", information: "informe_habitation", option_group: OptionGroup.find_by(name: "groupe 0"), input_type: 2)
+question15 = Question.create!( section: Section.find_by(name: "risk_awarness"), name: "Le risque d'inondation vous semble-t-il préoccupant ?", information: "risque_preoccupant", option_group: OptionGroup.find_by(name: "groupe 0"), input_type: 2)
+question16 = Question.create!( section: Section.find_by(name: "risk_awarness"), name: "Avez-vous connaissance d'un Plan Communal de Sauvegarde ?", information: "informe_pcs", option_group: OptionGroup.find_by(name: "groupe 0"), input_type: 2)
+question17 = Question.create!( section: Section.find_by(name: "risk_awarness"), name: "Savez-vous ce qu'est un PPRI?", information: "informe_ppri", option_group: OptionGroup.find_by(name: "groupe 0"), input_type: 2)
+question18 = Question.create!( section: Section.find_by(name: "shelter"), name: "Présence d'un espace refuge conforme au PPRi? ", information: "refuge_ppri", option_group: OptionGroup.find_by(name: "groupe 0"), input_type: 2)
+question19 = Question.create!( section: Section.find_by(name: "shelter"), name: "Superficie de l'espace", information: "superficie_espace", option_group: OptionGroup.find_by(name: "groupe 0"), unit_id: 2, input_type: 1)
+question20 = Question.create!( section: Section.find_by(name: "shelter"), name: "Possibilité d'évacuation ?", information: "evacuation", option_group: OptionGroup.find_by(name: "groupe 0"), input_type: 2)
 
+puts "Questions créé: #{Question.count}"

@@ -1,6 +1,10 @@
 $shadow: 0 2px 5px 0 rgba(0,0,0,0.07),0 2px 0 0 rgba(0,0,0,0.03);
+$border-light: 1px solid $medium-gray;
+$border-medium: 2px solid $dark-gray;
 $border-radius: 13px;
 $border-color: $medium-gray;
+$padding-side: 0 20px 0 20px;
+$white-space: 20px;
 
 .fullscreen-wrapper-under-navbar {
   background-color: #F6F6F8;
@@ -19,16 +23,17 @@ $border-color: $medium-gray;
 .center {
   margin: auto;
 }
+.border-light {
+  border: $border-light;
+  border-radius: $border-radius;
+}
 .underline {
-  border-bottom: 2px solid $dark-gray;
+  border-bottom: $border-medium;
   padding-bottom: 5px;
 }
 .underline-light {
-  border-bottom: 1px solid $light-gray;
+  border-bottom: $border-light;
   padding-bottom: 20px;
-}
-.padding-content {
-  padding: 20px;
 }
 .padding-box {
   padding: 20px;
@@ -52,6 +57,12 @@ $border-color: $medium-gray;
 }
 .flex-wrap {
   flex-wrap: wrap;
+}
+.flex-grow1 {
+  flex-grow: 1;
+}
+.flex-grow2 {
+  flex-grow: 2;
 }
 .fixed-top {
   position: fixed;
