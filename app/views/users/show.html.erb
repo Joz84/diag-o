@@ -1,19 +1,20 @@
 <% content_for :title_tag do "Diag-o | #{t('metas.titles.diagnotics')}" end %>
 
+<div class="dashboard-wrap">
+  <%= render "shared/sidebar"%>
 
-<%= render "shared/sidebar"%>
-
-<div class="dashboard-content">
-  <div class="padding-box">
-    <div class="row">
-      <div class="col-xs-12 col-md-6">
-        <%= render "shared/map"%>
-      </div>
-      <div class="col-xs-12 col-md-6">
-        <h3>Diagnostic en cours</h3>
-        <%= render "shared/diagnostics_list"%>
-        <h3>Prochain rendez-vous</h3>
-        <%= render "shared/bookings_list"%>
+  <div class="dashboard-content">
+    <div class="padding-box">
+      <div class="row">
+        <div class="col-xs-12 col-md-6">
+          <%= render "shared/map"%>
+        </div>
+        <div class="col-xs-12 col-md-6">
+          <h3>Diagnostic en cours</h3>
+          <%= render "shared/diagnostics_list"%>
+          <h3>Prochain rendez-vous</h3>
+          <%= render "shared/bookings_list"%>
+        </div>
       </div>
     </div>
   </div>
