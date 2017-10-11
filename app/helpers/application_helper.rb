@@ -20,7 +20,7 @@ module ApplicationHelper
     (Date.today <=> date) < 1
   end
 
-  def book_of_this_half_day(dates, date, hour)
+  def this_booking(dates, date, hour)
     @bookings[dates.index(date_with_hour(date, hour))]
   end
 

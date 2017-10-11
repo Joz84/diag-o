@@ -91,6 +91,7 @@
     flex-direction: column;
   }
   .btn-calendar {
+    color: $dark-gray;
     position: relative;
     margin: 4% 0 4% 0;
     text-align: center;
@@ -107,9 +108,11 @@
     }
   }
   .btn-calendar-tobook {
-    color: $dark-gray;
     border: 1px solid $anis;
     border-left: 8px solid $anis;
+    &:hover {
+      background-color: $anis;
+    }
   }
   .btn-calendar-doneinpast {
     border: 1px solid $medium-gray;
@@ -120,6 +123,13 @@
     border-left: 8px solid $yellow;
     p, a {
       margin: 0px;
+    }
+    &:hover {
+      color: white;
+      background-color: $yellow;
+      i {
+        color: white;
+      }
     }
   }
 }
