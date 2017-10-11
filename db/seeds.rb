@@ -26,20 +26,20 @@ max = User.create!(email: "max@yahoo.fr", password: "123456", first_name: "Max",
 sami = User.create!(email: "sam@yahoo.fr", password: "123456", first_name: "Sam", last_name: "Chalalala", phone:"06 11 22 33 44", role:0)
 
 #Housings
-housing0 = Housing.create!(address:"Diagnostician house", created_at:"01-01-2017", updated_at:"01-01-2017")
-user_housing = UserHousing.create!(user: diagnostician, housing: Housing.last, user_state: 1 )
+Housing.create!(address:"Diagnostician house", created_at:"01-01-2017", updated_at:"01-01-2017")
+UserHousing.create!(user: diagnostician, housing: Housing.last, user_state: 1 )
 
 housing1 = Housing.create!(address:"Auchan Drive Bouliac", created_at:"01-01-2017", updated_at:"01-01-2017")
-user_housing = UserHousing.create!(user: jules, housing: Housing.last, user_state: 1 )
+UserHousing.create!(user: jules, housing: Housing.last, user_state: 1 )
 
-housing2 = Housing.create!(address:" 2 rue de l'église Bouliac", created_at:"01-01-2017", updated_at:"01-01-2017")
-user_housing = UserHousing.create!(user: jules, housing: Housing.last, user_state: 1 )
+housing2 = Housing.create!(address:" 2 rue de l'église Bouliac", created_at:"01-01-2017", updated_at:"02-02-2017")
+UserHousing.create!(user: jules, housing: Housing.last, user_state: 1 )
 
-housing3 = Housing.create!(address:" 6 Chemin de Créon 33270 BOULIAC", created_at:"01-01-2017", updated_at:"01-01-2017")
-user_housing = UserHousing.create!(user: max, housing: Housing.last, user_state: 1 )
+housing3 = Housing.create!(address:" 6 Chemin de Créon 33270 BOULIAC", created_at:"01-01-2017", updated_at:"03-01-2017")
+UserHousing.create!(user: max, housing: Housing.last, user_state: 1 )
 
-housing4 = Housing.create!(address:"gestion de l’eau 24 route de Latresne Bouliac", created_at:"01-01-2017", updated_at:"01-01-2017")
-user_housing = UserHousing.create!(user: sami, housing: Housing.last, user_state: 1 )
+housing4 = Housing.create!(address:"gestion de l’eau 24 route de Latresne Bouliac", created_at:"01-01-2017", updated_at:"04-01-2017")
+UserHousing.create!(user: sami, housing: Housing.last, user_state: 1 )
 
 puts "Housing créé: #{Housing.count}"
 puts "UserHousing créé: #{UserHousing.count}"
@@ -89,9 +89,7 @@ floirac_zones.each do |zone|
         lng = point[0]
         lat = point[1]
         Point.create!(zone_id: Zone.last.id, lat: lat, lng: lng)
-        puts "Point créé pour polygone: lng:#{Point.last.lng}, lat#{Point.last.lat} pour zone #{Point.last.zone.id_zone}"
       end
-
   elsif zone["geometry"]["type"] == "MultiPolygon"
     g.each_with_index do |polygon, index|
       id_zone = z["ID_ZONE"] + "-#{index+1}"
@@ -103,12 +101,11 @@ floirac_zones.each do |zone|
         lng = point[0]
         lat = point[1]
         Point.create!(zone_id: Zone.last.id, lat: lat, lng: lng)
-        puts "Point créé pour Multipolygone: lng:#{Point.last.lng}, lat#{Point.last.lat} pour zone #{Point.last.zone.id_zone}"
       end
     end
     end
   end
-
+  puts "Point créé: #{Point.count}"
 end
 
 sections = ["inhabitant", "risk_awarness", "works_against_inondation", "place", "history",
@@ -116,7 +113,7 @@ sections = ["inhabitant", "risk_awarness", "works_against_inondation", "place", 
 sections.each do |section|
   Section.create(name: section)
 end
-puts "Création des #{Section.all.size} sections"
+puts "Création des #{Section.count} sections"
 
 units = ["cm", "m", "m^2", "km", "€", "jours", "années"]
 units.each do |unit|
@@ -129,7 +126,7 @@ option_groups = ["groupe 0", "groupe 1", "groupe 2", "groupe 3", "groupe 4", "gr
 option_groups.each do |option|
   OptionGroup.create(name: option)
 end
-puts "Création des #{OptionGroup.all.size} option groups"
+puts "Création des #{OptionGroup.count} option groups"
 
 option_choices = {
   "groupe 0" => [],
@@ -149,7 +146,7 @@ option_choices.each { |key, value|
 
 # RAPPEL enum input_type: {option_choice_id: 0, numeric: 1, string: 2, boolean: 3}
 
-puts "Création des #{OptionChoice.all.size} option choices"
+puts "Création des #{OptionChoice.count} option choices"
 
 question1 = Question.create( section_id: 1, name: "Nom de l’occupant principal?", information: "nom_habitant", input_type: 2)
 question2 = Question.create( section_id: 1, name: "Nombre d'occupants?", information: "nombre_occupants", option_group_id: 3, input_type: 0)
