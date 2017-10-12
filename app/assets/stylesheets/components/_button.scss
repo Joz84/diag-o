@@ -3,12 +3,14 @@
   background-color: $anis;
   border-radius: $border-radius;
   height: 50px;
+  min-width: 200px;
   border: none;
   padding: 0px 30px 0px 30px;
   max-width: 350px;
   box-shadow: none;
   -webkit-box-shadow: none !important;
   border-bottom:none;
+  margin: 5px;
   p {
     margin-bottom: 0px;
   }
@@ -29,10 +31,6 @@
     color: white;
   }
 }
-.btn-inverse {
-  color: $dark-gray;
-  background-color: transparent;
-}
 .with-border {
   border: 1px solid $medium-gray;
 }
@@ -42,11 +40,21 @@ input {
   }
 }
 .btn-anis {
-  background-color: $anis !important;
+  background-color: $anis;
+}
+.btn-diago {
+  background-color: $diago;
 }
 .btn-red {
-  background-color: red !important;
+  background-color: red;
 }
 .btn-blue-gray {
-  background-color: $blue-gray !important;
+  background-color: $blue-gray;
+}
+.btn-yellow {
+  background-color: $yellow;
+}
+.btn-inverse {
+  color: $dark-gray;
+  background-color: transparent;
 }

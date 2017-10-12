@@ -1,5 +1,5 @@
 class Diagnostician::BookingsController < ApplicationController
-  before_action :params_booking, only: [:show, :destroy, :update]
+  before_action :params_booking, only: [:show, :destroy, :update, :add_comment]
 
   def index
     @bookings = Booking.where(diagnostician: current_user)
@@ -24,13 +24,27 @@ class Diagnostician::BookingsController < ApplicationController
   def destroy
     authorize @booking
     @booking.destroy
-    redirect_back(fallback_location: root_path)
+    redirect_to diagnostician_users_path
   end
 
   def update
     authorize @booking
     @booking.update( confirmed_at: @booking.confirmed_at ? nil : DateTime.now )
     authorize @booking
+    redirect_back(fallback_location: root_path)
+  end
+
+  def add_comment
+    authorize @booking
+    @booking.comment = params[:query][:comment]
+    @booking.save!
+    redirect_back(fallback_location: root_path)
+  end
+
+  def delete_comment
+    authorize @booking
+    @booking.comment = nil
+    @booking.save!
     redirect_back(fallback_location: root_path)
   end
 

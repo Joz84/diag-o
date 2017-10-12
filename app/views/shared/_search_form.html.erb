@@ -1,6 +1,6 @@
 <div class="form-fake-wrap flex-vertical">
   <%= simple_form_for :query, url: url , method: :get do |f| %>
-      <%= f.input :address, label: false, placeholder: placeholder, :label_html => { :class => 'search-field' } %>
+      <%= f.input :address, label: false, placeholder: placeholder %>
       <%= f.button :submit, class: 'btn btn-green', id: "button-search", value: btn_text %>
   <% end %>
 </div>

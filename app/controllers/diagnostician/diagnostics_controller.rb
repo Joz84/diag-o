@@ -20,6 +20,8 @@ class Diagnostician::DiagnosticsController < ApplicationController
 
   def edit
     authorize @diagnostic
+    @booking = @diagnostic.booking
+    draw_marker(@booking.housing)
     @sections = Section.all
   end
 

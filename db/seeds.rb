@@ -49,7 +49,7 @@ housings = [housing1, housing2, housing3, housing4]
 #Bookings
 housings.each do |housing|
   Diagnostic.create!
-  Booking.create!(user_id: diagnostician.id, housing: housing, diagnostic: Diagnostic.last, set_at:"#{rand(1..25)}-#{rand(9..12)}-2017", comment:"Book seed #{Booking.count}", confirmed_at: nil)
+  Booking.create!(user_id: diagnostician.id, housing: housing, diagnostic: Diagnostic.last, set_at:"#{rand(1..25)}-#{rand(9..12)}-2017-08:00:00 +0000", comment:"Book seed #{Booking.count}", confirmed_at: nil)
 end
 
 puts "Booking créé: #{Booking.count}"

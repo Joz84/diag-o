@@ -8,12 +8,6 @@
   left: 200px;
   width: calc(100% - 200px);
   min-height: calc(100vh - 70px);
-  a {
-    color: $blue-gray;
-    &:hover{
-      color: $yellow;
-    }
-  }
 }
 .with_right_sidebar {
   width: calc(100% - 450px);
