@@ -23,23 +23,29 @@
       </div>
 
       <div class="card-note card-line text-center">
-        <h4>Ajouter/Modifier les commentaires:</h4>
-        <%= render "shared/textarea_form", url: add_comment_path, method_name: 'get', placeholder: @booking.comment, label: false, btn_text: t('booking.comment.button') %>
-        <% unless @booking.comment.nil? %>
-          <%= link_to delete_comment_path, method: :get do %>
-            <i class="fa fa-trash"></i> (Supprimer le commentaire)
-          <% end %>
-        <% end %>
-      </div>
-
-
-      <div class="card-note card-line text-center">
         <%= render "shared/map"%>
       </div>
-    </div>
 
+      <div class="card-note card-line text-center">
+        <h4>Ajouter/Modifier les commentaires:
+          <% unless @booking.comment.nil? %>
+            <%= link_to delete_comment_path, method: :get do %>
+              <i class="fa fa-trash"></i>
+            <% end %>
+          <% end %>
+        </h4>
+        <%= render "shared/textarea_form", url: add_comment_path, method_name: 'get', placeholder: "", label: false, btn_text: t('booking.comment.button') %>
+      </div>
+    </div>
   </div>
 </div>
-
-
 </div>
+
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(window).load(function(){
+      $('#textarea').html("comment");
+    });
+  <% end %>
+<% end %>

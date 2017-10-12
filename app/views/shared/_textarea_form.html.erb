@@ -1,6 +1,6 @@
 <%= simple_form_for :query, url: url , method: :get do |f| %>
   <div class="form-fake-wrap flex-vertical">
-    <%= f.input_field :comment, label: false, placeholder: placeholder, id: "textarea" %>
+    <%= f.input :comment, label: false, placeholder: placeholder, id: "textarea",  as: :text, :input_html => { :cols => 5, :rows => 10, :resize => "none" } %>
   </div>
     <%= f.button :submit, class: 'btn btn-green', value: btn_text %>
 <% end %>
