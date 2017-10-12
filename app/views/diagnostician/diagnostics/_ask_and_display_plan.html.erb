@@ -3,11 +3,11 @@
     <h4>Ajouter un plan FloorPlanner:</h4>
     <%= render "shared/search_form", url: add_plan_path, method_name: 'get', placeholder: t('diagnostic.placeholder'), label: false, btn_text: t('diagnostic.button_text') %>
   <% else %>
-    <h4>Plans:
+    <h3>Plans:
     <%= link_to delete_plan_path, method: :get do %>
       <i class="fa fa-trash"></i> (Retirer ce plan)
     <% end %>
-   </h4>
-   <%= render "diagnostician/diagnostic/_display_plan" %>
+   </h3>
+   <%= render "display_plan" %>
   <% end %>
 </div>

@@ -38,9 +38,6 @@
   margin: 5px;
   padding: 10px;
   font-weight: 700;
-  p {
-    margin: 0px;
-  }
   i {
     color: $anis;
     font-size: 24px;
@@ -50,6 +47,6 @@
   border-right: 1px solid $medium-gray;
 }
 .card-line {
-  min-height: 150px;
+  min-height: 100px;
   margin: 20px 0 20px 0;
 }

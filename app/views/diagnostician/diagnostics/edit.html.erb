@@ -7,6 +7,21 @@
       <h1 class="text-center">Diagnostique <%= @diagnostic.id %>
         <%= link_to(content_tag(:i, nil, class: 'fa fa-eye'), diagnostician_diagnostic_path(@diagnostic))%>
       </h1>
+
+      <!-- INFOS -->
+      <div class="tabcontent" id="tab-info">
+        <%= render "shared/card_line" %>
+        <div class="card-note card-line text-center">
+          <%= render "shared/map"%>
+        </div>
+      </div>
+
+      <!-- PLAN -->
+      <% if @user.diagnostician? %>
+        <%= render "ask_and_display_plan" %>
+      <% end %>
+
+      <!-- FORM -->
       <% @sections.each do |section| %>
         <div id="Section-<%= section.id %>" class="tabcontent card-note card-line text-center">
           <h3 class="margin-bottom-medium"><%= section.name.capitalize %></h3>
@@ -23,18 +38,20 @@
   </div>
 </div>
 
-
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(window).load(function(){
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+      }
+      document.getElementById('tab-info').style.display = "block";
+      document.getElementById('tab-btn-info').className += " active";
+    });
+  <% end %>
+<% end %>
 
 <script>
-  $(window).load(function(){
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    document.getElementById('tab-info').style.display = "block";
-    document.getElementById('tab-btn-info').className += " active";
-  });
-
  function openTab(event, elementId) {
   // Declare all variables
   var i, tabcontent, tablinks;

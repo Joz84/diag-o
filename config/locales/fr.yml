@@ -9,7 +9,7 @@ fr:
     title: "Lorem ipsom dolor information"
     column1: "Sit amet consectetuer adipiscing elit sed diam nonummy. Zzril delenit augue duis dolore te feugait nulla facilisi nam liber. Esse molestie consequat vel illum dolore eu feugiat nulla. Placerat facer possim assum typi non habent claritatem.Sit amet consectetuer adipiscing elit sed diam nonummy. Zzril delenit augue duis dolore te feugait nulla facilisi nam liber. Esse molestie consequat vel illum dolore eu feugiat nulla. Placerat facer possim assum typi non habent claritatem."
     column2: "Sit amet consectetuer adipiscing elit sed diam nonummy. Zzril delenit augue duis dolore te feugait nulla facilisi nam liber. Esse molestie consequat vel illum dolore eu feugiat nulla. Placerat facer possim assum typi non habent claritatem.Sit amet consectetuer adipiscing elit sed diam nonummy. Zzril delenit augue duis dolore te feugait nulla facilisi nam liber. Esse molestie consequat vel illum dolore eu feugiat nulla. Placerat facer possim assum typi non habent claritatem."
-    image: "http://res.cloudinary.com/doodlid/image/upload/v1504858096/diago_bg02.jpg"
+    image: "http://res.cloudinary.com/doodlid/image/upload/v1507544547/Save%20images/diago/diago_bg02.jpg"
   page_card2:
     title: "Lorem ipsom dolor information"
     icon1: "tint"
@@ -18,7 +18,7 @@ fr:
     card1: "Sit amet consectetuer adipiscing elit sed diam nonummy. Zzril delenit augue duis dolore te feugait nulla facilisi nam liber. Esse molestie."
     card2: "Sit amet consectetuer adipiscing elit sed diam nonummy. Zzril delenit augue duis dolore te feugait nulla facilisi nam liber. Esse molestie."
     card3: "Sit amet consectetuer adipiscing elit sed diam nonummy. Zzril delenit augue duis dolore te feugait nulla facilisi nam liber. Esse molestie."
-    image: "http://res.cloudinary.com/doodlid/image/upload/v1504858096/diago_bg03.jpg"
+    image: "http://res.cloudinary.com/doodlid/image/upload/v1507544547/Save%20images/diago/diago_bg03.jpg"
   buttons:
     button1:
       text: "Vue d'ensemble"
@@ -87,6 +87,8 @@ fr:
     confirmed: "RDV confirmé"
     pending: "À confirmer"
     selfbook: "Indispo"
+    comment:
+      button: "Valider"
   sections:
     infos: "infos générales"
     plans: "plans"

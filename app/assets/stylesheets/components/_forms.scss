@@ -6,7 +6,7 @@
   background: #FFFFFF;
   border: 2px solid #EAEAEA;
   border-radius: $border-radius;
-  height: 70px;
+  min-height: 70px;
   input {
     border: none;
     box-shadow: none;
@@ -20,11 +20,14 @@
   form.simple_form.query {
     width: calc(100% - 24px);
   }
+  textarea {
+    height: 200px;
+  }
 }
 input#button-search {
   position: absolute;
-  right: 10px;
-  top: 10px;
+  right: 5px;
+  top: 5px;
   width: 200px;
   padding: 0px 30px 0px 30px;
 }

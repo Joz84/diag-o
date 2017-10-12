@@ -1,5 +1,4 @@
 <% @diagnostics.each do |diagnostic| %>
-  <%= link_to diagnostician_diagnostic_path(diagnostic) do %>
     <div class="list-element">
       <div class="line">
         <div class="user-name">
@@ -17,9 +16,12 @@
         </div>
         <div class="min-width text-right">
           <p class="status declined"><%= t('diagnostic.pending') %>
+            <%= link_to(content_tag(:i, nil, class: 'fa fa-eye'), diagnostician_diagnostic_path(diagnostic))%>
+            <% if @user.diagnostician? %>
+              <%= link_to(content_tag(:i, nil, class: 'fa fa-pencil'), edit_diagnostician_diagnostic_path(diagnostic)) %>
+            <% end %>
           </p>
         </div>
       </div>
     </div>
-  <% end %>
 <% end %>
