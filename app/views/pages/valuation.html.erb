@@ -8,6 +8,11 @@
             <div class="form-title flexbox">
               <h3 class="text-center "><%= t('valuation.form_title') %></h3>
             </div>
+            <% unless @price.nil? %>
+              <div class="form-subtitle flexbox">
+                <h3 class="text-center">Bien estimé à: <%= @price %>€</h3>
+              </div>
+            <% end %>
             <div class="form-inputs">
               <h4>Données du bien:</h4>
               <%= simple_form_for :query, url: valuation_path , method: :get do |f| %>
@@ -56,3 +61,4 @@
     </div>
   </div>
 </div>
+

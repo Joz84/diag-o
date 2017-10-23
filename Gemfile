@@ -22,6 +22,7 @@ gem 'json'
 gem "simple_calendar", "~> 2.0"
 gem "faker"
 gem "nokogiri"
+gem 'rest-client'
 
 group :development, :test do
   gem 'pry-byebug'

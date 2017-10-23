@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home, :eligibility]
   before_action :params_user, only: [:home, :valuation]
-  require "open-uri"
+
 
   def home
   end
@@ -25,6 +25,7 @@ class PagesController < ApplicationController
   end
 
   def valuation
+
     if minimum_for_valuation
       url_queue = []
 
@@ -32,11 +33,17 @@ class PagesController < ApplicationController
         url_queue << "&#{value}=#{params[:query][value]}"
       end
 
-      bdv_url = "https://bdvapis.appspot.com/#{ENV['BDV_API_KEY']}/valuation/v1.0.0/purchase?#{url_queue.join[1..-1]}"
-      # bdv_url = "https://jsonplaceholder.typicode.com/posts"
+      url = "https://bdvapis.appspot.com/#{ENV['BDV_API_KEY']}/valuation/v1.0.0/purchase?#{url_queue.join[1..-1]}"
 
-      url_serialized = open(bdv_url, "Referer" => "http://diag-herokuapp.com", "Origin" => "http://diag-herokuapp.com").read
-      result = JSON.parse(url_serialized)
+      header = {
+          'origin': "http://diag-o.herokuapp.com",
+          }
+      response = RestClient.get(url, headers = header)
+
+      results = JSON.parse(response.body)
+      @price = results["results"]["valuation"]["asset_standard_price"].to_i.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1 ').reverse
+
+      render :valuation
     else
       flash[:notice] = t('valuation.form_rescue')
     end
