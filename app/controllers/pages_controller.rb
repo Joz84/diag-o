@@ -38,10 +38,21 @@ class PagesController < ApplicationController
       header = {
           'origin': "http://diag-o.herokuapp.com",
           }
-      response = RestClient.get(url, headers = header)
 
-      results = JSON.parse(response.body)
-      @price = results["results"]["valuation"]["asset_standard_price"].to_i.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1 ').reverse
+      body = begin
+        RestClient.get(url, headers = header)
+      rescue => e
+        e.response.body
+      end
+      # response = RestClient.get(url, headers = header)
+      response = JSON.parse(body)
+
+      if e && JSON.parse(e.response.body)["status"]
+        @error = "Error:" + JSON.parse(e.response.body)["message"]
+      else
+      # results = JSON.parse(response.body)
+        @price = response["results"]["valuation"]["asset_standard_price"].to_i.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1 ').reverse
+      end
 
       render :valuation
     else
@@ -57,7 +68,7 @@ class PagesController < ApplicationController
 
   def minimum_for_valuation
     if params[:query]
-      params[:query][:geoloc] && params[:query][:surface]
+      params[:query][:geoloc] && params[:query][:surface] && params[:query][:floor]
     else
       false
     end

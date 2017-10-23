@@ -75,6 +75,7 @@ fr:
   valuation:
     form_rescue: "Remplissez les champs nécessaires à l'évaluation"
     form_title: "Évaluation de bien"
+    bad_request: "Adresse ou données non reconnues"
   diagnostic:
     placeholder: "Renseigner l'ID du plan, ex: 51010669"
     button_text: "Ajouter le plan"

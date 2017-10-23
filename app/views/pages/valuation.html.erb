@@ -8,19 +8,24 @@
             <div class="form-title flexbox">
               <h3 class="text-center "><%= t('valuation.form_title') %></h3>
             </div>
-            <% unless @price.nil? %>
-              <div class="form-subtitle flexbox">
+            <% if @price.nil? %>
+              <div class="form-title error flexbox">
+                <p class="text-center"><%= @error %></p>
+              </div>
+            <% else %>
+              <div class="form-title ok flexbox">
                 <h3 class="text-center">Bien estimé à: <%= @price %>€</h3>
               </div>
             <% end %>
             <div class="form-inputs">
               <h4>Données du bien:</h4>
               <%= simple_form_for :query, url: valuation_path , method: :get do |f| %>
-                <p>Adresse complète: </p>
+                <p>Les champs avec étoiles(*) sont obligatoires.</p>
+                <p>Adresse complète*: </p>
                 <%= f.input :geoloc, required: true, placeholder: "ex: 23 cours de la Marne, 33000 Bordeaux", label: false %>
-                <p>Nombre d'étage: </p>
+                <p>Nombre d'étage*: </p>
                 <%= f.input :floor, required: true,collection: 0..60, placeholder: "ex: 2", label: false %>
-                <p>Surface(en m2): </p>
+                <p>Surface(en m2)*: </p>
                 <%= f.input :surface, required: true,placeholder: "", label: false %>
                 <p>Nombre de pièce: </p>
                 <%= f.input :rooms, required: true,collection: 1..15, placeholder: "", label: false %>
