@@ -18,7 +18,7 @@
             <%= render "shared/button_with_data", set_at: date_with_hour(date, hour), link: Booking.new, btn_class: "btn-calendar btn-calendar-tobook" %>
           <% else %>
             <% if this_booking(@dates, date, hour).booker == current_user %>
-              <%= link_to diagnostician_booking_path(this_booking(@dates, date, hour)), method: :delete do %>
+              <%= link_to booking_path(this_booking(@dates, date, hour)), method: :delete do %>
                 <div class= "btn btn-calendar btn-calendar-booked">
                   <i class="fa fa-retweet"></i><p><%= t('booking.selfbook') %></p>
                 </div>
