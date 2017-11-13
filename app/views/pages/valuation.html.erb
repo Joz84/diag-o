@@ -8,7 +8,7 @@
             <div class="form-title flexbox">
               <h3 class="text-center "><%= t('valuation.form_title') %></h3>
             </div>
-            <% if @price.nil? %>
+            <% unless @price %>
               <div class="form-title error flexbox">
                 <p class="text-center"><%= @error %></p>
               </div>
