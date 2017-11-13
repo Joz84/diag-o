@@ -96,13 +96,15 @@ label.boolean.optional {
     color: white;
     margin: 0;
   }
-}
-.form-subtitle {
-  width: 100%;
-  height: 80px;
-  background-color: $anis;
-  p, h3 {
-    color: white;
-    margin: 0;
+  &.error{
+    background-color: $yellow;
+  }
+  &.ok{
+    background-color: $anis;
+  }
+  i.close-it{
+    position: absolute;
+    right: 20px;
+    top: 30px;
   }
 }
