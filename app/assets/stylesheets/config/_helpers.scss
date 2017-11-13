@@ -5,14 +5,33 @@ $border-radius: 13px;
 $border-color: $medium-gray;
 $padding-side: 0 20px 0 20px;
 $white-space: 20px;
+$input-height: 56px !important;
 
-.fullscreen-wrapper-under-navbar {
-  background-color: #F6F6F8;
-  width: 100%;
-  height: calc(100vh - 70px);
+.clickable{
+  cursor: pointer;
+}
+.relative {
+  position: relative;
+}
+.fullscreen {
+  width:100%;
+  height: 100vh;
   background-size: cover;
   background-position: center center;
   background-attachment: fixed;
+  &.under-navbar {
+    height: calc(100vh - 70px);
+  }
+  &.under-navbar-slim {
+    height: calc(100vh - 45px);
+  }
+  &.under-breadcrumb {
+    height: calc(100vh - 100px);
+  }
+}
+.minfullscreen {
+  width: 100%;
+  min-height: 100vh;
 }
 .margin-bottom-medium {
   margin-bottom: 40px !important;
@@ -21,7 +40,8 @@ $white-space: 20px;
   margin-bottom: 10px !important;
 }
 .center {
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 .border-light {
   border: $border-light;
@@ -55,6 +75,20 @@ $white-space: 20px;
   display: flex;
   align-items: center;
 }
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  &.top {
+    justify-content: start;
+  }
+  &.center {
+    justify-content: center;
+  }
+  &.between {
+    justify-content: space-between;
+  }
+}
 .flex-wrap {
   flex-wrap: wrap;
 }
@@ -73,31 +107,14 @@ $white-space: 20px;
 .min-width {
   min-width: 200px;
 }
+.full-width {
+  width: 100%;
+}
 //CONFIG
 a:hover {
   text-decoration: none !important;
 }
-input, select {
-  height: 45px !important;
-}
-.checkbox input[type="checkbox"] {
-  top: -20px;
-}
-#info {
-  background-color: $diago;
-  color: white;
-  padding: 10px;
-}
-.full-screen-wrapper-with-navbar {
-  background-color: #F6F6F8;
-  width: 100%;
-  height: calc(100vh - 70px);
-  // object-fit: cover;
-  background-size: cover;
-  background-position: center center;
-  background-attachment: fixed;
-}
-//SPLITSCREEN
+//SPLITS
 .splitscreen-wrapper{
   position: relative;
   width: 100%;
@@ -118,3 +135,79 @@ input, select {
   color: $dark-gray;
   margin-left: -136px;
 }
+.half-split {
+  width: 50%;
+  float: left;
+}
+//TEST
+.test-red {
+  background-color: red;
+}
+//FILE UPLOAD
+.fileUpload {
+    position: relative;
+    background-color: $light-gray;
+    display: block;
+    height: 150px;
+    width: 150px;
+    margin: auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  ul {
+    position: absolute;
+    right: 26px;
+    top: 26px;
+    list-style-type: none;
+    img {
+      width: 100px;
+      height: 100px;
+    }
+    a {
+      position: absolute;
+      right: -19px;
+      top: -24px;
+      background-color: white;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: black;
+    }
+  }
+  input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+  }
+}
+.upload {
+  position: absolute;
+  left: 50%;
+  margin-left: -12px;
+  top: 50%;
+  margin-top: -14px;
+}
+// FORM
+input[type="checkbox"] {
+  width: 40px;
+}
+input, select {
+  height: $input-height;
+}
+.checkbox input[type="checkbox"] {
+  top: -20px;
+}
+.alert-warning, .alert-info, .alert-success {
+  border: none
+}
+

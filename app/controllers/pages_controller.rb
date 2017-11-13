@@ -25,9 +25,10 @@ class PagesController < ApplicationController
   end
 
   def valuation
-    if minimum_for_valuation
-      url_queue = []
 
+    if minimum_for_valuation
+      # @query = true
+      url_queue = []
       params[:query].each do |value|
         url_queue << "&#{value}=#{params[:query][value]}"
       end
@@ -52,6 +53,7 @@ class PagesController < ApplicationController
       render :valuation
     else
       # flash[:notice] = t('valuation.form_rescue')
+      # @query = nil
     end
   end
 

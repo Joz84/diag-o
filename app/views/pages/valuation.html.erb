@@ -8,14 +8,18 @@
             <div class="form-title flexbox">
               <h3 class="text-center "><%= t('valuation.form_title') %></h3>
             </div>
-            <% unless @price %>
-              <div class="form-title error flexbox">
-                <p class="text-center"><%= @error %></p>
-              </div>
-            <% else %>
-              <div class="form-title ok flexbox">
-                <h3 class="text-center">Bien estimé à: <%= @price %>€</h3>
-              </div>
+            <% unless params[:query][:geoloc].blank? %>
+              <% if @price.nil? && @error %>
+                <div class="valuation-message form-title error flexbox relative">
+                  <p class="text-center"><%= @error %></p>
+                  <i class="fa fa-times close-it clickable"></i>
+                </div>
+              <% elsif @price %>
+                <div class="valuation-message form-title ok flexbox relative">
+                  <h3 class="text-center">Bien estimé à: <%= @price %>€</h3>
+                  <i class="fa fa-times close-it clickable"></i>
+                </div>
+              <% end %>
             <% end %>
             <div class="form-inputs">
               <h4>Données du bien:</h4>
@@ -32,13 +36,13 @@
                 <p>Qualité du batiment: </p>
                 <%= f.input :construction_quality, required: true,collection: 0..5, label: false %>
                 <p>Qualité de la cuisine: </p>
-                <%= f.input :kitchen_quality, required: true,collection: 0..5, label: false %>
+                <%= f.input :kitchen_quality,collection: 0..5, label: false %>
                 <p>Qualité de la salle de bain: </p>
-                <%= f.input :bathroom_quality, required: true,collection: 0..5, label: false %>
+                <%= f.input :bathroom_quality,collection: 0..5, label: false %>
                 <p>Qualité du séjour: </p>
-                <%= f.input :living_quality, required: true,collection: 0..5, label: false %>
+                <%= f.input :living_quality,collection: 0..5, label: false %>
                 <p>Qualité des chambres: </p>
-                <%= f.input :rooms_quality, required: true,collection: 0..5, label: false %>
+                <%= f.input :rooms_quality,collection: 0..5, label: false %>
                 <div class="row">
                   <div class="col-xs-4">
                     <p>Parking: </p>
@@ -67,3 +71,10 @@
   </div>
 </div>
 
+<% content_for (:after_js) do %>
+  <script>
+    $('.close-it').click(function(){
+      $('.valuation-message').remove();
+    })
+  </script>
+<% end %>

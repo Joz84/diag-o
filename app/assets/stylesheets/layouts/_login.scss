@@ -102,4 +102,9 @@ label.boolean.optional {
   &.ok{
     background-color: $anis;
   }
+  i.close-it{
+    position: absolute;
+    right: 20px;
+    top: 30px;
+  }
 }
