@@ -27,7 +27,6 @@ class PagesController < ApplicationController
   def valuation
 
     if minimum_for_valuation
-      # @query = true
       url_queue = []
       params[:query].each do |value|
         url_queue << "&#{value}=#{params[:query][value]}"
@@ -42,6 +41,7 @@ class PagesController < ApplicationController
       rescue => e
         e.response.body
       end
+
       response = JSON.parse(body)
 
       if e && JSON.parse(e.response.body)["status"]
@@ -53,7 +53,6 @@ class PagesController < ApplicationController
       render :valuation
     else
       # flash[:notice] = t('valuation.form_rescue')
-      # @query = nil
     end
   end
 
