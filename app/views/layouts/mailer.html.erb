@@ -8,6 +8,11 @@
   </head>
 
   <body>
-    <%= yield %>
+    <table border="0" cellspacing="0" cellpadding="0" style="width:100%;min-width:600px;">
+      <tbody>
+        <%= yield %>
+        <%= render "footer" %>
+      </tbody>
+    </table>
   </body>
 </html>

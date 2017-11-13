@@ -51,6 +51,7 @@ class BookingsController < ApplicationController
       authorize @booking
       if @housing.save! && @user_housing.save! && @diagnostic.save! && @booking.save!
         redirect_to user_path(current_user)
+        UserMailer.new_booking(@booking).deliver_now
         flash[:notice] = t('inscription.confirmation')
       else
         redirect_to confirmation_path
