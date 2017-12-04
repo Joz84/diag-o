@@ -28,7 +28,6 @@ class BookingsController < ApplicationController
       booking = diagnostician.bookings.new(booking_params)
       authorize booking
       booking.diagnostic = Diagnostic.new
-      # @booking.housing = current_user.particulier? ? current_user.housing : nil
       booking.housing = Housing.first # TEMPORAIRE
       if booking.save
         redirect_to bookings_path
