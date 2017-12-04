@@ -25,15 +25,23 @@
                 <%= t('booking.confirmed') %>
                 <%= booking.confirmed_at.strftime("le %d %b %Y") %>
                 <% if current_user.diagnostician? %>
-                  <%= link_to(content_tag(:i, nil, class: 'fa fa-eye'), diagnostician_booking_path(booking))%>
-                  <%= link_to(content_tag(:i, nil, class: 'fa fa-times'), diagnostician_booking_path(booking), method: :patch)%>
+                  <%= link_to diagnostician_booking_path(booking) do %>
+                    <i class="fa fa-eye" data-toggle="tooltip" data-placement="top" title="Voir en détail"></i>
+                  <% end %>
+                  <%= link_to diagnostician_booking_path(booking), method: :patch do%>
+                    <i class="fa fa-times" data-toggle="tooltip" data-placement="top" title="Confirmer et envoyer le mail"></i>
+                  <% end %>
                 <% end %>
               </p>
             <% else %>
               <p class="status declined"><%= t('booking.pending') %>
                 <% if @user.diagnostician? %>
-                  <%= link_to(content_tag(:i, nil, class: 'fa fa-eye'), diagnostician_booking_path(booking))%>
-                  <%= link_to(content_tag(:i, nil, class: 'fa fa-check'), diagnostician_booking_path(booking), method: :patch)%>
+                  <%= link_to diagnostician_booking_path(booking) do %>
+                    <i class="fa fa-eye" data-toggle="tooltip" data-placement="top" title="Voir en détail"></i>
+                  <% end %>
+                  <%= link_to diagnostician_booking_path(booking), method: :patch do%>
+                    <i class="fa fa-check" data-toggle="tooltip" data-placement="top" title="Annuler et envoyer le mail"></i>
+                  <% end %>
                 <% end %>
               </p>
             <% end %>
@@ -43,4 +51,12 @@
         <p class="user-data address">Adresse: <%= booking.housing.address %></p>
       </div>
     </div>
+<% end %>
+
+<% content_for (:after_js) do %>
+  <script>
+    $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+    })
+  </script>
 <% end %>

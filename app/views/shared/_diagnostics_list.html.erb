@@ -2,7 +2,9 @@
     <div class="list-element">
       <div class="line">
         <div class="user-name">
-          <h5>Diagnostic réf diag-o<%= diagnostic.id %></h5>
+          <%= link_to diagnostician_diagnostic_path(diagnostic) do %>
+            <h5>Diagnostic réf diag-o<%= diagnostic.id %></h5>
+          <% end %>
         </div>
         <div class="user-status">
           <h5>Rendez-vous du <%= diagnostic.booking.set_at.strftime("%d %b %Y") %></h5>
@@ -16,12 +18,27 @@
         </div>
         <div class="min-width text-right">
           <p class="status declined"><%= t('diagnostic.pending') %>
-            <%= link_to(content_tag(:i, nil, class: 'fa fa-eye'), diagnostician_diagnostic_path(diagnostic))%>
-            <% if @user.diagnostician? %>
-              <%= link_to(content_tag(:i, nil, class: 'fa fa-pencil'), edit_diagnostician_diagnostic_path(diagnostic)) %>
+            <%= link_to diagnostician_diagnostic_path(diagnostic) do %>
+              <i class="fa fa-eye" data-toggle="tooltip" data-placement="top" title="Voir le diagnostic"></i>
             <% end %>
+
+
+            <% if @user.diagnostician? %>
+              <%= link_to edit_diagnostician_diagnostic_path(diagnostic) do%>
+                <i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="Modifier le diagnostic"></i>
+              <% end %>
+            <% end %>
+
           </p>
         </div>
       </div>
     </div>
+<% end %>
+
+<% content_for (:after_js) do %>
+  <script>
+    $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+    })
+  </script>
 <% end %>

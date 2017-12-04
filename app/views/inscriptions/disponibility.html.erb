@@ -13,7 +13,7 @@
             <%= simple_form_for :query, url: "/checkpoint", method: :get do |f| %>
               <%= f.input_field :date, as: :hidden, value: date %>
               <%= f.input_field :hour, as: :hidden, value: hour %>
-              <%= f.button :submit, value: (hour == "8" ? "8h-12h" : "14h-18h"), id: "btn-date", class: "btn-calendar btn-calendar-tobook" %>
+              <%= f.button :submit, value: (hour == "8" ? "8h-12h" : "14h-18h"), id: "btn-date", data: { disable_with: "-" }, class: "btn-calendar btn-calendar-tobook" %>
             <% end %>
           <% else %>
           <% end %>

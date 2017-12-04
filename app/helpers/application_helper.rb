@@ -1,5 +1,4 @@
 module ApplicationHelper
-
   def diagnostician_booking(arg)
     Booking.find_by(arg)
   end

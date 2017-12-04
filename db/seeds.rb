@@ -71,10 +71,10 @@ floirac_zones.each do |zone|
   town_id = Town.find_by_zipcode(zipcode).id
 
   case z["codezone"]
-    when "Zone rouge hachure bleue liser rouge" then color = "#D0021B"
-    when "Zone rouge hachure bleue" then color = "#F5A623"
-    when "Zone jaune" then color = "#F8E71C"
-    else color = "#FFF9AC"
+    when "Zone rouge hachure bleue liser rouge" then color = ENV["ZRED"]
+    when "Zone rouge hachure bleue" then color = ENV["ZORANGE"]
+    when "Zone jaune" then color = ENV["ZYELLOW"]
+    else color = ENV["ZLIGHTYELLOW"]
   end
 
   id_zone = z["ID_ZONE"]
