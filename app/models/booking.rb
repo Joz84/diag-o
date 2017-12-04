@@ -19,4 +19,12 @@ class Booking < ApplicationRecord
     for_me(user).to_come.ending_soon.first(2)
   end
 
+  def to_confirm
+    self.confirmed_at.nil?
+  end
+
+  def confirmed
+    self.confirmed_at != nil
+  end
+
 end

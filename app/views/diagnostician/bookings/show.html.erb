@@ -8,7 +8,7 @@
       <%= render "shared/card_line" %>
 
       <div class="card-note card-line text-center flexbox">
-        <% if @booking.confirmed_at.nil?%>
+        <% if @booking.to_confirm %>
           <p><i class="fa fa-exclamation-triangle"></i>Rendez-vous pris pour le <%= @booking.set_at.strftime("%d/%m/%Y") %> à partir de <%= @booking.set_at.strftime("%Hh") %> <strong><u>à confirmer</u></strong> avec le particulier.</p>
         <% else %>
           <p><i class="fa fa-check"></i>Rendez-vous pris pour le <%= @booking.set_at.strftime("%d/%m/%Y") %> à partir de <%= @booking.set_at.strftime("%Hh") %> confirmé.</p>
@@ -16,10 +16,12 @@
       </div>
 
       <div class="flex-horizontal flex-wrap">
-        <% if @booking.confirmed_at == nil %>
+        <% if @booking.to_confirm %>
           <%= link_to "Marquer comme confirmé", diagnostician_booking_path(@booking), method: :patch, class: "btn btn-anis flexbox" %>
+          <!-- SEND MAIL -->
         <% end %>
         <%= link_to "Annuler le rendez-vous", diagnostician_booking_path(@booking), method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-red flexbox" %>
+        <!-- SEND MAIL -->
       </div>
 
       <div class="card-note card-line text-center">
@@ -28,13 +30,13 @@
 
       <div class="card-note card-line text-center">
         <h4>Ajouter/Modifier les commentaires:
-          <% unless @booking.comment.nil? %>
+          <% if @booking.comment %>
             <%= link_to delete_comment_path, method: :get do %>
               <i class="fa fa-trash"></i>
             <% end %>
           <% end %>
         </h4>
-        <%= render "shared/textarea_form", url: add_comment_path, method_name: 'get', placeholder: "", label: false, btn_text: t('booking.comment.button') %>
+        <%= render "shared/textarea_form", url: add_comment_path, method_name: 'get', placeholder: @booking.comment, label: false, btn_text: t('booking.comment.button') %>
       </div>
     </div>
   </div>

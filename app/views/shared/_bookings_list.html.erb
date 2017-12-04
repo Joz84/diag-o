@@ -1,15 +1,14 @@
 <% @bookings.each do |booking| %>
     <div class="list-element">
       <div class="line">
+        <h5><%= link_to booking.comment, diagnostician_booking_path(booking)%></h5>
+      </div>
+      <div class="line">
         <div class="list-name">
-        <% if @user.diagnostician? %>
           <h5><%= booking.booker.first_name %> <%= booking.booker.last_name %></h5>
-        <% else %>
-          <h5>Diagnosticien: <%= booking.user.first_name %> <%= booking.user.last_name %></h5>
-        <% end %>
         </div>
         <div class="list-date">
-          <p><%= booking.set_at.strftime("le %d %b %Y") %></p>
+          <p><%= booking.set_at.strftime("le %d %b %Y, %I h") %></p>
         </div>
       </div>
       <div class="line">
@@ -21,7 +20,7 @@
           <p class="user-data phone"><%= booking.user.phone %></p>
         <% end %>
           <div>
-            <%if booking.confirmed_at != nil %>
+            <%if booking.confirmed %>
               <p class="status accepted">
                 <%= t('booking.confirmed') %>
                 <%= booking.confirmed_at.strftime("le %d %b %Y") %>
