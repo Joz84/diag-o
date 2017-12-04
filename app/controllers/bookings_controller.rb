@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
     @bookings = policy_scope(Booking).where(diagnostician: current_user)
     authorize @bookings
     @dates = @bookings.map{ |booking| booking.set_at}
-    @user = User.find_by_first_name("Jo")
+    @user = User.thediagnostician
     authorize @bookings
   end
 
@@ -20,7 +20,7 @@ class BookingsController < ApplicationController
   end
 
   def create
-    diagnostician = User.find_by_first_name("Jo")
+    diagnostician = User.thediagnostician
 
     authorize diagnostician
 

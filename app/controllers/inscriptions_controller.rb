@@ -3,7 +3,7 @@ class InscriptionsController < ApplicationController
   after_action :verify_authorized, except: [:disponibility, :checkpoint, :confirmation]
 
   def disponibility
-    @user = User.find_by_first_name("Jo")
+    @user = User.thediagnostician
     @bookings = Booking.where(diagnostician: @user)
     @dates = @bookings.map{ |booking| booking.set_at}
 
