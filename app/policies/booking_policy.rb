@@ -26,4 +26,12 @@ class BookingPolicy < ApplicationPolicy
     user_admin_or_diag
   end
 
+  def add_comment?
+    true
+  end
+
+  def delete_comment?
+    true
+  end
+
 end

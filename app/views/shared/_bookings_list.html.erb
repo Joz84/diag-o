@@ -21,7 +21,7 @@
           <p class="user-data phone"><%= booking.user.phone %></p>
         <% end %>
           <div>
-            <%if booking.confirmed_at != nil %>
+            <%if !booking.confirmed_at.nil? %>
               <p class="status accepted">
                 <%= t('booking.confirmed') %>
                 <%= booking.confirmed_at.strftime("le %d %b %Y") %>

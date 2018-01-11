@@ -1,10 +1,12 @@
 class Diagnostician::BookingsController < ApplicationController
-  before_action :params_booking, only: [:show, :destroy, :update, :add_comment]
+  before_action :params_booking, only: [:show, :destroy, :update, :add_comment, :delete_comment]
 
   def index
-    @bookings = Booking.where(diagnostician: current_user)
+    @bookings = policy_scope(Booking).where(diagnostician: current_user)
+    authorize @bookings
     @dates = @bookings.map{ |booking| booking.set_at}
-    @user = current_user
+    @user = User.find_by_first_name("Jo")
+    authorize @bookings
   end
 
   def show
@@ -18,7 +20,44 @@ class Diagnostician::BookingsController < ApplicationController
   end
 
   def create
-    authorize @booking
+    diagnostician = User.find_by_first_name("Jo")
+
+    authorize diagnostician
+
+    if current_user.diagnostician?
+      booking = diagnostician.bookings.new(booking_params)
+      authorize booking
+      booking.diagnostic = Diagnostic.new
+      # @booking.housing = current_user.particulier? ? current_user.housing : nil
+      booking.housing = Housing.first # TEMPORAIRE
+      if booking.save
+        redirect_to diagnostician_bookings_path
+      else
+        (flash[:alert] = t('commons.issue'))
+      end
+    else
+      @housing = Housing.create!(address: session[:address])
+      @user_housing = UserHousing.create!(user: current_user, housing: @housing, user_state: 1 )
+      @diagnostic = Diagnostic.create!
+      authorize @diagnostic
+      date = session[:date]
+      hour = session[:hour]
+      @booking = Booking.new(user: diagnostician,
+                            housing: @housing,
+                            diagnostic: @diagnostic,
+                            set_at: DateTime.parse(date.to_s + " 0"+ hour + ":00:00 +0000"),
+                            comment:"Booking eligible n°#{Booking.count}",
+                            confirmed_at: nil)
+      authorize @booking
+      if @housing.save! && @user_housing.save! && @diagnostic.save! && @booking.save!
+        redirect_to user_path(current_user)
+        flash[:notice] = t('inscription.confirmation')
+      else
+        redirect_to confirmation_path
+        flash[:alert] = t('commons.issue')
+
+      end
+    end
   end
 
   def destroy

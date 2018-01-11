@@ -20,6 +20,7 @@ class InscriptionsController < ApplicationController
   end
 
   def confirmation
+    @booking = Booking.new
     session[:page] = 3
   end
 end

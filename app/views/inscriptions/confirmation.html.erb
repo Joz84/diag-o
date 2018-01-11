@@ -13,7 +13,7 @@
     <p>Vous êtes joignable au:</p>
     <h4><%= current_user.phone %></h4>
     <h4 class="underline-light"><%= current_user.email %></h4>
-    <%= simple_form_for Booking.new do |f| %>
+    <%= simple_form_for :booking, url: diagnostician_bookings_path, method: :post do |f| %>
       <%= f.button :submit,  t('inscription.validation'), class: "btn btn-anis flexbox center" %>
     <% end %>
   </div>
