@@ -29,5 +29,4 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show]
   resources :answers
-  # resources :bookings, only: [:create]
 end
