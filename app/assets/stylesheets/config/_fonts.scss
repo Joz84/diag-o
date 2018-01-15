@@ -54,3 +54,9 @@ p, form, input, .fa{
     margin-right: 5px;
   }
 }
+a {
+  color: $dark-blue-gray;
+  &:hover{
+    color: $diago;
+  }
+}

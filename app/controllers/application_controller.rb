@@ -50,7 +50,7 @@ class ApplicationController < ActionController::Base
       marker.lat housing.latitude
       marker.lng housing.longitude
       marker.json({ address: housing.address })
-      marker.picture({ :url => "http://res.cloudinary.com/doodlid/image/upload/v1505158241/Save%20images/diago_marker.svg", :width => 64,
+      marker.picture({ :url => "http://res.cloudinary.com/doodlid/image/upload/v1507545075/diago/diago_marker.svg", :width => 64,
         :height => 91 });
     end
   end

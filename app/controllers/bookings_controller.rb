@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
     @bookings = policy_scope(Booking).where(diagnostician: current_user)
     authorize @bookings
     @dates = @bookings.map{ |booking| booking.set_at}
-    @user = User.find_by_first_name("Jo")
+    @user = User.thediagnostician
     authorize @bookings
   end
 
@@ -20,7 +20,7 @@ class BookingsController < ApplicationController
   end
 
   def create
-    diagnostician = User.find_by_first_name("Jo")
+    diagnostician = User.thediagnostician
 
     authorize diagnostician
 
@@ -28,7 +28,6 @@ class BookingsController < ApplicationController
       booking = diagnostician.bookings.new(booking_params)
       authorize booking
       booking.diagnostic = Diagnostic.new
-      # @booking.housing = current_user.particulier? ? current_user.housing : nil
       booking.housing = Housing.first # TEMPORAIRE
       if booking.save
         redirect_to bookings_path
@@ -51,6 +50,7 @@ class BookingsController < ApplicationController
       authorize @booking
       if @housing.save! && @user_housing.save! && @diagnostic.save! && @booking.save!
         redirect_to user_path(current_user)
+        UserMailer.new_booking(@booking).deliver_now
         flash[:notice] = t('inscription.confirmation')
       else
         redirect_to confirmation_path

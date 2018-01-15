@@ -20,6 +20,11 @@ class User < ApplicationRecord
     self.role  ||= 0
   end
 
+  def self.thediagnostician
+    find_by_first_name("Jo")
+  end
+
+
 # # conversation.update! status: 0
 # conversation.active!
 # conversation.active? # => true

@@ -109,4 +109,7 @@ fr:
     sanitation: "assainissement"
     electricity: "électricité"
     warming: "chauffage"
+  user_mailer:
+    new_booking:
+      subject: "Votre rendez-vous pour diagnostique de prévention inondation"
 

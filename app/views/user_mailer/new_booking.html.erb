@@ -1,0 +1,9 @@
+<%= render "header",poster: "http://res.cloudinary.com/doodlid/image/upload/v1510582384/Save%20images/diago/mail_entete.png",
+                    head_title: "Votre rendez-vous",
+                    head_subtitle: "diagnotique de prévention anti-inondation",
+                    head_text: "Vous avez pris rendez-vous avec un diagnosticen pour un diagnostique de prévention anti-inondation pour votre adresse [...]. Le diagnostique est totalement pris en charge, vous n'avez aucun frais à prévoir. Prévoyez d'être présent pour une demi-journée complète, le diagnotique peut prendre entre 2 et 3h sur place."
+ %>
+ <%= render "label_info", label_title: "VOTRE RENDEZ-VOUS:",
+                    date: @date,
+                    hour: @hour,
+                    address: @address %>
