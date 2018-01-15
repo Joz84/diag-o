@@ -36,7 +36,7 @@
             <% end %>
           <% end %>
         </h4>
-        <%= render "shared/textarea_form", url: add_comment_path, method_name: 'get', placeholder: @booking.comment, label: false, btn_text: t('booking.comment.button') %>
+        <%= render "shared/textarea_form", url: add_comment_diagnostician_booking_path(@booking), method_name: 'get', placeholder: "", label: false, btn_text: t('booking.comment.button') %>
       </div>
     </div>
   </div>

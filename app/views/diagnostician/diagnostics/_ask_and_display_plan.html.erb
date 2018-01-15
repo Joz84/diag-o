@@ -1,10 +1,10 @@
 <div id="tab-plan" class="card-note card-line text-center tabcontent">
   <% if @diagnostic.plan.nil? %>
     <h4>Ajouter un plan FloorPlanner:</h4>
-    <%= render "shared/search_form", url: add_plan_path, method_name: 'get', placeholder: t('diagnostic.placeholder'), label: false, btn_text: t('diagnostic.button_text') %>
+    <%= render "shared/search_form", url: add_plan_diagnostician_diagnostic_path(@diagnostic), method_name: 'get', placeholder: t('diagnostic.placeholder'), label: false, btn_text: t('diagnostic.button_text') %>
   <% else %>
     <h3>Plans:
-    <%= link_to delete_plan_path, method: :get do %>
+    <%= link_to delete_plan_diagnostician_diagnostic_path(@diagnostic), method: :get do %>
       <i class="fa fa-trash"></i> (Retirer ce plan)
     <% end %>
    </h3>
