@@ -18,10 +18,10 @@
       <div class="flex-horizontal flex-wrap">
         <% if @booking.to_confirm %>
           <%= link_to "Marquer comme confirmé", diagnostician_booking_path(@booking), method: :patch, class: "btn btn-anis flexbox" %>
-          <!-- SEND MAIL -->
+          <!-- TO DO : SEND MAIL -->
         <% end %>
         <%= link_to "Annuler le rendez-vous", diagnostician_booking_path(@booking), method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-red flexbox" %>
-        <!-- SEND MAIL -->
+        <!-- TO DO : SEND MAIL -->
       </div>
 
       <div class="card-note card-line text-center">
@@ -31,7 +31,7 @@
       <div class="card-note card-line text-center">
         <h4>Ajouter/Modifier les commentaires:
           <% if @booking.comment %>
-            <%= link_to delete_comment_path, method: :get do %>
+            <%= link_to delete_comment_diagnostician_booking_path(@booking), method: :get do %>
               <i class="fa fa-trash"></i>
             <% end %>
           <% end %>

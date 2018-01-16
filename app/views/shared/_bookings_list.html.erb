@@ -1,14 +1,38 @@
 <% @bookings.each do |booking| %>
     <div class="list-element">
       <div class="line">
-        <h5><%= link_to booking.comment, diagnostician_booking_path(booking)%></h5>
+        <h5><%= link_to "Rendez-vous N°#{booking.id} : #{booking.set_at.strftime('le %d %b %Y, %I h')}", diagnostician_booking_path(booking)%></h5>
       </div>
       <div class="line">
         <div class="list-name">
           <h5><%= booking.booker.first_name %> <%= booking.booker.last_name %></h5>
         </div>
-        <div class="list-date">
-          <p><%= booking.set_at.strftime("le %d %b %Y, %I h") %></p>
+        <div>
+          <%if booking.confirmed %>
+            <p class="status accepted">
+              <%= t('booking.confirmed') %>
+              <%= booking.confirmed_at.strftime("le %d %b %Y") %>
+              <% if current_user.diagnostician? %>
+                <%= link_to diagnostician_booking_path(booking) do %>
+                  <i class="fa fa-eye" data-toggle="tooltip" data-placement="top" title="<%= t('booking.see_details') %>"></i>
+                <% end %>
+                <%= link_to diagnostician_booking_path(booking), method: :patch, data: {confirm: 'Are you sure?'} do%>
+                  <i class="fa fa-times" data-toggle="tooltip" data-placement="top" title="<%= t('booking.cancel') %>"></i>
+                <% end %>
+              <% end %>
+            </p>
+          <% else %>
+            <p class="status declined"><%= t('booking.pending') %>
+              <% if @user.diagnostician? %>
+                <%= link_to diagnostician_booking_path(booking) do %>
+                  <i class="fa fa-eye" data-toggle="tooltip" data-placement="top" title="<%= t('booking.see_details') %>"></i>
+                <% end %>
+                <%= link_to diagnostician_booking_path(booking), method: :patch do%>
+                  <i class="fa fa-check" data-toggle="tooltip" data-placement="top" title="<%= t('booking.confirm') %>"></i>
+                <% end %>
+              <% end %>
+            </p>
+          <% end %>
         </div>
       </div>
       <div class="line">
@@ -19,33 +43,7 @@
           <p class="user-data email"><%= booking.user.email %></p>
           <p class="user-data phone"><%= booking.user.phone %></p>
         <% end %>
-          <div>
-            <%if booking.confirmed %>
-              <p class="status accepted">
-                <%= t('booking.confirmed') %>
-                <%= booking.confirmed_at.strftime("le %d %b %Y") %>
-                <% if current_user.diagnostician? %>
-                  <%= link_to diagnostician_booking_path(booking) do %>
-                    <i class="fa fa-eye" data-toggle="tooltip" data-placement="top" title="Voir en détail"></i>
-                  <% end %>
-                  <%= link_to diagnostician_booking_path(booking), method: :patch do%>
-                    <i class="fa fa-times" data-toggle="tooltip" data-placement="top" title="Annuler et envoyer le mail"></i>
-                  <% end %>
-                <% end %>
-              </p>
-            <% else %>
-              <p class="status declined"><%= t('booking.pending') %>
-                <% if @user.diagnostician? %>
-                  <%= link_to diagnostician_booking_path(booking) do %>
-                    <i class="fa fa-eye" data-toggle="tooltip" data-placement="top" title="Voir en détail"></i>
-                  <% end %>
-                  <%= link_to diagnostician_booking_path(booking), method: :patch do%>
-                    <i class="fa fa-check" data-toggle="tooltip" data-placement="top" title="Confirmer et envoyer le mail"></i>
-                  <% end %>
-                <% end %>
-              </p>
-            <% end %>
-          </div>
+
       </div>
       <div class="line">
         <p class="user-data address">Adresse: <%= booking.housing.address %></p>

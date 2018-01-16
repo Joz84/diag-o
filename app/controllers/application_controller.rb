@@ -54,4 +54,9 @@ class ApplicationController < ActionController::Base
         :height => 91 });
     end
   end
+
+  def ownbookings(user)
+    user.bookings.where(diagnostician: user).select{|booking| booking if !booking.selfbooked }
+  end
+
 end

@@ -3,6 +3,6 @@
   <div class="flexbox">
     <div class="card-mini border-right"><i class="fa fa-envelope-o"></i><p><%= @booking.booker.email %></p></div>
     <div class="card-mini border-right"><i class="fa fa-phone"></i><p><%= @booking.booker.phone %></p></div>
-    <div class="card-mini"><i class="fa fa-home"></i><p><%= @booking.housing.address %></p></div>
+    <div class="card-mini"><i class="fa fa-home"></i><p><%= @booking.housing.address != "" ?  @booking.housing.address : t('housing.no_address')  %></p></div>
   </div>
 </div>
