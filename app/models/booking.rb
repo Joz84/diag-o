@@ -31,7 +31,4 @@ class Booking < ApplicationRecord
     self.confirmed_at != nil
   end
 
-  def ownbookings(user)
-    for_me(user.bookings)
-  end
 end

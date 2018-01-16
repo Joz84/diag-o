@@ -8,7 +8,7 @@ class Housing < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
 
-  def localized
+  def location
     self.latitude.presence
   end
 end

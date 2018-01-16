@@ -24,6 +24,9 @@ class User < ApplicationRecord
     find_by_first_name("Jo")
   end
 
+  def private_bookings
+    self.bookings.where(diagnostician: self).select{|booking| booking if !booking.selfbooked }
+  end
 
 # # conversation.update! status: 0
 # conversation.active!

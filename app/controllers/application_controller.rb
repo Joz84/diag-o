@@ -3,15 +3,13 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :set_locale
   before_action :configure_permitted_parameters, if: :devise_controller?
-  helper_method :private_diagnostics
+  helper_method :private_diagnostics, :decreasing_date
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
-
 
   include Pundit
 
   after_action :verify_authorized, except: :index, unless: :skip_pundit?
   after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
-
 
   def set_locale
     I18n.locale = :fr
@@ -24,6 +22,10 @@ class ApplicationController < ActionController::Base
 
   def private_diagnostics
     self.housings.map { |housing| housing.bookings.first.diagnostic }
+  end
+
+  def decreasing_date(array)
+    array.sort_by { |x| x.set_at }.reverse
   end
 
   def after_sign_in_path_for(resource)
@@ -55,8 +57,5 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def ownbookings(user)
-    user.bookings.where(diagnostician: user).select{|booking| booking if !booking.selfbooked }
-  end
 
 end

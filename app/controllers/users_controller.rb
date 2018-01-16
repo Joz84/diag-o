@@ -4,8 +4,8 @@ class UsersController < ApplicationController
   def show
     authorize @user
     if @user.diagnostician?
-      @private_bookings = ownbookings(@user)
-      @private_housings = @private_bookings.map{ |b| b.housing if b.housing.localized }
+      @private_bookings = @user.private_bookings
+      @private_housings = @private_bookings.map{ |b| b.housing if b.housing.location }
       draw_marker(@private_housings)
       @diagnostics = @user.diagnostics.last(3).reverse
       @bookings = Booking.incoming(@user).last(2)
