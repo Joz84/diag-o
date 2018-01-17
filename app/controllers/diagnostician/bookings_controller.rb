@@ -28,7 +28,7 @@ class Diagnostician::BookingsController < ApplicationController
       booking = diagnostician.bookings.new(booking_params)
       authorize booking
       booking.diagnostic = Diagnostic.new
-      booking.housing = Housing.first # TEMPORAIRE
+      booking.housing = Housing.first # TEMPORARY - There is only one diagnostician, it housing needed in order to selfbook him
       if booking.save
         redirect_to diagnostician_bookings_path
       else
