@@ -29,14 +29,14 @@
       </div>
 
       <div class="card-note card-line text-center">
-        <h4>Ajouter/Modifier les commentaires:
+        <h4><%= t('booking.comment.title') %>
           <% if @booking.comment %>
             <%= link_to delete_comment_diagnostician_booking_path(@booking), method: :get do %>
               <i class="fa fa-trash"></i>
             <% end %>
           <% end %>
         </h4>
-        <%= render "shared/textarea_form", url: add_comment_diagnostician_booking_path(@booking), method_name: 'get', placeholder: "", label: false, btn_text: t('booking.comment.button') %>
+        <%= render "shared/textarea_form", url: add_comment_diagnostician_booking_path(@booking), method_name: 'get', placeholder: "", text: @booking.comment, label: false, btn_text: t('booking.comment.button') %>
       </div>
     </div>
   </div>

@@ -6,18 +6,40 @@ fr:
     button_text: "Rechercher"
   page_text1:
     signal: "Informations"
-    title: "Lorem ipsom dolor information"
-    column1: "Sit amet consectetuer adipiscing elit sed diam nonummy. Zzril delenit augue duis dolore te feugait nulla facilisi nam liber. Esse molestie consequat vel illum dolore eu feugiat nulla. Placerat facer possim assum typi non habent claritatem.Sit amet consectetuer adipiscing elit sed diam nonummy. Zzril delenit augue duis dolore te feugait nulla facilisi nam liber. Esse molestie consequat vel illum dolore eu feugiat nulla. Placerat facer possim assum typi non habent claritatem."
-    column2: "Sit amet consectetuer adipiscing elit sed diam nonummy. Zzril delenit augue duis dolore te feugait nulla facilisi nam liber. Esse molestie consequat vel illum dolore eu feugiat nulla. Placerat facer possim assum typi non habent claritatem.Sit amet consectetuer adipiscing elit sed diam nonummy. Zzril delenit augue duis dolore te feugait nulla facilisi nam liber. Esse molestie consequat vel illum dolore eu feugiat nulla. Placerat facer possim assum typi non habent claritatem."
+    title: "Le risque inondation : prévenir avant tout"
+    column1: "Propriétaire ou locataire, vous vous posez la question du niveau maximum que peut
+              atteindre l’eau dans votre logement ?
+              Par où risque-t-elle d’arriver ? À quelle
+              vitesse ? Quels dégâts pourrait-elle
+              faire ? Où se renseigner pour être prévenu
+              en cas de crue ? Toutes ces questions trouveront leur réponse grâce au diagnostique
+              de prévention aux inondations de votre habitation. Le diagnostique de prévention est totalement pris en
+              charge par votre mairie si votre logement, du fait de sa position géographique, est illégible.
+              Peut être êtes-vous riverains et avez déjà subi des crues, vous avez pris quelques précautions,
+              mais vous vous demandez si elles seront suffisantes. Et quels peuvent les risques
+              juridiques ou assurantiels ? Selon votre situation géographique, une partie des travaux est également pris en charge par votre mairie.
+              Prenez un rendez-vous dés maintenant, c'est gratuit."
+    column2: "Les récentes catastrophes naturelles révèlent notre vulnérabilité croissante face aux risques.
+              Cette exposition aux risques implique de développer la résilience de nos sociétés – c’est-à-dire
+              leur capacité à résister aux conséquences d’une catastrophe majeure, puis à rétablir rapidement
+              leur fonctionnement normal. La densité de nos zones urbaines, la multiplication des enjeux,
+              l’interdépendance  des réseaux techniques et des services vitaux (électricité, assainissement et
+              distribution d’eau, transports, télécommunications, etc.), nécessitent de construire une vision partagée
+              de la résilience urbaine aux risques.
+              L’urbanisation rapide et les conséquences du changement climatique  -
+              le risque d’inondation devrait augmenter de manière significative dans les années à venir -
+              augmentent à la fois la probabilité de l’aléa et sa gravité. Il est nécessaire pour toutes
+              les villes de s’adapter aux changements à la fois climatiques et socio-économiques en développant
+              de nouvelles stratégies de gestion du risque d’inondation. "
     image: "http://res.cloudinary.com/doodlid/image/upload/v1507544547/diago/diago_bg02.jpg"
   page_card2:
-    title: "Lorem ipsom dolor information"
+    title: "Accès rapide et simple"
     icon1: "tint"
     icon2: "binoculars"
     icon3: "map-marker"
-    card1: "Sit amet consectetuer adipiscing elit sed diam nonummy. Zzril delenit augue duis dolore te feugait nulla facilisi nam liber. Esse molestie."
-    card2: "Sit amet consectetuer adipiscing elit sed diam nonummy. Zzril delenit augue duis dolore te feugait nulla facilisi nam liber. Esse molestie."
-    card3: "Sit amet consectetuer adipiscing elit sed diam nonummy. Zzril delenit augue duis dolore te feugait nulla facilisi nam liber. Esse molestie."
+    card1: "Quantification du risque inondation par définition du niveau de la montée de l'eau, sa rapidité et ses zones d'accès en cas de crue"
+    card2: "Diagnostique approfondi de votre habitation comprenant 200 questions, des relevès topographiques et un chiffrage de travaux de prévention"
+    card3: "Accès rapide au niveau d'éligibilité de votre habitation selon votre adresse postale et le cas échéant accès à la prise de rendez-vous"
     image: "http://res.cloudinary.com/doodlid/image/upload/v1507544547/diago/diago_bg03.jpg"
   buttons:
     button1:
@@ -93,6 +115,7 @@ fr:
     confirm: "Confirmer le rendez-vous"
     comment:
       button: "Valider"
+      title: "Ajouter/Modifier le commentaire:"
   housing:
     no_address: "Adresse inconnue"
   sections:
