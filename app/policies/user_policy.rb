@@ -28,5 +28,4 @@ class UserPolicy < ApplicationPolicy
   def destroy?
     user_admin_or_diag
   end
-
 end

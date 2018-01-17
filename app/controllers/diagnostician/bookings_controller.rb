@@ -28,7 +28,6 @@ class Diagnostician::BookingsController < ApplicationController
       booking = diagnostician.bookings.new(booking_params)
       authorize booking
       booking.diagnostic = Diagnostic.new
-      # @booking.housing = current_user.particulier? ? current_user.housing : nil
       booking.housing = Housing.first # TEMPORAIRE
       if booking.save
         redirect_to diagnostician_bookings_path
@@ -62,8 +61,13 @@ class Diagnostician::BookingsController < ApplicationController
 
   def destroy
     authorize @booking
+    if @booking.booker.diagnostician?
+      location = diagnostician_bookings_path
+    else
+      location = diagnostician_users_path
+    end
     @booking.destroy
-    redirect_to diagnostician_users_path
+    redirect_to location
   end
 
   def update
