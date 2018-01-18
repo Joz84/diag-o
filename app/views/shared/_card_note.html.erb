@@ -8,7 +8,7 @@
     </div>
   </div>
   <div class="flexbox">
-    <div class="card-mini"><i class="fa fa-home"></i><p><%= @booking.housing.address %></p></div>
+    <div class="card-mini"><i class="fa fa-home"></i><p><%= @booking.housing.geoloc %></p></div>
   </div>
   <div><p>Demande reçue le <%= @booking.created_at.strftime(" %d %b %Y") %></p></div>
   <% if @booking.confirmed_at.nil? != true && @booking.confirmed_at > @booking.created_at %>

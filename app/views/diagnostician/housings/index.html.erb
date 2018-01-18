@@ -1,14 +1,14 @@
 <div class="dashboard-wrap">
   <%= render "/shared/sidebar"%>
   <div class="dashboard-content">
-    <%= render "shared/tabs", link1: new_diagnostician_housing_path, link2: diagnostician_housings_path, link3: diagnostician_housings_path %>
+    <%= render "shared/tabs", link1: new_diagnostician_housing_path, link2: diagnostician_valuations_path, link3: diagnostician_housings_path %>
     <div class="padding-box">
       <h3 class="text-center">Domiciliations :</h3>
 
       <% @housings.each do |housing| %>
         <div class="list-element">
           <div class="line">
-            <h5>Adresse : <%= housing.address %></h5>
+            <h5>Adresse : <%= housing.geoloc %></h5>
           </div>
           <div class="line">
             <h5>Évaluation : <%= housing.valuation %></h5>
@@ -16,26 +16,26 @@
           <div class="line">
             <div class="list-name">
               <strong><p>Données principales :</p></strong>
-              <p>Étage(s) : <%= housing.floors %></p>
+              <p>Étage(s) : <%= housing.floor %></p>
               <p>Pièce(s) : <%= housing.rooms %></p>
-              <p>Surface : <%= housing.surface_area %></p>
+              <p>Surface : <%= housing.surface %></p>
             </div>
             <div class="list-name">
               <strong><p>Qualité :</p></strong>
-              <p>Batiment : <%= housing.building_quality %></p>
+              <p>Batiment : <%= housing.construction_quality %></p>
               <p>Cuisine : <%= housing.kitchen_quality %></p>
               <p>Salle de bain : <%= housing.bathroom_quality %></p>
-              <p>Salon : <%= housing.living_room_quality %></p>
-              <p>Chambres : <%= housing.bedroom_quality %></p>
+              <p>Salon : <%= housing.living_quality %></p>
+              <p>Chambres : <%= housing.rooms_quality %></p>
             </div>
             <div class="list-name">
               <strong><p>Commodité : </p></strong>
-              <p>Parking : <%= housing.parking %></p>
-              <p>Cave : <%= housing.cellar %></p>
-              <p>Concierge : <%= housing.house_keeper %></p>
+              <p>Parking : <%= housing.parking_lot %></p>
+              <p>Cave : <%= housing.basement %></p>
+              <p>Concierge : <%= housing.concierge %></p>
               <p>Ascenseur : <%= housing.elevator %></p>
               <p>Balcon : <%= housing.balcony %></p>
-              <p>Chauffage collectif : <%= housing.community_heating %></p>
+              <p>Chauffage collectif : <%= housing.collective_heating %></p>
             </div>
             </div>
           </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180118153216) do
+ActiveRecord::Schema.define(version: 20180118155112) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,25 +51,25 @@ ActiveRecord::Schema.define(version: 20180118153216) do
   end
 
   create_table "housings", force: :cascade do |t|
-    t.string "address"
+    t.string "geoloc"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
-    t.integer "floors"
+    t.integer "floor"
     t.integer "rooms"
-    t.integer "surface_area"
-    t.integer "building_quality"
+    t.integer "surface"
+    t.integer "construction_quality"
     t.integer "kitchen_quality"
     t.integer "bathroom_quality"
-    t.integer "living_room_quality"
-    t.integer "bedroom_quality"
-    t.boolean "parking"
-    t.boolean "cellar"
-    t.boolean "house_keeper"
+    t.integer "living_quality"
+    t.integer "rooms_quality"
+    t.boolean "parking_lot"
+    t.boolean "basement"
+    t.boolean "concierge"
     t.boolean "elevator"
     t.boolean "balcony"
-    t.boolean "community_heating"
+    t.boolean "collective_heating"
     t.integer "valuation"
     t.boolean "only_valuation"
   end

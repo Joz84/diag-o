@@ -15,7 +15,7 @@ class Diagnostician::BookingsController < ApplicationController
     @hash = Gmaps4rails.build_markers(@housing) do |housing, marker|
       marker.lat housing.latitude
       marker.lng housing.longitude
-      marker.json({ address: housing.address })
+      marker.json({ address: housing.geoloc })
     end
   end
 
