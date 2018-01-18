@@ -55,7 +55,7 @@ fr:
       text: "Messagerie"
       icon: "envelope-o"
     button5:
-      text: "Particuliers"
+      text: "Rendez-vous"
       icon: "users"
     button6:
       text: "Mon profil"

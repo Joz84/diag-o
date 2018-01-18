@@ -14,7 +14,9 @@ Rails.application.routes.draw do
       end
     end
     resources :users, only: [:show, :index]
+    resources :housings, only: [:index, :new, :create]
   end
+
 
   devise_for :users
 

@@ -5,7 +5,7 @@ class Diagnostician::BookingsController < ApplicationController
     @bookings = policy_scope(Booking).where(diagnostician: current_user)
     authorize @bookings
     @dates = @bookings.map{ |booking| booking.set_at}
-    @user = User.find_by_first_name("Jo")
+    @user = User.find_by_first_name("Jo") # TEMPORARY - There is only one diagnostician
     authorize @bookings
   end
 

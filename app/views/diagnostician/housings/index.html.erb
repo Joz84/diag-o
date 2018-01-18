@@ -1,0 +1,44 @@
+<div class="dashboard-wrap">
+  <%= render "/shared/sidebar"%>
+  <div class="dashboard-content">
+    <div class="padding-box">
+      <h3 class="text-center">Domiciliations :</h3>
+
+      <% @housings.each do |housing| %>
+        <div class="list-element">
+          <div class="line">
+            <h5>Adresse : <%= housing.address %></h5>
+          </div>
+          <div class="line">
+            <h5>Évaluation : <%= housing.valuation %></h5>
+          </div>
+          <div class="line">
+            <div class="list-name">
+              <strong><p>Données principales :</p></strong>
+              <p>Étage(s) : <%= housing.floors %></p>
+              <p>Pièce(s) : <%= housing.rooms %></p>
+              <p>Surface : <%= housing.surface_area %></p>
+            </div>
+            <div class="list-name">
+              <strong><p>Qualité :</p></strong>
+              <p>Batiment : <%= housing.building_quality %></p>
+              <p>Cuisine : <%= housing.kitchen_quality %></p>
+              <p>Salle de bain : <%= housing.bathroom_quality %></p>
+              <p>Salon : <%= housing.living_room_quality %></p>
+              <p>Chambres : <%= housing.bedroom_quality %></p>
+            </div>
+            <div class="list-name">
+              <strong><p>Commodité : </p></strong>
+              <p>Parking : <%= housing.parking %></p>
+              <p>Cave : <%= housing.cellar %></p>
+              <p>Concierge : <%= housing.house_keeper %></p>
+              <p>Ascenseur : <%= housing.elevator %></p>
+              <p>Balcon : <%= housing.balcony %></p>
+              <p>Chauffage collectif : <%= housing.community_heating %></p>
+            </div>
+            </div>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>

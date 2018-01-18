@@ -17,7 +17,7 @@
 .line {
   width: 100%;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
 }
 .user-data {
@@ -30,7 +30,7 @@
   flex-grow: 1;
 }
 .list-name {
-  min-width: 100px;
+  width: 30%;
 }
 .status.accepted, .status.accepted a {
   color: $anis;
