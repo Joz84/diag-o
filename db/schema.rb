@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180118103742) do
+ActiveRecord::Schema.define(version: 20180118153216) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 20180118103742) do
     t.boolean "balcony"
     t.boolean "community_heating"
     t.integer "valuation"
+    t.boolean "only_valuation"
   end
 
   create_table "option_choices", force: :cascade do |t|

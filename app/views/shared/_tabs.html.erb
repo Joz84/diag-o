@@ -1,5 +1,11 @@
-<% items.each do |item| %>
-  <div class="tabs">
-    <button class="tablinks" onclick=onclick id=id><%= item.name %></button>
+<div class="tabs">
+  <div class="tab tab-border long-tab <%= "tab-active-bg" if current_page?(link1) %>">
+    <p><%= link_to t('housing.valuation_new'), link1 %></p>
   </div>
-<% end %>
+  <div class="tab tab-border long-tab <%= "tab-active-bg" if current_page?(link2) %>">
+    <p><%= link_to t('housing.valuation_index'), link2 %></p>
+  </div>
+  <div class="tab tab-border long-tab <%= "tab-active-bg" if current_page?(link3) %>">
+    <p><%= link_to t('housing.housings'), link3 %></p>
+  </div>
+</div>

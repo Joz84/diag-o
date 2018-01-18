@@ -118,6 +118,9 @@ fr:
       title: "Ajouter/Modifier le commentaire:"
   housing:
     no_address: "Adresse inconnue"
+    valuation_new: "Nouvelle évaluation"
+    valuation_index: "Évaluation faites"
+    housings: "Domiciliations"
   sections:
     infos: "infos générales"
     plans: "plans"

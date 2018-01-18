@@ -29,12 +29,4 @@ class PagesController < ApplicationController
   def params_user
     @user = current_user
   end
-
-  def minimum_for_valuation
-    params[:query]
-      params[:query][:geoloc] && params[:query][:surface] && params[:query][:floor]
-    else
-      false
-    end
-  end
 end

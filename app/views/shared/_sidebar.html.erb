@@ -1,10 +1,10 @@
 <div class="sidebar">
-  <%= render "shared/sidebar-button", text: t('buttons.button1.text'), icon: t('buttons.button1.icon'), klass: "sidebar-button", id:"", link: user_path(@user) %>
+  <%= render "shared/sidebar-button", text: t('buttons.button1.text'), icon: t('buttons.button1.icon'), klass: "sidebar-button", id:"", link: user_path(current_user) %>
   <% if current_user.diagnostician? %>
     <%= render "shared/sidebar-button", text: t('buttons.button3.text'), icon: t('buttons.button3.icon'), klass: "sidebar-button", id:"", link: diagnostician_bookings_path %>
     <%= render "shared/sidebar-button", text: t('buttons.button2.text'), icon: t('buttons.button2.icon'), klass: "sidebar-button", id:"", link: diagnostician_diagnostics_path %>
     <%= render "shared/sidebar-button", text: t('buttons.button5.text'), icon: t('buttons.button5.icon'), klass: "sidebar-button", id:"", link: diagnostician_users_path %>
-    <%= render "shared/sidebar-button", text: t('buttons.button7.text'), icon: t('buttons.button7.icon'), klass: "sidebar-button", id:"", link: valuation_path %>
+    <%= render "shared/sidebar-button", text: t('buttons.button7.text'), icon: t('buttons.button7.icon'), klass: "sidebar-button", id:"", link: new_diagnostician_housing_path %>
   <% end %>
   <%= render "shared/sidebar-button", text: t('buttons.button4.text'), icon: t('buttons.button4.icon'), klass: "sidebar-button", id:"", link: "" %>
   <%= render "shared/sidebar-button", text: t('buttons.button6.text'), icon: t('buttons.button6.icon'), klass: "sidebar-button", id:"", link: edit_user_registration_path %>

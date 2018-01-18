@@ -1,7 +1,7 @@
 class Diagnostician::HousingsController < ApplicationController
   def new
-    authorize @booking
-    @housing = Housing.new
+    @housing = policy_scope(Housing).new
+    authorize @housing
 
     if minimum_for_valuation
       url_queue = []
@@ -44,7 +44,22 @@ class Diagnostician::HousingsController < ApplicationController
 
   def index
     policy_scope(Housing)
-    @user = User.find_by_first_name("Jo") # TEMPORARY - There is only one diagnostician
     @housings = Housing.all.select{ |h| h.bookings.presence && h.address != "Diagnostician house" }
+  end
+
+  def valuations
+    policy_scope(Housing)
+    @housings = Housing.where(only_valuation: true)
+    authorize @housings
+  end
+
+  private
+
+  def minimum_for_valuation
+    if params[:query]
+      params[:query][:geoloc] && params[:query][:surface] && params[:query][:floor]
+    else
+      false
+    end
   end
 end

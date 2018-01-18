@@ -9,6 +9,10 @@ class HousingPolicy < ApplicationPolicy
     user_admin_or_diag
   end
 
+  def valuations?
+    user_admin_or_diag
+  end
+
   def create?
     user_admin_or_diag
   end

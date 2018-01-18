@@ -22,7 +22,8 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
   get '/eligibility', to: 'pages#eligibility'
-  get '/valuation', to: 'pages#valuation'
+  get '/diagnostician/valuations', to: 'diagnostician/housings#valuations'
+
 
   #inscription
   get '/disponibility', to: 'inscriptions#disponibility'

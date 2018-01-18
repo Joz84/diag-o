@@ -1,2 +1,82 @@
-<h1>Housings#new</h1>
-<p>Find me in app/views/housings/new.html.erb</p>
+<div class="dashboard-wrap">
+  <%= render "shared/sidebar" %>
+
+  <div class="dashboard-content">
+    <%= render "shared/tabs", link1: new_diagnostician_housing_path, link2: diagnostician_housings_path, link3: diagnostician_housings_path %>
+    <div class="padding-box">
+
+        <div class="flex-horizontal">
+          <div class="form-box">
+            <div class="form-title flexbox">
+              <h3 class="text-center "><%= t('valuation.form_title') %></h3>
+            </div>
+            <% unless params[:query].nil? %>
+              <% if @price.nil? && @error %>
+                <div class="valuation-message form-title error flexbox relative">
+                  <p class="text-center"><%= @error %></p>
+                  <i class="fa fa-times close-it clickable"></i>
+                </div>
+              <% elsif @price %>
+                <div class="valuation-message form-title ok flexbox relative">
+                  <h3 class="text-center">Bien estimé à: <%= @price %>€</h3>
+                  <i class="fa fa-times close-it clickable"></i>
+                </div>
+              <% end %>
+            <% end %>
+            <div class="form-inputs">
+              <h4>Données du bien:</h4>
+              <%= simple_form_for :housing, url: diagnostician_housings_path , method: :post do |f| %>
+                <p>Les champs avec étoiles(*) sont obligatoires.</p>
+                <p>Adresse complète*: </p>
+                <%= f.input :geoloc, required: true, placeholder: "ex: 23 cours de la Marne, 33000 Bordeaux", label: false %>
+                <p>Nombre d'étage*: </p>
+                <%= f.input :floor, required: :true, collection: 0..60, placeholder: "ex: 2", label: false %>
+                <p>Surface(en m2)*: </p>
+                <%= f.input :surface, required: true, placeholder: "", label: false %>
+                <p>Nombre de pièce: </p>
+                <%= f.input :rooms, required: true, collection: 1..15, placeholder: "", label: false %>
+                <p>Qualité du batiment: </p>
+                <%= f.input :construction_quality, required: true,collection: 0..5, label: false %>
+                <p>Qualité de la cuisine: </p>
+                <%= f.input :kitchen_quality,collection: 0..5, label: false %>
+                <p>Qualité de la salle de bain: </p>
+                <%= f.input :bathroom_quality,collection: 0..5, label: false %>
+                <p>Qualité du séjour: </p>
+                <%= f.input :living_quality,collection: 0..5, label: false %>
+                <p>Qualité des chambres: </p>
+                <%= f.input :rooms_quality,collection: 0..5, label: false %>
+                <div class="row">
+                  <div class="col-xs-4">
+                    <p>Parking: </p>
+                    <%= f.input :parking_lot, as: :boolean, checked_value: true, unchecked_value: false, label: false %>
+                    <p>Cave: </p>
+                    <%= f.input :basement, as: :boolean, checked_value: true, unchecked_value: false, label: false %>
+                    <p>Ascenseur: </p>
+                    <%= f.input :elevator, label: false, as: :boolean, checked_value: true, unchecked_value: false, class: "checkbox-inline" %>
+                  </div>
+                  <div class="col-xs-8">
+                    <p>Concierge: </p>
+                    <%= f.input :concierge, as: :boolean, checked_value: true, unchecked_value: false, label: false %>
+                    <p>Chauffage collectif: </p>
+                    <%= f.input :collective_heating, as: :boolean, checked_value: true, unchecked_value: false, label: false %>
+                    <p>Balcon: </p>
+                    <%= f.input :balcony, as: :boolean, checked_value: true, unchecked_value: false, label: false %>
+                  </div>
+                </div>
+                <%= f.button :submit, class: 'btn-green', value: "Évaluer" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% content_for (:after_js) do %>
+  <script>
+    $('.close-it').click(function(){
+      $('.valuation-message').remove();
+    })
+  </script>
+<% end %>

@@ -22,19 +22,6 @@
     }
   }
 }
-.tab {
-  width: 140px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-bottom: 7px solid $blue-gray;
-}
-.active_tab {
-  border-bottom: 7px solid $anis;
-}
-.long-tab {
-  width: 220px;
-}
 .login-bottom {
   width: 100%;
   height: 370px;
