@@ -26,19 +26,19 @@ max = User.create!(email: "max@yahoo.fr", password: "123456", first_name: "Max",
 sami = User.create!(email: "sam@yahoo.fr", password: "123456", first_name: "Sam", last_name: "Chalalala", phone:"06 11 22 33 44", role:0)
 
 #Housings
-Housing.create!(address:"Diagnostician house", created_at:"01-01-2017", updated_at:"01-01-2017")
+housing = Housing.create!(geoloc:"Diagnostician house", created_at:"01-01-2017", updated_at:"01-01-2017", floor: "0", rooms: "0", surface: "0")
 UserHousing.create!(user: diagnostician, housing: Housing.last, user_state: 1 )
 
-housing1 = Housing.create!(address:"Auchan Drive Bouliac", created_at:"01-01-2017", updated_at:"01-01-2017")
+housing1 = Housing.create!(geoloc:"Auchan Drive Bouliac", created_at:"01-01-2017", updated_at:"01-01-2017", floor: "0", rooms: "0", surface: "0")
 UserHousing.create!(user: jules, housing: Housing.last, user_state: 1 )
 
-housing2 = Housing.create!(address:" 2 rue de l'église Bouliac", created_at:"01-01-2017", updated_at:"02-02-2017")
+housing2 = Housing.create!(geoloc:" 2 rue de l'église Bouliac", created_at:"01-01-2017", updated_at:"02-02-2017", floor: "0", rooms: "0", surface: "0")
 UserHousing.create!(user: jules, housing: Housing.last, user_state: 1 )
 
-housing3 = Housing.create!(address:" 6 Chemin de Créon 33270 BOULIAC", created_at:"01-01-2017", updated_at:"03-01-2017")
+housing3 = Housing.create!(geoloc:" 6 Chemin de Créon 33270 BOULIAC", created_at:"01-01-2017", updated_at:"03-01-2017", floor: "0", rooms: "0", surface: "0")
 UserHousing.create!(user: max, housing: Housing.last, user_state: 1 )
 
-housing4 = Housing.create!(address:"gestion de l’eau 24 route de Latresne Bouliac", created_at:"01-01-2017", updated_at:"04-01-2017")
+housing4 = Housing.create!(geoloc:"gestion de l’eau 24 route de Latresne Bouliac", created_at:"01-01-2017", updated_at:"04-01-2017", floor: "0", rooms: "0", surface: "0")
 UserHousing.create!(user: sami, housing: Housing.last, user_state: 1 )
 
 puts "Housing créé: #{Housing.count}"

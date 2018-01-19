@@ -6,10 +6,28 @@ class Diagnostician::HousingsController < ApplicationController
 
   def create
     policy_scope(Housing)
-    housing = Housing.new(housing_params)
-    authorize housing
+    @housing = Housing.new(housing_params)
+    authorize @housing
+    if @housing.save
+      session[:geoloc] = @housing.geoloc
+      session[:floor] = @housing.floor
+      session[:rooms] = @housing.rooms
+      session[:surface] = @housing.surface
+      session[:construction_quality] = @housing.construction_quality
+      session[:bathroom_quality] = @housing.bathroom_quality
+      session[:living_quality] = @housing.living_quality
+      session[:rooms_quality] = @housing.rooms_quality
+      session[:parking_lot] = @housing.parking_lot
+      session[:basement] = @housing.basement
+      session[:elevator] = @housing.elevator
+      session[:concierge] = @housing.concierge
+      session[:collective_heating] = @housing.collective_heating
+      session[:balcony] = @housing.balcony
+      redirect_to new_diagnostician_housing_path
+    else
+      redirect_to diagnostician_valuations_path
+    end
 
-    redirect_to new_diagnostician_housing_path
     # if minimum_for_valuation
     #   url_queue = []
     #   params[:query].each do |value|
@@ -53,8 +71,9 @@ class Diagnostician::HousingsController < ApplicationController
 
   def valuations
     policy_scope(Housing)
-    @housings = Housing.where(only_valuation: true)
-    authorize @housings
+    housings = Housing.where(only_valuation: true)
+    authorize housings
+    @housings = housings.reverse
   end
 
   private

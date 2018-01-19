@@ -28,7 +28,7 @@ function onPlaceChanged() {
 }
 
 google.maps.event.addDomListener(window, 'load', function() {
-  initializeAutocomplete('my_query_address');
-  initializeAutocomplete('query_address');
+  initializeAutocomplete('my_query_geoloc');
   initializeAutocomplete('query_geoloc');
+  initializeAutocomplete('housing_geoloc');
 });

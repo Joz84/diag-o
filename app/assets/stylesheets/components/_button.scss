@@ -58,3 +58,12 @@ input {
   color: $dark-gray;
   background-color: transparent;
 }
+.btn-corner {
+  position: fixed;
+  bottom: 0px;
+  right: 10px;
+  height: 100px !important;
+  width: 100px;
+  border-radius: 50%;
+  padding: 0;
+}

@@ -30,7 +30,7 @@
           <h4 class="margin-bottom-medium" id="conclusion">--</h4>
           <h4 class="margin-bottom-medium" id="calltoaction">--</h4>
           <%= simple_form_for :query, url: '/disponibility', method: :get do |f| %>
-            <%= f.input :address, as: :hidden, value: "default"%>
+            <%= f.input :geoloc, as: :hidden, value: "default"%>
             <%= f.input :color, as: :hidden, value: "default"%>
             <%= f.button :submit, value: "Prendre un rendez-vous", id: "btn-rendez-vous", class: "hidden btn btn-anis flexbox" %>
           <% end %>

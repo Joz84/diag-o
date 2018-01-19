@@ -24,7 +24,6 @@ Rails.application.routes.draw do
   get '/eligibility', to: 'pages#eligibility'
   get '/diagnostician/valuations', to: 'diagnostician/housings#valuations'
 
-
   #inscription
   get '/disponibility', to: 'inscriptions#disponibility'
   get '/checkpoint', to: 'inscriptions#checkpoint'
@@ -32,4 +31,5 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show]
   resources :answers
+  resources :housings, only: [:index, :new, :create]
 end

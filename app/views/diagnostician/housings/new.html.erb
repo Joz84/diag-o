@@ -25,45 +25,31 @@
             <% end %>
             <div class="form-inputs">
               <h4>Données du bien:</h4>
-              <%= simple_form_for :housing, url: diagnostician_housings_path , method: :post do |f| %>
+              <%= simple_form_for @housing, url: diagnostician_housings_path, method: :post do |f| %>
                 <p>Les champs avec étoiles(*) sont obligatoires.</p>
-                <p>Adresse complète*: </p>
-                <%= f.input :geoloc, required: true, placeholder: "ex: 23 cours de la Marne, 33000 Bordeaux", label: false %>
-                <p>Nombre d'étage*: </p>
-                <%= f.input :floor, required: :true, collection: 0..60, placeholder: "ex: 2", label: false %>
-                <p>Surface(en m2)*: </p>
-                <%= f.input :surface, required: true, placeholder: "", label: false %>
-                <p>Nombre de pièce: </p>
-                <%= f.input :rooms, required: true, collection: 1..15, placeholder: "", label: false %>
-                <p>Qualité du batiment: </p>
-                <%= f.input :construction_quality, required: true,collection: 0..5, label: false %>
-                <p>Qualité de la cuisine: </p>
-                <%= f.input :kitchen_quality,collection: 0..5, label: false %>
-                <p>Qualité de la salle de bain: </p>
-                <%= f.input :bathroom_quality,collection: 0..5, label: false %>
-                <p>Qualité du séjour: </p>
-                <%= f.input :living_quality,collection: 0..5, label: false %>
-                <p>Qualité des chambres: </p>
-                <%= f.input :rooms_quality,collection: 0..5, label: false %>
+                <%= f.input :geoloc, input_html: {value: session[:geoloc] || "" }, label: t('housing.field.geoloc') %>
+                <%= f.input :floor, collection: 0..60, placeholder: "0", label: t('housing.field.floor'), error: 'Username is mandatory, please specify one' %>
+                <%= f.input :surface, placeholder: '0', label: t('housing.field.surface') %>
+                <%= f.input :rooms, collection: 1..15, placeholder: "0", label: t('housing.field.rooms') %>
+                <%= f.input :construction_quality, collection: 0..5, label: t('housing.field.construction') %>
+                <%= f.input :kitchen_quality, collection: 0..5, label: t('housing.field.kitchen') %>
+                <%= f.input :bathroom_quality, collection: 0..5, label: t('housing.field.bathroom') %>
+                <%= f.input :living_quality, collection: 0..5, label: t('housing.field.living') %>
+                <%= f.input :rooms_quality, collection: 0..5, label: t('housing.field.room') %>
+                <%= f.input_field :only_valuation, value: true, as: :hidden %>
                 <div class="row">
-                  <div class="col-xs-4">
-                    <p>Parking: </p>
-                    <%= f.input :parking_lot, as: :boolean, checked_value: true, unchecked_value: false, label: false %>
-                    <p>Cave: </p>
-                    <%= f.input :basement, as: :boolean, checked_value: true, unchecked_value: false, label: false %>
-                    <p>Ascenseur: </p>
-                    <%= f.input :elevator, label: false, as: :boolean, checked_value: true, unchecked_value: false, class: "checkbox-inline" %>
+                  <div class="col-xs-6 col-sm-6 col-md-12">
+                    <%= f.input :parking_lot, as: :boolean, checked_value: true, unchecked_value: false, label: t('housing.field.parking') %>
+                    <%= f.input :basement, as: :boolean, checked_value: true, unchecked_value: false, label: t('housing.field.basement') %>
+                    <%= f.input :elevator, as: :boolean, checked_value: true, unchecked_value: false, label: t('housing.field.elevator'), class: "checkbox-inline" %>
                   </div>
-                  <div class="col-xs-8">
-                    <p>Concierge: </p>
-                    <%= f.input :concierge, as: :boolean, checked_value: true, unchecked_value: false, label: false %>
-                    <p>Chauffage collectif: </p>
-                    <%= f.input :collective_heating, as: :boolean, checked_value: true, unchecked_value: false, label: false %>
-                    <p>Balcon: </p>
-                    <%= f.input :balcony, as: :boolean, checked_value: true, unchecked_value: false, label: false %>
+                  <div class="col-xs-6 col-sm-6 col-md-12">
+                    <%= f.input :concierge, as: :boolean, checked_value: true, unchecked_value: false, label: t('housing.field.concierge') %>
+                    <%= f.input :collective_heating, as: :boolean, checked_value: true, unchecked_value: false, label: t('housing.field.heating') %>
+                    <%= f.input :balcony, as: :boolean, checked_value: true, unchecked_value: false, label: t('housing.field.balcony') %>
                   </div>
                 </div>
-                <%= f.button :submit, class: 'btn-green', value: "Évaluer" %>
+                <%= f.button :submit, class: 'btn-green', value: "Évaluer", id:"submit_valuation" %>
               <% end %>
             </div>
           </div>
@@ -75,8 +61,19 @@
 
 <% content_for (:after_js) do %>
   <script>
-    $('.close-it').click(function(){
-      $('.valuation-message').remove();
-    })
+    $(document).ready(function() {
+      $('.close-it').click(function(){
+        $('.valuation-message').remove();
+      })
+      var table = document.getElementById("new_housing");
+      var fields = table.getElementsByTagName("input");
+      for (var i = 0; i < fields.length; i++) {
+        fields[i].addEventListener('keypress', function(event) {
+          if (event.keyCode == 13) {
+              event.preventDefault();
+          }
+        });
+      }
+    });
   </script>
 <% end %>

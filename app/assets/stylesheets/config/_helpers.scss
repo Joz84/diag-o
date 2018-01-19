@@ -210,4 +210,12 @@ input, select {
 .alert-warning, .alert-info, .alert-success {
   border: none
 }
+//SIMPLE FORM FIX
+input[type="checkbox"] {
+  left: 20px;
+  top: -16px;
+}
+label.boolean {
+    padding-left: 50px;
+}
 
