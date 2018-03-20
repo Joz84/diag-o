@@ -31,7 +31,7 @@ class Diagnostician::BookingsController < ApplicationController
         (flash[:alert] = t('commons.issue'))
       end
     else
-      @housing = Housing.create!(geoloc: session[:address], latitude: session[:lat], longitude: session[:lng])
+      @housing = Housing.create!(geoloc: "session[:address]", latitude: session[:lat], longitude: session[:lng])
       @user_housing = UserHousing.create!(user: current_user, housing: @housing, user_state: 1)
       @diagnostic = Diagnostic.create!
       authorize @diagnostic

@@ -46,16 +46,4 @@ class ApplicationController < ActionController::Base
   def skip_pundit?
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   end
-
-  def draw_marker(housings)
-    @hash = Gmaps4rails.build_markers(housings) do |housing, marker|
-      marker.lat housing.latitude
-      marker.lng housing.longitude
-      marker.json({ address: housing.geoloc })
-      marker.picture({ :url => "http://res.cloudinary.com/doodlid/image/upload/v1507545075/diago/diago_marker.svg", :width => 64,
-        :height => 91 });
-    end
-  end
-
-
 end
