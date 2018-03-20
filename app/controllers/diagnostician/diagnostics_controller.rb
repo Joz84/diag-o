@@ -14,7 +14,6 @@ class Diagnostician::DiagnosticsController < ApplicationController
     @booking = @diagnostic.booking
     @markersPosition = [[@booking.housing.latitude, @booking.housing.longitude]]
     draw_marker(@booking.housing)
-    console
     if params[:query]
       @plan_id = params[:query][:address]
     end
