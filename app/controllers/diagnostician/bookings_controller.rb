@@ -12,11 +12,7 @@ class Diagnostician::BookingsController < ApplicationController
   def show
     authorize @booking
     @housing = @booking.housing
-    @hash = Gmaps4rails.build_markers(@housing) do |housing, marker|
-      marker.lat housing.latitude
-      marker.lng housing.longitude
-      marker.json({ address: housing.geoloc })
-    end
+    @markersPosition = [[@housing.latitude, @housing.longitude]]
   end
 
   def create

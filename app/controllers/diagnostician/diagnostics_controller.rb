@@ -12,7 +12,9 @@ class Diagnostician::DiagnosticsController < ApplicationController
     @sections = Section.all
     authorize @diagnostic
     @booking = @diagnostic.booking
+    @markersPosition = [[@booking.housing.latitude, @booking.housing.longitude]]
     draw_marker(@booking.housing)
+    console
     if params[:query]
       @plan_id = params[:query][:address]
     end

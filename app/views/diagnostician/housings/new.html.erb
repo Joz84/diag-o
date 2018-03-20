@@ -27,7 +27,7 @@
               <h4>Données du bien:</h4>
               <%= simple_form_for @housing, url: diagnostician_housings_path, method: :post do |f| %>
                 <p>Les champs avec étoiles(*) sont obligatoires.</p>
-                <%= f.input :geoloc, input_html: {value: session[:geoloc] || "" }, label: t('housing.field.geoloc') %>
+                <%= f.input :geoloc, input_html: {value: session[:address] || "" }, label: t('housing.field.geoloc') %>
                 <%= f.input :floor, collection: 0..60, placeholder: "0", label: t('housing.field.floor'), error: 'Username is mandatory, please specify one' %>
                 <%= f.input :surface, placeholder: '0', label: t('housing.field.surface') %>
                 <%= f.input :rooms, collection: 1..15, placeholder: "0", label: t('housing.field.rooms') %>
@@ -61,6 +61,64 @@
 
 <% content_for (:after_js) do %>
   <script>
+    var housingAddress = document.getElementById('housing_geoloc');
+
+    function initAutoComplete() {
+      var autocomplete = new google.maps.places.Autocomplete(housingAddress, { types: [ 'geocode' ] });
+      google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);
+      google.maps.event.addDomListener(housingAddress, 'keydown', function(e) {
+        if (e.key === "Enter") {
+          e.preventDefault(); // Do not submit the form on Enter.
+        }
+      });
+    }
+
+    function onPlaceChanged() {
+      var place = this.getPlace();
+      var components = getAddressComponents(place);
+    }
+
+    function getAddressComponents(place) {
+
+      if (window.console && typeof console.log === "function") {
+
+      }
+
+      var street_number = null;
+      var route = null;
+      var zip_code = null;
+      var city = null;
+      var country_code = null;
+      for (var i in place.address_components) {
+        var component = place.address_components[i];
+        for (var j in component.types) {
+          var type = component.types[j];
+          if (type === 'street_number') {
+            street_number = component.long_name;
+          } else if (type === 'route') {
+            route = component.long_name;
+          } else if (type === 'postal_code') {
+            zip_code = component.long_name;
+          } else if (type === 'locality') {
+            city = component.long_name;
+          } else if (type === 'postal_town' && city === null) {
+            city = component.long_name;
+          } else if (type === 'country') {
+            country_code = component.short_name;
+          }
+        }
+      }
+
+      return {
+        address: street_number === null ? route : (street_number + ' ' + route),
+        zip_code: zip_code,
+        city: city,
+        country_code: country_code
+      };
+    }
+
+    initAutoComplete();
+
     $(document).ready(function() {
       $('.close-it').click(function(){
         $('.valuation-message').remove();

@@ -2,7 +2,6 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require underscore
-//= require autocomplete
 //= require_tree .
 
 $(document).ready(function() {

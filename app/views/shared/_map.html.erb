@@ -1,17 +1,38 @@
 <div id="map"></div>
 
 <%= content_for :after_js do %>
-  <%= javascript_tag do %>
-    var handler = Gmaps.build('Google');
-    handler.buildMap({internal: {id: 'map'}}, function(){
-      markers = handler.addMarkers(<%= raw @hash.to_json %>);
-      handler.bounds.extendWith(markers);
-      handler.fitMapToBounds();
-      if (markers.length == 0) {
-        handler.getMap().setZoom(2);
-      } else if (markers.length == 1) {
-        handler.getMap().setZoom(14);
+  <script>
+    var markersPositionArray = <%= @markersPosition %>;
+
+    function initBookinsMap() {
+
+      var markersPositions = [];
+      for(i=0; i<markersPositionArray.length; i++){
+        markersPositions.push({ lat:markersPositionArray[i][0], lng:markersPositionArray[i][1] });
       }
-    });
-  <% end %>
+      var zoneMarqueurs = new google.maps.LatLngBounds();
+      var optionsCarte = {
+        zoom: 16,
+        center: markersPositions[0]
+      }
+      var myMap = new google.maps.Map( document.getElementById("map"), optionsCarte );
+      markersPositions.forEach( function(latlng) {
+        var latitude = latlng.lat,
+          longitude = latlng.lng;
+        var optionsMarqueur = {
+          map: myMap,
+          position: new google.maps.LatLng( latitude, longitude ),
+          icon: "http://res.cloudinary.com/doodlid/image/upload/v1507545075/diago/diago_marker.svg"
+        };
+        var marqueur = new google.maps.Marker( optionsMarqueur );
+        zoneMarqueurs.extend( marqueur.getPosition() );
+      } );
+      if (<%= @private_bookings.present? ? @private_bookings.size : 0 %> > 1) {
+        myMap.fitBounds( zoneMarqueurs );
+      }
+    }
+
+    initBookinsMap();
+
+  </script>
 <% end %>

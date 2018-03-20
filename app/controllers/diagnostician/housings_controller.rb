@@ -9,9 +9,7 @@ class Diagnostician::HousingsController < ApplicationController
     @housing = Housing.new(housing_params)
     authorize @housing
     if @housing.save
-      session[:address] = @housing.geoloc
-      session[:lat] = @housing.lat
-      session[:lng] = @housing.lng
+      session[:geoloc] = @housing.geoloc
       session[:floor] = @housing.floor
       session[:rooms] = @housing.rooms
       session[:surface] = @housing.surface
@@ -25,39 +23,37 @@ class Diagnostician::HousingsController < ApplicationController
       session[:concierge] = @housing.concierge
       session[:collective_heating] = @housing.collective_heating
       session[:balcony] = @housing.balcony
-      redirect_to new_diagnostician_housing_path
-    else
-      redirect_to diagnostician_valuations_path
+      # redirect_to new_diagnostician_housing_path
     end
 
-    # if minimum_for_valuation
-    #   url_queue = []
-    #   params[:query].each do |value|
-    #     url_queue << "&#{value}=#{params[:query][value]}"
-    #   end
+    if minimum_for_valuation
+      url_queue = []
+      params[:housing].each do |value|
+        url_queue << "&#{value}=#{params[:housing][value]}"
+      end
 
-    #   url = "https://bdvapis.appspot.com/#{ENV['BDV_API_KEY']}/valuation/v1.0.0/purchase?#{url_queue.join[1..-1]}"
+      url = "https://bdvapis.appspot.com/#{ENV['BDV_API_KEY']}/valuation/v1.0.0/purchase?#{url_queue.join[1..-1]}"
 
-    #   header = {'origin': "http://diag-o.herokuapp.com"}
+      header = {'origin': "http://diag-o.herokuapp.com"}
 
-    #   body = begin
-    #     RestClient.get(url, headers = header)
-    #   rescue => e
-    #     e.response.body
-    #   end
+      body = begin
+        RestClient.get(url, headers = header)
+      rescue => e
+        e.response.body
+      end
 
-    #   response = JSON.parse(body)
+      response = JSON.parse(body)
 
-    #   if e && JSON.parse(e.response.body)["status"]
-    #     @error = "Error:" + JSON.parse(e.response.body)["message"]
-    #   else
-    #     @price = response["results"]["valuation"]["asset_standard_price"].to_i.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1 ').reverse
-    #   end
+      if e && JSON.parse(e.response.body)["status"]
+        @error = "Error:" + JSON.parse(e.response.body)["message"]
+      else
+        @price = response["results"]["valuation"]["asset_standard_price"].to_i.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1 ').reverse
+      end
 
-    #   render :new
-    # else
-    #   # flash[:notice] = t('valuation.form_rescue')
-    # end
+      redirect_to new_diagnostician_housing_path
+    else
+      flash[:notice] = t('valuation.form_rescue')
+    end
   end
 
   def update
@@ -81,15 +77,11 @@ class Diagnostician::HousingsController < ApplicationController
   private
 
   def minimum_for_valuation
-    if params[:query]
-      params[:query][:geoloc] && params[:query][:surface] && params[:query][:floor]
-    else
-      false
-    end
+    params[:housing][:geoloc] && params[:housing][:surface] && params[:housing][:floor]
   end
 
   def housing_params
-    params.require(:housing).permit(:address, :lat, :lng,
+    params.require(:housing).permit(:geoloc,
                                     :floor,
                                     :rooms,
                                     :surface,
