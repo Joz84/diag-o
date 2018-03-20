@@ -9,7 +9,9 @@ class Diagnostician::HousingsController < ApplicationController
     @housing = Housing.new(housing_params)
     authorize @housing
     if @housing.save
-      session[:geoloc] = @housing.geoloc
+      session[:address] = @housing.geoloc
+      session[:lat] = @housing.lat
+      session[:lng] = @housing.lng
       session[:floor] = @housing.floor
       session[:rooms] = @housing.rooms
       session[:surface] = @housing.surface
@@ -87,7 +89,7 @@ class Diagnostician::HousingsController < ApplicationController
   end
 
   def housing_params
-    params.require(:housing).permit(:geoloc,
+    params.require(:housing).permit(:address, :lat, :lng,
                                     :floor,
                                     :rooms,
                                     :surface,

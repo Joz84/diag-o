@@ -1,4 +1,3 @@
-<!-- Bout de code de Jonathan pour transférer des infos du controller à la vue -->
 <% content_for :title_tag do t('metas.titles.eligilibity') end %>
 
 <div  id="zone1"
@@ -13,7 +12,7 @@
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-6">
       <div class="map-wrapper">
-        <input id="pac-input" class="controls" type="text" placeholder="Entrer une adresse">
+        <input id="pac-input" class="controls" type="text" placeholder="Entrer une adresse" value="<%= @address %>">
         <div id="map">
         </div>
       </div>
@@ -30,8 +29,10 @@
           <h4 class="margin-bottom-medium" id="conclusion">--</h4>
           <h4 class="margin-bottom-medium" id="calltoaction">--</h4>
           <%= simple_form_for :query, url: '/disponibility', method: :get do |f| %>
-            <%= f.input :geoloc, as: :hidden, value: "default"%>
-            <%= f.input :color, as: :hidden, value: "default"%>
+            <%= f.input :address, as: :hidden %>
+            <%= f.input :lat, as: :hidden %>
+            <%= f.input :lng, as: :hidden %>
+            <%= f.input :color, as: :hidden %>
             <%= f.button :submit, value: "Prendre un rendez-vous", id: "btn-rendez-vous", class: "hidden btn btn-anis flexbox" %>
           <% end %>
       </div>

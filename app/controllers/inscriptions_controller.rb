@@ -8,6 +8,8 @@ class InscriptionsController < ApplicationController
     @dates = @bookings.map{ |booking| booking.set_at}
 
     session[:address] = params[:query][:address]
+    session[:lat] = params[:query][:lat]
+    session[:lng] = params[:query][:lng]
     session[:color] = params[:query][:color]
     session[:page] = 1
   end

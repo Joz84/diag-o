@@ -1,173 +1,190 @@
-var map;
-var geocoder;
-var marker;
-var bounds;
-var eligibility = false;
+document.addEventListener("DOMContentLoaded", function() {
 
-// INIT MAP AND ZONES
-if ($('#map').length && $(document).ready()) {
-  var zoneslist = $('.data-for-js').data('zoneslist');
-  var address = $('.data-for-js').data('address');
-  var geocoded = $('.data-for-js').data('geocoded');
-  var input = document.getElementById('pac-input');
-  var types = document.getElementById('type-selector');
-  var autocomplete = new google.maps.places.Autocomplete(input);
+  var map;
+  var eligibility = false;
+  var mapEligibility = document.getElementById('map');
+  var inputAdress = document.getElementById('pac-input');
 
-  console.log("Adresse de la home: " + address, geocoded);
-
-  if (address.length > 0) {
-    var center = {lat: geocoded[0],  lng:geocoded[1]};
-  }
-  else {
-    var center = { lat: 48.856614, lng: 2.3522219 };
+  if (mapEligibility) {
+    var zoneslist = $('.data-for-js').data('zoneslist');
+    var address = $('.data-for-js').data('address');
+    var geocoded = $('.data-for-js').data('geocoded');
   }
 
-  document.getElementById('pac-input').value = address;
-  setTimeout(function(){
-    document.getElementById('pac-input').focus();
-    setTimeout(function(){
-      $(".pac-container .pac-item:first").click();
-    },1000);
-    }, 1000);
+  function initMap(mapFrame, mapCenter) {
+    var map = new google.maps.Map(mapFrame, {
+      zoom: 16,
+      center: mapCenter
+    });
+    pinMarker(map, mapCenter);
+    initZone(map)
+  }
 
+  function pinMarker(mapFrame, mapCenter) {
+    var marker = new google.maps.Marker({
+      position: mapCenter,
+      map: mapFrame,
+      icon: "http://res.cloudinary.com/doodlid/image/upload/v1507545075/diago/diago_marker.svg",
+    });
+  }
 
-  marker = new google.maps.Marker({
-    position: center,
-    title: 'Diag-o eligibility',
-    icon: {
-      url: "http://res.cloudinary.com/doodlid/image/upload/v1507545075/diago/diago_marker.svg",
-      scaledSize: new google.maps.Size(64, 91)
-    }
-  });
-
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: center,
-    zoom: 15,
-    scaleControl: true,
-    center: center,
-    disableDefaultUI: false
-  });
-
-  setMarker(center, map)
-
-  geocoder = new google.maps.Geocoder();
-  bounds = new google.maps.LatLngBounds();
-
-  for (i = 0; i < zoneslist.length; i++) {
-    polygon = new google.maps.Polygon({
-        path: zoneslist[i][0],
-        geodesic: true,
-        strokeColor: '8B572A',
-        strokeOpacity: 0,
-        strokeWeight: 1,
-        fillColor: zoneslist[i][1],
-        fillOpacity: 0.6
+  function initAutoComplete() {
+    if (housingAddress) {
+      var autocomplete = new google.maps.places.Autocomplete(housingAddress, { types: [ 'geocode' ] });
+      google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);
+      google.maps.event.addDomListener(housingAddress, 'keydown', function(e) {
+        if (e.key === "Enter") {
+          e.preventDefault(); // Do not submit the form on Enter.
+        }
       });
-    polygon.setMap(map);
+    }
   }
 
-  google.maps.event.addListenerOnce(map, 'tilesloaded', function(evt) {
-    bounds = map.getBounds();
-  });
-  window.onload = loadListener();
+  function initZone(map) {
+    var geocoder = new google.maps.Geocoder();
+    var bounds = new google.maps.LatLngBounds();
 
-  map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-  map.controls[google.maps.ControlPosition.TOP_LEFT].push(types);
-}
-
-function setMarker(center, map) {
-  marker.setPosition(center);
-  marker.setMap(map);
-  map.setCenter(marker.getPosition());
-  map.setZoom(16);
-  map.panTo(marker.position);
-}
-
-function loadListener() {
-  autocomplete.addListener('place_changed', function(){
-    var place = autocomplete.getPlace();
-    checkForEligibility(place);
-  });
-  // var firstResult = $(".pac-container .pac-item:first").text();
-  $(document).keypress(function (e) {
-    if (e.which == 13) {
-      var firstResult = $(".pac-container .pac-item:first").text();
-
-      var geocoder = new google.maps.Geocoder();
-      geocoder.geocode({"address":firstResult }, function(results, status) {
-          if (status == google.maps.GeocoderStatus.OK) {
-              var lat = results[0].geometry.location.lat(),
-                  lng = results[0].geometry.location.lng(),
-                  placeName = results[0].address_components[0].long_name,
-                  latlng = new google.maps.LatLng(lat, lng);
-
-                  $(".pac-container .pac-item:first").addClass("pac-selected");
-                  $(".pac-container").css("display","none");
-                  $("#searchTextField").val(firstResult);
-                  $(".pac-container").css("visibility","hidden");
-            console.log( "placeName: " + placeName);
-            console.log( "latlng " + latlng);
-            setMarker(placeName, latlng);
-          }
-        });
-    // checkForEligibility(place);
-    }
-  });
-}
-
-function checkForEligibility(place) {
-    marker.setMap(null);
-
-    var newBounds = new google.maps.LatLngBounds(bounds.getSouthWest(), bounds.getNorthEast());
-
-    if (!place.geometry) {
-      geocodeAddress(input.value);//Added on 27/09/2016
-      window.alert("Autocomplete's returned place contains no geometry");
-      return;
-    };
-
-    setMarker(place.geometry.location, map);
-
-    // CHECK FOR ELIGIBILITY
     for (i = 0; i < zoneslist.length; i++) {
       polygon = new google.maps.Polygon({
           path: zoneslist[i][0],
           geodesic: true,
+          strokeColor: '8B572A',
+          strokeOpacity: 0,
+          strokeWeight: 1,
+          fillColor: zoneslist[i][1],
+          fillOpacity: 0.6
         });
-      switch(zoneslist[i][1]) {
-          case "#D0021B":
-              color_name = "rouge"
-              break;
-          case "#F5A623":
-              color_name = "orange"
-              break;
-          case "#F8E71C":
-              color_name = "jaune"
-              break;
-          default:
-              color_name = "jaune mineur"
+      polygon.setMap(map);
+    }
+  }
+
+  var markerBeforeAutoComplete = {lat: geocoded[0], lng: geocoded[1]};
+  var housingAddress = document.getElementById('pac-input');
+
+  initMap(mapEligibility, markerBeforeAutoComplete);
+  initAutoComplete();
+
+
+  function onPlaceChanged() {
+    var place = this.getPlace();
+    var components = getAddressComponents(place);
+    var lat = place.geometry.location.lat();
+    var lng = place.geometry.location.lng()
+    var geolocation = {lat: lat, lng: lng };
+    var housingAddress = document.getElementById('query_address');
+    var housinglat = document.getElementById('query_lat');
+    var housinglng = document.getElementById('query_lng');
+
+    housingAddress.blur();
+    housingAddress.value = components.address + ', ' + components.zip_code + ' ' + components.city + ', ' + components.country_code;
+    housinglat.value = place.geometry.location.lat();
+    housinglng.value = place.geometry.location.lng();
+
+    initMap(mapEligibility, geolocation);
+    checkForEligibility(place);
+  }
+
+  function getAddressComponents(place) {
+
+    if (window.console && typeof console.log === "function") {
+
+    }
+
+    var street_number = null;
+    var route = null;
+    var zip_code = null;
+    var city = null;
+    var country_code = null;
+    for (var i in place.address_components) {
+      var component = place.address_components[i];
+      for (var j in component.types) {
+        var type = component.types[j];
+        if (type === 'street_number') {
+          street_number = component.long_name;
+        } else if (type === 'route') {
+          route = component.long_name;
+        } else if (type === 'postal_code') {
+          zip_code = component.long_name;
+        } else if (type === 'locality') {
+          city = component.long_name;
+        } else if (type === 'postal_town' && city === null) {
+          city = component.long_name;
+        } else if (type === 'country') {
+          country_code = component.short_name;
+        }
       }
+    }
 
-      $('#address').html(place["formatted_address"]);
-      $('#info').hide();
-      var address_for_session = document.getElementById('query_address')
-      var color_for_session = document.getElementById('query_color')
+    return {
+      address: street_number === null ? route : (street_number + ' ' + route),
+      zip_code: zip_code,
+      city: city,
+      country_code: country_code
+    };
+  }
 
-      if (google.maps.geometry.poly.containsLocation(place.geometry.location, polygon)){
-        $('#zone').html( 'Votre habitation est en zone ' + '<span style="color:' + zoneslist[i][1] + '">' + color_name + '</span>');
-        $('#conclusion').html('<span style="color:green">Vous êtes élligible, le diagnostic de votre habitation sera prise en charge à 100% par votre mairie.</span>');
-        $('#calltoaction').html('Planifiez un rendez-vous avec notre diagnosticien dés maintenant.');
-        eligibility = true;
-        address_for_session.value = place["formatted_address"];
-        color_for_session.value = color_name;
-        // console.log("Color: " + color_name);
-        $('#btn-rendez-vous').removeClass("hidden");
+  function checkForEligibility(place) {
+      // marker.setMap(null);
+
+      if (!place.geometry) {
+        geocodeAddress(input.value);//Added on 27/09/2016
+        window.alert("Autocomplete's returned place contains no geometry");
+        return;
       };
-    }
-    if (eligibility == false){
-      color_name = "-"
-      $('#zone').html('Votre habitation n\'est pas en zone désignée inondable');
-      $('#conclusion').html('<span style="color:red">Vous n\'êtes pas élligible, le diagnostic de votre habitation ne sera pas prise en charge.</span>');
-      $('#calltoaction').html('Le rendez-vous avec le diagnosticien sera à votre charge.');
-    }
-}
+
+      // CHECK FOR ELIGIBILITY
+      for (i = 0; i < zoneslist.length; i++) {
+        polygon = new google.maps.Polygon({
+            path: zoneslist[i][0],
+            geodesic: true,
+          });
+        switch(zoneslist[i][1]) {
+            case "#D0021B":
+                color_name = "rouge"
+                break;
+            case "#F5A623":
+                color_name = "orange"
+                break;
+            case "#F8E71C":
+                color_name = "jaune"
+                break;
+            default:
+                color_name = "jaune mineur"
+        }
+
+        $('#address').html(place["formatted_address"]);
+        $('#info').hide();
+        var address_for_session = document.getElementById('query_address')
+        var color_for_session = document.getElementById('query_color')
+
+        if (google.maps.geometry.poly.containsLocation(place.geometry.location, polygon)){
+          $('#zone').html( 'Votre habitation est en zone ' + '<span style="color:' + zoneslist[i][1] + '">' + color_name + '</span>');
+          $('#conclusion').html('<span class="calltoaction">Vous êtes élligible, le diagnostic de votre habitation sera prise en charge à 100% par votre mairie.</span>');
+          $('#calltoaction').html('<h4 class="calltoaction">Planifiez un rendez-vous avec notre diagnosticien dés maintenant.</h4>');
+          eligibility = true;
+          address_for_session.value = place["formatted_address"];
+          color_for_session.value = color_name;
+          // console.log("Color: " + color_name);
+          $('#btn-rendez-vous').removeClass("hidden");
+        };
+      }
+      if (eligibility == false){
+        color_name = "-"
+        $('#zone').html('Votre habitation n\'est pas en zone désignée inondable');
+        $('#conclusion').html('<span style="color:red">Vous n\'êtes pas élligible, le diagnostic de votre habitation ne sera pas prise en charge.</span>');
+        $('#calltoaction').html('Le rendez-vous avec le diagnosticien sera à votre charge.');
+      }
+  }
+
+});
+
+//   google.maps.event.addListenerOnce(map, 'tilesloaded', function(evt) {
+//     bounds = map.getBounds();
+//   });
+//   window.onload = loadListener();
+
+
+// }
+
+
+

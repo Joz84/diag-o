@@ -42,8 +42,8 @@ h5 {
   font-weight: 700;
 }
 h6 {
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 400;
 }
 p, form, input, .fa{
   font-family: $body-font;
@@ -59,4 +59,10 @@ a {
   &:hover{
     color: $diago;
   }
+}
+#info {
+  color: $diago;
+}
+.calltoaction {
+  color: $anis;
 }

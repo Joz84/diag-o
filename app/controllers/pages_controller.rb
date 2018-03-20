@@ -2,9 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home, :eligibility]
   before_action :params_user, only: [:home, :valuation]
 
-
-  def home
-  end
+  def home; end
 
   def eligibility
     session[:address] = nil

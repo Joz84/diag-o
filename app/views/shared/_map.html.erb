@@ -1,9 +1,9 @@
-<div id="map_dashboard"></div>
+<div id="map"></div>
 
-<% content_for(:after_js) do %>
+<%= content_for :after_js do %>
   <%= javascript_tag do %>
     var handler = Gmaps.build('Google');
-    handler.buildMap({internal: {id: 'map_dashboard'}}, function(){
+    handler.buildMap({internal: {id: 'map'}}, function(){
       markers = handler.addMarkers(<%= raw @hash.to_json %>);
       handler.bounds.extendWith(markers);
       handler.fitMapToBounds();
