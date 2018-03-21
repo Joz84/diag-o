@@ -15,10 +15,6 @@ class Booking < ApplicationRecord
     self.housing.users.first
   end
 
-  def selfbooked
-    self.booker.diagnostician? == true
-  end
-
   def self.incoming user
     for_me(user).to_come.ending_soon.first(2)
   end

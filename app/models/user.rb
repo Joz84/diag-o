@@ -25,7 +25,7 @@ class User < ApplicationRecord
   end
 
   def private_bookings
-    self.bookings.where(diagnostician: self).select{|booking| booking if !booking.selfbooked }
+    self.bookings.where(diagnostician: self).select{|booking| booking unless booking.booker.diagnostician? }
   end
 
 # # conversation.update! status: 0
